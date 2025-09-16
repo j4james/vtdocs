@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>VSRM - Status Display Extension</title>
+<meta charset="UTF-8" />
+<style>*{font-family:"Courier New";font-weight:bold;font-size:16.2px;line-height:15.3px;color:#000000;padding:0;margin:0;border-collapse:collapse}body{background:#d4d4d8;>header,>main,>footer{width:66ch;padding-left:6.5ch;padding-right:12.5ch;padding-bottom:15.3px;background:#ffffff;margin:0 auto}>footer{border-bottom:11px solid #d4d4d8}}a{text-decoration:none}a[href]:hover{color:#bb0000}hgroup{>h1{margin-bottom:30.6px;text-align:center;text-transform:uppercase;+p{text-align:center}>br{margin-bottom:15.3px;display:block;content:' '}}header>&{margin-bottom:45.9px}}h2,h3,h4,p{margin-bottom:15.3px;white-space:pre-wrap}section{margin-top:30.6px;>h3,>h4{margin-bottom:30.6px}>h2{text-transform:uppercase;+section{margin-top:0}}>h2:before{display:block;content:attr(data-text) '\A' attr(data-underline) '\A' attr(data-underline)}>h3,>h4{&:before{display:block;content:attr(data-text)}}}aside{margin-bottom:45.9px;header>&{position:relative;overflow:hidden;white-space:nowrap;&:before{content:'+----------------------------------------------------------------------------\A|\A|\A|\A|\A|\A|\A|\A|\A|';white-space:pre;position:absolute;top:0;left:0;pointer-events:none}&:after{content:'+----------------------------------------------------------------------------'}>*{padding:0 2ch;&:first-child{padding-top:15.3px;&:before{content:'+\A|\A|\A|\A|\A|\A|\A|\A|\A|';white-space:pre;position:absolute;top:0;right:0;background:#ffffff}}&:last-child{margin:0;&:after{content:'+';position:absolute;bottom:0;right:0;background:#ffffff}}}+p+p+p{margin-top:30.6px;text-align:center}}}dl{>dt{float:left;padding-right:0.999ch;white-space:pre-wrap}>dd{margin-bottom:15.3px;white-space:pre-wrap;&:has(>table),&:has(>p){white-space:normal}>p{display:inline}}}header>dl{>dt{text-transform:uppercase}>dt:after{content:':'}>dd{margin-bottom:30.6px}&:nth-of-type(1){margin-bottom:30.6px;>dt{padding-right:2ch}>dd:first-of-type{margin-bottom:45.9px}>dd>p:nth-of-type(2){display:block;margin-top:15.3px;margin-left:2ch}a:before{content:'___ ___ _____ ________ ___ ___________ ________';display:block}}&:nth-of-type(2){margin-bottom:45.9px}&:nth-of-type(3){margin-bottom:61.2px;>dt{min-width:26ch;text-transform:none}>dd{margin-bottom:0}}&:nth-of-type(4)>dd>p{display:table;margin-left:10ch;margin-bottom:45.9px;max-width:53ch;&:last-child{margin-bottom:0}}}ul{list-style:none;margin-bottom:15.3px;>li{padding-left:2ch}}ol{list-style-type:none;>li{position:relative;margin-bottom:15.3px;padding-left:9ch;a[id]{transform:translateX(-9ch)}&:before{content:counter(list-item,decimal) ".";position:absolute;width:3ch;left:4ch;text-align:right}}}#Contents{>hgroup{text-transform:uppercase;margin-bottom:30.6px;>h2{margin-bottom:45.9px;padding-left:33ch}>p{padding-left:16ch;text-indent:-16ch;white-space:normal;>br{margin-top:-15.3px;display:block;content:' '}}}a[href]{background:#ffffff;position:relative;z-index:1;&:nth-of-type(1):after{content:'\A0'}&:nth-of-type(2){position:absolute;right:4ch;&:before{content:'\A0';background:#ffffff}}}ul>li{padding-left:12ch}ol{margin:0;>li{padding:0;margin:0;&:before{content:"14." counters(list-item,".");padding-left:4ch;padding-right:4ch;position:static;white-space:pre}&:has(>a>br){padding-left:14ch;text-indent:-14ch}}}>ol>li{margin-top:15.3px;>a:first-child{text-transform:uppercase}&:nth-of-type(2){margin-top:0}}li>span{color:transparent;&:after{content:'. . . . . . . . . . . . . . . . . . . . .';color:#000000;position:absolute;right:4ch}}li:has(>a>br){>span:after{right:8ch}&:nth-of-type(3)>a:last-of-type{right:-5ch}&:nth-of-type(5)>a:last-of-type{right:-4ch}}}#Index{>h2{display:none}>ul{column-count:2;column-gap:2ch;width:70ch;>li{padding-left:4ch;text-indent:-4ch;padding-right:1ch;>ul{margin-bottom:0}&:nth-child(3),&:nth-child(4),&:nth-child(8){margin-top:15.3px}}}}table{margin-bottom:15.3px}tr{>*:not(:last-child){padding-right:0.999ch}}th{vertical-align:bottom;text-align:left;position:relative;&[data-underline]:after{content:attr(data-underline);position:absolute;left:0;bottom:0;white-space:pre}thead>tr:last-child>&{padding-bottom:15.3px}}td{vertical-align:top}div{margin:30.6px 0;>p{float:left}>pre>samp{display:block;margin-left:11ch}}p:has(>samp){white-space:pre;margin-bottom:30.6px}section:has(>h4>span){>h4{display:grid;grid-template-columns:56ch 0ch 10ch;margin-bottom:0;white-space:normal;text-transform:uppercase;&:before{display:none}&:after{content:'------------------------------------------------------------------';padding-right:0;grid-column:1;white-space:pre}>span{color:transparent}}>table{margin-left:4ch;tr>*:first-child{min-width:5ch}}}em{font-style:normal;display:inline-block;padding-right:0.999ch;min-width:8ch}#\31\34\.2{margin-top:45.9px}#\31\34\.2\.1\.2>ol{margin-top:-15.3px;margin-bottom:45.9px;>li,>li>p{margin:0}}#\31\34\.2\.1\.3>h4{margin-bottom:15.3px}#\31\34\.2\.2>ul{margin-bottom:45.9px;>li{padding-left:9ch;text-indent:-3ch;&:before{content:'o\A0\A0'}}}#\31\34\.2\.3,#\31\34\.2\.4,#\31\34\.2\.5{>h3{margin-bottom:15.3px}}#\31\34\.2\.4{margin-top:45.9px}#\31\34\.2\.5>h3{white-space:pre;overflow:hidden;&:after{content:'Mode\AMode';display:block;padding-left:8ch}}#DECSSDT>ul>li>p{padding-left:7ch;text-indent:-3ch;&:before{content:'o\A0\A0'}}a[id]{display:block;position:relative;left:-6.5ch;padding-left:6.5ch;padding-right:12.5ch;width:66ch;height:30.6px;margin-top:156.4px;margin-bottom:30.6px;border-top:11px solid #d4d4d8;padding-top:34px;white-space:pre;&:before{content:'EL-00070-014                  26-Oct-1990\A' 'VSRM - Status Display Extension     Digital Internal Use Only'}&:after{content:'Page ' attr(data-page);position:absolute;top:34px;right:12.5ch}footer>&:after{right:8.5ch}}#\31\34-5{margin-top:34px}#\31\34-6{margin-top:110.5px}#\31\34-7{margin-top:125.8px}#\31\34-8{margin-top:141.1px}#\31\34-10{margin-top:171.7px}#\31\34-11{margin-top:294.1px}#\31\34-13{margin-top:309.4px}#\31\34-3{margin-top:324.7px}#\31\34-12{margin-top:493px}body{>header,>main,>footer{>a[id]:first-child{margin-top:0}}>header{padding-bottom:554.2px}>main{padding-bottom:691.9px}>footer{padding-bottom:814.3px}}</style>
+</head>
+<body>
+<header>
+<a id="14-1" data-page="14-1"></a>
+<hgroup>
+<h1>Video Systems Reference Manual<br />Status Display Extension</h1>
+<p>Document Identifier: A-DS-EL00070-14-0 Rev AX01  26-Oct-1990</p>
+</hgroup>
+<dl>
+<dt>Abstract</dt>
+<dd><p>This document describes the interface to video terminals implementing a distinct on screen status display.  It specifies both the application program interface to select and control the status display, and the user interface including general appearance of the status display.  The Status Display forms an extension to Level 2 and is required at Level 3 or higher of the Character Cell Display service classes.</p></dd>
+<dt>Applicability</dt>
+<dd><p>Mandatory for Engineers designing hardware for terminal products and Software Engineers designing programs using terminal interfaces.  Additional requirements are defined in the <a>DEC STD 070-1 Concepts and Conformance Criteria</a>.</p></dd>
+<dt>Status</dt>
+<dd><p>FOR REVIEW ONLY</p>
+<p>type $ VTX SMC for expiration date.</p></dd>
+</dl>
+<aside>
+<p>The material contained within this document is assumed to define mandatory standards unless it is clearly marked as:  (a) not mandatory; or (b) guideline.  Material that is marked&nbsp;as "not mandatory" is considered to be of potential benefit to the corporation and should be followed unless there are good reasons for non-compliance. "Guideline" defines approaches, and techniques that are considered to be good practice, but should not be considered as requirements.</p>
+</aside>
+<p>This document is confidential and proprietary.  It is an unpublished work protected under the Federal copyright laws.</p>
+<p>Copyright (c) Digital Equipment Corporation.  1990.  All rights reserved.</p>
+<p>Digital Internal Use Only&nbsp;</p>
+<a id="14-2" data-page="14-2"></a>
+<dl>
+<dt>Title</dt>
+<dd>VSRM - STATUS DISPLAY EXTENSION</dd>
+<dt>Document Identifier</dt>
+<dd>A-DS-EL00070-14-0 Rev AX01, 26-Oct-1990</dd>
+<dt>Revision History</dt>
+<dd><table>
+<tbody>
+<tr><td>Original Draft</td><td></td></tr>
+<tr><td>VT340 Functional Spec</td><td>23-Oct-1985</td></tr>
+<tr><td>Revision AX01</td><td>26-Oct-1990</td></tr>
+</tbody>
+</table>
+</dd>
+</dl>
+<dl>
+<dt>Document Management Group</dt>
+<dd>Terminal Interface Architecture (STI)</dd>
+<dt>Responsible Department</dt>
+<dd>VIPS Terminals Architecture</dd>
+<dt>Responsible Person</dt>
+<dd>Peter Sichel</dd>
+<dt>SMC Writer</dt>
+<dd></dd>
+</dl>
+<dl>
+<dt>Approval</dt>
+<dd><p>This standard, prepared by the Desktop Systems Group, has been reviewed and recommended for approval by the&nbsp;general review group for its category.</p>
+<p>________________________________________<br />Peter Sichel, Standard Owner<br />Video, Image, and Printing Systems</p>
+<p>________________________________________<br />Eric Williams, Standards Process Manager</p></dd>
+</dl>
+<p>Direct requests for further information to Peter Sichel, DSG1-&NoBreak;2/&NoBreak;C7, DTN 235-8374, HANNAH::TERMARCH</p>
+<p>Use VTX SMC to order copies of this document from Standards and Methods Control.  Send distribution questions to JOKUR::SMC or call DTN:  287-3724.</p>
+<a id="14-3" data-page="14-3"></a>
+<section id="Contents">
+<hgroup>
+<h2>Contents</h2>
+<p>Chapter 14<br />Status Display Extension</p>
+</hgroup>
+<ol>
+<li><a href="#14.1">Introduction</a><span> … </span><a href="#14-4">14-4</a></li>
+<li><a href="#14.2">Functional Description</a><span> … </span><a href="#14-4">14-4</a><ol>
+<li><a href="#14.2.1">Appearance of the Status Display</a><span> … </span><a href="#14-4">14-4</a><ol>
+<li><a href="#14.2.1.1">Error Line</a><span> … </span><a href="#14-5">14-5</a></li>
+<li><a href="#14.2.1.2">Indicator Status Line</a><span> … </span><a href="#14-5">14-5</a></li>
+<li><a href="#14.2.1.3">Implementation Guidelines for Indicators</a><span> … </span><a href="#14-6">14-6</a></li>
+</ol>
+</li>
+<li><a href="#14.2.2">Operation of Host Writable Status Line</a><span> … </span><a href="#14-7">14-7</a></li>
+<li><a href="#14.2.3">Effect of ANSI controls on the Status<br />Display</a><span> … </span><a href="#14-8">14-8</a></li>
+<li><a href="#14.2.4">Transmission of the Status Display</a><span> … </span><a href="#14-10">14-10</a></li>
+<li><a href="#14.2.5">Behavior of the Status Display in VT100<br />(Level 1) and VT52 Mode</a><span> … </span><a href="#14-10">14-10</a></li>
+</ol>
+</li>
+<li><a href="#14.3">Control Functions</a><span> … </span><a href="#14-11">14-11</a><ul>
+<li><a href="#DECSASD">Select Active Status Display</a></li>
+<li><a href="#DECSSDT">Select Status Type Display</a></li>
+</ul>
+</li>
+<li><a href="#14.4">Change History</a><span> … </span><a href="#14-13">14-13</a><ol>
+<li><a href="#14.4.1">Original draft to REV AX01</a><span> … </span><a href="#14-13">14-13</a></li>
+</ol>
+</li>
+</ol>
+</section>
+</header>
+<main>
+<a id="14-4" data-page="14-4"></a>
+<section id="14.1">
+<h2 data-text="14.1  Introduction" data-underline="____  ____________">14.1  Introduction</h2>
+<p>The Status Display is a Level 3 feature (Level 2 extension) which provides the ability to display at least one additional line of 80 characters underneath the main display.  The Status Display may be configured as Host Writable to form a separately addressed Logical Display, or as an Indicator Line to display local terminal state information.</p>
+</section>
+<section id="14.2">
+<h2 data-text="14.2  Functional Description" data-underline="____  __________ ___________">14.2  Functional Description</h2>
+<p>Level 3 or higher conforming devices shall allow an additional line of characters to be displayed on the screen as a Status Display.  The Status Display shall be one or more lines high and contain the same number of columns as the main Logical Display (usually 80 or 132).</p>
+<p>The type of Status Display can be selected by host control function or from Set-Up as one of the following:  (1) No Status Line (factory default); (2) Indicator Status Line (not mandatory for workstation or PC terminal emulators); (3) Host Writable Status Line.  The type Status Display selected is saved in non-&NoBreak;volatile memory (if available), so it becomes the power-up default.</p>
+<p>The Indicator Status Line is required on traditional video terminals, but is not mandatory for workstation or PC terminal emulators because local device information is often maintained separately from the terminal in these implementations.</p>
+<p>The Indicator Status Line is always selected while in Set-Up.  If the terminal needs to display an error or warning message, the Indicator Status Line is temporarily replaced with the Error Line until the next keystroke.</p>
+<p>The Host Writable Status Line can be considered a permanent separate logical display, that contains its own ANSI text state and settings.  In general, controls which affect some portion of the Main Display do not affect the contents or the ANSI state of the Status Display.  Exceptions are noted in this section (DEC STD 70-14).  The cursor may not be positioned within the Status Display, unless the DECSASD (Select Active Status Display) command is issued.</p>
+<section id="14.2.1">
+<h3 data-text="14.2.1  Appearance of the Status Display">14.2.1  Appearance of the Status Display</h3>
+<p>When the Status Display is disabled, the line where it would appear shall blend into the display border.  Guidelines:  On a non-over-scanned non-windowed display, the area should appear <a id="14-5" data-page="14-5"></a>black; On an over-scanned non-windowed display, the area should appear the same as the screen background; On a windowed display, the size of the terminal window may change to include the status line.  Visual side effects caused by enabling or disabling the Status Display should be minimized.</p>
+<p>When the Indicator Status Line is enabled, it's background is the reverse of the Main Display background as indicated by the setting of Screen Mode (DECSCNM).</p>
+<p>When the Host Writable Status Line is enabled, it has the same background as the main display.  The reverse video character attribute may be used to cause text on the status line to appear in reverse video with respect to the main display.  Screen Mode (DECSCNM) changes the background of both the status line and the main display.</p>
+<p>If Column Mode (DECCOLM) is changed, the width of the Status Display changes.  This will leave 52 blank spaces on the right hand side of the Indicator Status Line in 132 Column Mode.  The spacing between indicators will not be increased in 132 Column Mode, however, the host will be able to place more than 80 characters into the Host Writable Status Line in 132 Column Mode.</p>
+<section id="14.2.1.1">
+<h4 data-text="14.2.1.1  Error Line">14.2.1.1  Error Line</h4>
+<p>The Error Line appears when it is necessary to indicate the result of some local terminal operation that would not otherwise be evident.  An error in Set-Up for example, or a change in session management state.  The text of the message replaces the currently displayed Status Line (Indicator or Host Writable) or appears if No Status Line is being displayed.  The text of the message continues to be displayed until the user presses a key on the terminal keyboard, which restores the contents of the Status Display.  The host may not directly program or affect the Error Line.</p>
+</section>
+<section id="14.2.1.2">
+<h4 data-text="14.2.1.2  Indicator Status Line">14.2.1.2  Indicator Status Line</h4>
+<p>The Indicator Status Line shall contain a number of indicators reflecting the state of the terminal and options attached to the terminal (e.g.  printer).  The text of the indicators on the Indicator Status Line will be displayed in the Set-Up language.  The indicators shall be placed in fixed positions on the Indicator Status Line, and there shall be at least one space (SP, 2/0) character between indicators for legibility.</p>
+<p>Indicators are updated asynchronously, as the state of the feature they are monitoring changes.  The interval between the change in <a id="14-6" data-page="14-6"></a>the state of a feature and the update of the appropriate indicator shall not exceed 80 milliseconds.  Indicator changes are not queued:  when an indicator is updated on the Status Display, it shall reflect the state of that feature at the time of the update.</p>
+<p>The following indicators are required:</p>
+<ol>
+<li><p>Active Session Indicator if the Session Management Extension is present and the indicator is not otherwise available.  Indicates the session to which keyboard input is currently directed.</p></li>
+<li><p>Active Position Indicator.  Displays the current cursor position, row and column.  Includes the page number if more than one page is available.</p></li>
+<li><p>Graphics Input Position Indicator if some graphic input mode is enabled through ReGIS, Tektronix, or the Text Locator extension.  Indicates the pixel row and column of the input position.</p></li>
+<li><p>Edit Mode Indicator if the Local Editing Extension is present.  Indicates whether Edit Mode (DECEDM) is enabled.</p></li>
+<li><p>Insert-Replace Mode Indicator if the Local Editing Extension is present and the terminal is in Edit Mode.  Indicates whether new characters typed into the Logical Display will be inserted, or overstrike existing characters.</p></li>
+<li><p>Printer Status Indicator if the Printer Port Extension is present.  Indicates the status of the attached printer if any, and the print mode.</p></li>
+<li><p>Modem Status Indicator if modem control is supported and enabled.  Indicates the status of the DSR signal on the communications port.</p></li>
+</ol>
+</section>
+<section id="14.2.1.3">
+<h4 data-text="14.2.1.3  Implementation Guidelines for Indicators">14.2.1.3  Implementation Guidelines for Indicators</h4>
+<p>This subsection gives suggested formats for Indicators on the Indicator Status Line based on existing implementations.  The VT340 Indicator Status Line might appear as follows (spacing is approximate):</p>
+<p><samp>2  1(24,008)  Edit  Overstrike Mode  Printer: None  Modem: DSR</samp></p>
+<p>The Active Session Indicator is a single digit at the left most edge of the status line indicating the session to which keyboard input is currently directed.  Session 2 in the example above.</p>
+<p>The Active Position Indicator gives the current page number within Page Memory followed by the cursor row and column number in parenthesis.  Page 1, line 24, column 8 in the example above.</p>
+<p>The Graphics Input Position Indicator is only visible when <a id="14-7" data-page="14-7"></a>graphics input is enabled.  The indicator might appear as "&NoBreak;[123,456]" pixel row 123, column 456.</p>
+<p>The Edit Mode Indicator is only visible when DECEDM is active.  The Indicator might appear as "Edit".</p>
+<p>The Insert-Replace Mode Indicator toggles between "Overstrike Mode" or "Insert Mode".  This indicator need only be displayed while Edit Mode is in effect.</p>
+<p>The Printer Status Indicator shows the state of an attached printer if any (see Printer Port Extension).  The Printer Status Indicator can take the following values:</p>
+<ul>
+<li>Printer: None</li>
+<li>Printer: Ready</li>
+<li>Printer: Not Ready</li>
+<li>Printer: Auto Print</li>
+<li>Printer: Controller</li>
+</ul>
+<p>The Modem Status Indicator shows the status of the DSR signal when Modem Control is selected on the communications port.  This indicator is not displayed if Modem Controls are not selected on the communications port.  The Modem Status Indicator can take the following values:</p>
+<ul>
+<li>Modem: DSR</li>
+<li>Modem: No DSR</li>
+</ul>
+</section>
+</section>
+<section id="14.2.2">
+<h3 data-text="14.2.2  Operation of Host Writable Status Line">14.2.2  Operation of Host Writable Status Line</h3>
+<p>If the Status Display is enabled to a Host Writable Status Line, the host is able to treat the Status Display as a separate Logical Display, generally 1 line by 80 or 132 columns.</p>
+<p>To write text into the Host Writable Status Line, the host must issue the DECSASD (Select Active Status Display) command.  A typical operation by the host would be to send a DECSASD command to switch to the Host Writable Status Line, send a line of text to the line, and then send another DECSASD command to return to the Main Display.</p>
+<p>A separate ANSI state is maintained for the Host Writable Status Line.  For example, the Status Line could have the USASCII invoked into G0, while the Main Display has the Line Drawing character set invoked into G0.  When the DECSASD command is recognized, the terminal must switch and use the correct state information for the Host Writable Status Line or the Main Display.  The following information is maintained separately for the Host Writable Status Line and the Main Display:</p>
+<a id="14-8" data-page="14-8"></a>
+<ul>
+<li>Active Position</li>
+<li>Current Graphic Rendition (and other character attribute values)</li>
+<li>Origin Mode</li>
+<li>the currently designated G0, G1, G2, and G3 sets</li>
+<li>the currently invoked GL and GR sets</li>
+<li>the single shift (SS2, SS3) states</li>
+<li>the Auto-Wrap flag</li>
+<li>Cursor Save Buffer (DECSC and DECRC)</li>
+</ul>
+</section>
+<section id="14.2.3">
+<h3 data-text="14.2.3  Effect of ANSI controls on the Status Display">14.2.3  Effect of ANSI controls on the Status Display</h3>
+<p>Several ANSI control functions affect both the Main Display and the Status Display.  When the Host Writable Status Line is selected, as described above, any data received by the terminal is placed into the Status Display, and most ANSI control functions received will affect only the Status Display.  There are some control functions which are executed differently, depending on whether the active position is in the Main or Status Display.</p>
+<ol>
+<li><p>C1 Transmission<br />The 7-bit or 8-bit transmission selection affects both the Main and Status Displays.</p></li>
+<li><p>Character Set Selection<br />An independent state is maintained for the invoked and designated character sets, as well as the associated shift states.</p>
+<p>The User-Preference Supplemental Character Set selection affects both the Main and Status Displays.</p></li>
+<li><p>Cursor Position Controls<br />If there is only one row in the Status Display, only the column parameters in cursor positioning control functions (e.g.  CUP, etc.), or commands which affect areas dependent on character positions (e.g.  ED, DCH, etc.) are significant.  Horizontal cursor positioning commands (e.g.  CUF, CUB) are recognized, but vertical cursor positioning commands (e.g.  CUD, CUU) are ignored.  The line number shall be reported as 1, when necessary.</p></li>
+<li><p>DECANM - ANSI/VT52 Mode<br />This sequence is ignored if received in the Status Display.  If received in the Main Display, the contents of the Host Writable Status Line are left unchanged.  If and when the VT52 Mode Enter ANSI Mode command is issued, the contents of the Host Writable Status Line are left unchanged.</p><a id="14-9" data-page="14-9"></a></li>
+<li><p>DECCOLM - Colomn mode<br />DECCOLM affects both the Main Display and the Status Display simultaneously.  The number of columns in the Host Writable Status Line cannot be independently controlled.  Receipt of this sequence will clear both the Main Display and the Host Writable Status Line.  The Status Display cursor is moved to the home position.</p></li>
+<li><p>DECRQSS - Request Selection or Setting<br />The Status Display Type (DECSSDT) and Active Status Display (DECSASD) may be queried through DECRQSS.</p></li>
+<li><p>DECSASD - Select Active Status Display<br />This control function is the recommended method to exit the Status Display.</p></li>
+<li><p>DECSCL - Select Conformance Level<br />Select Conformance Level performs a Soft Terminal Reset (see DECSTR below).</p></li>
+<li><p>DECSCLM - Scrolling Mode<br />This mode affects both the Main and Status displays.</p></li>
+<li><p>DECSCNM - Screen Mode<br />The Main Display and the Status Line are affected by the setting of this Mode.  The screen mode of the Host Writable Status line cannot be independently controlled.</p></li>
+<li><p>DECSCPP - Set Columns Per Page<br />DECSCPP affects both the Main Display and the Status Display simultaneously.  The number of columns in the Host Writable Status Line cannot be independently controlled.</p></li>
+<li><p>DECSSDT - Select Status Display Type<br />If the Status Display Type is chosen to be something other than "Host Writable", the Status Display will be exited, and the selected Status Display Type will be imaged (either "Indicator" or "None").</p></li>
+<li><p>DECSTR<br />The Status Display will be exited, but not erased.</p></li>
+<li><p>DECTCEM - Text Cursor Enable Mode<br />Each of the Main and Status Display cursors may be individually enabled or disabled.</p></li>
+<li><p>Format Effectors (BS, LF, VT, FF, IND, NEL, etc.)<br />Affect only the Status Display.  If scrolling occurs as a result of a Format Effector, a single line Host Writable Status Line is erased.</p><a id="14-10" data-page="14-10"></a></li>
+<li><p>IRM - Insert Replace Mode<br />Insert/Replace Mode affects both the Main and Status displays.</p></li>
+<li><p>Keyboard Functions<br />All keyboard functions are executed regardless of the selected display (Main or Status).</p></li>
+<li><p>Printer Functions<br />All printer functions are executed regardless of the selected display (Main or Status).</p></li>
+<li><p>RIS - Reset to Initial State<br />The Status Display will be erased and exited.</p></li>
+<li><p>Tabs<br />Tabulation stops affect both the Main and Status displays.</p></li>
+</ol>
+</section>
+<section id="14.2.4">
+<h3 data-text="14.2.4  Transmission of the Status Display">14.2.4  Transmission of the Status Display</h3>
+<p>The characters in the Status Display can be transmitted to the printer by "Print Composed Main Display".  Print Page and Auto Print Mode will never transfer characters on the Status Display.</p>
+</section>
+<section id="14.2.5">
+<h3 data-text="14.2.5  Behavior of the Status Display in VT100 (Level 1) and VT52 Mode">14.2.5  Behavior of the Status Display in VT100 (Level 1) and VT52 Mode</h3>
+<p>When VT100, or VT52 mode is entered, the Status Display will remain visible, if it was enabled.  The sequences which program or change the type of the Status Display will not be recognized, therefore the type of Status Display may not be changed from the host in these modes.  Sequences which globally affect the Status Display will still affect the Status Display, and the Status Display type may be changed from Set-Up.</p>
+<p>The Indicator Status Line will remain visible in Set-Up mode.</p>
+</section>
+</section>
+<a id="14-11" data-page="14-11"></a>
+<section id="14.3">
+<h2 data-text="14.3  Control Functions" data-underline="____  _______ _________">14.3  Control Functions</h2>
+<section id="DECSASD">
+<h4>Select Active Status Display <span>&mdash;</span> DECSASD</h4>
+<p><em>Levels:</em> 2x, 3, 4</p>
+<p><em>Purpose:</em> Select whether new characters are written to the Main Display or the Status Display.</p>
+<div>
+<p><em>Format:</em></p>
+<pre><samp>CSI  Ps  $    }
+9/11     2/4  7/13</samp></pre>
+</div>
+<p><em>Description:</em> Causes the selection of the active status display, either the Main Display, or Status Display (also called the Host Writable or Remote Status Line).  The display is specified by the selective parameter, Ps:</p>
+<table>
+<thead>
+<tr><th data-underline="------">Ps</th><th data-underline="------------">Display</th></tr>
+</thead>
+<tbody>
+<tr><td>0</td><td>Main Display (default)</td></tr>
+<tr><td>1</td><td>Host Writable Status Line</td></tr>
+</tbody>
+</table>
+<p>Note that the Host Writable Status Line must be selected through DECSSDT for DECSASD to be able to select the Host Writable Status Line.</p>
+</section>
+<a id="14-12" data-page="14-12"></a>
+<section id="DECSSDT">
+<h4>Select Status Display Type <span>&mdash;</span> DECSSDT</h4>
+<p><em>Levels:</em> 2x, 3, 4</p>
+<p><em>Purpose:</em> To select the type of status line to be displayed: indicator; host-writable; or none.</p>
+<div>
+<p><em>Format:</em></p>
+<pre><samp>CSI  Ps  $    ~
+9/11     2/4  7/14</samp></pre>
+</div>
+<p><em>Description:</em> This sequence allows the host to choose the type of Status Line that is displayed.  The type of Status Display depends on the value of the selective parameter:</p>
+<table>
+<thead>
+<tr><th data-underline="--">Ps</th><th data-underline="----------------">Status Line Type</th></tr>
+</thead>
+<tbody>
+<tr><td>0</td><td>No Status Line</td></tr>
+<tr><td>1</td><td>Indicator (Local) Status Line</td></tr>
+<tr><td>2</td><td>Host Writable (Remote) Status Line</td></tr>
+</tbody>
+</table>
+<p><em>Notes:</em></p>
+<ul>
+<li><p>If Ps is omitted, it is assumed to be 0, which will disable the Status Display.</p></li>
+<li><p>When the Status Line Type is changed, it is initialized.  Specifically, this means that the Host Writable (Remote) Status Line is cleared, and the Indicator (Local) Status Line is set to the Set-Up indicators, and will show the current status of the terminal.</p></li>
+<li><p>This control has no effect on the Status Line displayed in Set-Up Mode; the Indicator Status Line is always displayed in Set-Up Mode.</p></li>
+<li><p>The type of Status Line can also be changed through a Set-Up field.</p></li>
+<li><p>The Status Display type may not be "locked" as a User-&NoBreak;Preference Feature.</p></li>
+</ul>
+</section>
+</section>
+<a id="14-13" data-page="14-13"></a>
+<section id="14.4">
+<h2 data-text="14.4  Change History" data-underline="____  ______ _______">14.4  Change History</h2>
+<section id="14.4.1">
+<h3 data-text="14.4.1  Original draft to Rev AX01">14.4.1  Original draft to Rev AX01</h3>
+<ol>
+<li><p>Added Abstract and Introduction.</p></li>
+<li><p>Status Display is an extension to Level 2.  DECSSDT and DECSASD do not work in Level 1 (VT100 mode).</p></li>
+<li><p>Listed all sequences which affect status line including DECCOLM and DECSCPP.</p></li>
+</ol>
+</section>
+</section>
+</main>
+<footer>
+<a id="Index-1" data-page="Index-1"></a>
+<section id="Index">
+<h2>Section Index</h2>
+<ul>
+<li>DECSASD, <a href="#14-11">14-11</a></li>
+<li>DECSSDT, <a href="#14-12">14-12</a></li>
+<li>Error Line, <a href="#14-5">14-5</a></li>
+<li>Select Active Status Display<ul>
+<li>control function, <a href="#14-11">14-11</a></li>
+</ul>
+</li>
+<li>Select Status Display Type<ul>
+<li>control function, <a href="#14-12">14-12</a></li>
+</ul>
+</li>
+<li>Status Display, <a href="#14-4">14-4</a><ul>
+<li>Indicators, <a href="#14-6">14-6</a></li>
+<li>Transmission, <a href="#14-10">14-10</a></li>
+<li>VT100 and VT52 mode, <a href="#14-10">14-10</a></li>
+</ul>
+</li>
+<li>Status Line, <a href="#14-4">14-4</a></li>
+<li>25th Status Line, <a href="#14-4">14-4</a></li>
+</ul>
+</section>
+</footer>
+</body>
+</html>
