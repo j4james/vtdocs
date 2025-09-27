@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>VSRM - Documented Exceptions</title>
+<meta charset="UTF-8" />
+<style>*{font-family:"Courier New";font-weight:bold;font-size:15.58px;line-height:16.2px;color:#000000;padding:0;margin:0;border-collapse:collapse}body{background:#d4d4d8;>header,>main,>footer{width:66ch;padding-left:100px;padding-right:calc(716px - 66ch);padding-bottom:16.2px;background:#ffffff;margin:0 auto}>footer{border-bottom:11px solid #d4d4d8}}a{text-decoration:none}a[href]:hover{color:#bb0000}header>hgroup{>h1{margin-bottom:32.4px;text-align:center;&:first-line{text-transform:uppercase}+p{text-align:center}>br{margin-bottom:16.2px;display:block;content:' '}}margin-bottom:48.6px}h2,h3,h4,p{margin-bottom:16.2px;white-space:pre-wrap}section{}aside{margin:32.4px auto;header>&{position:relative;overflow:hidden;white-space:nowrap;&:before{content:'+----------------------------------------------------------------------------\A|\A|\A|\A|\A|\A|\A|\A|\A|\A|\A|\A|';white-space:pre;position:absolute;top:0;left:0;pointer-events:none}&:after{content:'+----------------------------------------------------------------------------'}>*{padding:0 2ch;&:first-child{padding-top:16.2px;&:before{content:'+\A|\A|\A|\A|\A|\A|\A|\A|\A|\A|\A|\A|';white-space:pre;position:absolute;top:0;right:0;background:#ffffff}}&:last-child{margin:0;&:after{content:'+';position:absolute;bottom:0;right:0;background:#ffffff}}}&:nth-of-type(1){width:66ch}&:nth-of-type(2){width:40ch;>p{text-align:center;padding-top:32.4px;padding-bottom:16.2px}}}}dl{>dt{float:left;padding-right:0.999ch;white-space:pre-wrap}>dd{margin-bottom:16.2px;white-space:pre-wrap;&:has(>table),&:has(>p){white-space:normal}>p{display:inline}}}header>dl{>dt{text-transform:uppercase}>dt:after{content:':'}>dd{margin-bottom:32.4px}&:nth-of-type(1)>dt{padding-right:2ch}&:nth-of-type(2){td{min-width:23ch}>dt:nth-of-type(3){padding-right:2ch}>dd:last-of-type tr:first-of-type>td{padding-bottom:16.2px}}&:nth-of-type(3){margin-bottom:48.6px;>dt{text-transform:none}>dd{margin-bottom:0}>dd:first-of-type{padding-bottom:32.4px}}&:nth-of-type(4)>dt{padding-right:2ch}}header>p:last-of-type{text-align:center}ul{list-style:none;margin-bottom:16.2px;>li{padding-left:9ch;a[id]{transform:translateX(-9ch)}>code{white-space:pre}}}ol{list-style-type:none;>li{position:relative;margin-bottom:16.2px;padding-left:9ch;a[id]{transform:translateX(-9ch)}>ul>li{padding:0}&:before{content:counter(list-item,decimal) ".";position:absolute;width:3ch;left:4ch;text-align:right}}}#Contents{>hgroup{text-transform:uppercase;margin-bottom:32.4px;>h2{margin-bottom:48.6px;padding-left:33ch}>p{padding-left:16ch;text-indent:-16ch;white-space:normal;>br{margin-top:-16.2px;display:block;content:' '}}}a[href]{background:#ffffff;position:relative;z-index:1;&:nth-of-type(1):after{content:'\A0'}&:nth-of-type(2){position:absolute;right:4ch;&:before{content:'\A0'}}}ul>li{padding-left:14ch}ol{margin:0;>li{padding:0;margin:0;&:before{content:"D." counters(list-item,".");padding-left:4ch;padding-right:5ch;position:static;white-space:pre}}}>ol>li{margin-top:16.2px;>a:first-child{text-transform:uppercase}&:nth-of-type(8){margin-top:0}&:nth-of-type(n+10):before{padding-right:4ch}&:nth-of-type(n+10) li:before{padding-right:4ch}}li>span{color:transparent;&:after{content:'. . . . . . . . . . . . . . . . . . . . .';color:#000000;position:absolute;right:4ch}}}#Index{>h2{text-align:center;text-transform:none;white-space:pre;&:after{content:' \A------------- '}}>ul{>li{position:relative;padding-left:0;>ul{margin-bottom:0;>li{padding-left:2ch}}&:nth-child(15){display:grid;grid-template-columns:36ch 3ch 2ch 5ch;>a[href]{position:static}}&:nth-child(1):before{content:'-A-'}&:nth-child(3):before{content:'-C-'}&:nth-child(9):before{content:'-D-'}&:nth-child(14):after{content:'-E-'}&:nth-child(16):before{content:'-I-'}&:nth-child(17):before{content:'-L-'}&:before,&:after{display:block;padding:16.2px 12ch}}a[href]{position:absolute;left:36ch}}}#D\.9>table{>caption{text-align:center;padding-bottom:16.2px;padding-right:2ch;&:after{content:'\A=========================================='}}th:first-child:after{content:'------------------------------------------------------------------';display:block;position:absolute;white-space:pre}tr:first-child>td{&:nth-child(1){width:6ch}&:nth-child(2){width:17ch}&:nth-child(3){width:29ch}}th{padding-bottom:32.4px}td{padding-bottom:16.2px;white-space:pre-wrap}}th{vertical-align:bottom;text-align:left;position:relative}td{vertical-align:top}pre:has(>code){margin-bottom:32.4px;#SRM>&:first-of-type{margin-left:9ch}#D\.3\.1>&{margin:32.4px 9ch}#D\.6\.1>&{margin-left:9ch}#D\.7>&{margin:32.4px 0ch 16.2px 9ch}}div{margin:32.4px 0;>p{float:left;clear:both;margin-bottom:0}>pre>samp{display:block;margin-left:17ch}>pre ~ *{margin-top:32.4px}}section:has(>h4>span){>h4{display:grid;grid-template-columns:57ch 0ch 9ch;white-space:normal;text-transform:uppercase;&:after{content:'------------------------------------------------------------------';padding-right:0;grid-column:1;white-space:pre}>span{color:transparent}}>ol{margin-bottom:48.6px}&#DECTST>ol{margin-bottom:0}}section:has(>h4>span){&#ENQ>p:nth-of-type(4){margin-top:32.4px}&#DECTST{>h4,>p:nth-of-type(5){margin-top:32.4px}}&#SRM>p:first-of-type{margin-top:32.4px}&#DECAWM{>h4{grid-template-columns:49ch 0ch 9ch}>p:nth-of-type(3),>p:nth-of-type(4){margin-top:32.4px}}&#DECALN{>h4{grid-template-columns:49ch 0ch 9ch}>p:nth-of-type(5){margin-top:32.4px}}}em{font-style:normal;display:inline-block;padding-right:0.999ch;min-width:8ch}section>p:nth-of-type(2)>em{min-width:16ch}section>p:nth-of-type(n+2)>em{padding-right:0}#D\.6\.1{>p:first-of-type,>ul{margin-top:32.4px}}#D\.7{>p:first-of-type{margin-top:32.4px}>ul>li{text-indent:-3ch;>p:before{content:'o\A0\A0'}}}#D\.9{>p:first-of-type{margin-top:32.4px}>p:nth-of-type(4){margin-top:32.4px;margin-bottom:48.6px}}#D\.1\30\.1>ol{margin-top:32.4px}a[id]{display:block;position:relative;left:-100px;padding-left:100px;padding-right:calc(716px - 66ch);width:66ch;height:32.4px;margin-top:65.6px;margin-bottom:32.4px;border-top:11px solid #d4d4d8;padding-top:65px;white-space:pre;&:before{content:'VSRM - Documented Exceptions  EL-00070-D\A' '*** COMPANY CONF - DEC Internal Use Only  18-Mar-1985'}&:after{content:'Page ' attr(data-page);position:absolute;top:65px;right:calc(716px - 66ch)}}#D-17{margin-top:81.8px}#D-23{margin-top:98px}#D-7{margin-top:114.2px}#D-2{margin-top:130.4px}#D-13{margin-top:195.2px}#D-16{margin-top:243.8px}#D-9,#D-10{margin-top:260px}#D-3,#D-22{margin-top:292.4px}#D-11{margin-top:357.2px}#D-15,#D-19{margin-top:503px}#D-5{margin-top:713.6px}#D-21{margin-top:794.6px}#D-18{margin-top:891.8px}body{>header,>main,>footer{>a[id]:first-child{margin-top:0}}>header{padding-bottom:422px}>main{padding-bottom:535.4px}>footer{padding-bottom:146.6px}}</style>
+</head>
+<body>
+<header>
+<a id="D-1" data-page="D-1"></a>
+<hgroup>
+<h1>Video Systems Reference Manual<br />Documented Exceptions&nbsp;</h1>
+<p>Document Identifier: A-DS-EL00070-0D-0 Rev. AX11, 18-Mar-1985&nbsp;</p>
+</hgroup>
+<dl>
+<dt>Abstract</dt>
+<dd><p>This appendix contains the specification of terminal features which are considered exceptions to the architecture.  As exceptions, they are not required of conforming hardware implementations, and will not be used by conforming software. However, when implemented, they should be implemented according to this standard in order to insure consistency of behavior across products.</p></dd>
+<dt>Applicability</dt>
+<dd><p>SARA Formal Cross-Component Standard.  Mandatory for Engineers designing hardware for terminal products and Software Engineers designing programs using terminal interfaces. Additional requirements are defined in the section on "Concepts and Conformance Criteria".</p></dd>
+<dt>Status</dt>
+<dd><p>FOR REVIEW ONLY</p></dd>
+</dl>
+<aside>
+<p>  This document has been placed in the SARA "Formal
+Cross-Component Standard" category. The material contained
+within this document is assumed to define mandatory standards
+unless it is clearly marked as (a) not mandatory or
+(b) guidelines. Material which is marked as "not mandatory" is
+considered to be of potential benefit to the corporation and
+should be followed unless there are good reasons for
+non-compliance. "Guidelines" define approaches and techniques
+which are considered to be good practice, but should not be
+considered as requirements. The procedures for modifying or
+evolving this standard are contained within the contents of
+this document.</p>
+</aside>
+<aside>
+<p>FOR INTERNAL USE ONLY&nbsp;</p>
+</aside>
+<a id="D-2" data-page="D-2"></a>
+<dl>
+<dt>Title</dt>
+<dd>VIDEO SYSTEMS - Documented Exceptions</dd>
+<dt>Document Identifier</dt>
+<dd>A-DS-EL00070-0D-0 Rev. AX11, 18-Mar-1985</dd>
+<dt>Revision History</dt>
+<dd>Revision AX10, 15-May-83</dd>
+<dt>Files</dt>
+<dd><table>
+<tbody>
+<tr><td>User Documentation</td><td>EL070SD.mem</td></tr>
+<tr><td>Internal Documentation</td><td>EL070SD.rno</td></tr>
+<tr><td></td><td>EL070SD.rnt</td></tr>
+<tr><td></td><td>EL070SD.rnx</td></tr>
+</tbody>
+</table>
+</dd>
+</dl>
+<dl>
+<dt>Document Management Group</dt>
+<dd>Terminal Interface Architecture</dd>
+<dt>Responsible Department</dt>
+<dd>Video Architecture Group</dd>
+<dt>Responsible Individual</dt>
+<dd>Peter Sichel</dd>
+</dl>
+<dl>
+<dt>Acceptance</dt>
+<dd><p>This document has been approved by the Manager of the Video Architecture Group based on a comprehensive review of its individual sections by the members of the SARA component groups working Terminal Interface Architecture issues.  The list of individuals on the review and approval list are on file in Standards and Methods Control.</p></dd>
+</dl>
+<p>Direct requests for further information to Peter Sichel, PKO3-&NoBreak;1/10C, DTN 223-5162, RANI::VIDARCH</p>
+<p>Copies of this document can be ordered from:</p>
+<p>Standards and Methods Control&nbsp;<br />APO1/F7, DTN 289-1414, JOKUR::SIMONETTI&nbsp;</p>
+<a id="D-3" data-page="D-3"></a>
+<section id="Contents">
+<hgroup>
+<h2>Contents</h2>
+<p>Appendix D<br />Documented Exceptions</p>
+</hgroup>
+<ol>
+<li><a href="#D.1">Introduction</a><span> … </span><a href="#D-4">D-4</a></li>
+<li><a href="#D.2">Reset To Initial State</a><span> … </span><a href="#D-5">D-5</a><ul>
+<li><a href="#RIS">Reset to Initial State</a></li>
+</ul>
+</li>
+<li><a href="#D.3">Answerback</a><span> … </span><a href="#D-9">D-9</a><ol>
+<li><a href="#D.3.1">Description</a><span> … </span><a href="#D-9">D-9</a></li>
+<li><a href="#D.3.2">Control Function</a><span> … </span><a href="#D-10">D-10</a></li>
+</ol>
+</li>
+<li><a href="#D.4">Device Test And Status</a><span> … </span><a href="#D-11">D-11</a></li>
+<li><a href="#D.5">Send/Receive Mode</a><span> … </span><a href="#D-12">D-12</a></li>
+<li><a href="#D.6">Auto Wrap Mode</a><span> … </span><a href="#D-13">D-13</a><ol>
+<li><a href="#D.6.1">Description</a><span> … </span><a href="#D-13">D-13</a></li>
+<li><a href="#D.6.2">Control Function</a><span> … </span><a href="#D-15">D-15</a></li>
+</ol>
+</li>
+<li><a href="#D.7">Control Representation Mode</a><span> … </span><a href="#D-16">D-16</a></li>
+<li><a href="#D.8">Screen Alignment</a><span> … </span><a href="#D-18">D-18</a></li>
+<li><a href="#D.9">Local Function Keys</a><span> … </span><a href="#D-20">D-20</a></li>
+<li><a href="#D.10">Change History</a><span> … </span><a href="#D-22">D-22</a><ol>
+<li><a href="#D.10.1">Rev AX10 To AX11</a><span> … </span><a href="#D-22">D-22</a></li>
+</ol>
+</li>
+</ol>
+</section>
+</header>
+<main>
+<a id="D-4" data-page="D-4"></a>
+<section id="D.1">
+<h2>D.1  Introduction</h2>
+<p>The specifications contained in this appendix comprise a registry of exceptions to the architectural structure, which are intended to serve as guidelines to hardware implementors.  These features are not required for conformance, and they will not be tested as a part of the certification process.  It is recommended, however, that when implemented they be implemented in their entirety, and as closely as possible to the descriptions provided herein.</p>
+<p>Software is warned against the use of any of these functions, since they are not required and are not likely to be implemented in all products.</p>
+</section>
+<a id="D-5" data-page="D-5"></a>
+<section id="D.2">
+<h2>D.2  Reset to Initial State</h2>
+<section id="RIS">
+<h4>Reset To Initial State <span>&mdash;</span> RIS</h4>
+<p><em>Purpose:</em> Reset the terminal to power-up condition.</p>
+<div>
+<p><em>Format:</em></p>
+<pre><samp>ESC     c
+
+1/11    6/3</samp></pre>
+</div>
+<p><em>Description:</em> When this control is received all state in the terminal is set to their default values.</p>
+<p><em>Notes:</em></p>
+<ol>
+<li><p>Conforming software will not use the RIS control, but should use the Soft Terminal Reset (DECSTR) in Level 2 operation to put the terminal into a known state.</p></li>
+<li><p>The default values of a certain state in some implementations may be set and stored under local control by the terminal user (e.g., Set-Up and non-volatile RAM or a disk) as well as remotely.  In such implementations RIS will set the storable state to the values selected by the terminal user.  Therefore software cannot rely on the values of this state after an RIS is executed.  The values given in the algorithm below apply only to those implementations in which the state can not be set and stored locally by the terminal user.  The state defined by the architecture to which this indeterminate condition may apply is limited to the following:</p><ul>
+<li><code>CONFORMANCE_LEVEL: (LEVEL_1,LEVEL_2);</code></li>
+<li><code>COLUMN_MODE: (EIGHTY,ONE_THIRTY_TWO);</code></li>
+<li><code>SCROLLING_MODE: (JUMP,SLOW);</code></li>
+<li><code>SCREEN_MODE: (NORMAL_SCREEN,REVERSE_SCREEN);</code></li>
+<li><code>AUTO_WRAP_MODE: (WRAP_OFF,WRAP_ON);</code></li>
+<li><code>TEXT_CURSOR_ENABLE_MODE: (TEXT_CURSOR_OFF,TEXT_CURSOR_ON)</code></li>
+<li><code>INSERT_REPLACEMENT_MODE: (REPLACE,INSERT);</code></li>
+<li><code>NEW_LINE_MODE: (NEW_LINE_OFF,NEW_LINE_ON);</code></li>
+<li><code>HORIZONTAL_TAB_STOPS: ARRAY [MAX_NUM_COLUMNS] OF BOOLEAN;</code></li>
+<li><code>AUTO_REPEAT_MODE: (REPEAT_ON,REPEAT_OFF);</code></li>
+<li><code>CURSOR_KEY_MODE: (CURSOR,CK_APPLICATION);</code></li>
+<li><code>KEYPAD_MODE: (NUMERIC,KP_APPLICATION);</code></li>
+<li><code>CAPS_SHIFT_LOCK_MODE: (CAPS_LOCK,SHIFT_LOCK);</code></li>
+<li><code>AUTO_PRINT_MODE: (AUTO_PRINT_OFF,AUTO_PRINT_ON);</code></li>
+<li><code>PRINT_FORM_FEED_MODE: (PRINT_FF_OFF,PRINT_FF_ON);</code></li>
+<li><code>PRINT_EXTENT_MODE: (PRINT_DISPLAY,PRINT_SCROLLING_REGION)</code></li>
+<li><code>GRAPHICS_CURSOR_ENABLE_MODE:
+  (GRAPHICS_CURSOR_OFF,GRAPHICS_CURSOR_ON);</code></li>
+</ul>
+<a id="D-6" data-page="D-6"></a></li>
+<li><p>The DRCS and UDK definitions are also cleared in Level 2 operation.</p></li>
+</ol>
+<p><em>State Affected:</em></p>
+<ul>
+<li><code>CONFORMANCE_LEVEL: (LEVEL_1,LEVEL_2);</code></li>
+<li><code>IN_USE_TABLE: IN_USE_TABLE_TYPE;</code></li>
+<li><code>DESIGNATED_GRAPHIC_SETS:
+  ARRAY [G0..G3] OF GRAPHIC_CHARACTER_SET_TYPE;</code></li>
+<li><code>IN_CONTROL_STRING: BOOLEAN;</code></li>
+<li><code>C1_TRANSMISSION_MODE: (SEVEN_BIT,EIGHT_BIT);</code></li>
+<li><code>SINGLE_SHIFT: (NONE.SS2,SS3);</code></li>
+</ul>
+<ul>
+<li><code>TOP_MARGIN: LINE_TYPE;</code></li>
+<li><code>BOTTOM_MARGIN: LINE_TYPE;</code></li>
+<li><code>CURRENT_RENDITION: CHARACTER_RENDITION_TYPE;</code></li>
+<li><code>LINE_RENDITION: ARRAY [LINE_TYPE] OF LINE_RENDITION_TYPE;</code></li>
+<li><code>COLUMN_MODE: (EIGHTY,ONE_THIRTY_TWO);</code></li>
+<li><code>SCROLLING_MODE: (JUMP,SLOW);</code></li>
+<li><code>SCREEN_MODE: (NORMAL_SCREEN,REVERSE_SCREEN);</code></li>
+<li><code>ORIGIN_MODE: (ABSOLUTE,DISPLACED);</code></li>
+<li><code>AUTO_WRAP_MODE: (WRAP_OFF,WRAP_ON);</code></li>
+<li><code>TEXT_CURSOR_ENABLE_MODE:
+  (TEXT_CURSOR_OFF,TEXT_CURSOR_ON);</code></li>
+<li><code>INSERT_REPLACEMENT_MODE: (REPLACE,INSERT);</code></li>
+<li><code>NEW_LINE_MODE: (NEW_LINE_OFF,NEW_LINE_ON);</code></li>
+<li><code>DISPLAY: ARRAY [LINE_TYPE,COLUMN_TYPE] OF CHARACTER_TYPE;</code></li>
+<li><code>ACTIVE_POSITION: CHARACTER_POSITION_TYPE;</code></li>
+<li><code>CURSOR_SAVE_BUFFER: SAVE_BUFFER_TYPE;</code></li>
+<li><code>HORIZONTAL_TAB_STOPS: ARRAY [COLUMN_TYPE] OF BOOLEAN;</code></li>
+<li><code>LAST_COLUMN_FLAG: BOOLEAN;</code></li>
+</ul>
+<ul>
+<li><code>KEYBOARD_ACTION_MODE: (UNLOCKED,LOCKED);</code></li>
+<li><code>AUTO_REPEAT_MODE: (REPEAT_ON,REPEAT_OFF);</code></li>
+<li><code>CURSOR_KEY_MODE: (CURSOR,CK_APPLICATION);</code></li>
+<li><code>KEYPAD_MODE: (NUMERIC,KP_APPLICATION);</code></li>
+<li><code>CAPS_SHIFT_LOCK_MODE: (CAPS_LOCK,SHIFT_LOCK);</code></li>
+<li><code>COMPOSE_MODE: (COMPOSE_OFF,COMPOSE_ON);</code></li>
+</ul>
+<ul>
+<li><code>AUTO_PRINT_MODE: (AUTO_PRINT_OFF,AUTO_PRINT_ON);</code></li>
+<li><code>PRINT_FORM_FEED_MODE: (PRINT_FF_OFF,PRINT_FF_ON);</code></li>
+<li><code>PRINT_EXTENT_MODE:
+  (PRINT_SCROLLING_REGION,PRINT_DISPLAY);</code></li>
+</ul>
+<ul>
+<li><code>GRAPHICS_CURSOR_ENABLE_MODE:
+  (GRAPHICS_CURSOR_OFF,GRAPHICS_CURSOR_ON);</code></li>
+<li><code>REGIS_GRAPHICS_MODE: (REGIS_OFF,REGIS_ON);</code></li>
+<li><code>SIXEL_GRAPHICS_MODE: (SIXEL_OFF,SIXEL_ON);</code></li>
+</ul>
+<a id="D-7" data-page="D-7"></a>
+<p><em>Algorithm:</em></p>
+<pre><code>PROCEDURE RESET_TO_INITIAL_STATE;
+VAR      Y: LINE_TYPE;
+         X: COLUMN_TYPE;
+BEGIN
+CASE SERVICE_CLASS OF                    (* see Note 1 *)
+  61: CONFORMANCE_LEVEL:= LEVEL_1;
+  62: CONFORMANCE_LEVEL:= LEVEL_2;
+  END;
+IN_USE_TABLE.C0:= ASCII_C;
+IN_USE_TABLE.GL:= ASCII_G;
+IN_USE_TABLE.INVOKED_GL:= G0;
+IN_USE_TABLE.C1:= SUPPLEMENTAL_C;
+IN_USE_TABLE.INVOKED_GR:= G2;
+CASE CONFORMANCE_LEVEL OF
+  LEVEL_1:
+    BEGIN
+    IN_USE_TABLE.GR:= ASCII_G;
+    C1_TRANSMISSION_MODE:= SEVEN_BIT;
+    END;
+  LEVEL_2:
+    BEGIN
+    IN_USE_TABLE.GR:= SUPPLEMENTAL_G;
+    C1_TRANSMISSION_MODE:= EIGHT_BIT;
+    END;
+  END;
+SINGLE_SHIFT:= NONE;
+IN_CONTROL_STRING:= FALSE;
+TOP_MARGIN:= 1;
+BOTTOM_MARGIN:= MAX_NUM_LINES;
+DESIGNATED_GRAPHIC_SETS[G0]:= ASCII_G;
+DESIGNATED_GRAPHIC_SETS[G1]:= ASCII_G;
+CASE CONFORMANCE_LEVEL OF
+  LEVEL_1:
+    BEGIN
+    DESIGNATED_GRAPHIC_SETS[G2]:= ASCII_G;
+    DESIGNATED_GRAPHIC_SETS[G3]:= ASCII_G;
+    END;
+  LEVEL_2:
+    BEGIN
+    DESIGNATED_GRAPHIC_SETS[G2]:= SUPPLEMENTAL_G;
+    DESIGNATED_GRAPHIC_SETS[G3]:= SUPPLEMENTAL_G;
+    END;
+  END;
+CURRENT_RENDITION[BOLD]:= FALSE;
+CURRENT_RENDITION[UNDERSCORE]:= FALSE;
+CURRENT_RENDITION[BLINK]:= FALSE;
+CURRENT_RENDITION[REVERSE]:= FALSE;
+COLUMN_MODE:= EIGHTY;                            (* see Note 1 *)
+SCROLLING MODE:= SLOW;                           (* see Note 1 *)
+SCREEN_MODE:= NORMAL_SCREEN;                     (* see Note 1 *)
+ORIGIN_MODE:= ABSOLUTE;
+<a id="D-8" data-page="D-8"></a>AUTO_WRAP_MODE:= WRAP_OFF;                       (* see Note 1 *)
+TEXT_CURSOR_ENABLE_MODE:= TEXT_CURSOR_ON;        (* see Note 1 *)
+INSERT_REPLACEMENT_MODE:= REPLACE;               (* see Note 1 *)
+NEW_LINE_MODE:= NEW_LINE_OFF;                    (* see Note 1 *)
+FOR Y:= 1 TO MAX_NUM_LINES DO
+  BEGIN
+  FOR X:= 1 TO MAX_NUM_COLUMNS DO
+    DISPLAY[Y,X].CODE:= EMPTY_CHARACTER;
+  LINE_RENDITION[Y]:= SINGLE_WIDTH;
+  END;
+ACTIVE_POSITION.LINE:= 1;
+ACTIVE_POSITION.COLUMN:= 1;
+HORIZONTAL_TAB_STOPS[1]:= FALSE;         (* see Note 1 *)
+FOR X:= 2 TO MAX_NUM_COLUMNS DO
+  IF X MOD 8 = 1 THEN HORIZONTAL_TAB_STOPS[X]:= TRUE
+  ELSE HORIZONTAL_TAB_STOPS[X]:= FALSE;          (* see Note 1 *)
+LAST_COLUMN_FLAG:= FALSE;
+SAVE_CURSOR;
+KEYBOARD_ACTION_MODE:= UNLOCKED;
+AUTO_REPEAT_MODE:= REPEAT_ON;                    (* see Note 1 *)
+CURSOR_KEY_MODE:= CURSOR;                        (* see Note 1 *)
+KEYPAD_MODE:= NUMERIC;                           (* see Note 1 *)
+CAPS_SHIFT_LOCK_MODE:= CAPS_LOCK;                (* see Note 1 *)
+COMPOSE_MODE:= COMPOSE_OFF;
+AUTO_PRINT_MODE:= AUTO_PRINT_OFF;                (* see Note 1 *)
+PRINT_FORM_FEED_MODE:= PRINT_FF_OFF;             (* see Note 1 *)
+PRINT_EXTENT_MODE:= PRINT_DISPLAY;               (* see Note 1 *)
+GRAPHICS_CURSOR_ENABLE_MODE:= GRAPHICS_CURSOR_ON; (* see Note 1 *)
+REGIS_GRAPHICS_MODE:= REGIS_OFF;
+SIXEL_GRAPHICS_MODE:= SIXEL_OFF;
+DEVICE_STATUS:= READY;
+END;
+</code></pre>
+<p><em>Known Deviations:</em></p>
+<p>Execution of the RIS control on some older terminals may cause the terminal self-test to be performed, which takes several seconds and flashes test patterns on the display.  It may also cause a modem disconnect to occur.  Therefore conforming software is recommended not to use this control.</p>
+</section>
+</section>
+<a id="D-9" data-page="D-9"></a>
+<section id="D.3">
+<h2>D.3  Answerback</h2>
+<section id="D.3.1">
+<h3>D.3.1  Description</h3>
+<p>The Answerback feature provides the terminal with the capability of transmitting a stored message (string of control and graphic codes) to the host port, either on a prompt received from the host port, or by request from the keyboard.  Answerback is intended to provide a communications function, and should never be used as a "programmable function key".</p>
+<p>Devices which implement the Answerback capability should provide a user definable message of not less than 20 characters for Level 1 devices and not less than 30 characters for Level 2 devices.  The Answerback message buffer should contain any combination of control and graphic character codes (7-bit codes only for Level 1 devices, and 8-bit codes for Level 2 devices).  The Answerback message will be transmitted by the terminal on receipt from the host of an ENQ (0/5) control code, typing of the Here Is key at the terminal keyboard, or 500ms after a full-duplex modem connection is established with auto-answerback enabled.</p>
+<p>(Note:  When a Here Is key is not provided on the keyboard, the Control Key in combination with the Break Key should be used as a fallback to provide this function.)</p>
+<p>The ability to erase the Answerback message buffer or enter new characters into the buffer is a Setup function.  The buffer is empty by factory default.  The buffer is a FIFO, and any unfilled positions remain empty.  Characters are transmitted from the buffer exactly as if they were typed at the keyboard, and are subject to the same timing and rate limiting restrictions.</p>
+<pre><code>MAX_POSITION = 20 (* or more for Level 1 *);
+               30 (* or more for Level 2 *);
+
+ANSWERBACK_MESSAGE_BUFFER:
+  ARRAY [1..MAX_POSITION] OF CODE_TYPE;
+
+ANSWERBACK_MESSAGE_SIZE: 1..MAX_POSITION;
+</code></pre>
+</section>
+<a id="D-10" data-page="D-10"></a>
+<section id="D.3.2">
+<h3>D.3.2  Control Function</h3>
+<section id="ENQ">
+<h4>Answerback <span>&mdash;</span> ENQ</h4>
+<p><em>Purpose:</em> Cause the terminal to transmit a stored string of coded characters.</p>
+<div>
+<p><em>Format:</em></p>
+<pre><samp>ENQ
+
+0/5</samp></pre>
+</div>
+<p><em>Description:</em> Receipt of the ENQ control code causes the terminal to transmit the coded character string stored in the Answerback message buffer.  Characters are transmitted up to the first empty character position in the buffer.</p>
+<ol>
+<li><p>The number and value of character codes in the buffer is a Setup function, determined by the User.</p></li>
+</ol>
+<p><em>State Affected:</em> None</p>
+<p><em>Algorithm:</em></p>
+<pre><code>PROCEDURE ANSWERBACK;
+VAR      N: 1..MAX_POSITION;
+BEGIN
+FOR N:= 1 TO ANSWERBACK_MESSAGE_SIZE DO
+  WRITE (HOST_PORT,ANSWERBACK_MESSAGE_BUFFER[N]);
+END;
+</code></pre>
+</section>
+</section>
+</section>
+<a id="D-11" data-page="D-11"></a>
+<section id="D.4">
+<h2>D.4  Device Test and Status</h2>
+<section id="DECTST">
+<h4>Test <span>&mdash;</span> DECTST</h4>
+<p><em>Purpose:</em> Invoke the device self-tests.</p>
+<div>
+<p><em>Format:</em></p>
+<pre><samp>CSI     Ps      y               default Ps: 0
+
+9/11    Ps      7/9</samp></pre>
+</div>
+<p><em>Description:</em> The DECTST control is provided as a means of invoking device specific diagnostic tests, and subsequently determining the device status by means of the Device Status Report (DSR) control.  The sequence consists of a parameter string indicating a series of product specific tests to be performed.  The architecture does not specify the nature or duration of any of the tests performed.  The minimal implementation of this control is to to execute the Reset to Initial State (RIS) control. and to return a "Device Ready" indicator by default.</p>
+<p><em>Notes:</em></p>
+<ol>
+<li><p>Since the minimal implementation does not require the execution of any tests, and since the nature of the tests performed is not defined, software should not depend on the effects of using this control.  In all probability execution of this control in any product will have an adverse effect on the state of the device, and after execution of this control the state of the device should be considered to be UNDEFINED.  NO RECOVERY IS GUARANTEED WHEN THIS CONTROL IS EXECUTED.</p></li>
+<li><p>Product literature should be consulted for a description of any test sequences which might be performed on a specific product.</p></li>
+</ol>
+<p><em>State Affected:</em> UNDEFINED</p>
+<p><em>Algorithm:</em></p>
+<pre><code>PROCEDURE TEST;
+BEGIN
+RESET_TO_INITIAL_STATE;
+(*
+  Execute product specific tests as indicated
+  by the parameter value.
+*)
+END;
+</code></pre>
+</section>
+</section>
+<a id="D-12" data-page="D-12"></a>
+<section id="D.5">
+<h2>D.5  Send/Receive Mode</h2>
+<section id="SRM">
+<h4>Set/Reset Send/Receive Mode <span>&mdash;</span> SRM</h4>
+<p><em>Purpose:</em> Cause all data transmitted at the terminal interface to be echoed back into the terminal.</p>
+<div>
+<p><em>Set Format:</em></p>
+<pre><samp>CSI     12      h
+
+9/11    3/1 3/2 6/8</samp></pre>
+<p><em>Reset Format:</em></p>
+<pre><samp>CSI     12      l
+
+9/11    3/1 3/2 6/12</samp></pre>
+</div>
+<p><em>Description:</em> The SRM control is used to affect the state of Send/Receive Mode in the terminal.  Send/Receive Mode provides a means of looping all control and graphic data transmitted on the host port back into the receiver.  All data received by the terminal when this mode is set (Echo_On) will be interpreted as if transmitted directly from the host.  The transmitted data will not be affected by the setting of this mode.</p>
+<pre><code>SEND_RECEIVE_MODE_TYPE = (ECHO_OFF,ECHO_ON);
+
+SEND_RECEIVE_MODE: SEND_RECEIVE_MODE_TYPE;
+</code></pre>
+<p><em>Algorithm:</em></p>
+<pre><code>PROCEDURE SET_SEND_RECEIVE_MODE;
+BEGIN
+SEND_RECEIVE_MODE:= ECHO_ON;
+END;
+
+
+PROCEDURE RESET_SEND_RECEIVE_MODE;
+BEGIN
+SEND_RECEIVE_MODE:= ECHO_OFF;
+END;
+</code></pre>
+</section>
+</section>
+<a id="D-13" data-page="D-13"></a>
+<section id="D.6">
+<h2>D.6  Auto Wrap Mode</h2>
+<section id="D.6.1">
+<h3>D.6.1  Description</h3>
+<p>Auto Wrap Mode provides the ability to select wrapping of
+lines when the right line boundary is reached while entering characters into the display [set state = wrap_on]. This state applies
+only to entering data, and does not affect movement of the cursor using any of the cursor positioning functions or control codes.  When
+auto-wrapping is not enabled [reset state = wrap_off], attempts to enter characters beyond the right line boundary are handled by overwriting the character at the last column in the line.</p>
+<pre><code>AUTO_WRAP_MODE: (WRAP_OFF,WRAP_ON);
+</code></pre>
+<p>A special condition occurs when writing a Space or graphic character into the last column position of a line while Auto Wrap Mode is set. Normally the Active Position is advanced immediately after a character is entered into the display. The only exception to this is when a character is entered into the last column position of a line, in which case the Active Position cannot be advanced. When Auto Wrap Mode is set, however, writing a character into the last position in a line causes a special flag (referred to as the Last Column Flag) to be set. This flag is checked each time a character is entered into the display, and if Auto Wrap Mode is set, will cause the Active Position to advance to the first column of the next line PRIOR to entering that character.  The flag is then reset.</p>
+<p>The Last Column Flag should also be reset by executing any control which potentially changes the Active Position from the end-of-line position. These controls include the following:</p>
+<ul>
+<li><code>SET_TOP_AND_BOTTOM_MARGINS</code></li>
+<li><code>SINGLE_WIDTH_LINE</code></li>
+<li><code>DOUBLE_WIDTH_LINE</code></li>
+<li><code>DOUBLE_HEIGHT_LINE_TOP</code></li>
+<li><code>DOUBLE_HEIGHT_LINE_BOTTOM</code></li>
+<li><code>SET_MODE (COLUMN_MODE, ORIGIN_MODE)</code></li>
+<li><code>RESET_MODE (COLUMN_MODE, ORIGIN_MODE, AUTO_WRAP_MODE)</code></li>
+<li><code>INSERT_OR_REPLACE_CHARACTER</code></li>
+<li><code>CURSOR_UP</code></li>
+<li><code>CURSOR_DOWN</code></li>
+<li><code>CURSOR_FORWARD</code></li>
+<li><code>CURSOR_BACK</code></li>
+<li><code>CURSOR_POSITION</code></li>
+<li><code>HORIZONTAL_VERTICAL_POSITION</code></li>
+<li><code>BACK_SPACE</code></li>
+<li><a id="D-14" data-page="D-14"></a><code>HORIZONTAL_TAB</code></li>
+<li><code>LINE_FEED</code></li>
+<li><code>VERTICAL_TAB</code></li>
+<li><code>FORM_FEED</code></li>
+<li><code>CARRIAGE_RETURN</code></li>
+<li><code>SUBSTITUTE</code></li>
+<li><code>INDEX</code></li>
+<li><code>REVERSE_INDEX</code></li>
+<li><code>NEXT_LINE</code></li>
+<li><code>ERASE_CHARACTER</code></li>
+<li><code>DELETE_CHARACTER</code></li>
+<li><code>INSERT_CHARACTER</code></li>
+<li><code>ERASE_IN_LINE</code></li>
+<li><code>SELECTIVE_ERASE_IN_LINE</code></li>
+<li><code>DELETE_LINE</code></li>
+<li><code>INSERT_LINE</code></li>
+<li><code>ERASE_IN_DISPLAY</code></li>
+<li><code>SELECTIVE_ERASE_IN_DISPLAY</code></li>
+</ul>
+<p>Furthermore, the state of the Last Column Flag should be saved when a Save Cursor operation is performed, and restored when a Restore Cursor operation is performed.</p>
+<p>It should be noted that existing products vary widely in their handling of the end-of-line condition in regards to resetting the Last Column Flag.</p>
+</section>
+<a id="D-15" data-page="D-15"></a>
+<section id="D.6.2">
+<h3>D.6.2  Control Function</h3>
+<section id="DECAWM">
+<h4>Set/Reset Auto Wrap Mode <span>&mdash;</span> DECAWM</h4>
+<p><em>Purpose:</em> Change the state of Auto Wrap Mode between Wrap Off (reset) and Wrap On (set).</p>
+<div>
+<p><em>Set Format:</em></p>
+<pre><samp>CSI     ?       7       h
+
+9/11    3/15    3/7     6/8</samp></pre>
+<p><em>Reset Format:</em></p>
+<pre><samp>CSI     ?       7       l
+
+9/11    3/15    3/7     6/12</samp></pre>
+</div>
+<p><em>Description:</em> The DECAWM controls are used to change the state of Auto Wrap Mode between Wrap Off (reset state) and Wrap On (set state).  (For a complete description of Auto Wrap Mode, see the section "State Descriptions")</p>
+<p><em>State Affected:</em></p>
+<ul>
+<li><code>AUTO_WRAP_MODE: (WRAP_OFF,WRAP_ON);</code></li>
+</ul>
+<p><em>Algorithm:</em></p>
+<pre><code>PROCEDURE SET_AUTO_WRAP_MODE;
+BEGIN
+AUTO_WRAP_MODE:= WRAP ON;
+END;
+
+
+PROCEDURE RESET_AUTO_WRAP_MODE;
+BEGIN
+AUTO_WRAP_MODE:= WRAP_OFF;
+END;
+</code></pre>
+</section>
+</section>
+</section>
+<a id="D-16" data-page="D-16"></a>
+<section id="D.7">
+<h2>D.7  Control Representation Mode</h2>
+<p>A device may provide a mode of operation in which all received control and graphic codes are displayed visually, and their normal execution is ignored or redefined. This mode is provided for test purposes and is not to be used by conforming software.
+Although Control Representation Mode is defined in the ANSI standard X3.64 for use with the Set Mode and Reset Mode control functions, it is recommended that within Digital it be
+implemented only as a locally selected function, and not be accessible from the host.</p>
+<pre><code>CONTROL_REPRESENTATION_MODE: (DISPLAY_OFF,DISPLAY_ON);
+</code></pre>
+<p>In the set state (Display_On) all control functions (except the Reset Mode control sequence for Control Representation Mode) are displayed as graphic characters. Thus all character codes (128 in 7-bits and 256 in 8-bits) will be displayed with unique representations. No control functions will be executed, with the following exceptions:</p>
+<ul>
+<li><p>LF - Display the graphic character for LF, and then execute a
+new line (CR LF).</p></li>
+<li><p>FF - Display the graphic character for FF, and then execute a
+new line (CRLF).</p></li>
+<li><p>VT - Display the graphic character for VT, and then execute a
+new line (CRLF).</p></li>
+<li><p>XOFF - Display the graphic character for XOFF, and suspend
+transmission from the terminal to the host (its normal function).</p></li>
+<li><p>XON - Display the graphic character for XON, and resume transmission from the terminal to the host (its normal function).</p></li>
+<li><p>RM - Reset Mode, if it contains the parameter for CRM (which
+is 3), will cause CRM to be reset, and control characters will
+resume their normal actions. If RM does not contain the parameter
+for CRM, its characters are displayed as graphic characters.</p></li>
+</ul>
+<a id="D-17" data-page="D-17"></a>
+<p>In the reset state (Display_Off) the terminal resumes its normal operation.</p>
+<a id="D-18" data-page="D-18"></a>
+<p><em>Notes:</em></p>
+<ol>
+<li><p>When set, this control function causes NUL and DEL to be displayed, so these characters may not be used as fill characters
+when CRM is set.</p></li>
+<li><p>Control functions already received and processed by the terminal are not affected by setting Control Representation Mode,
+and will not be displayed. Control functions displayed while Control Representation Mode is set will not be processed
+again after the mode is reset.</p></li>
+<li><p>While Control Representation Mode is set G2 and GR will be
+designated and invoked to be the DEC Supplemental set, regardless
+of the existing state of designation or invocation. The C1
+characters, and any GR (DEC Supplemental) characters that are not
+assigned (reserved for future standardization), will he displayed
+as "hex pairs".</p></li>
+</ol>
+</section>
+<a id="D-19" data-page="D-19"></a>
+<section id="D.8">
+<h2>D.8  Screen Alignment</h2>
+<section id="DECALN">
+<h4>Screen Alignment <span>&mdash;</span> DECALN</h4>
+<p><em>Purpose:</em> Fill the entire display with a test pattern for alignment purposes.</p>
+<div>
+<p><em>Format:</em></p>
+<pre><samp>ESC     #       8
+
+1/11    2/3     3/8</samp></pre>
+</div>
+<p><em>Description:</em> The DECALN control is used to fill the physical display with a screen alignment pattern which is implementation defined.</p>
+<p><em>Notes:</em></p>
+<ol>
+<li><p>This control is provided strictly as a maintenance aid and is not intended for use by any applications software.</p></li>
+</ol>
+<p><em>State Affected:</em></p>
+<ul>
+<li><code>DISPLAY: ARRAY [LINE_TYPE,COLUMN_TYPE] OF CHARACTER_TYPE;</code></li>
+<li><code>LINE_RENDITION: ARRAY [LINE_TYPE] OF LINE_RENDITION_TYPE;</code></li>
+<li><code>ACTIVE_POSITION: CHARACTER_POSITION_TYPE;</code></li>
+<li><code>TOP_MARGIN: LINE_TYPE;</code></li>
+<li><code>BOTTOM_MARGIN: LINE_TYPE;</code></li>
+<li><code>CURRENT_RENDITION: CHARACTER_RENDITION_TYPE;</code></li>
+<li><code>CURRENT_TABLE:= CHARACTER_TABLE_TYPE;</code></li>
+<li><code>ORIGIN_MODE: ORIGIN_MODE_TYPE;</code></li>
+<li><code>LAST_COLUMN_FLAG: BOOLEAN;</code></li>
+</ul>
+<p><em>Algorithm:</em></p>
+<pre><code>PROCEDURE SCREEN_ALIGNMENT;
+VAR      Y: LINE_TYPE;
+         X: COLUMN_TYPE;
+BEGIN
+ORIGIN_MODE := ABSOLUTE;
+CURRENT_RENDITION[BOLD]:= FALSE;
+CURRENT_RENDITION[UNDERSCORE]:= FALSE;
+CURRENT_RENDITION[BLINK]:= FALSE;
+CURRENT_RENDITION[REVERSE]:= FALSE;
+FOR Y:= 1 TO MAX_NUM_LINES DO
+  BEGIN
+  LINE_RENDITION[Y]:= SINGLE_WIDTH;
+  FOR X:= 1 TO MAX_NUM_COLUMNS DO
+<a id="D-20" data-page="D-20"></a>    DISPLAY[Y,X].CODE:= EMPTY_CHARACTER;
+  END;
+ACTIVE_POSITION.LINE:= 1;
+ACTIVE_POSITION.COLUMN:= 1;
+TOP_MARGIN:= 1;
+BOTTOM_MARGIN:= MAX_NUM_LINES;
+LAST_COLUMN_FLAG:= FALSE;
+END;
+</code></pre>
+</section>
+</section>
+<a id="D-21" data-page="D-21"></a>
+<section id="D.9">
+<h2>D.9  Local Function Keys</h2>
+<p>The use of Local Function Keys in terminals is described in the section "Keyboard Processing". Normally these keys never transmit characters at the coding interface. However, in certain implementations they may be used by internal software, such as in a Personal Computer or Workstation. In these cases, the following codes are assigned for their use.</p>
+<p>Control sequences designated for these keys are intended only
+for use as an internal interface, and should be ignored by conforming application software.</p>
+<p>The use of Shift and/or Control Keys affect the interpretation of the Local Function Keys.</p>
+<p>Note: In cases where the Compose function is not handled locally by the terminal, it may be necessary to treat the Compose Key as a Local Function Key so that the Compose function can be implemented at a higher level in the system. In this case, the Compose Key should transmit the code sequence CSI 10 ~ (9/11 3/1 3/0 7/14).  This sequence is reserved for this use, and should not be re-&NoBreak;assigned to any other key. Conforming software will ignore
+this code sequence.</p>
+<p>In the following table, the first entry indicates the code sequence transmitted when C1 Transmission Mode is in the reset (SEVEN_BIT) state.  The second entry indicates the code sequence transmitted when C1 Transmission Mode is in the set (EIGHT_BIT) state.</p>
+<p>Since the Local Function Keys are not usually transmitted (but are usually interpreted locally by the terminal), the coding in the following table is independent of the conformance level of operation.</p>
+<a id="D-22" data-page="D-22"></a>
+<table>
+<caption>Codes Possibly Used by Local Function Keys</caption>
+<thead>
+<tr><th>Key</th><th>Legend</th><th colspan="2">All Levels</th></tr>
+</thead>
+<tbody>
+<tr><td rowspan="3">G99</td><td>Hold Screen<br />(normal)</td><td><samp>1/11 5/11 3/1 3/1 7/14<br />     9/11 3/1 3/1 7/14</samp></td><td><samp>(ESC [ 11 ~)<br />(  CSI 11 ~)</samp></td></tr>
+<tr><td>Hold Screen<br />(with Shift)</td><td><samp>1/11 5/11 3/15 3/1 3/1 7/14<br />     9/11 3/15 3/1 3/1 7/14</samp></td><td><samp>(ESC [ ? 11 ~)<br />(  CSI ? 11 ~)</samp></td></tr>
+<tr><td>Hold Screen<br />(with Control)</td><td><samp>1/11 5/11 3/14 3/1 3/1 7/14<br />     9/11 3/14 3/1 3/1 7/14</samp></td><td><samp>(ESC [ > 11 ~)<br />(  CSI > 11 ~)</samp></td></tr>
+<tr><td rowspan="3">G00</td><td>Print Screen<br />(normal)</td><td><samp>1/11 5/11 3/1 3/2 7/14<br />     9/11 3/1 3/2 7/14</samp></td><td><samp>(ESC [ 12 ~)<br />(  CSI 12 ~)</samp></td></tr>
+<tr><td>Print Screen<br />(with Shift)</td><td><samp>1/11 5/11 3/15 3/1 3/2 7/14<br />     9/11 3/15 3/1 3/2 7/14</samp></td><td><samp>(ESC [ ? 12 ~)<br />(  CSI ? 12 ~)</samp></td></tr>
+<tr><td>Print Screen<br />(with Control)</td><td><samp>1/11 5/11 3/14 3/1 3/2 7/14<br />     9/11 3/14 3/1 3/2 7/14</samp></td><td><samp>(ESC [ > 12 ~)<br />(  CSI > 12 ~)</samp></td></tr>
+<tr><td rowspan="3">G01</td><td>Set-Up<br />(normal)</td><td><samp>1/11 5/11 3/1 3/3 7/14<br />     9/11 3/1 3/3 7/14</samp></td><td><samp>(ESC [ 13 ~)<br />(  CSI 13 ~)</samp></td></tr>
+<tr><td>Set-Up<br />(with Shift)</td><td><samp>1/11 5/11 3/15 3/1 3/3 7/14<br />     9/11 3/15 3/1 3/3 7/14</samp></td><td><samp>(ESC [ ? 13 ~)<br />(  CSI ? 13 ~)</samp></td></tr>
+<tr><td>Set-Up<br />(with Control)</td><td><samp>1/11 5/11 3/14 3/1 3/3 7/14<br />     9/11 3/14 3/1 3/3 7/14</samp></td><td><samp>(ESC [ > 13 ~)<br />(  CSI > 13 ~)</samp></td></tr>
+<tr><td rowspan="3">G02</td><td>F4 (Data/Talk)<br />(normal)</td><td><samp>1/11 5/11 3/1 3/4 7/14<br />     9/11 3/1 3/4 7/14</samp></td><td><samp>(ESC [ 14 ~)<br />(  CSI 14 ~)</samp></td></tr>
+<tr><td>F4 (Data/Talk)<br />(with Shift)</td><td><samp>1/11 5/11 3/15 3/1 3/4 7/14<br />     9/11 3/15 3/1 3/4 7/14</samp></td><td><samp>(ESC [ ? 14 ~)<br />(  CSI ? 14 ~)</samp></td></tr>
+<tr><td>F4 (Data/Talk)<br />(with Control)</td><td><samp>1/11 5/11 3/14 3/1 3/4 7/14<br />     9/11 3/14 3/1 3/4 7/14</samp></td><td><samp>(ESC [ > 14 ~)<br />(  CSI > 14 ~)</samp></td></tr>
+<tr><td rowspan="3">G03</td><td>Break<br />(normal)</td><td><samp>1/11 5/11 3/1 3/5 7/14<br />     9/11 3/1 3/5 7/14</samp></td><td><samp>(ESC [ 15 ~)<br />(  CSI 15 ~)</samp></td></tr>
+<tr><td>Break<br />(with Shift)</td><td><samp>1/11 5/11 3/15 3/1 3/5 7/14<br />     9/11 3/15 3/1 3/5 7/14</samp></td><td><samp>(ESC [ ? 15 ~)<br />(  CSI ? 15 ~)</samp></td></tr>
+<tr><td>Break<br />(with Control)</td><td><samp>1/11 5/11 3/14 3/1 3/5 7/14<br />     9/11 3/14 3/1 3/5 7/14</samp></td><td><samp>(ESC [ > 15 ~)<br />(  CSI > 15 ~)</samp></td></tr>
+</tbody>
+</table>
+</section>
+<a id="D-23" data-page="D-23"></a>
+<section id="D.10">
+<h2>D.10  Change History</h2>
+<section id="D.10.1">
+<h3>D.10.1  Rev AX10 to AX11</h3>
+<ol>
+<li><p>Renamed screen modes NORMAL__SCREEN and REVERSE__SCREEN in code
+for better consistency.</p></li>
+<li><p>Renamed character rendition from REVERSE__VIDEO to REVERSE throughout
+code for better consistency.</p></li>
+<li><p>Removed paragraph describing auto-wrap as a user preference feature.
+Auto-wrap is no longer defined as a user preference feature.</p></li>
+<li><p>Modified algorithm for DECALN to include effect on ORIGIN__MODE
+and CURRENT__RENDITION.</p></li>
+<li><p>Removed statement that DECALN resests terminal.</p></li>
+</ol>
+</section>
+</section>
+</main>
+<footer>
+<a id="D-24" data-page="D-24"></a>
+<section id="Index">
+<h2>Section Index</h2>
+<ul>
+<li>Answerback <a href="#D-9">D-9</a><ul>
+<li>auto answerback <a href="#D-9">D-9</a></li>
+<li>control function <a href="#D-10">D-10</a></li>
+<li>message buffer <a href="#D-9">D-9</a></li>
+</ul>
+</li>
+<li>Auto Wrap Mode <a href="#D-13">D-13</a><ul>
+<li>control function <a href="#D-15">D-15</a></li>
+</ul>
+</li>
+<li>C1 Transmission Mode <a href="#D-20">D-20</a></li>
+<li>Compose Key<ul>
+<li>as local function key <a href="#D-20">D-20</a></li>
+</ul>
+</li>
+<li>Conformance Level <a href="#D-20">D-20</a></li>
+<li>Control Codes<ul>
+<li>answerback <a href="#D-10">D-10</a></li>
+</ul>
+</li>
+<li>Control Key<ul>
+<li>with local function key <a href="#D-20">D-20</a></li>
+</ul>
+</li>
+<li>Control Representation Mode <a href="#D-16">D-16</a></li>
+<li>DECALN <a href="#D-18">D-18</a></li>
+<li>DECAWM <a href="#D-15">D-15</a></li>
+<li>DECTST <a href="#D-11">D-11</a></li>
+<li>Default<ul>
+<li>undefined <a href="#D-5">D-5</a></li>
+</ul>
+</li>
+<li>Device Status <a href="#D-11">D-11</a></li>
+<li>Device Test <a href="#D-11">D-11</a></li>
+<li>ENQ <a href="#D-9">D-9</a>, <a href="#D-10">D-10</a></li>
+<li>Initialization <a href="#D-5">D-5</a></li>
+<li>Last Column Flag<ul>
+<li>definition <a href="#D-13">D-13</a></li>
+</ul>
+</li>
+</ul>
+</section>
+</footer>
+</body>
+</html>
