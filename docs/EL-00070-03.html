@@ -1,0 +1,3345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>VSRM - Code Extension Layer</title>
+<meta charset="UTF-8" />
+<style>*{font-family:"Courier New";font-weight:bold;font-size:15.8px;line-height:15.5px;color:#000000;padding:0;margin:0;text-indent:0;border-collapse:collapse}body{background:#d4d4d8;>header,>main,>footer{width:66ch;padding-left:88px;padding-right:calc(728px - 66ch);padding-bottom:15.5px;background:#ffffff;margin:0 auto}>footer{border-bottom:11px solid #d4d4d8}}a{text-decoration:none}a[href]:hover{color:#bb0000}header>hgroup{>h1{margin-bottom:31px;text-align:center;text-transform:uppercase;+p{text-align:center}>br{margin-bottom:15.5px;display:block;content:' '}}margin-bottom:46.5px}h2,h3,h4,p{margin-bottom:15.5px;white-space:pre-wrap}section{&:has(>h3){margin-top:31px}&:has(>h4){margin-top:31px;h3+&{margin-top:0}}>h2,>h3{text-transform:uppercase}>h4{padding-left:9ch;text-indent:-9ch}>h2>u{text-decoration:underline;text-decoration-thickness:2px}}aside{margin:31px auto 46.5px auto;width:50ch;>h4{text-align:center;margin-bottom:15.5px}a[id]{transform:translateX(-8ch)}header>&{position:relative;overflow:hidden;white-space:nowrap;margin-bottom:46.5px;&:before{content:'+----------------------------------------------------------------------------\A|\A|\A|\A|\A|\A|\A|\A|\A|';white-space:pre;position:absolute;top:0;left:0;pointer-events:none}&:after{content:'+----------------------------------------------------------------------------'}>*{padding:0 2ch;&:first-child{padding-top:15.5px;&:before{content:'+\A|\A|\A|\A|\A|\A|\A|\A|\A|';white-space:pre;position:absolute;top:0;right:0;background:#ffffff}}&:last-child{margin:0;&:after{content:'+';position:absolute;bottom:0;right:0;background:#ffffff}}}&:nth-of-type(1){width:66ch}}}dl{>dt{float:left;padding-right:0.999ch;white-space:pre-wrap;&:after{content:' -'}}>dd{margin-bottom:15.5px;white-space:pre-wrap;&:has(>table),&:has(>p){white-space:normal}>p{display:inline}}}header>dl{>dt{text-transform:uppercase}>dt:after{content:':'}>dd{margin-bottom:31px}&:nth-of-type(1)>dt{padding-right:2ch}&:nth-of-type(2){td{min-width:22ch}>dd:nth-of-type(-n+2){margin-bottom:15.5px}}&:nth-of-type(3){margin-bottom:46.5px;width:70ch;>dt{min-width:29ch;text-transform:none}>dd{margin-bottom:0}}&:nth-of-type(4)>dd>p{display:table;margin-left:10ch;margin-bottom:31px}}header{>dl:first-of-type>dd:nth-of-type(2){width:66.1ch}>p:nth-of-type(3){margin-top:31px;text-align:center;padding-right:1ch}}ul{list-style:none;margin-bottom:15.5px;>li{padding-left:4ch;a[id]{transform:translateX(-4ch)}>ul>li{padding-left:2ch}span{color:transparent;grid-row:2}>code{white-space:pre}}}ol{list-style-type:none;>li{position:relative;margin-bottom:15.5px;padding-left:9ch;a[id]{transform:translateX(-9ch)}>ul>li{padding:0}&:before{content:counter(list-item,decimal) ".";position:absolute;width:3ch;left:4ch;text-align:right}}&[type="a"]>li:before{content:counter(list-item,lower-alpha) "."}}#Contents{>hgroup{text-transform:uppercase;margin-bottom:31px;>h2{margin-bottom:46.5px;padding-left:33ch}>p{padding-left:16ch;text-indent:-16ch;white-space:normal;>br{margin-top:-15.5px;display:block;content:' '}}}a[href]{background:#ffffff;position:relative;z-index:1;&:nth-of-type(1):after{content:'\A0'}&:nth-of-type(2){position:absolute;right:4ch;&:before{content:'\A0'}}}ul{white-space:normal;text-transform:none;margin-bottom:0;>li{padding-left:16ch}}ol ol ol ul>li{padding-left:18ch}ol{margin:0;>li{padding:0;margin:0;>a[id]{transform:none;text-transform:none}&:before{content:"3." counters(list-item,".");padding-left:4ch;padding-right:5ch;position:static;white-space:pre}&:has(>a>br){padding-left:14ch;text-indent:-14ch;ol ol ol &{padding-left:16ch;text-indent:-16ch}}}}>ol>li{margin-top:15.5px;text-transform:uppercase;>ol>li>ol{text-transform:none}&:nth-of-type(n+10):before{padding-right:4ch}&:nth-of-type(n+10) li:before{padding-right:4ch}>ul>li{padding-left:14ch}&:nth-of-type(6)>ul>li{padding-left:16ch}&:nth-of-type(4)>ol{margin-top:15.5px}&:nth-of-type(5) li:nth-of-type(3) li:nth-of-type(-n+4){text-transform:uppercase}}li>span{color:transparent;&:after{content:'. . . . . . . . . . . . . . . . . . . . . .';color:#000000;position:absolute;right:4ch}}}#Index{>h2{text-align:center;text-transform:none;white-space:pre;padding-left:3ch;margin-bottom:31px}>ul{column-count:2;column-gap:2ch;width:70ch;>li{padding-left:4ch;text-indent:-4ch;>ul>li{text-indent:-4ch}}ul{margin-bottom:0}li:not(:has(>ul)){white-space:pre}&:nth-of-type(1)>li{&:nth-child(5),&:nth-child(8),&:nth-child(12){margin-top:15.5px}}&:nth-of-type(2)>li{&:nth-child(4),&:nth-child(18),&:nth-child(22),&:nth-child(23),&:nth-child(28),&:nth-child(29){margin-top:15.5px}}&:nth-of-type(3)>li{&:nth-child(5),&:nth-child(13),&:nth-child(15),&:nth-child(18),&:nth-child(19),&:nth-child(26),&:nth-child(27){margin-top:15.5px}}&:nth-of-type(4)>li{&:nth-child(3){margin-top:15.5px}}}}table{margin-bottom:15.5px;>caption{text-align:center;padding-bottom:15.5px}}tr{>*:not(:last-child){padding-right:0.999ch}}th,td{box-sizing:border-box}th{vertical-align:bottom;text-align:left;position:relative;thead>tr:last-child>&{padding-bottom:15.5px}}td{vertical-align:top}pre>code{display:block;margin-bottom:15.5px}div{margin:31px 0;>p{float:left}>pre>samp{display:block;margin-left:16ch}}samp{p>&{margin-left:8ch}white-space:pre}figure{margin-bottom:31px;>figcaption{text-align:center;margin-top:31px;padding:0 2ch}}section:has(>h4>span),section#ACS{>h4{display:grid;grid-template-columns:56ch 10ch;margin-bottom:0;white-space:normal;text-transform:uppercase;&:after{content:'------------------------------------------------------------------';grid-row:3;grid-column:1;white-space:pre}>span{color:transparent;grid-row:3;grid-column:1}}}section#ACS{>div{margin:15.5px 0}>table{margin-bottom:31px;margin-left:9ch;white-space:pre;tr{>*:last-child:before{content:'|  '}>th:first-child:after{content:'---------+-----------------------';display:block;position:absolute;margin-left:-1ch}}}>aside{margin-top:-15.5px;margin-bottom:31px}>p:nth-of-type(3)>em{width:12ch}>p:last-child{margin-top:46.5px}}section:has(>h4>span){&#SI\/LS0,&#SO\/LS1{>h4{grid-auto-flow:column}}&#SI\/LS0>aside{margin-top:0}&#SO\/LS1,&#LS2R,&#LS3R{>p:nth-of-type(4){margin-top:31px}}&#SS2,&#SS3{>div{margin-bottom:15.5px}>ul{margin-bottom:15.5px}}&#SS3{>p:nth-of-type(5){margin-top:31px}>pre>code{margin-bottom:15.5px;padding-left:4ch;>a[id]{transform:translateX(-4ch)}}}}em{font-style:normal;display:inline-block;padding-right:0.999ch;min-width:8ch}#\33\.1\.4>figure{margin-top:77.5px;&:nth-of-type(1)>pre{padding-left:3ch}&:nth-of-type(2){margin-right:1ch;>pre{padding-left:1ch}}}#\33\.2>dl{margin-top:31px}#\33\.3 li>p+p{text-align:center;padding-right:1ch}#\33\.3\.1{margin-top:0;>figure{margin-top:31px;margin-bottom:46.5px}}#\33\.3\.2>figure{margin-top:31px;>pre{padding-left:15ch}}#\33\.3\.3>figure{margin-top:31px;>figcaption{margin-top:15.5px}}#\33\.5\.3>section:nth-of-type(-n+4)>h4{text-transform:uppercase}#\33\.5\.3\.1,#\33\.5\.3\.4,#\33\.5\.4\.1,#\33\.5\.4\.2,#\33\.5\.4\.3{margin-top:46.5px}#\33\.5\.3\.3>ul>li{margin-bottom:15.5px;padding-left:9ch}#\33\.5\.3\.5>table{margin-top:46.5px;position:relative;>caption:after,th:first-child:after,tr:last-child>td:last-child:after{content:'------------------------------------------------------------------';display:block;position:absolute;left:0;white-space:pre}>thead>tr{th:nth-child(2){padding-right:6ch}th:nth-child(3){padding-left:1ch}}>tbody>tr{>td{padding-top:15.5px}>td:nth-child(1){width:8ch}>td:nth-child(2){width:20ch}>td:nth-child(3){width:37ch}&:nth-child(-n+3)>td:last-child{padding-left:1ch}&:nth-child(n+8)>td:last-child{padding-top:46.5px}&:last-child>td:last-child{&:before{content:'\A0';float:right;padding-right:3ch}&:after{padding-top:15.5px}}}}#\33\.5\.4>ul{margin-bottom:0;>li{display:grid;grid-template-columns:31ch 26ch}}#\33\.5\.4\.1,#\33\.5\.4\.2{>p:has(>samp){margin-top:31px}}#\33\.5\.5{>p:nth-of-type(2),>p:nth-of-type(5){margin-top:31px}>ul{margin-bottom:0;>li{display:grid;grid-template-columns:16ch 34ch;white-space:pre}}}#\33\.5\.5\.1{>pre>code>a{margin-bottom:46.5px}>pre:nth-of-type(1)>code{margin-top:62px}>pre:nth-of-type(3)>code{>a:nth-child(4n+2),>a:nth-child(3n+9),>a:nth-child(8){margin-bottom:31px}}>pre:nth-of-type(4)>code{>a:nth-child(n+3),>a:nth-child(1){margin-bottom:31px}}}#\33\.6\.1{>figure>figcaption{margin-top:15.5px}>section>table{margin-bottom:31px;position:relative;>thead>tr{>th{padding-bottom:31px}>th:first-child:after{content:'------------------------------------------------------------------';display:block;position:absolute;left:0;white-space:pre}>th:nth-child(3){padding-right:4ch}}>tbody>tr{>td:nth-child(1){width:8ch}>td:nth-child(2){width:32ch}>td:nth-child(3){width:16ch}>td:nth-child(4){width:10ch}}>tfoot>tr>td{padding-top:15.5px;padding-right:2ch;white-space:pre-wrap}}}#\33\.6\.2{margin-top:62px}#\33\.6\.3>pre>code{margin-top:31px}#\33\.6\.4\.2>p:first-of-type{margin-top:31px}#\33\.7\.1,#\33\.8\.1{margin-top:0}#\33\.7\.5>ul{margin-top:31px;>li{padding-left:0;a[id]{transform:translateX(0)}>p:before{content:'* '}>table{margin-left:3ch;td{width:16ch}td:first-of-type{width:13ch}tr:nth-child(3)>td{padding:15.5px 0;&:nth-child(2){padding-left:1ch}}}}}#\33\.7\.5\.1{margin-top:62px}#\33\.8{section>ul{margin-bottom:31px}section>ol{margin-bottom:46.5px}pre>code{margin-bottom:31px}p:nth-of-type(3)>em{width:14ch}}#\33\.9>section{>h3{margin-bottom:31px}+section{margin-top:77.5px}&:first-of-type{margin-top:0}}#\33\.10{>dl{width:67ch;>dt{margin-left:2ch;&:after{display:none}}>dd{margin-left:22ch;max-width:45ch}&:first-of-type>dt{margin-left:4ch}a[id]{transform:translateX(-22ch)}}>p:nth-of-type(4){margin-top:31px}>p:last-of-type{text-align:center}}a[id]{display:block;position:relative;left:-88px;padding-left:88px;padding-right:calc(728px - 66ch);width:66ch;height:31px;margin-top:92px;margin-bottom:31px;border-top:11px solid #d4d4d8;padding-top:32px;white-space:pre;&:before{content:'EL-00070-03                    14-Apr-1989\A' 'VSRM - Code Extension Layer              Digital Internal Use Only'}&:after{content:'Page ' attr(data-page);position:absolute;top:32px;right:calc(728px - 66ch)}footer &:after{right:calc(728px - 70ch)}}#\33-39,#\33-41,#\33-49{margin-top:76.5px}#\33-67,#\33-84,#\33-85{margin-top:107.5px}#\33-23,#\33-24,#\33-29,#\33-33,#\33-57{margin-top:123px}#\33-4,#\33-8,#\33-25,#\33-30,#\33-38,#\33-47,#\33-61,#\33-74{margin-top:138.5px}#\33-5,#\33-13,#\33-62,#\33-64,#\33-78{margin-top:154px}#\33-26,#\33-68,#Index-3{margin-top:169.5px}#\33-2,#\33-14,#\33-21,#\33-36{margin-top:185px}#\33-3,#\33-20{margin-top:200.5px}#\33-10,#\33-19,#\33-77{margin-top:216px}#\33-76,#\33-89,#Index-2,#Index-4{margin-top:231.5px}#\33-16,#\33-28{margin-top:247px}#\33-17,#\33-73{margin-top:278px}#\33-32,#\33-59,#\33-72{margin-top:309px}#\33-12,#\33-18{margin-top:324.5px}#\33-31,#\33-79,#\33-80,#\33-81{margin-top:340px}#\33-9,#\33-22,#\33-27{margin-top:355.5px}#\33-60,#\33-75{margin-top:371px}#\33-52{margin-top:433px}#\33-15{margin-top:448.5px}#\33-86{margin-top:464px}#\33-65,#\33-88{margin-top:479.5px}#\33-35,#\33-56{margin-top:495px}#\33-34,#\33-83{margin-top:510.5px}#\33-37{margin-top:541.5px}#\33-55{margin-top:557px}#\33-54,#\33-90{margin-top:619px}#\33-58{margin-top:712px}#\33-71{margin-top:805px}#\33-6{margin-top:851.5px}body{>header,>main,>footer{>a[id]:first-child{margin-top:0}}>header{padding-bottom:960px}>main{padding-bottom:929px}>footer{padding-bottom:805px}}</style>
+</head>
+<body>
+<header>
+<a id="3-1" data-page="3-1"></a>
+<hgroup>
+<h1>DEC STD 070-3 Video Systems Standard -<br />Code Extension Layer</h1>
+<p>Document Identifier: A-DS-EL00070-03-0 Rev A, 14-Apr-1989&nbsp;</p>
+</hgroup>
+<dl>
+<dt>Abstract</dt>
+<dd><p>This document defines the form and syntax of the coded communication between terminal products and other system components.  It applies directly to serial line communications, consisting of a stream of 7-bit or 8-bit combinations referred to as "character codes".  The mechanisms employed for achieving this form of communication, however, may be applied within the context of block oriented line protocols, networking packet protocols, and program call interfaces over high-bandwidth bus interconnects.</p></dd>
+<dt>Applicability</dt>
+<dd><p>This document is Mandatory for Engineers designing hardware for terminal products and software engineers designing programs using terminal interfaces.  Additional requirements are defined in <a><u>DEC</u> <u>STD</u> <u>070-1</u> <u>Video</u> <u>Systems</u> <u>Reference</u> <u>Manual</u> <u>-</u> <u>Concepts</u> <u>and</u> <u>Conformance</u> <u>Criteria</u></a>.</p></dd>
+<dt>Status</dt>
+<dd><p>APPROVED 14-Apr-1989; type $ VTX SMC for expiration date.</p></dd>
+</dl>
+<aside>
+<p>The material contained within this document is assumed to
+define mandatory standards unless it is clearly marked as: 
+(a) not mandatory; or (b) guidelines.  Material that is
+marked as "not mandatory" is considered to be of potential
+benefit to the corporation and should be followed unless there
+are good reasons for non-compliance. "Guidelines" define
+approaches and techniques that are considered to be good
+practice, but should not be considered as requirements.</p>
+</aside>
+<p>This document is confidential and proprietary.  It is an unpublished work protected under the Federal copyright laws.</p>
+<p>Copyright (c) Digital Equipment Corporation.  1989.  All rights reserved.</p>
+<p>Digital Internal Use Only</p>
+<a id="3-2" data-page="3-2"></a>
+<dl>
+<dt>Title</dt>
+<dd>DEC STD 070-3 VIDEO SYSTEMS STANDARD - CODE EXTENSION LAYER</dd>
+<dt>Document Identifier</dt>
+<dd>A-DS-EL00070-03-0 Rev A, 14-Apr-1989</dd>
+<dt>Revision History</dt>
+<dd><table>
+<tbody>
+<tr><td>Original Draft</td><td>08-Jun-1982</td></tr>
+<tr><td>Revision 0.1</td><td>04-Sep-1982</td></tr>
+<tr><td>Revision 0.2</td><td>20-Oct-1982</td></tr>
+<tr><td>Revision 0.3</td><td>08-Dec-1982</td></tr>
+<tr><td>Revision AX04</td><td>28-Feb-1983</td></tr>
+<tr><td>Revision AX10</td><td>15-May-1983</td></tr>
+<tr><td>Revision AX11</td><td>18-Mar-1985</td></tr>
+<tr><td>Revision AX12</td><td>06-Feb-1988</td></tr>
+<tr><td>Revision A</td><td>14-Apr-1989</td></tr>
+</tbody>
+</table>
+</dd>
+</dl>
+<dl>
+<dt>Document Management Category</dt>
+<dd>Terminal Interface Architecture (STI)</dd>
+<dt>Responsible Department</dt>
+<dd>DSG Terminals Architecture</dd>
+<dt>Responsible Person</dt>
+<dd>Peter Sichel</dd>
+<dt>SMC Writer</dt>
+<dd>Patricia Winner</dd>
+</dl>
+<dl>
+<dt>Approval</dt>
+<dd><p>This document prepared by the Desktop Systems Group has&nbsp;been reviewed and recommended for approval by the general review group for its category for use throughout Digital.</p>
+<p>________________________________________<br />Peter Conklin, Technical Director,<br />Desktop Systems Group</p>
+<p>________________________________________<br />Peter Sichel, Desktop Systems Group</p>
+<p>________________________________________<br />Eric Williams, Standards Process Manager</p></dd>
+</dl>
+<p>Direct requests for further information to Peter Sichel, DSG1-&NoBreak;2/&NoBreak;C7, DTN 235-8374, HANNAH::TERMARCH</p>
+<p>Copies of this document can be ordered from Standards and Methods Control, $ VTX SMC, JOKUR::SMC, DTN:  287-3724, or CTS1-2/D4.</p>
+<p>Please supply your name, badge number, cost center, mailstop, and ENET node when ordering.</p>
+<a id="3-3" data-page="3-3"></a>
+<section id="Contents">
+<hgroup>
+<h2>Contents</h2>
+<p>Chapter 3<br />DEC STD 070-3 Video Systems Standard - Code Extension Layer</p>
+</hgroup>
+<ol>
+<li><a href="#3.1">Introduction</a><span> … </span><a href="#3-7">3-7</a><ol>
+<li><a href="#3.1.1">Scope</a><span> … </span><a href="#3-7">3-7</a></li>
+<li><a href="#3.1.2">National Replacement Character Set (NRCS)<br />Extension</a><span> … </span><a href="#3-7">3-7</a></li>
+<li><a href="#3.1.3">8-Bit Interface Architecture Extension</a><span> … </span><a href="#3-7">3-7</a></li>
+<li><a href="#3.1.4">Relationship To Terminal Interface<br />Architecture (TIA)</a><span> … </span><a href="#3-8">3-8</a></li>
+</ol>
+</li>
+<li><a href="#3.2">Terminology</a><span> … </span><a href="#3-10">3-10</a></li>
+<li><a href="#3.3">Character Coding Description</a><span> … </span><a href="#3-12">3-12</a><ol>
+<li><a href="#3.3.1">Character Codes</a><span> … </span><a href="#3-12">3-12</a></li>
+<li><a href="#3.3.2">7-Bit Character Sets</a><span> … </span><a href="#3-12">3-12</a></li>
+<li><a href="#3.3.3">8-Bit Character Sets</a><span> … </span><a href="#3-14">3-14</a></li>
+<li><a href="#3.3.4">Control And Graphic Codes</a><span> … </span><a href="#3-16">3-16</a><ol>
+<li><a href="#3.3.4.1">Control Characters</a><span> … </span><a href="#3-16">3-16</a></li>
+<li><a href="#3.3.4.2">Graphic Characters</a><span> … </span><a href="#3-16">3-16</a></li>
+</ol>
+</li>
+</ol>
+</li>
+<li><a href="#3.4">Special Characters</a><span> … </span><a href="#3-17">3-17</a><ol>
+<li><a href="#3.4.1">2/0 (Space)</a><span> … </span><a href="#3-17">3-17</a></li>
+<li><a href="#3.4.2">7/15 (Delete)</a><span> … </span><a href="#3-17">3-17</a></li>
+<li><a href="#3.4.3">10/0</a><span> … </span><a href="#3-17">3-17</a></li>
+<li><a href="#3.4.4">15/15</a><span> … </span><a href="#3-17">3-17</a></li>
+</ol>
+</li>
+<li><a href="#3.5">Control Code Extension Techniques</a><span> … </span><a href="#3-18">3-18</a><ol>
+<li><a href="#3.5.1">General Rules</a><span> … </span><a href="#3-18">3-18</a><ol>
+<li><a href="#3.5.1.1">Precedence of Control Functions</a><span> … </span><a href="#3-18">3-18</a></li>
+<li><a href="#3.5.1.2">Termination Conditions</a><span> … </span><a href="#3-18">3-18</a><ol>
+<li><a href="#3.5.1.2.1">Cancel</a><span> … </span><a href="#3-19">3-19</a></li>
+<li><a href="#3.5.1.2.2">Substitute</a><span> … </span><a href="#3-19">3-19</a></li>
+<li><a href="#3.5.1.2.3">Escape</a><span> … </span><a href="#3-19">3-19</a></li>
+<li><a href="#3.5.1.2.4">C1 Control Codes</a><span> … </span><a href="#3-19">3-19</a></li>
+<li><a href="#3.5.1.2.5">Universal Terminator</a><span> … </span><a href="#3-19">3-19</a></li>
+</ol>
+</li>
+<li><a href="#3.5.1.3">Unimplemented Functions</a><span> … </span><a href="#3-20">3-20</a></li>
+<li><a href="#3.5.1.4">Transformation Between 7-bit and 8-bit<br />Environments</a><span> … </span><a href="#3-21">3-21</a></li>
+</ol>
+</li>
+<li><a href="#3.5.2">Escape Sequences</a><span> … </span><a href="#3-22">3-22</a><ol>
+<li><a href="#3.5.2.1">Expansion Escape Sequence (Fe)</a><span> … </span><a href="#3-23">3-23</a></li>
+</ol>
+</li>
+<li><a href="#3.5.3">Control Sequences</a><span> … </span><a href="#3-23">3-23</a><ol>
+<li><a href="#3.5.3.1">Parameter Values In Control Sequences</a><span> … </span><a href="#3-24">3-24</a></li>
+<li><a href="#3.5.3.2">Numeric Parameters</a><span> … </span><a href="#3-25">3-25</a></li>
+<li><a href="#3.5.3.3">Selective Parameters</a><span> … </span><a href="#3-25">3-25</a></li>
+<li><a href="#3.5.3.4">Private Parameter Strings</a><span> … </span><a href="#3-26">3-26</a></li>
+<li><a href="#3.5.3.5">Examples of Parameter Strings</a><span> … </span><a href="#3-27">3-27</a></li>
+</ol>
+<a id="3-4" data-page="3-4"></a></li>
+<li><a href="#3.5.4">Control Strings</a><span> … </span><a href="#3-28">3-28</a><ol>
+<li><a href="#3.5.4.1">Device Control Strings</a><span> … </span><a href="#3-28">3-28</a></li>
+<li><a href="#3.5.4.2">Other Control Strings</a><span> … </span><a href="#3-29">3-29</a></li>
+<li><a href="#3.5.4.3">Character Strings</a><span> … </span><a href="#3-29">3-29</a></li>
+<li><a href="#3.5.4.4">Termination Conditions</a><span> … </span><a href="#3-30">3-30</a></li>
+<li><a href="#3.5.4.5">GR Graphic Characters Within Control<br />Strings</a><span> … </span><a href="#3-30">3-30</a></li>
+<li><a href="#3.5.4.6">Unimplemented Control Strings</a><span> … </span><a href="#3-30">3-30</a></li>
+</ol>
+</li>
+<li><a href="#3.5.5">Parsing Algorithms</a><span> … </span><a href="#3-31">3-31</a><ol>
+<li><a href="#3.5.5.1">C Language Source Code</a><span> … </span><a href="#3-32">3-32</a></li>
+</ol>
+</li>
+</ol>
+</li>
+<li><a href="#3.6">Graphic Code Extension Techniques</a><span> … </span><a href="#3-59">3-59</a><ol>
+<li><a href="#3.6.1">Description Of Shift Functions</a><span> … </span><a href="#3-59">3-59</a><ol>
+<li><a href="#3.6.1.1">Locking Shifts</a><span> … </span><a href="#3-61">3-61</a></li>
+<li><a href="#3.6.1.2">Single Shift Functions</a><span> … </span><a href="#3-62">3-62</a></li>
+</ol>
+</li>
+<li><a href="#3.6.2">Designating Character Sets</a><span> … </span><a href="#3-62">3-62</a></li>
+<li><a href="#3.6.3">The User Preference Supplemental Set (Upss)</a><span> … </span><a href="#3-62">3-62</a></li>
+<li><a href="#3.6.4">Default Designation And Invocation</a><span> … </span><a href="#3-63">3-63</a><ol>
+<li><a href="#3.6.4.1">Level 1</a><span> … </span><a href="#3-63">3-63</a></li>
+<li><a href="#3.6.4.2">Level 2 (without 8-bit Interface<br />Architecture Extension)</a><span> … </span><a href="#3-63">3-63</a></li>
+<li><a href="#3.6.4.3">Level 3 (or Level 2 with 8-bit Interface<br />Architecture Extension)</a><span> … </span><a href="#3-64">3-64</a></li>
+<li><a href="#3.6.4.4">NRCS Extension</a><span> … </span><a href="#3-64">3-64</a></li>
+</ol>
+</li>
+</ol>
+</li>
+<li><a href="#3.7">State Descriptions</a><span> … </span><a href="#3-65">3-65</a><ol>
+<li><a href="#3.7.1">Control Sets</a><span> … </span><a href="#3-65">3-65</a></li>
+<li><a href="#3.7.2">G-Sets</a><span> … </span><a href="#3-65">3-65</a></li>
+<li><a href="#3.7.3">In Use Table</a><span> … </span><a href="#3-65">3-65</a></li>
+<li><a href="#3.7.4">Single Shift Functions</a><span> … </span><a href="#3-66">3-66</a></li>
+<li><a href="#3.7.5">Environments</a><span> … </span><a href="#3-66">3-66</a><ol>
+<li><a href="#3.7.5.1">Level 1 - Host Port</a><span> … </span><a href="#3-67">3-67</a></li>
+<li><a href="#3.7.5.2">Level 2 or Level 3 - Host Port</a><span> … </span><a href="#3-67">3-67</a></li>
+</ol>
+</li>
+</ol>
+</li>
+<li><a href="#3.8">Control Operations</a><span> … </span><a href="#3-68">3-68</a><ol>
+<li><a href="#3.8.1">Announce Subset Of Code Extension<br />Facilities</a><span> … </span><a href="#3-68">3-68</a></li>
+<li><a href="#3.8.2">Communications Environment</a><span> … </span><a href="#3-71">3-71</a><ul>
+<li><a href="#S7C1T">Select 7-Bit C1 Transmission</a></li>
+<li><a href="#S8C1T">Select 8-Bit C1 Transmission</a></li>
+</ul>
+</li>
+<li><a href="#3.8.3">Shift Functions</a><span> … </span><a href="#3-73">3-73</a><ol>
+<li><a href="#3.8.3.1">Locking Shifts</a><span> … </span><a href="#3-73">3-73</a><ul>
+<li><a href="#SI/LS0">Locking Shift Zero (Shift In)</a></li>
+<li><a href="#SO/LS1">Locking Shift One (Shift Out)</a></li>
+<li><a href="#LS2">Locking Shift Two</a></li>
+<li><a href="#LS3">Locking Shift Three</a></li>
+<li><a href="#LS1R">Locking Shift One Right</a></li>
+<li><a href="#LS2R">Locking Shift Two Right</a></li>
+<li><a href="#LS3R">Locking Shift Three Right</a></li>
+</ul>
+</li>
+<li><a href="#3.8.3.2">Single Shifts</a><span> … </span><a href="#3-80">3-80</a><ul>
+<li><a href="#SS2">Single Shift Two</a></li>
+<li><a href="#SS3">Single Shift Three</a></li>
+</ul>
+<a id="3-5" data-page="3-5"></a></li>
+</ol>
+</li>
+</ol>
+</li>
+<li><a href="#3.9">Change History</a><span> … </span><a href="#3-83">3-83</a><ol>
+<li><a href="#3.9.1">Revision 0.2 to 0.3</a><span> … </span><a href="#3-83">3-83</a></li>
+<li><a href="#3.9.2">Revision 0.3 to AX10</a><span> … </span><a href="#3-84">3-84</a></li>
+<li><a href="#3.9.3">Revision AX10 to AX11</a><span> … </span><a href="#3-85">3-85</a></li>
+<li><a href="#3.9.4">Revision AX11 to AX12</a><span> … </span><a href="#3-86">3-86</a></li>
+</ol>
+</li>
+<li><a href="#3.10">Referenced Documents</a><span> … </span><a href="#3-88">3-88</a></li>
+</ol>
+<a id="3-6" data-page="3-6"></a>
+</section>
+</header>
+<main>
+<a id="3-7" data-page="3-7"></a>
+<section id="3.1">
+<h2><u>3.1</u>  <u>Introduction</u></h2>
+<p>This specification defines the form and syntax of the coded interchange between terminal products and other system components.  It applies directly to serial line communications consisting of a stream of 7-bit or 8-bit combinations referred to as "coded characters".  The mechanisms employed for achieving this form of communication, however, may be applied within the context of block oriented line protocols, networking packet protocols, and program call interfaces over high-bandwidth bus interconnects.</p>
+<section id="3.1.1">
+<h3>3.1.1  Scope</h3>
+<p>The recognition and coding of characters as described in this specification applies uniformly to all display terminals, printing terminals, computing terminals and workstations, and is independent of the actual character sets implemented in a particular terminal product.  The syntax defined herein applies equally to the transmission and receipt of coded interchange at the terminal interface.</p>
+</section>
+<section id="3.1.2">
+<h3>3.1.2  National Replacement Character Set (NRCS) Extension</h3>
+<p>Support for National Replacement Character Sets was introduced as an extension to the VT200 family of Digital terminals for backward compatibility with national versions of the VT100 family.  The NRCS extension allows U.S.  ASCII to be replaced by one of 12 NRC sets corresponding to the keyboard dialect selected (when the keyboard dialect is other than "North American").  These 7-bit character sets are similar to U.S.  ASCII, but replace certain reserved character positions with national use characters.  The National Replacement Character Mode (DECNRCM) is intended for backward compatibility and restricts the terminal to 7-bit characters.  New applications are encouraged to use one of the 8-&NoBreak;bit multinational character sets.  See "Character Set Mode" in <a><u>DEC</u> <u>STD</u> <u>070-6</u> <u>Video</u> <u>Systems</u> <u>Reference</u> <u>Manual</u> <u>-</u> <u>Keyboard</u> <u>Processing</u></a>.  The rest of this section of DEC STD 070 does not assume the NRCS Extension is present.</p>
+</section>
+<section id="3.1.3">
+<h3>3.1.3  8-Bit Interface Architecture Extension</h3>
+<p>Support for 96-character graphic character sets, ISO Latin-1 Supplemental, and the User Preference Supplemental Set (UPSS) was introduced on the VT300 family of Digital terminals.  The 8-bit Interface Architecture Extension is required for Level 3 conformance to the Character Cell Display service class, and is strongly recommended (but not mandatory) for Level 2.  It is also mandatory for Level 2 of the Character Cell Printer service class.  The rest of this section for DEC STD 070 assumes the 8-bit Interface Architecture Extension is present.</p>
+</section>
+<a id="3-8" data-page="3-8"></a>
+<section id="3.1.4">
+<h3>3.1.4  Relationship To Terminal Interface Architecture (TIA)</h3>
+<p>Character encoding forms a part of the Code Extension Layer of the Terminal Interface Architecture.  It is independent of any specific service class, and therefore applies across all products implementing any aspect of the architecture.</p>
+<figure>
+<pre>                                  USER
+
+ ..........  -----------------------------------------------
+ .        .  |                                             |
+ .        .  |              Input Processing               |
+ .        .  |                                             |
+ .        .  |                                             |
+ .  T  M  .  -----------------------------------------------
+ .  e  a  .  -----------------------------------------------
+ .  r  n  .  |                                             |
+ .  m  a  .  |                Presentation                 |
+ .  i  g  .  |               Service  Class                |
+ .  n  e  .  |                                             |
+ .  a  m  .  |                                             |
+ .  l  e  .  -----------------------------------------------
+ .     n  .  ===============================================
+ .     t  .  ||                             .      .      ||
+ .        .  ||             Code Extension  . NRCS . 8-bit||
+ .        .  ||                 Layer       .      . IA   ||
+ .        .  ||                             .      .      ||
+ ..........  ===============================================
+
+
+                            APPLICATION PROCESS
+
+</pre>
+<figcaption>Figure 1. Structuring of the Terminal Interface Architecture</figcaption>
+</figure>
+<a id="3-9" data-page="3-9"></a>
+<p>The interfaces defined within this standard apply to both internal and external product interfaces.  External interfaces are interfaces between a terminal, personal computer, or workstation and a remote system.  Internal interfaces are interfaces between a terminal subsystem and software processes running within a terminal, personal computer, or workstation.</p>
+<figure>
+<pre>                          *
+                          *
+      terminal system     *                        host system
+--------------------------*                      ---------------
+|            |            *                      |             |
+|  physical  |  virtual   *..........            | application |
+|  terminal  |  terminal  *        ..............|   process   |
+|            |            *                      |             |
+--------------------------*                      ---------------
+  &lt;hardware>   &lt;firmware> * &lt;communications link>   &lt;software>
+                          *
+                          *
+                          * EXTERNAL INTERFACE
+
+
+
+
+
+                          *
+                          *
+              terminal system
+--------------------------*--------------
+|            |            *             |
+|  physical  |  virtual   * application |
+|  terminal  |  terminal  *   process   |
+|            |            *             |
+--------------------------*--------------
+  &lt;hardware>   &lt;software/ *  &lt;software>
+                firmware> *
+                          *
+                          * INTERNAL INTERFACE
+
+
+
+</pre>
+<figcaption>Figure 2. External and Internal Terminal Interfaces</figcaption>
+</figure>
+</section>
+</section>
+<a id="3-10" data-page="3-10"></a>
+<section id="3.2">
+<h2><u>3.2</u>  <u>Terminology</u></h2>
+<dl>
+<dt>bit combination</dt>
+<dd>Ordered set of bits that represent a character.</dd>
+<dt>byte</dt>
+<dd>A 7-bit or 8-bit string that is used to represent control or graphic information.  The size of the byte is independent of redundancy or framing technique.  (Note:  this term commonly refers to the 8-bit unit.)</dd>
+<dt>character</dt>
+<dd>Member of a set of elements that is used for the organization, control and representation of data.</dd>
+<dt>code; Coded Character Set</dt>
+<dd>Set of unambiguous rules that establishes a character set and the one-to-one relationship between the characters of the set and their bit combinations.</dd>
+<dt>code extension</dt>
+<dd>Techniques for the encoding of characters that are not included in the character set of a given code.</dd>
+<dt>code table</dt>
+<dd>Table showing the character corresponding to each bit combination in a code.</dd>
+<dt>control character</dt>
+<dd>Control function of which the coded representation consists of a single bit combination.</dd>
+<dt>control function</dt>
+<dd>Action that affects the recording, processing, transmission, or interpretation of data.  The coded representation of a control function consists of one or more bit combinations.</dd>
+<dt>control sequence</dt>
+<dd>Bit string that is for control purposes in code extension procedures consisting of two or more bit combinations, beginning with a Control Sequence Introducer (CSI) control function, and that may contain parametric information for the control function.</dd>
+<dt>control string</dt>
+<dd>A string of characters that is used to perform a control function and is delimited by an opening and closing delimiter control.  The opening delimiter is one of a small set of introducer control functions (APC, DCS, OSC, PM), and the closing delimiter is String Terminator (ST).  Within Digital, the syntax of control strings has been extended to include an introducer sequence that acts as a protocol selector and specifies how to interpret subsequent control string data.</dd>
+<dt>designate</dt>
+<dd>To identify a set of characters that are to be represented, in some cases immediately and in others upon further occurrence of a control function, in a prescribed manner.</dd>
+<dt>environment</dt>
+<dd>The characteristic that identifies the number of bits used to represent a character in a data processing or data communication system, or in part of such a system.</dd>
+<dt>escape sequence</dt>
+<dd>Bit string that is for control purposes in code extension procedures consisting of two or more bit combinations, the first of which is an Escape (ESC) character.<a id="3-11" data-page="3-11"></a></dd>
+<dt>expansion escape sequence (Fe)</dt>
+<dd>2-character escape sequence in which the final character is in columns 4 and 5, and is used to extend the 7-bit code table by being the row equivalent to the corresponding C1 set of controls in columns 8 and 9 of an 8-bit code.</dd>
+<dt>final character</dt>
+<dd>The character whose bit combination terminates an escape sequence, control sequence, or control string introducer sequence.</dd>
+<dt>graphic character</dt>
+<dd>Character, other than a control character, that has a handwritten, printed, or displayed visual representation and that has a coded representation consisting of one bit combination.</dd>
+<dt>intermediate character</dt>
+<dd>A character whose bit combination precedes a Final character in an escape sequence, control sequence, or control string introducer sequence.</dd>
+<dt>invoke</dt>
+<dd>To cause a designated set of characters to be represented by the prescribed bit combinations whenever those bit combinations occur (until an appropriate code extension function occurs).</dd>
+<dt>numeric parameter</dt>
+<dd>A control sequence parameter used for passing numeric values.</dd>
+<dt>parameter string</dt>
+<dd>A character string, the bit combination of which occurs between the Control Sequence Introducer character and the first intermediate character or final character of a control sequence.</dd>
+<dt>position</dt>
+<dd>Item in a code table identified by its column and row coordinates.</dd>
+<dt>represent</dt>
+<dd>1) To use a prescribed bit combination with the meaning of a character in a set of characters that has been designated and invoked.  2) To use an escape sequence with the meaning of an additional control function.</dd>
+<dt>selective parameter</dt>
+<dd>A control sequence parameter used to select particular entries from a specified list.</dd>
+</dl>
+</section>
+<a id="3-12" data-page="3-12"></a>
+<section id="3.3">
+<h2><u>3.3</u>  <u>Character</u> <u>Coding</u> <u>Description</u></h2>
+<section id="3.3.1">
+<h3>3.3.1  Character Codes</h3>
+<p>A character code is a unique bit combination that defines a position in a coded character set by its column and row coordinate within that set.  Characters may be coded using 7-bit combinations or 8-bit combinations.  The choice of whether 7-bit or 8-bit character codes are used is dependent on the "width" (frame size) of the communications channel (referred to in this specification as the "environment").</p>
+<p>If the channel is only seven bits wide, then only 7-bit character codes may be used.  If the channel is eight bits wide, then either 7-&NoBreak;bit or 8-bit character codes may be used (7-bit character codes are a specific subset of the 8-bit code structure).  The following table describes how the column and row position in the coded character set is derived from both 7-bit and 8-bit character codes.</p>
+<figure>
+<pre>                   _________________________________________
+                   |    |    |    |    |    |    |    |    |
+Bits of a 7-bit    | -- | b7 | b6 | b5 | b4 | b3 | b2 | b1 |
+combination        |____|____|____|____|____|____|____|____|
+                   |    |    |    |    |    |    |    |    |
+Bits of an 8-bit   | a8 | a7 | a6 | a5 | a4 | a3 | a2 | a1 |
+combination        |____|____|____|____|____|____|____|____|
+                   |                   |                   |
+                   |      COLUMN       |        ROW        |
+                   |___________________|___________________|
+
+                            Column and Row Reference</pre>
+</figure>
+</section>
+<section id="3.3.2">
+<h3>3.3.2  7-Bit Character Sets</h3>
+<p>A 7-bit coded character set has the following features.</p>
+<ol type="a">
+<li><p>A set of 32 control characters allocated to columns 00 and 01 (bit combinations in the range 0/0 to 1/15 inclusive).</p>
+<p>AND EITHER</p></li>
+<li><p>A character Space (SP) in position 2/0, that may be regarded as either a control character or a graphic character.</p></li>
+<li><p>A set of 94 graphic characters allocated to columns 02 to 07 (bit combinations from 2/1 to 7/14, inclusive).</p><a id="3-13" data-page="3-13"></a></li>
+<li><p>A control character Delete (DEL) in position 7/15.</p>
+<p>OR</p></li>
+<li><p>A set of 96 graphic characters allocated to columns 02 to 07 (bit combinations from 2/0 to 7/15, inclusive).</p></li>
+</ol>
+<p>The following table describes the structure of a 7-bit coded character set including a 94-character graphic character set.</p>
+<figure>
+<pre> row             column
+
+    00  01  02  03  04  05  06  07
+   +---+---+---+---+---+---+---+---+
+ 00|       |SP |                   |
+   +       +---+                   |
+ 01|       |                       |
+   +       |                       |
+ 02|       |                       |
+   +       |                       |
+ 03|       |                       |
+   +       |                       |
+ 04|       |                       |
+   +       |                       |
+ 05|       |                       |
+   +       |                       |
+ 06|       |                       |
+   +       |                       |
+ 07|  C0   |          GL           |
+   +control|        graphic        |
+ 08| codes |         codes         |
+   +       |                       |
+ 09|       |                       |
+   +       |                       |
+ 10|       |                       |
+   +       |                       |
+ 11|       |                       |
+   +       |                       |
+ 12|       |                       |
+   +       |                       |
+ 13|       |                       |
+   +       |                       |
+ 14|       |                       |
+   +       |                   +---+
+ 15|       |                   |DEL|
+   +---+---+---+---+-----------+---+
+</pre>
+<figcaption>Figure 3. 7-bit Code Table Structure</figcaption>
+</figure>
+</section>
+<a id="3-14" data-page="3-14"></a>
+<section id="3.3.3">
+<h3>3.3.3  8-Bit Character Sets</h3>
+<p>An 8-bit coded character set has the following features.</p>
+<ol type="a">
+<li><p>All the features of a 7-bit coded character set as previously listed.</p></li>
+<li><p>A set of thirty-two control characters allocated to columns 08 and 09, called the C1 control set (bit combinations from 8/0 to 9/15, inclusive).</p>
+<p>AND EITHER</p></li>
+<li><p>A set of 94 graphic characters allocated to columns 10 to 15 (bit combinations from 10/1 to 15/14, inclusive), called the GR graphics set (for right-hand graphics set).</p>
+<p>OR</p></li>
+<li><p>A set of 96 graphic characters allocated to columns 10 to 15 (bit combinations from 10/0 to 15/15, inclusive).</p></li>
+</ol>
+<aside>
+<h4>Note</h4>
+<p>2/0, 7/15, 10/0 and 15/15 are not included in C0, GL, C1, or GR for 94-character graphic sets.</p>
+<p>2/0 and 7/15 are included in GL when a 96-&NoBreak;character set is invoked into GL.</p>
+<p>10/0 and 15/15 are included in GR when a 96-&NoBreak;character set is invoked into GR.</p>
+</aside>
+<a id="3-15" data-page="3-15"></a>
+<p>The following table describes the structure of an 8-bit coded character set with 94-character graphic character sets.</p>
+<figure>
+<pre>Row                            Column
+
+   00  01  02  03  04  05  06  07  08  09  10  11  12  13  14  15
+  +---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+
+00|       |SP |                   |       |XXX|                   |
+  +       +---+                   |       +---+                   +
+01|       |                       |       |                       |
+  +       |                       |       |                       +
+02|       |                       |       |                       |
+  +       |                       |       |                       +
+03|       |                       |       |                       |
+  +       |                       |       |                       +
+04|       |                       |       |                       |
+  +       |                       |       |                       +
+05|       |                       |       |                       |
+  +       |                       |       |                       +
+06|       |                       |       |                       |
+  +       |                       |       |                       +
+07|  C0   |          GL           |  C1   |          GR           |
+  +control|        graphic        |control|        graphic        +
+08| codes |         codes         | codes |         codes         |
+  +       |                       |       |                       +
+09|       |                       |       |                       |
+  +       |                       |       |                       +
+10|       |                       |       |                       |
+  +       |                       |       |                       +
+11|       |                       |       |                       |
+  +       |                       |       |                       +
+12|       |                       |       |                       |
+  +       |                       |       |                       +
+13|       |                       |       |                       |
+  +       |                       |       |                       +
+14|       |                       |       |                       |
+  +       |                   +---+       |                   +---+
+15|       |                   |DEL|       |                   |XXX|
+  +---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+
+
+  &lt;------ seven bit codes ------->
+
+  &lt;----------------------- eight bit codes -----------------------</pre>
+<figcaption>Figure 4. 8-bit Code Table Structure</figcaption>
+</figure>
+</section>
+<a id="3-16" data-page="3-16"></a>
+<section id="3.3.4">
+<h3>3.3.4  Control And Graphic Codes</h3>
+<p>The coded character stream can be separated into two categories: control functions and coded graphic characters.  Control functions are actions that affect the recording, processing, transmission, or interpretation of data.  Coded graphic characters represent actual presentation data.  All bit combinations in the coded character stream are specifically categorized as being either part of a control function or a coded graphic character.</p>
+<section id="3.3.4.1">
+<h4>3.3.4.1  Control Characters</h4>
+<p>A control character is a single character whose occurrence in a particular context initiates, modifies, or stops a control function.  The control characters are referred to as C0 and C1.  DEL (delete, 7/15) is also a control character, although it is not a member of the C0 or C1 sets.  SP (space, 2/0) is also not a member of C0 or C1, but it may be considered to be either a control character or a graphic character.</p>
+<p>In a 7-bit environment, the values of a C0 control character are in the range of columns 00 and 01 of the code table.  The C1 control characters are represented in 7-bit environments by 2-&NoBreak;character escape sequences.</p>
+<p>In an 8-bit environment, the values of C0 control characters are from columns 00 and 01 and the values of C1 control characters are from columns 08 and 09.</p>
+</section>
+<section id="3.3.4.2">
+<h4>3.3.4.2  Graphic Characters</h4>
+<p>Graphic characters are characters other than a control character having a visual representation which is normally printed or displayed.  This includes all characters from the GL and GR portions of the code table (2/1 to 7/14 inclusive and 10/1 to 15/14 inclusive for 94 character sets; 2/0 to 7/15, inclusive and 10/0 to 15/15 inclusive for 96 character sets).  Graphic characters are frequently referred to as "printing characters".</p>
+<p>Bit combinations in this same range that occur within escape or control sequences are not treated as graphic characters, but are processed as part of the control function.</p>
+</section>
+</section>
+</section>
+<a id="3-17" data-page="3-17"></a>
+<section id="3.4">
+<h2><u>3.4</u>  <u>Special</u> <u>Characters</u></h2>
+<p>When 94-character graphic character sets are used, the following characters are not part of either the control or graphic sets in a 7-&NoBreak;bit or 8-bit code, and therefore have special processing as described below.</p>
+<section id="3.4.1">
+<h3>3.4.1  2/0 (Space)</h3>
+<p>The Space character may be interpreted as a graphic character, a control character, or both.  As a graphic character it has the visual representation of the absence of a graphic symbol.  The Space character will be displayed using whatever display attributes are currently active.</p>
+</section>
+<section id="3.4.2">
+<h3>3.4.2  7/15 (Delete)</h3>
+<p>When received by a terminal, the Delete character is treated as an unimplemented control character and shall be ignored.  Conforming software shall not use Delete as a pad character.  The Delete character may be issued as a result of keyboard processing.  Refer to DEC STD 070-6 for more information.</p>
+</section>
+<section id="3.4.3">
+<h3>3.4.3  10/0</h3>
+<p>The character code 10/0 in 8-bit environments is treated as an unassigned graphic character code, and will cause the error character (usually imaged as a REVERSE QUESTION MARK) to be displayed on conforming devices.  Within escape sequences and control sequences, the high order bit of this character will be ignored, and it will be treated as syntactically equivalent to Space (2/0).</p>
+</section>
+<section id="3.4.4">
+<h3>3.4.4  15/15</h3>
+<p>The character code 15/15 in 8-bit environments is treated as an unimplemented control code and shall be ignored.</p>
+</section>
+</section>
+<a id="3-18" data-page="3-18"></a>
+<section id="3.5">
+<h2><u>3.5</u>  <u>Control</u> <u>Code</u> <u>Extension</u> <u>Techniques</u></h2>
+<p>Because the number of controls typically required for effective communication far exceeds the number provided in either the 7-bit or 8-bit code tables, special methods of providing additional control functions have evolved.  These methods can be divided into three categories:  escape sequences, control sequences, and control strings.</p>
+<section id="3.5.1">
+<h3>3.5.1  General Rules</h3>
+<section id="3.5.1.1">
+<h4>3.5.1.1  Precedence of Control Functions</h4>
+<p>Control characters, escape sequences, control sequences, control strings, and graphic characters are processed serially in the forward direction in the data stream with the following precedence:</p>
+<ol>
+<li><p>Control characters</p></li>
+<li><p>Escape sequences, control sequences, and control strings (equal precedence)</p></li>
+<li><p>Graphic characters</p></li>
+</ol>
+<p>Thus, if a control character is transmitted in the middle of an escape sequence, the control character is executed as if the escape sequence were not present (that is, as if the control character had been received immediately before the escape sequence), with the exceptions noted below.  The next character received is assumed to be part of the escape sequence.  However, when transmitting to a device, implementors are warned not to count on this property if they wish to follow the emerging ANSI and ISO standards that specify this as an error condition whose recovery is not specified.  Control characters, escape sequences, control sequences, and control strings should not (not mandatory) be embedded in other escape sequences, control sequences, or control strings.</p>
+</section>
+<section id="3.5.1.2">
+<h4>3.5.1.2  Termination Conditions</h4>
+<p>Escape sequences and control sequences normally terminate only on the receipt of a valid final character.  However, there are certain conditions that will cause a sequence to be terminated without valid interpretation.  In all of these cases, the terminated sequence is ignored.</p>
+<a id="3-19" data-page="3-19"></a>
+<section id="3.5.1.2.1">
+<h4>3.5.1.2.1  Cancel</h4>
+<p>Cancel (CAN, 1/8) is used to indicate that the data with which it is sent is in error or is to be disregarded.  Therefore, the receipt of CAN causes immediate termination, without execution, of any sequence in progress.  The CAN character itself receives no further processing.  The characters following the CAN are not interpreted as part of the escape or control sequence, but rather are interpreted normally.</p>
+</section>
+<section id="3.5.1.2.2">
+<h4>3.5.1.2.2  Substitute</h4>
+<p>Substitute (SUB, 1/10) is used to indicate replacement of a character that could not be represented.  The receipt of SUB causes immediate termination, without execution, of any sequence in progress.  The SUB character itself, and all subsequent characters, are not interpreted as part of the escape or control sequence, but rather are interpreted normally.</p>
+</section>
+<section id="3.5.1.2.3">
+<h4>3.5.1.2.3  Escape</h4>
+<p>If an Escape (ESC, 1/11) is embedded in an escape or control sequence, the sequence is canceled and a new sequence begins with that ESC.</p>
+</section>
+<section id="3.5.1.2.4">
+<h4>3.5.1.2.4  C1 Control Codes</h4>
+<p>Since C1 control functions may be represented as ESC Fe sequences in 7-bit environments, C1 control characters embedded in an escape sequence or control sequence shall cause the sequence to be canceled and a new control function to begin with the C1 control character.  This provides for compatibility between 7-bit and 8-&NoBreak;bit implementations.</p>
+</section>
+<section id="3.5.1.2.5">
+<h4>3.5.1.2.5  Universal Terminator</h4>
+<p>In many instances it is important that the communications link be set into a known state in order for conforming interchange to proceed.  Because of the complexity of the parsing algorithms and rules regarding control code processing, it is desirable to provide a single escapement that aborts any code processing in progress and restore the terminal to a base state.  This may be accomplished using the String Terminator control code, transmitted in its 7-bit format as ESC \ (1/11 5/12).  This control terminates the following conditions.</p>
+<a id="3-20" data-page="3-20"></a>
+<ol type="a">
+<li><p>Escape Sequence in Progress - The initial Escape control character will cause the sequence in progress to be canceled.  The String Terminator will then be processed as an ESC Fe sequence (7-bit C1 control code).  If no control string is in progress, the String Terminator will be ignored.</p></li>
+<li><p>Control Sequence in Progress - Same as Escape Sequence in Progress.</p></li>
+<li><p>Control String in Progress - If received before the Final Character, the control string will be treated as a Control Sequence in Progress.  If the String Terminator is received after the Final Character, it causes normal termination of the control string.</p></li>
+<li><p>No Control Function in Progress - If a control function is not in progress when the String Terminator is received, it will be processed as an ESC Fe sequence (7-&NoBreak;bit C1 control code) and will be ignored by the receiving party.</p></li>
+</ol>
+<aside>
+<h4>NOTE</h4>
+<p>This use of String Terminator applies to ANSI conforming interchange as described in this standard.  Specific products may choose to implement non-ANSI modes that do not recognize String Terminator.  Such modes should be documented exceptions.</p>
+</aside>
+</section>
+</section>
+<section id="3.5.1.3">
+<h4>3.5.1.3  Unimplemented Functions</h4>
+<p>Unimplemented functions shall be ignored as if they were not received.  This applies to unimplemented control characters, escape sequences, control sequences, parameters of control sequences, and control strings.</p>
+<p>For example, unimplemented selective parameter values of control sequences shall be ignored as if that parameter were not received.  Processing of the sequence shall continue with the next parameter.  For example, if the control sequence Select Graphic Rendition (SGR) is sent with parameters:  1 (bold), 3 (italicized), 7 (negative image), and 21 (doubly underlined), and the terminal implements bold and negative image, but does not implement italicized or doubly underlined, the parameters 1 and 7 shall be executed, and 3 and 21 shall be ignored.</p>
+</section>
+<a id="3-21" data-page="3-21"></a>
+<section id="3.5.1.4">
+<h4>3.5.1.4  Transformation Between 7-bit and 8-bit Environments</h4>
+<p>To simplify the transformation between 7-bit and 8-bit environments, relaxations in constraints for the structure of Control Sequences (introduced by CSI), control string introducer sequences (introduced by APC, DCS, PM, and OSC), G2 sequences (introduced by SS2), and G3 sequences (introduced by SS3) are defined as follows:</p>
+<p>In an 8-bit code, the bit combinations of columns 10 to 15 (except 15/15) are permitted to represent:</p>
+<ol type="a">
+<li><p>Parameters, intermediates, and finals of a control sequence</p></li>
+<li><p>The contents of a control string introducer sequence</p></li>
+<li><p>The operand of a single-shift character</p></li>
+</ol>
+<p>In these situations, the bit combinations in the range 10/0 to 15/15 have the same meaning as the bit combinations in the corresponding row from columns 02 to 07 (bit combinations in the range 2/0 to 7/15 inclusive).</p>
+<p>In a 7-bit code, the control characters Shift Out (SO, 0/14) and Shift In (SI, 0/15) are permitted to occur:</p>
+<ol type="a">
+<li><p>Between the Control Sequence Introducer (CSI, 9/11) and the final bit combination of a control sequence</p></li>
+<li><p>Between the opening delimiter of a control string and the String Terminator (ST, 9/12)</p></li>
+<li><p>Between a single-shift character and its operand</p></li>
+</ol>
+<p>Shift Out and Shift In have no effect on the interpretation of a control sequence, a control string, or the operand of a single shift character, but may affect the meanings of sebsequent bit combinations in the data stream.</p>
+</section>
+</section>
+<a id="3-22" data-page="3-22"></a>
+<section id="3.5.2">
+<h3>3.5.2  Escape Sequences</h3>
+<p>An escape sequence is a bit string that is used for control purposes in code extension procedures and that consists of two or more bit combinations, of which the first is the bit combination corresponding to the Escape character (1/11).</p>
+<p>The general form of an escape sequence is:</p>
+<p><samp>ESC  I..I  F</samp></p>
+<p>where:</p>
+<ol type="a">
+<li><p>ESC (Escape) is the introducer character, coded as 1/11 in both 7-bit and 8-bit environments.</p></li>
+<li><p>I..I are zero or more intermediate bit combinations used in combination with the final character to specify the particular function.  Intermediate characters for escape sequences are bit combinations in the range of 2/0 to 2/15, inclusive.</p>
+<p>Conforming implementations shall recognize at least three intermediate characters.  If more intermediates than can be recognized are received, the entire sequence shall be ignored up to and including the final character.</p></li>
+<li><p>F is a final, function defining character.  It is used either by itself or in combination with the intermediate characters (if any) to establish the encoded function.  Final characters for escape sequences are bit combinations in the range 3/0 to 7/14 inclusive.</p></li>
+<li><p>The occurrence of bit combinations 0/0 to 1/15, inclusive, as well as 7/15 and 15/15 in escape sequences are special conditions that are handled by immediately executing the control function indicated, and by continuing processing of the escape sequence as if the intervening control code had not been received.  Note that if the control code is CAN, ESC, or SUB, the sequence in progress is terminated.</p></li>
+<li><p>The receipt of any 8-bit C1 control character in the range 8/0 to 9/15, inclusive, during the processing of an escape sequence causes the sequence in progress to be terminated.  (See subhead <a href="#3.5.1.2.4">3.6.1.2.4</a> under Termination Conditions)</p></li>
+<li><p>Characters from columns 10 to 15 (10/0 to 15/14 inclusive) may occur in escape sequences and have the same interpretation as the character from the corresponding row in columns 02 to 07.  Thus, the 8th bit of graphic characters should be ignored when interpreting an escape sequence.</p></li>
+</ol>
+<a id="3-23" data-page="3-23"></a>
+<section id="3.5.2.1">
+<h4>3.5.2.1  Expansion Escape Sequence (Fe)</h4>
+<p>An expansion escape sequence is a special 2-character escape sequence ( ESC Fe ), where Fe is in columns 04 and 05 (bit combinations from 4/0 to 5/15 inclusive).  Expansion escape sequences are used to expand the 7-bit code table by being equivalent to the 8-bit C1 control code in the row in columns 08 and 09 corresponding to the row of the Fe character.</p>
+</section>
+</section>
+<section id="3.5.3">
+<h3>3.5.3  Control Sequences</h3>
+<p>A control sequence is a bit string consisting of two or more bit combinations, beginning with the Control Sequence Introducer (CSI), and that may contain parametric information for the control function.</p>
+<p>The general form of a control sequence is:</p>
+<p><samp>CSI  P..P  I..I  F</samp></p>
+<p>where:</p>
+<ol type="a">
+<li><p>CSI is the introducer character coded as 9/11 in 8-bit environments and the 2-character escape sequence 1/11 5/11 ( ESC [ ) in 7-bit environments.</p></li>
+<li><p>P..P is called the "parameter string".  The minimum length is zero and the maximum length is defined by the implementation.  However, all bit combinations are from 3/0 to 3/15 inclusive.</p></li>
+<li><p>I..I are the intermediate characters that may be used to expand the repertoire of functions beyond the limit of 63 implied by the single final character value.</p>
+<p>Intermediate characters for control sequences are bit combinations in the range 2/0 to 2/15 inclusive.  If 3/0 to 3/15 occur after the occurrence of one or more intermediate characters, the sequence is invalid.  However, the end of the control sequence is still defined by the final character.  Interpretation will continue until a valid final character is received.</p>
+<p>Conforming implementations shall recognize at least three intermediate characters.  If more intermediates than can be recognized are received, the entire sequence shall be ignored, up to and including the final character.</p></li>
+<li><p>F is a final, function defining character.  It is used either by itself or with the intermediate characters (if any) to establish what function is encoded.  Final characters are bit combinations in the range 4/0 to 7/14, inclusive.</p><a id="3-24" data-page="3-24"></a></li>
+<li><p>The occurrence of bit combinations 0/0 to 1/15, inclusive, as well as 7/15 and 15/15 in control sequences, are special conditions that are handled by immediately executing the control function indicated, and continuing processing of the control sequence as if the intervening control code had not been received.  Note that if the control code is CAN, ESC, or SUB, the sequence in progress is terminated.</p></li>
+<li><p>The receipt of any 8-bit C1 control character in the range 8/0 to 9/15 inclusive during the processing of a control sequence causes the sequence in progress to be terminated.  (See subhead <a href="#3.5.1.2.4">3.6.1.2.4</a> under Termination Conditions)</p></li>
+<li><p>Characters from columns 10 to 15 (10/0 to 15/14 inclusive) may occur in control sequences and have the same interpretation as the character from the corresponding row in columns 02 to 07.  Thus, the 8th bit of graphic characters should be ignored when interpreting a control sequence.</p></li>
+</ol>
+<section id="3.5.3.1">
+<h4>3.5.3.1  Parameter Values In Control Sequences</h4>
+<p>A parameter string consists of bit combinations from 3/0 to 3/15 inclusive.  The string represents one or more numeric or selective parameter values.  The maximum value of each parameter is defined by implementation.  A minimum of 16384 decimal (14 bits) is recommended.  Parameter values larger than the maximum supported by an implementation should be mapped to the largest value supported (although this is not mandatory).</p>
+<p>The maximum number of parameters that can be contained in a single parameter string is also implementation defined; however, support for up to 16 parameters is required for compatibility.  Parameters beyond the maximum number supported may be ignored.</p>
+<p>Each parameter value consists of zero or more bit combinations from 3/0 to 3/9 inclusive, representing the decimal digits 0 to 9.  If more than one parameter value is to be supplied, the parameters are separated from each other by the bit combination 3/11 (ASCII semicolon ";").  The bit combination 3/10 is reserved for future standardization.  If 3/10 is received within a parameter string, the entire sequence up to and including the final character shall be ignored.  Bit combinations 3/12 through 3/15 are used for private parameter strings (see subhead <a href="#3.5.3.4">3.5.3.4</a>).</p>
+<p>In each parameter, leading bit combinations of 3/0 are not significant and may be omitted.  A zero length parameter, or one consisting only of 3/0 bit combinations, represents a default whose value depends upon the control function.</p>
+<a id="3-25" data-page="3-25"></a>
+<aside>
+<h4>Representation of a Default Parameter Value&nbsp;</h4>
+<p>The latest version of ISO 6429 has instituted a change that permits a parameter consisting only of 3/0 bit combinations to be treated as a parameter value of zero, not necessarily the default value. A selectable mode has been defined in the ISO standard that controls the interpretation of a parameter string consisting only of 3/0 bit combinations as the default value.</p>
+<p>This standard specifies that implementations continue to recognize a zero-length parameter or one consisting of only 3/0 bit combinations as representing a default value for the control sequence.  (A small number of Digital private control functions violate this rule.  Refer to <a><u>DEC</u> <u>STD</u> <u>138-0</u> <u>Registry</u> <u>of</u> <u>Control</u> <u>Functions</u> <u>for</u> <u>Character-Imaging</u> <u>Devices</u></a> for further information.)</p>
+</aside>
+</section>
+<section id="3.5.3.2">
+<h4>3.5.3.2  Numeric Parameters</h4>
+<p>Numeric parameters are used for passing numeric values.  If more than one parameter value is supplied, the ordering of parameters is significant and must be preserved by the use of additional separators to replace omitted parameter values.  A zero or omitted numeric parameter represents a default that can apply to that one parameter or to the entire parameter string, depending on the control function.</p>
+</section>
+<section id="3.5.3.3">
+<h4>3.5.3.3  Selective Parameters</h4>
+<p>Selective parameters are used for selecting options from a list.  The list of options and corresponding parameter values is defined by the control function.  A control sequence with selective parameters is specified as taking either a fixed or variable number of selective parameters.</p>
+<p>If a fixed number of selective parameters is specified, the meaning of each parameter is determined from a separate list of values or actions.  All of the parameters are required (or are assumed to be defaulted) for the particular control function to take effect.</p>
+<p>If a variable number of selective parameters is specified, each parameter selects a particular entry from a single list identified by the control.</p>
+<a id="3-26" data-page="3-26"></a>
+<p>In control sequences with a variable number of parameters, the parameters shall be processed sequentially beginning with the first parameter.  A control sequence containing more than one such selective parameter shall have the same effect as a corresponding number of separate control sequences, each with a single parameter.</p>
+<p>For example, if Select Graphic Rendition (SGR) is sent with the following parameters, the resulting rendition will be negative image, slowly blinking, since the 0 parameter, executed after setting bold and underline, would return the current rendition value to normal.</p>
+<ul>
+<li>1 (bold)</li>
+<li>4 (underlined)</li>
+<li>0 (all attributes off)</li>
+<li>7 (negative image)</li>
+<li>5 (slowly blinking)</li>
+</ul>
+</section>
+<section id="3.5.3.4">
+<h4>3.5.3.4  Private Parameter Strings</h4>
+<p>If a parameter string begins with a bit combination from 3/12 through 3/15, inclusive, the entire parameter string is subject to private interpretation.  This means that the control has a special interpretation that is not specified in national or international standards.  If bit combinations 3/12 through 3/15 occur anywhere else in the control sequence other than as the first character of the parameter string, the entire sequence up to and including the final character shall be ignored.</p>
+<p>Syntactically, the subsequent processing of private parameter strings is identical to the processing of standard parameter strings.</p>
+</section>
+<a id="3-27" data-page="3-27"></a>
+<section id="3.5.3.5">
+<h4>3.5.3.5  Examples of Parameter Strings</h4>
+<table>
+<caption>Table 1. Examples of Parameter Stings</caption>
+<thead>
+<tr><th>Char Form</th><th>Column/row Form</th><th>Explanation</th></tr>
+</thead>
+<tbody>
+<tr><td><samp>7</samp></td><td><samp>3/7</samp></td><td>A single parameter value of 7</td></tr>
+<tr><td><samp>0007</samp></td><td><samp>3/0 3/0 3/0 3/7</samp></td><td>A single parameter value of 7</td></tr>
+<tr><td><samp>98</samp></td><td><samp>3/9 3/8</samp></td><td>A single parameter value of 98</td></tr>
+<tr><td><samp>4;2</samp></td><td><samp>3/4 3/11 3/2</samp></td><td>Two parameters with values 4 and 2</td></tr>
+<tr><td><samp>?3</samp></td><td><samp>3/12 3/3</samp></td><td>A private parameter with value of 3</td></tr>
+<tr><td><samp>2;</samp></td><td><samp>3/2 3/11</samp></td><td>Two parameters with the first having the value 2 and the second having the default value</td></tr>
+<tr><td><samp>;5</samp></td><td><samp>3/11 3/5</samp></td><td>Two parameters with the first having the default value and the second having the value 5</td></tr>
+<tr><td><samp>1;;4</samp></td><td><samp>3/1 3/11 3/11 3/4</samp></td><td>Three parameters with the first having the value 1, the second having the default value, and the third having the value 4</td></tr>
+<tr><td><samp>?3;4</samp></td><td><samp>3/15 3/3 3/11 3/4</samp></td><td>A private parameter string containing two parameter values, 3 and 4</td></tr>
+<tr><td><samp>3;?4</samp></td><td><samp>3/3 3/11 3/15 3/4</samp></td><td>An error. The occurrence of 3/15 as any but the first character of the parameter string invalidates the control sequence.</td></tr>
+</tbody>
+</table>
+</section>
+</section>
+<a id="3-28" data-page="3-28"></a>
+<section id="3.5.4">
+<h3>3.5.4  Control Strings</h3>
+<p>Control strings are a special class of control code extensions that provide a wide range of functions.  There are four types of control strings, each of which has the same general structure with its own introducer character and internal variations.  The four types and their formats are:</p>
+<ul>
+<li>Application Program Command<span> &mdash; </span><samp>APC (9/15)  D..D  ST (9/12)</samp></li>
+<li>Device Control Strings<span> &mdash; </span><samp>DCS (9/0)   D..D  ST (9/12)</samp></li>
+<li>Operating System Command<span> &mdash; </span><samp>OSC (9/13)  D..D  ST (9/12)</samp></li>
+<li>Privacy Message<span> &mdash; </span><samp>PM  (9/14)  D..D  ST (9/12)</samp></li>
+</ul>
+<p>where:</p>
+<ol type="a">
+<li><p>APC, DCS, OSC, or PM is the introducer character that starts the control string and determines its type.  In 7-&NoBreak;bit environments, the introducer control characters are encoded as 1/11 5/15 (ESC _), 1/11 5/0 (ESC P), 1/11 5/13 (ESC ]), and 1/11 5/14 (ESC ^), respectively</p></li>
+<li><p>D..D is a command string which has a unique format for each control string type.  However, the command string must be made up of characters in the range 0/8 to 0/13 inclusive and 2/0 to 7/14 inclusive.  The inclusion of C0 Controls 0/8 to 0/13 in control string data is intended for convenience in formating and storing control strings.  It is recommended that these characters not affect the interpretation of the control string.</p></li>
+<li><p>ST is the String Terminator control character (in 7-bit environments ST is coded as ESC \ (1/11 5/12)).</p></li>
+</ol>
+<section id="3.5.4.1">
+<h4>3.5.4.1  Device Control Strings</h4>
+<p>The internal format of a Device Control String is:</p>
+<p><samp>DCS  P..P  I..I  F  D..D  ST</samp></p>
+<p>where:</p>
+<ol type="a">
+<li><p>DCS is the Device Control String introducer.</p></li>
+<li><p>P..P is an optional parameter string, identical in syntax to the parameter string of a control sequence.</p></li>
+<li><p>I..I is zero or more intermediate characters in the range 2/0 to 2/15 inclusive.</p><a id="3-29" data-page="3-29"></a></li>
+<li><p>F is a final, function defining character, in the range 7/0 to 7/14 inclusive (the same as for private Control Sequences).</p></li>
+<li><p>D..D is the command string, whose format is determined by the combination of parameters, intermediate characters, and final character that precede it.</p></li>
+<li><p>ST is the String Terminator control character.</p></li>
+</ol>
+</section>
+<section id="3.5.4.2">
+<h4>3.5.4.2  Other Control Strings</h4>
+<p>Other control string types (Application Program Command, Operating System Command, and Privacy Message) are defined to have the following internal format.</p>
+<p><samp>APC  I..I  F  D..D  ST</samp><br /><samp>OSC  I..I  F  D..D  ST</samp><br /><samp>PM   I..I  F  D..D  ST</samp></p>
+<p>where:</p>
+<ol type="a">
+<li><p>APC, OSC, or PM is the Control String introducer.</p></li>
+<li><p>I..I is zero or more intermediate characters in the range 2/0 to 2/15 inclusive.</p></li>
+<li><p>F is a final, function defining character, in the range 3/0 to 3/15 inclusive (the same as for private Escape Sequences).</p></li>
+<li><p>D..D is the command string, whose format is determined by the combination of intermediate characters and final character which precede it.</p></li>
+<li><p>ST is the String Terminator control character.</p></li>
+</ol>
+</section>
+<section id="3.5.4.3">
+<h4>3.5.4.3  Character Strings</h4>
+<p>Future device implementations should treat the SOS C1 control as the start of an unimplemented control string, although this is not mandatory.</p>
+<p>A syntax is not yet specified for the interpretation of character strings; the use of SOS and character strings within Digital is reserved for future standardization.  Note that ISO may define the inclusion of escape and control sequences inside Character Strings.</p>
+</section>
+<a id="3-30" data-page="3-30"></a>
+<section id="3.5.4.4">
+<h4>3.5.4.4  Termination Conditions</h4>
+<p>Control strings will normally terminate upon receipt of a String Terminator (9/12) character.  The receipt of the control characters 0/8 through 0/13 is valid within control strings.  For backward compatibility, and to minimize the effect of a lost String Terminator, the control codes CAN (1/8), SUB (1/10), ESC (1/11), or any C1 control will also terminate control strings.</p>
+<p>Conforming software should not depend on this practice however, and shall only use the String Terminator control function to terminate a control string.  Control characters other than those recognized within the command string syntax may be defined to have other meanings in the future.  It is recommended that all other control codes not used within a command string be ignored by hardware.</p>
+</section>
+<section id="3.5.4.5">
+<h4>3.5.4.5  GR Graphic Characters Within Control Strings</h4>
+<p>GR (8-bit) graphic characters in APC, OSC, and PM control strings will be treated as their 7-bit equivalent (the eighth bit will be ignored).</p>
+<p>GR (8-bit) graphic characters are permitted within Device Control Strings, and the graphic character's interpretation will be dependent on the internal control string format.  When they occur in the introducer sequence to a Device Control String, the eighth bit will be ignored, and they will be treated as their 7-bit equivalent.  (Note that this is the same way 8-bit graphic characters are handled within control sequences.)</p>
+</section>
+<section id="3.5.4.6">
+<h4>3.5.4.6  Unimplemented Control Strings</h4>
+<p>The contents of received control strings that are not implemented by the receiving party will be ignored.  Therefore, all data (control and graphic characters) from the control string introducer to the string terminator (inclusive) will be discarded without being displayed.</p>
+</section>
+</section>
+<a id="3-31" data-page="3-31"></a>
+<section id="3.5.5">
+<h3>3.5.5  Parsing Algorithms</h3>
+<p>This section describes the rules required to correctly parse a 7-&NoBreak;bit or 8-bit character stream, separating the control functions from data contained in the stream.</p>
+<p>Implementation Notes:</p>
+<p>This coding is intended to serve as a guideline to implementors and a clear specification of the parsing rules against which product certification can be performed.  The code is typical of actual implementations, but is optimized for architectural clarity.  It is recognized that specific implementations may alter the algorithms or program structure to optimize memory or execution speed.  Such implementations must not violate the external functionality or rules provided by the parsing algorithms.</p>
+<p>VAX-11 C was selected as the implementation language because of its simplicity, portability, and wide use both inside and outside of Digital.</p>
+<p>Module Overview:</p>
+<p>The parser is broken into modules as follows.</p>
+<ul>
+<li>gparse.h<span> &mdash; </span>global include file
+(must be included by external routines
+ that call the parser)</li>
+<li>lparse.h<span> &mdash; </span>local include file
+(contains definitions used
+ internally by the parser)</li>
+<li>vtparse.c<span> &mdash; </span>parse routines</li>
+<li>ptexec.c<span> &mdash; </span>parser tester executive</li>
+</ul>
+<p>Other modules not shown here include system-dependent character I/&NoBreak;O routines and interrupt handling.</p>
+<a id="3-32" data-page="3-32"></a>
+<section id="3.5.5.1">
+<h4>3.5.5.1  C Language Source Code</h4>
+<pre><code>/******************* module gparse.h ********************
+*
+* Global #include file for callable re-entrant ANSI parser.
+*
+* Environment:   VAX/VMS
+* Author:  Peter Sichel    24-Feb-1984
+*
+* Modification history:
+*     13-Nov-1984   P. Sichel
+*         added external events for control
+*         string introducers APC, OSC, and PM
+*     16-May-1988   P. Sichel
+*         added parse limits
+*         changed default stack size to 32
+*
+*********************************************************/
+
+/* parse limits */
+#define MAX_NUM_INTERMEDIATES  3
+#define MAX_NUM_PARAMETERS     16
+#define MAX_PARAMETER_VALUE    16383
+
+/* parse stack */
+#define STACK_SIZE 32
+
+struct parse_stack
+    {
+    char index;     /* stack pointer */
+    unsigned char     class[STACK_SIZE];
+    unsigned char     value[STACK_SIZE];
+    unsigned short int data[STACK_SIZE];
+    };
+
+/* common parse states */
+#define SEQ_START 0
+#define CON_START 1
+
+/* external parse events */
+#define R_PARSE_ERROR   0
+#define R_CONTINUE      1
+#define R_GRAPHIC       2
+#define R_CONTROL       3
+#define R_ESC_SEQ       4
+#define R_CSI_SEQ       5
+#define R_DCS_SEQ       6
+#define R_APC_SEQ       7
+#define R_OSC_SEQ       8
+#define R_PM_SEQ        9
+
+<a id="3-33" data-page="3-33"></a>
+
+
+/*   e s c a p e   s e q u e n c e   parser definitions  */
+/*   (includes control character parser also)   */
+
+/* parse states */
+/*      SEQ_START 0 */    /* already defined above */
+/*      CON_START 1 */    /* already defined above */
+#define ES_IN_SEQ 2
+#define ES_IGNORE 3
+
+
+
+/*  c o n t r o l   s e q u e n c e   parser definitions  */
+
+/* parse states */
+/*      SEQ_START  0 */     /* already defined above */
+#define CS_PRIVATE 1
+#define CS_PARAM   2        /* parameter value */
+#define CS_INTER   3
+#define CS_IGNORE  4        /* ignore sequence,
+                               but parse until final */
+#define CS_IGNORE_P 5       /* ignore any further parameters,
+                               but accept sequence if otherwise
+                               valid */
+
+
+</code></pre>
+<a id="3-34" data-page="3-34"></a>
+<pre><code>/*********************** module lparse.h ***********************
+*
+*  Local #include file for callable re-entrant ANSI parser
+*
+*  Environment:  VAX/VMS   VAX-11 C  V1.2
+*  Author:  Peter Sichel   24-Feb-1984
+*
+*  Modification history:
+*      2-May-1984    T. Lasko
+*          Fixed overlapping #define's in parser states
+*      29-May-1984   P. Sichel
+*          fixed pseq_parse_table to correcly
+*          ignore invalid sequences
+*      1-Jun-1984    P. Sichel
+*          added state CS_OMIT to indicate
+*          omitted parameters explicitly
+*      16-May-1988   P. Sichel
+*          removed CS_OMIT
+*          Added CS_IGNORE_P to ignore parameters
+*          beyond MAX_NUM_PARAMETERS.
+*          Added ES_IGNORE to ignore escape sequences
+*          with more than MAX_NUM_INTERMEDIATES.
+*          Fixed bug in parse table that would accept
+*          intermediates from CS_IGNORE state.
+*       5-Feb-1989   P. Sichel
+*          converted parse table data declaration to use
+*          symbolic constants, and moved to module vtparse.c
+*
+****************************************************************/
+
+<a id="3-35" data-page="3-35"></a>/* state classes - used by parse executive to determine which
+                   parser to invoke */
+
+#define ESEQ        0        /* escape sequence   */
+#define CSI         1        /* control sequence  */
+#define DCS         2        /* control sequence  */
+#define LAST_SEQ    2        /* "in sequence" marker */
+#define CON         3        /* control and graphic characters */
+
+
+/* internal parse events returned by parse_ansi() */
+
+#define PARSE_ERROR   0x00
+#define CONTINUE      0x10
+#define GRAPHIC       0x20
+#define CONTROL       0x30
+#define ESC_SEQ       0x40
+#define PAR_SEQ       0X50
+
+#define CANCEL        0xD0
+#define PARAM         0xE0    /* reduce a numeric parameter */
+#define IGNORE        0xF0
+
+
+/*   e s c a p e   s e q u e n c e   parser definitions  */
+/*   (includes control character parser also)  */
+
+    /* parse inputs (count by number of states) */
+
+#define ES_CONTROL     0
+#define ES_INTER       4
+#define ES_FINAL       8
+#define ES_GRAPHIC     12
+
+
+
+/*   c o n t r o l   s e q u e n c e   parser definitions  */
+
+    /* parse inputs (count by number of states) */
+
+#define PI_CONTROL     0
+#define PI_PRIVATE     6
+#define PI_NUMERAL     12
+#define PI_SEMICOL     18
+#define PI_INTER       24
+#define PI_FINAL       30
+#define PI_OTHER       36
+
+
+</code></pre>
+<a id="3-36" data-page="3-36"></a>
+<pre><code>/****************** module vtparse.c ***************
+*
+* Callable re-entrant ANSI parser.  This module contains
+* the entire parser, and the action routines that alter
+* the parse state.
+*
+* Environment:  VAX/VMS    VAX-11 C  V1.2
+*
+* Author:  Peter Sichel    24-Feb-1984
+*
+* Modified by:
+*    PAS 30-May-84  added missing "break" to switch case "IGNORE".
+*    PAS 12-Nov-84  modified eseq_class and pseq_class to
+*                   recognize 0xFF as a control character
+*    PAS 13-Nov-84  added code to recognize OSC, PM, and APC
+*                   control strings
+*    PAS 16-May-88  Added code to test for MAX_NUM_INTERMEDIATES.
+*                   Added code to ignore parameters beyond
+*                   MAX_NUM_PARAMETERS.
+*                   Added code to handle parameter values
+*                   larger than MAX_PARAMETER_VALUE.
+*                   Removed distinction between omitted
+*                   and zero parameters.
+*                   Included basic documentation in this file.
+*    PAS  5-Feb-89  Included parse tables in this module.
+*/
+
+<a id="3-37" data-page="3-37"></a>
+/*
+Introduction To VTPARSE
+
+VTPARSE is a table-driven, character re-entrant, callable parser
+designed to recognize control functions encoded according to the
+ANSI syntax for information interchange.  The rules for encoding
+control functions are defined in several standards including
+ANSI 3.41, DEC STD 138-0 and DEC STD 070-3.
+
+VTPARSE accepts one input character at a time (per call), and
+recognizes the following catagories of control functions when
+they occur in the input stream.
+
+      o  Graphic Characters
+
+      o  C0 and C1 Control Characters
+
+      o  Escape Sequences
+
+      o  Control Sequences
+
+      o  Control String Introducer Sequences including:
+         DCS, OSC, PM, and APC
+
+Interpreting Return Information From parse_ansi
+
+Parse_ansi returns with "event" set to one of the following.
+
+    R_PARSE_ERROR     parse stack overflow, or software bug
+    R_CONTINUE        no event, continue parsing
+    R_GRAPHIC         recognized a graphic character
+    R_CONTROL         recognized a control character
+    R_ESC_SEQ         recognized an escape sequence
+    R_CSI_SEQ         recognized a control sequence
+    R_DCS_SEQ         recognized a DCS introducer sequence
+    R_OSC_SEQ         recognized a OSC introducer sequence
+    R_PM_SEQ          recognized a PM  introducer sequence
+    R_APC_SEQ         recognized a APC introducer sequence
+
+The character or character sequence recognized is on the
+"state" stack.  Parse_ansi returns two integers pointing to
+the first and final characters of the sequence on the stack.
+
+Each stack entry has three fields: a "class" field, a "value"
+field, and a "data" field.  The possible values for these fields
+are defined in the include files "gparse.h" and "lparse.h".
+
+The "class" field is used internally by the parser to determine
+which subparser to invoke (that is, the parse table to use). To
+keep the tables reasonably small, a separate table is used for
+parsing parameter sequences.
+<a id="3-38" data-page="3-38"></a>The "value" field is used by the parser to maintain its current
+state.  The parser is a table driven finite state automata,
+where the next state and action are a function of the current
+state and input.  The "value" field of the parse stack provides
+a history of what states the parser has been in and is useful
+for interpreting the contents of the parse stack.  The "value"
+field may be used to identify the contents of the "data" field
+except for the final character of a sequence.  The final "value"
+is usually meaningless because when a sequence is recognized,
+it is removed from the stack eliminating the need for a parse
+state.  A single graphic or control character is considered both
+the start and final character of a sequence.
+
+The "data" field contains the actual character data input to the
+parser or a number of characters in reduced form.  Examples of
+reduced forms are a single C1 control replacing an Fe sequence
+or a complete parameter value replacing a number of individual
+parameter characters.  Reduced forms will always be identified
+by the contents of the "value" field.
+
+Examples of typical stack data are:
+
+             value        data
+          ----------    --------
+final ->  CON_START      41 'A'    event = R_GRAPHIC
+                                   (the letter "A")
+
+final ->  CON_START      0D        event = R_CONTROL   -
+                                   (carriage return)
+
+final ->  CON_START      41 'A'    event = R_ESC_SEQ
+          ES_IN_SEQ      28 '('    (designate UK into G0)
+start ->  SEQ_START      1B ESC
+
+final ->  CS_IGNORE      68 'h'    event = R_CSI_SEQ
+          CS_PARAM       3         parameter value 3
+          CS_PRIVATE     3F '?'    DEC private char
+start ->  SEQ_START      9B CSI    (set 132 col mode)
+
+final ->  CS_IGNORE      72 'r'    event = R_CSI_SEQ
+          CS_PARAM       14        parameter value 14(hex)
+          CS_PARAM       0         zero or omitted parameter
+start ->  SEQ_START      9B CSI    (set scroll region from
+                                    line 1 to line 18)
+
+final ->  CS_IGNORE      72 'p'    event = R_DCS_SEQ
+start ->  SEQ_START      90 DCS    (begin REGIS DCS)
+
+final ->  CON_START      9C ST     event = R_CONTROL
+                                   (string terminator)
+Errors And Exceptions
+
+The parser ignores any invalid sequences it receives.
+No control function is recognized, and the parser resynchronizes
+the input stream according to the rules for error recovery in
+DEC STD 138-0.
+
+<a id="3-39" data-page="3-39"></a>
+
+
+To summarize:
+
+      o  ESC restarts any escape, control, or control string
+         introducer sequence in progress.
+
+      o  CAN and SUB immediately cancel any escape, control, or
+         control string introducer sequence in progress.  SUB is
+         recognized as a C0 control if no sequence is in
+         progress.
+
+      o  All other C0 controls are immediately recognized within
+         escape, control, or control string introducer sequences.
+         The escape, control, or control string introducer
+         sequence continues where it left off.
+
+      o  C1 controls immediately cancel any escape, control, or
+         control string introducer sequence in progress.  The C1
+         control is then recognized normally.  This is for 7-bit
+         compatibility where C1 controls are represented by two
+         character Fe escape sequences.
+
+         Two character Fe escape sequences are converted to C1
+         controls by the parser.
+
+      o  Within escape, control, and control string introducer
+         sequences, eight-bit graphic codes (GR set) are
+         truncated to seven-bit codes.
+
+      o  If a private parameter character (&lt;, =, >, ?) occurs
+         after the first parameter, the entire sequence will be
+         ignored up to and including its final character.
+
+      o  If a parameter character occurs after the first
+         intermediate character, the entire sequence will be
+         ignored up to and including its final character.
+
+      o  The parser recognizes parameter values up to
+         16383 (14 bits) as specified by the constant
+         MAX_PARAMETER_VALUE in "gparse.h".  If a parameter
+         exceeds the maximum value, the parameter will be set
+         to the maximum value.
+
+      o  The parser recognizes up to 16 parameters in a
+         single parameter sequence as specified by the
+         constant MAX_NUM_PARAMETERS in "gparse.h".  If more
+         than MAX_NUM_PARAMETERS are received, parameters
+         beyond the maximum number are ignored and the "value"
+         field for the last parameter will be set to
+         "CS_IGNORE_P" (this may be used to detect that
+         parametershave been ignored).  The sequence will
+         still be recognized if it is otherwise valid.
+
+<a id="3-40" data-page="3-40"></a>
+
+      o  The parser will recognize up to three intermediate
+         characters in a single escape, control, or introducer
+         sequence  specified by the constant MAX_NUM_INTERMEDIATES
+         in "gparse.h".  If more than MAX_NUM_INTERMEDIATES are
+         received, the entire sequence will be ignored up to and
+         including its final character.
+
+      o  DCS introducer sequences are parsed according to the
+         rules for control sequences.  APC, OSC, and PM
+         introducer sequences are parsed according to the rules
+         for escape sequences.  The parser recognizes the
+         introducer sequence upon receiving a valid final
+         character.  The parser does not keep track of whether
+         a control string is in progress.  Therefore it is
+         possible to receive control codes, escape sequences,
+         and control sequences within a control string.  Handling
+         of control strings must be performed at a higher level
+         than the parser.
+
+
+Each intermediate character requires one stack entry.  Each
+parameter value also requires one stack entry.  The default stack
+size of 32 is sufficient to hold a sequence starting character, a
+private parameter character, 16 parameters, 3 intermediates, and
+still recognize nested C0 control characters.  If the maximum
+number of parameters or intermediates are increased, the stack
+size should be increased accordingly.  If the stack overflows,
+the parser will re-initialize the stack, and return with event
+PARSE_ERROR.
+*/
+
+
+
+
+#include "gparse.h"   /* global parse definitions */
+#include "lparse.h"   /* local parse definitions */
+
+
+/* escape sequence parse table */
+/*  eseq_parse_table[input+from_state]  ==>  action,to_state  */
+
+char eseq_parse_table[16] =
+    {
+
+    /* input: ES_CONTROL */
+    /* from_state     action    to_state  */
+    /* -----------------------------------*/
+    /* SEQ_START */   CONTROL | ES_IN_SEQ,
+    /* CON_START */   CONTROL | CON_START,
+    /* ES_IN_SEQ */   CONTROL | ES_IN_SEQ,
+    /* ES_IGNORE */   CONTROL | ES_IGNORE,
+
+    /* input: ES_INTER   */
+
+<a id="3-41" data-page="3-41"></a>    /* from_state     action    to_state  */
+    /* -----------------------------------*/
+    /* SEQ_START */   CONTINUE | ES_IN_SEQ,
+    /* CON_START */   GRAPHIC  | CON_START,
+    /* ES_IN_SEQ */   CONTINUE | ES_IN_SEQ,
+    /* ES_IGNORE */   IGNORE   | ES_IGNORE,
+
+    /* input: ES_FINAL   */
+    /* from_state     action    to_state  */
+    /* -----------------------------------*/
+    /* SEQ_START */   ESC_SEQ  | CON_START,
+    /* CON_START */   GRAPHIC  | CON_START,
+    /* ES_IN_SEQ */   ESC_SEQ  | CON_START,
+    /* ES_IGNORE */   CANCEL   | ES_IGNORE,
+
+    /* input: ES_GRPAHIC */
+    /* from_state     action    to_state  */
+    /* -----------------------------------*/
+    /* SEQ_START */   PARSE_ERROR | ES_IN_SEQ,
+    /* CON_START */   GRAPHIC     | CON_START,
+    /* ES_IN_SEQ */   PARSE_ERROR | ES_IN_SEQ,
+    /* ES_IGNORE */   PARSE_ERROR | ES_IGNORE
+
+    };
+
+
+
+
+
+/* control sequense parse table */
+/*  pseq_parse_table[input+from_state]  ==>  action,to_state  */
+
+char pseq_parse_table[42] =
+    {
+    /* input: PI_CONTROL */
+    /* from_state        action     to_state  */
+    /* ---------------------------------------*/
+    /* SEQ_START   */    CONTROL  | CS_IGNORE,
+    /* CS_PRIVATE  */    CONTROL  | CS_IGNORE,
+    /* CS_PARAM    */    CONTROL  | CS_IGNORE,
+    /* CS_INTER    */    CONTROL  | CS_IGNORE,
+    /* CS_IGNORE   */    CONTROL  | CS_IGNORE,
+    /* CS_IGNORE_P */    CONTROL  | CS_IGNORE_P,
+
+    /* input: PI_PRIVATE */
+    /* from_state        action     to_state  */
+    /* ---------------------------------------*/
+    /* SEQ_START   */    CONTINUE | CS_PRIVATE,
+    /* CS_PRIVATE  */    CONTINUE | CS_IGNORE,
+    /* CS_PARAM    */    CONTINUE | CS_IGNORE,
+    /* CS_INTER    */    CONTINUE | CS_IGNORE,
+    /* CS_IGNORE   */    IGNORE   | CS_IGNORE,
+    /* CS_IGNORE_P */    IGNORE   | CS_IGNORE,
+
+    /* input: PI_NUMERAL */
+<a id="3-42" data-page="3-42"></a>    /* from_state        action     to_state  */
+    /* ---------------------------------------*/
+    /* SEQ_START   */    PARAM    | CS_PARAM,
+    /* CS_PRIVATE  */    PARAM    | CS_PARAM,
+    /* CS_PARAM    */    PARAM    | CS_PARAM,
+    /* CS_INTER    */    CONTINUE | CS_IGNORE,
+    /* CS_IGNORE   */    IGNORE   | CS_IGNORE,
+    /* CS_IGNORE_P */    IGNORE   | CS_IGNORE_P,
+
+    /* input: PI_SEMICOL */
+    /* from_state        action     to_state  */
+    /* ---------------------------------------*/
+    /* SEQ_START   */    PARAM    | CS_PARAM,
+    /* CS_PRIVATE  */    PARAM    | CS_PARAM,
+    /* CS_PARAM    */    PARAM    | CS_PARAM,
+    /* CS_INTER    */    CONTINUE | CS_IGNORE,
+    /* CS_IGNORE   */    IGNORE   | CS_IGNORE,
+    /* CS_IGNORE_P */    IGNORE   | CS_IGNORE_P,
+
+
+
+
+
+
+    /* input: PI_INTER */
+    /* from_state        action     to_state  */
+    /* ---------------------------------------*/
+    /* SEQ_START   */    CONTINUE | CS_INTER,
+    /* CS_PRIVATE  */    CONTINUE | CS_INTER,
+    /* CS_PARAM    */    CONTINUE | CS_INTER,
+    /* CS_INTER    */    CONTINUE | CS_INTER,
+    /* CS_IGNORE   */    IGNORE   | CS_IGNORE,
+    /* CS_IGNORE_P */    CONTINUE | CS_INTER,
+
+    /* input: PI_FINAL */
+    /* from_state        action     to_state  */
+    /* ---------------------------------------*/
+    /* SEQ_START   */    PAR_SEQ   | CS_IGNORE,
+    /* CS_PRIVATE  */    PAR_SEQ   | CS_IGNORE,
+    /* CS_PARAM    */    PAR_SEQ   | CS_IGNORE,
+    /* CS_INTER    */    PAR_SEQ   | CS_IGNORE,
+    /* CS_IGNORE   */    CANCEL    | CS_IGNORE,
+    /* CS_IGNORE_P */    PAR_SEQ   | CS_IGNORE,
+
+    /* input: PI_OTHER */
+    /* from_state        action     to_state  */
+    /* ---------------------------------------*/
+    /* SEQ_START   */    CONTINUE | CS_IGNORE,
+    /* CS_PRIVATE  */    CONTINUE | CS_IGNORE,
+    /* CS_PARAM    */    CONTINUE | CS_IGNORE,
+    /* CS_INTER    */    CONTINUE | CS_IGNORE,
+    /* CS_IGNORE   */    IGNORE   | CS_IGNORE,
+    /* CS_IGNORE_P */    CONTINUE | CS_IGNORE
+
+    };
+
+<a id="3-43" data-page="3-43"></a>/* shorthand for "Stack Pointer" of parse stack */
+
+#define SP state->index
+
+
+/*************************************
+*
+* parse_init - initialize parse state
+*
+*************************************/
+
+parse_init(state)
+
+struct parse_stack *state;
+{
+    state->index = 0:
+    state->class[0] = CON;
+    state->value[0] = CON_START;
+    return(0);
+}
+
+
+
+
+
+/*******************************************************
+*
+* parse_ansi - callable re-entrant ansi parser executive
+*
+********************************************************/
+
+parse_ansi(c, state, event, start, final)
+
+struct parse_stack *state;  /* address of parse stack structure */
+
+int c;       /* input character */
+int *event;  /* event recognized (by ref) */
+int *start;  /* stack index of first char of event (by ref) */
+int *final;  /* stack index of final char of event (by ref) */
+
+{
+int action, i;
+
+/*..............................................*/
+
+/* if in sequence, convert 8 bit graphics to 7 bits */
+if (state->class[SP] &lt;= LAST_SEQ)
+    if (c >= 0xA0) c &amp;= 0x7F;
+
+/* invoke appropriate parser based on state class */
+switch (state->class[SP])
+    {
+    case CON:
+        /* parse graphic and CONtrol characters */
+        action = parse(state, c, eseq_class(c), eseq_parse_table);
+<a id="3-44" data-page="3-44"></a>        break;
+
+    case ESEQ:
+        /* parse escape sequences */
+        action = parse(state, c, eseq_class(c), eseq_parse_table);
+
+        /* check for too many intermediates */
+        i = 0;
+        while (state->value[SP-i] == ES_IN_SEQ)
+            {
+            i++;
+            if (i > MAX_NUM_INTERMEDIATES)
+                {
+                /* ignore sequence (but parse until final) */
+                state->value[SP] = ES_IGNORE;
+                }
+            }
+        break;
+
+    case CSI:
+    case DCS:
+        /* parse parameter sequence */
+        action = parse(state, c, pseq_class(c), pseq_parse_table);
+
+
+
+
+
+        /* check for too many intermediates */
+        i = 0;
+        while (state->value[SP-i] == CS_INTER)
+            {
+            i++;
+            if (i > MAX_NUM_INTERMEDIATES)
+                {
+                /* ignore sequence (but parse until final) */
+                state->value[SP] = CS_IGNORE;
+                }
+            }
+        break;
+    }
+
+/* process recognized events */
+switch (action)
+    {
+    case CONTINUE:
+        *event = R_CONTINUE;
+        break;
+    case GRAPHIC:
+        *event = R_GRAPHIC;
+        *start = SP;
+        *final = SP;
+        SP -= 1;
+        break;
+    case CONTROL:
+        pcontrol(state, event, start, final);
+<a id="3-45" data-page="3-45"></a>        break;
+    case ESC_SEQ:
+        pescseq(state, event, start, final);
+        break;
+    case PAR_SEQ:
+        *final = SP;
+        /* find start of sequence */
+        *start = SP;
+        while (state->value[*start] != SEQ_START) *start -= 1;
+        switch (state->data[*start])
+            {
+            case 0x9B: *event = R_CSI_SEQ; break;
+            case 0x90: *event = R_DCS_SEQ; break;
+            default:   *event = R_PARSE_ERROR; break;
+            }
+        /* remove seq from parse stack,
+           and return to previous parser */
+        SP = *start - 1;
+        break;
+    case PARAM:
+        /* input was either a numeral, or a semicolon,
+           reduce parameter chars to parameter value
+           if current char is a numeral then
+               if prev is a value, mul by 10, add current,
+                  range check.
+               else store current as a value.
+           else if current is a semicolon
+
+
+
+
+               store value of zero
+               if prev is not a value,
+               advance stack and store a value of zero.
+           finally, check for too many parameters.  */
+        *event = R_CONTINUE;
+        i = SP;    /* remember stack pointer */
+        if (state->data[SP] != 0x3B)
+            {    /* numeral */
+            if (state->value[SP-1] == CS_PARAM)
+                {
+                SP -= 1;
+                if (state->data[SP] > MAX_PARAMETER_VALUE/10)
+                    state->data[SP] = MAX_PARAMETER_VALUE;
+                else
+                    {
+                    state->data[SP] *= 10;
+                    state->data[SP] += state->data[SP+1] - 0x30;
+                    if (state->data[SP] > MAX_PARAMETER_VALUE)
+                        state->data[SP] = MAX_PARAMETER_VALUE;
+                    }
+                }
+            else
+                state->data[SP] -= 0x30;
+            }
+        else
+<a id="3-46" data-page="3-46"></a>            {    /* semicolon */
+            state->data[SP] = 0;
+            if (state->value[SP-1] != CS_PARAM)
+                {
+                SP += 1;
+                state->class[SP] = state->class[SP-1];
+                state->value[SP] = CS_PARAM;
+                state->data[SP] = 0;
+                }
+            }
+        /* check for too many parameters */
+        if (SP >= i)    /* did we add a parameter? */
+            {
+            i = 0;
+            while (state->value[SP-i] == CS_PARAM)
+                {
+                i++;
+                if (i > MAX_NUM_PARAMETERS)
+                    {
+                    /* ignore last parameter */
+                    SP -= 1;
+                    /* ignore any further parameters */
+                    state->value[SP] = CS_IGNORE_P;
+                    }
+                }
+            }
+        break;
+    case CANCEL:
+        if (state->class[SP] &lt;= LAST_SEQ)
+            {
+
+
+
+
+            while (state->value[SP] != SEQ_START) SP -= 1;
+            SP -= 1;
+            }
+        *event = R_CONTINUE;
+        break;
+    case IGNORE:
+        *event = R_CONTINUE;
+        SP -= 1;
+        break;
+    default:
+        *event = R_PARSE_ERROR;
+        parse_init(state);    /* re-initialize */
+        break;
+
+    }   /* end switch event */
+
+return(*event);
+}   /* end routine parse_ansi */
+
+<a id="3-47" data-page="3-47"></a>
+
+
+/*************************************************************
+*
+* eseq_class - return escape sequence parser input class
+*              of given character.
+*
+**************************************************************/
+
+eseq_class(c)
+int c;
+{
+int c_class;
+/*.....................*/
+
+/* determine character class */
+if (0x20 &lt;= c &amp;&amp; c &lt;= 0x2F)
+    c_class = ES_INTER;
+else if ( (0x00 &lt;= c &amp;&amp; c &lt;= 0x1F) ||
+          (0x7F &lt;= c &amp;&amp; c &lt;= 0x9F) ||
+          (c == 0xFF) )
+    c_class = ES_CONTROL;
+else if (0x30 &lt;= c &amp;&amp; c &lt;= 0x7E)
+    c_class = ES_FINAL;
+else
+    c_class = ES_GRAPHIC;
+
+return(c_class);
+}
+
+
+
+
+/*************************************************************
+*
+* pseq_class - return parameter sequence parser input class of
+* given character.
+*
+**************************************************************/
+pseq_class(c)
+int c;
+{
+int pi_class;
+/*.....................*/
+
+/* determine character class */
+if (0x30 &lt;= c &amp;&amp; c &lt;= 0x39)
+    pi_class = PI_NUMERAL;
+else if (c == 0x3B)
+    pi_class = PI_SEMICOL;
+else if (0x20 &lt;= c &amp;&amp; c &lt;= 0x2F)
+    pi_class = PI_INTER;
+else if (0x3C &lt;= c &amp;&amp; c &lt;= 0x3F)
+    pi_class = PI_PRIVATE;
+<a id="3-48" data-page="3-48"></a>else if (0x40 &lt;= c &amp;&amp; c &lt;= 0x7E)
+    pi_class = PI_FINAL;
+else if ( (0x00 &lt;= c &amp;&amp; c &lt;= 0x1F) ||
+          (0x7F &lt;= c &amp;&amp; c &lt;= 0x9F) ||
+          (c == 0xFF) )
+    pi_class = PI_CONTROL;
+else
+    pi_class = PI_OTHER;
+
+return(pi_class);
+}
+
+
+
+
+/*******************************************
+*
+* parse - table driven parse routine
+*
+* returns the following events:
+*   PARSE_ERROR
+*   CONTINUE
+*   GRAPHIC
+*   CONTROL
+*   ESC_SEQ
+*   CON_SEQ
+*   PARAM
+*   CANCEL
+*   IGNORE
+*
+* The parser is a table driven finite state automata,
+* where the next state and action are a function of
+* the current state and input.
+*
+*********************************************/
+parse(state, c, c_class, parse_table)
+
+struct parse_stack *state;     /*  parse stack         */
+int c;                         /*  input character     */
+int c_class;                   /*  input class         */
+char parse_table[];            /*  parse table         */
+
+{
+
+int next_action;
+int current_state;
+int next_state;
+
+/*...................................*/
+
+/* get next state */
+current_state = state->value[SP];
+next_state = parse_table[c_class + current_state] &amp; 0x0F;
+
+/* get action */
+next_action = parse_table[c_class + current_state] &amp; 0xF0;
+
+<a id="3-49" data-page="3-49"></a>/* default action */
+if (SP >= STACK_SIZE) return(PARSE_ERROR);
+SP += 1;
+state->class[SP] = state->class[SP-1];
+state->value[SP] = next_state;
+state->data[SP] = c;
+
+/* return action */
+return(next_action);
+
+}   /* end routine parse */
+
+
+
+/*****************************************
+*
+* pcontrol - process controls that alter
+*            the parse state.
+*
+******************************************/
+pcontrol(state, event, start, final)
+
+struct parse_stack *state;
+int *event;
+int *start;
+int *final;
+
+{
+int sp, code;
+/*..................*/
+
+sp = state->index;
+code = state->data[sp];
+
+/* ESC */
+if (code == 0x1B)
+    {
+    /* if already in escape or control sequence, restart it */
+    if (state->class[sp] &lt;= LAST_SEQ)
+        while (state->value[sp] != SEQ_START) sp -= 1;
+    state->class[sp] = ESEQ;    /* switch to escape seq parser */
+    state->value[sp] = SEQ_START;
+    state->data[sp] = 0x1B;
+    state->index = sp;
+    *event = R_CONTINUE;
+    return(0);
+    }
+
+/* CAN */
+if (code == 0x18)
+    {
+    /* if already in escape or control sequence, cancel it */
+    if (state->class[sp] &lt;= LAST_SEQ)
+        {
+        while (state->value[sp] != SEQ_START) sp -= 1;
+<a id="3-50" data-page="3-50"></a>        }
+    state->index = sp - 1;
+    *event = R_CONTINUE;
+    return(0);
+    }
+
+/* SUB */
+if (code == 0x1A)
+    {
+    /* if already in escape or control sequence, cancel it */
+    if (state->class[sp] &lt;= LAST_SEQ)
+        {
+        while (state->value[sp] != SEQ_START) sp -= 1;
+        state->index = sp-1;
+
+
+
+
+        *event = R_CONTINUE;
+        }
+    else
+        {    /* not in sequence, recognize SUB */
+        *event = R_CONTROL;
+        *start = sp;
+        *final = sp;
+        state->index = sp;
+        }
+    return(0);
+    }
+
+
+/* is it a C1 control ? */
+if (code > 0x7F)
+    {
+
+    /* if already in escape or control sequence, cancel it */
+    if (state->class[sp] &lt;= LAST_SEQ)
+        while (state->value[sp] != SEQ_START) sp -= 1;
+
+    /* CSI */
+    if (code == 0x9B)
+        {
+        /* switch to parameter seq parser */
+        state->class[sp] = CSI;
+        state->value[sp] = SEQ_START;
+        state->data[sp] = code;
+        state->index = sp;
+        *event = R_CONTINUE;
+        return(0);
+        }
+
+    /* DCS */
+    if (code == 0x90)
+        {
+        /* switch to parameter seq parser */
+        state->class[sp] = DCS;
+<a id="3-51" data-page="3-51"></a>        state->value[sp] = SEQ_START;
+        state->data[sp] = code;
+        state->index = sp;
+        *event = R_CONTINUE;
+        return(0);
+        }
+
+
+
+/* OSC, PM, APC */
+    if ( (code == 0x9D) || (code == 0x9E) || (code == 0x9F) )
+        {
+        /* switch to escape sequence parser */
+        state->class[sp] = ESEQ;
+        state->value[sp] = SEQ_START;
+        state->data[sp] = code;
+        state->index = sp;
+        *event = R_CONTINUE;
+        return(0);
+        }
+
+    }   /* end C1 control */
+
+
+/* recognize other controls */
+*event = R_CONTROL;
+state->data[sp] = code;
+*start = sp;
+*final = sp;
+/* remove control character from parse stack */
+state->index = sp - 1;
+return(0);
+}
+
+<a id="3-52" data-page="3-52"></a>
+/*************************************
+*
+* pescseq - process escape sequences
+*           that alter the parse state.
+*
+**************************************/
+pescseq(state, event, start, final)
+
+struct parse_stack *state;
+int *event;
+int *start;
+int *final;
+
+{
+int sp;
+/*.....................*/
+
+sp = state->index;
+
+/* two character escape sequence ? */
+if (state->data[sp-1] == 0x1B)
+    {
+
+    /* convert 7-bit Fe sequences to C1 controls */
+    if ((0x40 &lt;= state->data[sp]) &amp;&amp;  (state->data[sp] &lt;= 0x5F))
+        {
+        /* store C1 control */
+        state->data[sp-1] = state->data[sp] + 0x40;
+        state->index = sp-1;
+        /* steal code from pcontrol */
+        pcontrol(state, event, start, final);
+        return(0);
+        }
+    }
+
+/* recognize other escape sequences */
+/* find start of sequence */
+while (state->value[sp] != SEQ_START) sp -= 1;
+*start = sp;
+*final = state->index;
+switch (state->data[*start])
+    {
+    case 0x1B:  *event = R_ESC_SEQ; break;
+    case 0x9D:  *event = R_OSC_SEQ; break;
+    case 0x9E:  *event = R_PM_SEQ;  break;
+    case 0x9F:  *event = R_APC_SEQ; break;
+    default:    *event = R_PARSE_ERROR; break;
+    }
+state->index = *start - 1;   /* remove seq from parse stack */
+return(0);
+
+}   /* end routine pescseq */
+
+
+</code></pre>
+<a id="3-53" data-page="3-53"></a>
+<pre><code>/********************** module ptexec.c **************
+*
+* This module contains the parser test executive.
+* It reads characters from the keyboard and dumps the
+* parse stack when a control function is recognized.
+*
+* Environment:  VAX/VMS
+*
+* Author:  Peter Sichel    24-Feb-1984
+*
+* Modification history
+*    8-May-1984    T. Lasko
+*        Made ^Y (power off) cleaner.
+*    9-MAY-1984    T. Lasko
+*        Fixed several protocols.
+*    13-Nov-1984   P. Sichel
+*        Added OSC, PM, and APC control strings
+*    9-May-1988    P. Sichel
+*        Cosmetic changes for inclusion in VSRM
+*/
+
+
+<a id="3-54" data-page="3-54"></a>#include &lt;stdio.h>
+#include "gparse.h"   /* global parse definitions */
+#include "lparse.h"   /* local parse definitions */
+
+/* global storage */
+extern int poweron;
+
+/* module wide storage */
+struct parse_stack kbd_state;
+
+static char *eseq_state[3] =
+    {
+    "SEQ_START",
+    "CON_START",
+    "ES_IN_SEQ"
+    };
+static char *pseq_state[6] =
+    {
+    "SEQ_START",
+    "CS_PRIVATE",
+    "CS_PARAM",
+    "CS_INTER",
+    "CS_IGNORE",
+    "CS_IGNORE_P"
+    };
+
+<a id="3-55" data-page="3-55"></a>
+/*******************************************
+*  ptstart() -
+*
+*  This is the startup routine for the parser tester.
+*  It simply initializes the internal state and the terminal
+*  screen, then calls the executive loop, which returns when
+*  we give it a ^Y (power turns off).
+**********************************************/
+ptstart()
+{
+unsigned short n;
+
+/* erase screen, move cursor to home */
+printf("\33[2J\33[H");
+printf("A N S I   P a r s e r   T e s t e r\n");
+printf("    Press ^Y to exit \n\n");
+
+parse_init(&amp;kbd_state);
+poweron = 1;            /* ready....*/
+set_passall();
+
+execloop();             /* go! */
+
+set_nopassall();
+return(0);              /* when power off...return */
+}
+
+
+<a id="3-56" data-page="3-56"></a>/*******************************************
+*
+* execloop - parser test executive
+*
+********************************************/
+execloop()
+{
+
+int c;
+int event, start, final, i;
+
+/*..............................................*/
+
+while (poweron)
+    {
+
+    /* get character from KEYBOARD and parse it */
+    c = readkbd();
+
+    parse_ansi(c, &amp;kbd_state, &amp;event, &amp;start, &amp;final);
+
+    /* process recognized events */
+    switch (event)
+        {
+        case R_CONTINUE:
+            break;
+        case R_GRAPHIC:
+            printf("\nR_GRAPHIC:");
+            ptdump(&amp;kbd_state, start, final);
+            break;
+        case R_CONTROL:
+            printf("\nR_CONTROL:");
+            ptdump(&amp;kbd_state, start, final);
+            break;
+        case R_ESC_SEQ:
+            printf("\nR_ESC_SEQ:");
+            ptdump(&amp;kbd_state, start, final);
+            break;
+        case R_CSI_SEQ:
+            printf("\nR_CSI_SEQ:");
+            ptdump(&amp;kbd_state, start, final);
+            break;
+        case R_DCS_SEQ:
+            printf("\nR_DCS_SEQ:");
+            ptdump(&amp;kbd_state, start, final);
+            break;
+        case R_OSC_SEQ:
+            printf("\nR_OSC_SEQ:");
+            ptdump(&amp;kbd_state, start, final);
+            break;
+        case R_PM_SEQ:
+            printf("\nR_PM_SEQ:");
+            ptdump(&amp;kbd_state, start, final);
+            break;
+<a id="3-57" data-page="3-57"></a>        case R_APC_SEQ:
+            printf("\nR_APC_SEQ:");
+            ptdump(&amp;kbd_state, start, final);
+            break;
+        default:
+            printf("\nR_PARSE_ERROR:");
+            ptdump(&amp;kbd_state, start, final);
+            break;
+        }   /* end switch case */
+
+    }   /* while (poweron) */
+
+return(0);
+}   /* end routine execloop */
+
+
+<a id="3-58" data-page="3-58"></a>/**********************************
+*
+* ptdump - parser test stack dump
+*
+***********************************/
+ptdump( state, start, final )
+
+struct parse_stack *state;
+int start, final;
+
+{
+int i;
+
+for (i=start; i&lt;=final; i++)
+    {
+    printf("\n    ");
+    switch (state->class[i])
+        {
+        case ESEQ:
+            printf("ESEQ %-11s", eseq_state[state->value[i]]);
+            break;
+        case CSI:
+            printf("CSI  %-11s", pseq_state[state->value[i]]);
+            break;
+        case DCS:
+            printf("DCS  %-11s", pseq_state[state->value[i]]);
+            break;
+        case CON:
+            printf("CON  %-11s", eseq_state[state->value[i]]);
+            break;
+        default:
+            printf("???      %02x    ", state->value[i]);
+        }
+
+    if (state->data[i] &lt; 16) printf("  %02x  ", state->data[i]);
+        else printf("%4x  ", state->data[i]);
+    if ((0x1F &lt; state->data[i]) &amp;&amp; (state->data[i] &lt; 0x7F))
+        putchar((int)state->data[i]);
+    }
+
+return(0);
+};
+</code></pre>
+</section>
+</section>
+</section>
+<a id="3-59" data-page="3-59"></a>
+<section id="3.6">
+<h2><u>3.6</u>  <u>Graphic</u> <u>Code</u> <u>Extension</u> <u>Techniques</u></h2>
+<p>In a 7-bit environment, the basic graphics' portion of the code table consists of a single 94- or 96-character set.  In an 8-bit environment, this is supplemented with an additional 94- or 96-&NoBreak;character set, and the two sets are referred to as the GL set (left half graphics, corresponding to the single set in 7-bits), and the GR set (right half).  In both environments, the graphic codes in the table can be further extended by the designation and invocation of a potentially unlimited repertory of graphics sets.  This is implemented by the provision of four sets of 94 or 96 graphic characters, referred to as the G0, G1, G2, and G3 sets.</p>
+<p>Character sets may be designated to any of the four G-sets, which may be currently or subsequently invoked into either the GL or GR positions in the code table.</p>
+<section id="3.6.1">
+<h3>3.6.1  Description Of Shift Functions</h3>
+<p>Shift functions are used to invoke one of the G-sets into the left or right half side of the code table.  There are two kinds of shift functions:  locking shifts and single shifts.  Locking shifts cause a G-set to be permanently invoked into the code table, where it will remain until another shift function occurs to replace it.  Single shifts cause a G-set to be invoked only for the occurrence of the single character code following the single shift control in the code stream, after which the table reverts to its previous state before the shift occurred.</p>
+<p>For example, if on power-up the ASCII character set is designated into G0 and G1, and G0 is invoked into GL, then any graphic codes in the GL portion of the table (2/1 through 7/14) will cause an ASCII character to be generated.  Subsequently, the Line Drawing character set may be designated into G1 to replace ASCII in that G-set.  No visible effect will occur until G1 is invoked into GL using a shift function.  Thereafter, any GL graphic codes received will cause Line Drawing characters to be displayed.</p>
+<a id="3-60" data-page="3-60"></a>
+<figure>
+<pre>            ASCII_C   Supplemental_C
+            +--+      +--+
+            |  |      |  |
+            |  |      |  |
+            |  |      |  |               Control Sets
+            |  |      |  |
+            |  |      |  |
+            +--+      +--+
+             v         v           designate
+             |         |           &amp; invoke:  C -> C0 = ESC ! F
+             v         v                      C -> C1 = ESC " F
+            +--++-----+--++-----+
+            |  ++     |  ++     |
+            |  |      |  |      |
+            |C0|  GL  |C1|  GR  |          In Use Table
+            |  |      |  |      |
+            |  |     ++  |     ++
+            +--+-----++--+-----++
+                 ^ ^        ^
+                 | |        |       invoke:   G0 -> GL = LS0 (SI)
+        +--------+ +---+----+                 G1 -> GL = LS1 (SO)
+        |              |                      G2 -> GL = LS2, SS2
+        |          +---+-----+---------+      G3 -> GL = LS3, SS3
+        |          |         |         |      G1 -> GR = LS1R
+        ^          ^         ^         ^      G2 -> GR = LS2R
+      +-----+  ++-----+  ++-----+  ++-----+   G3 -> GR = LS3R
+     ++     |  ++     |  ++     |  ++     |
+     |      |  |      |  |      |  |      |
+     |  G0  |  |  G1  |  |  G2  |  |  G3  |     Designated
+     |      |  |      |  |      |  |      |    Graphic Sets
+     |     ++  |     ++  |     ++  |     ++
+     +-----+   +-----++  +-----++  +-----++
+        ^         ^         ^         ^
+        |         |         |         |
+        +---------+----+----+---------+
+                       |            designate: ESC  I  F
+                       |
+                       |                     94 Chars:   96 Chars:
+   +---------+---------+---- . . . ---+         G0 = (
+   |         |         |              |         G1 = )      G1 = _
+   ^         ^         ^              ^         G2 = *      G2 = .
+ +-----+  +------+  ++-----+       ++-----+     G3 = +      G3 = /
+++     |  |      |  ++     |       ++     |
+|      |  |      |  |      |       |      |  ASCII_G          = B
+| 94   |  | 96   |  |      | . . . |      |  UPSS             = &lt;
+| Char |  | Char |  |      |       |      |  Line_Drawing     = 0
+|     ++  |      |  |     ++       |     ++  DEC_Supplemental = % 5
++-----+   +------+  +-----++       +-----++  ISO_Latin-1      = A (96)
+                                             DRCS (as defined,
+    Repertory of Graphic Character Sets            94 or 96)</pre>
+<figcaption>Figure 5. Designating and Invoking Control and Graphic Character Sets into the Eight-bit In Use Table</figcaption>
+</figure>
+<a id="3-61" data-page="3-61"></a>
+<section id="3.6.1.1">
+<h4>3.6.1.1  Locking Shifts</h4>
+<p>Conforming terminal products will provide the following locking shift functions in Level 1 operation.</p>
+<table>
+<thead>
+<tr><th>Code</th><th>Name</th><th>G-set invoked</th><th>Table position</th></tr>
+</thead>
+<tbody>
+<tr><td>LS0 *</td><td>Locking Shift Zero</td><td>G0</td><td>GL</td></tr>
+<tr><td>LS1 *</td><td>Locking Shift One</td><td>G1</td><td>GL</td></tr>
+<tr><td>LS2</td><td>Locking Shift Two</td><td>G2</td><td>GL</td></tr>
+<tr><td>LS3</td><td>Locking Shift Three</td><td>G3</td><td>GL</td></tr>
+</tbody>
+<tfoot>
+<tr><td colspan="4">* Note - The functions Locking Shift Zero and Locking Shift One have been previously referred to as Shift In (SI) and Shift Out (SO).  The effect of executing these controls has not been changed.</td></tr>
+</tfoot>
+</table>
+<p>Conforming terminals will provide the following additional locking shift functions in Level 2 operation.</p>
+<table>
+<thead>
+<tr><th>Code</th><th>Name</th><th>G-set invoked</th><th>Table position</th></tr>
+</thead>
+<tbody>
+<tr><td>LS1R</td><td>Locking Shift One Right</td><td>G1</td><td>GR</td></tr>
+<tr><td>LS2R</td><td>Locking Shift Two Right</td><td>G2</td><td>GR</td></tr>
+<tr><td>LS3R</td><td>Locking Shift Three Right</td><td>G3</td><td>GR</td></tr>
+</tbody>
+</table>
+<p>The following bit combinations are not affected by the use of the locking shifts.</p>
+<ol type="a">
+<li><p>Those corresponding to control characters in columns 00, 01, 08, and 09</p></li>
+<li><p>Those corresponding to the character Space (SP) in position 2/0, and Delete (DEL) in position 7/15 when a 94-character set is invoked into GL</p></li>
+<li><p>Those corresponding to positions 10/0 and 15/15 when a 94-character set is invoked into GR</p></li>
+<li><p>Those included in any escape or control sequence (see notes to subheadings <a href="#3.5.2">3.5.2</a> Escape Sequences and <a href="#3.5.3">3.5.3</a> Control Sequences for a full explanation of the use of bit combinations within escape and control sequences)</p></li>
+<li><p>The bit combination following a single shift function (SS2 or SS3)</p></li>
+</ol>
+</section>
+<a id="3-62" data-page="3-62"></a>
+<section id="3.6.1.2">
+<h4>3.6.1.2  Single Shift Functions</h4>
+<p>Conforming terminal products will provide the following single shift functions in both 7-bit and 8-bit environments.</p>
+<table>
+<thead>
+<tr><th>Code</th><th>Name</th><th>G-set invoked</th><th>Table position</th></tr>
+</thead>
+<tbody>
+<tr><td>SS2</td><td>Single Shift Two</td><td>G2</td><td>GL</td></tr>
+<tr><td>SS3</td><td>Single Shift Three</td><td>G3</td><td>GL</td></tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="3.6.2">
+<h3>3.6.2  Designating Character Sets</h3>
+<p>Each terminal shall maintain a repertory of available character sets, which may be designated to any of the four G-sets (note there is no direct way to designate a 96 character set into G0).  Once a character set is designated to a G-set, it remains in that set until explicitly replaced by another character set designator.  If the G-set is invoked into the code table at the time the character set is designated, it immediately replaces the existing set in the code table.</p>
+<p>Note:  For a complete description of conforming software use of the designating and invoking controls, see DEC STD 070-1.  DEC STD 70 addresses conformance of software when communicating directly with a presentation device, or when writing data to a file that is intended only for subsequent transmission to a presentation device.  It does not address conformance of software when processing terminal input or when writing data to a file that is intended for subsequent processing by application software.</p>
+<p><a><u>DEC</u> <u>STD</u> <u>169-0</u> <u>DEC</u> <u>Standard</u> <u>Coded</u> <u>Graphic</u> <u>Character</u> <u>Sets</u> <u>for</u> <u>Hardware</u> <u>and</u> <u>Software</u></a> requires that when data is intended for subsequent processing conforming software shall not use either locking shift or single shift functions.  This requirement is in fact a subset of the conformance requirements defined in this document, therefore the two documents do conflict.</p>
+</section>
+<section id="3.6.3">
+<h3>3.6.3  The User Preference Supplemental Set (Upss)</h3>
+<p>The User Preference Supplemental Set is a logical character set name similar in concept to a G-set (G0-G3) but at the next higher level.  The UPSS allows one level of software indirection for designating supplemental character sets.  The UPSS is designated and invoked like any other character set, but the character set used can be selected by the user as a SETUP option or by host control function in response to a user request.</p>
+<p>The UPSS was introduced to facilitate migration from DEC-MCS to ISO Latin-1.  Software applications that do not need to be concerned with which supplemental character set is used can defer <a id="3-63" data-page="3-63"></a>the choice of a specific supplemental set to the user, thus not imposing a choice that might interfere with the customers migration plan.  The designating sequence previously used for DEC Supplemental was changed to designate the UPSS, providing automatic transparent migration from DEC MCS to ISO Latin-1 for existing applications as soon as terminal devices can support ISO Latin-1.</p>
+<p>The concept of a User Preference Supplemental Set also accomodates existing CSS Specials that used the old DEC Supplemental designating sequence to designate a local country specific character set.</p>
+<p>Support for the UPSS is part of the 8-bit Interface Architecture Extension to Level 2, and required for conformance to Level 3.  As a minimum, the UPSS must be selectable between DEC Supplemental and ISO Latin-1 supplemental.  The UPSS also establishes the initial supplemental set for display (defaults to G2 on power-up), and determines the keyboard supplemental character set when 8-bit multinational characters are enabled.  See DEC STD 070-6.</p>
+<pre><code>typedef enum    /* upss_type */
+    {
+    UPSS_DEC_SUPPLEMENTAL_G, UPSS_ISO_LATIN1_SUPPLEMENTAL_G
+    } upss_type;
+upss_type upss;
+</code></pre>
+</section>
+<section id="3.6.4">
+<h3>3.6.4  Default Designation And Invocation</h3>
+<p>The following assignments will apply to the power-on and soft reset states of the terminal.</p>
+<section id="3.6.4.1">
+<h4>3.6.4.1  Level 1</h4>
+<p>In Level 1 operation, the default character set designations will be ASCII in G0, G1, G2, and G3.  Furthermore, the G0 set (ASCII) will be invoked into the GL position of the In Use Table.  Level 1 operation is 7-bits only.</p>
+</section>
+<section id="3.6.4.2">
+<h4>3.6.4.2  Level 2 (without 8-bit Interface Architecture Extension)</h4>
+<p>In Level 2 operation, the default character set designations will be ASCII in G0 and G1, and the DEC Supplemental graphics set in G2 and G3.  Furthermore, the G0 set (ASCII) will be invoked into the GL position of the In Use Table, and the G2 set (DEC Supplemental graphics) will be invoked into the GR position of the In Use Table.</p>
+</section>
+<a id="3-64" data-page="3-64"></a>
+<section id="3.6.4.3">
+<h4>3.6.4.3  Level 3 (or Level 2 with 8-bit Interface Architecture Extension)</h4>
+<p>In Level 3 operation, the default character set designations will be ASCII in G0 and G1, and the User Preference Supplemental Set (UPSS) in G2 and G3.  Furthermore, the G0 set (ASCII) will be invoked into the GL position of the In Use Table. and the G2 set (UPSS, typically DEC Supplemental or ISO Latin-1 supplemental) will be invoked into the GR position of the In Use Table.</p>
+<p>Level 3 (or Level 2 with the 8-bit Interface Architecture Extension) also recognizes the "Announce Subset Of Code Extension Facilities" defined in ISO 4873 which re-initialize the designated and invoked character sets as described later in this chapter.</p>
+</section>
+<section id="3.6.4.4">
+<h4>3.6.4.4  NRCS Extension</h4>
+<p>When the NRCS Extension is present, ASCII may be replaced with a National Replacement Character set as a Set-Up option.  In this case, the default character set designations will be the NRCS in G0, G1, G2, and G3, with G0 in GL.  National Replacement Character Sets are intended for backward compatibility and may be used as above in Level 1, Level 2, and Level 3 by selecting "7-bit NRCS Characters" in Set-Up or setting DECNRCM (National Replacement Character set Mode) from the host.  Setting this mode has the side effect of resetting the display character sets to their default state as described above.  Note that the NRC Mode is 7-bits only, GR is not available.  The actual NRC set used is determined by the "Keyboard Dialect", and the selection of "Typewriter" or "Data Processing" keys.  See DEC STD 070-6 for more information.</p>
+</section>
+</section>
+</section>
+<a id="3-65" data-page="3-65"></a>
+<section id="3.7">
+<h2><u>3.7</u>  <u>State</u> <u>Descriptions</u></h2>
+<section id="3.7.1">
+<h3>3.7.1  Control Sets</h3>
+<p>At the present time the C0 and C1 control sets are fixed as the ANSI control sets defined in ANSI X3.4 - 1986 and ISO 6429: 1988.</p>
+<pre><code>typedef enum    /* c0_control_set_type */
+    {
+    ASCII_C
+    } c0_control_set_type;
+
+typedef enum    /* c1_control_set_type */
+    {
+    SUPPLEMENTAL_C
+    } c1_control_set_type;
+</code></pre>
+</section>
+<section id="3.7.2">
+<h3>3.7.2  G-Sets</h3>
+<p>Graphic character sets are defined for each service class.  (See <a><u>DEC</u> <u>STD</u> <u>070-5</u> <u>Video</u> <u>Systems</u> <u>Reference</u> <u>Manual</u> <u>-</u> <u>Character</u> <u>Cell</u> <u>Display</u></a> for a complete description of the available character sets and designating sequences.) The actual character sets available will vary for different conformance levels and extensions (NRCS, 8-bit IA, TCS) ).  Four character sets may be designated at any time, each into one of the four G-sets, which may be subsequently invoked into the In Use Table.</p>
+<pre><code>typedef enum    /* graphic_character_set_type */
+    {
+    ASCII_G,
+    LINE_DRAWING_G,
+    DEC_SUPPLEMENTAL_G,
+    ISO_LATIN1_SUPPLEMENTAL_G,    /* 8-bit IA */
+    UPSS_G                        /* 8-bit IA */
+    } graphic_character_set_type;
+
+graphic_character_set_type designated_graphic_sets[4];
+</code></pre>
+</section>
+<section id="3.7.3">
+<h3>3.7.3  In Use Table</h3>
+<p>Mapping of received control functions and graphic character data is provided by the 8-bit code table, as described above.  Since the 8-bit table is a superset of the 7-bit table, all references will be to the 8-bit table in both environments.</p>
+<pre><code>typedef enum    /* gset_name_type */
+    {
+    G0, G1, G2, G3
+    } gset_name_type;
+
+typedef struct    /* in_use_table_type */
+    {
+    c0_control_set_type          c0;
+<a id="3-66" data-page="3-66"></a>    graphic_character_set_type   gl;
+    gset_name_type               invoked_gl;
+
+    c1_control_set_type          c1;
+    graphic_character_set_type   gr;
+    gset_name_type               invoked_gr;
+    } in_use_table_type;
+
+in_use_table_type in_use_table;
+</code></pre>
+</section>
+<section id="3.7.4">
+<h3>3.7.4  Single Shift Functions</h3>
+<p>Since single shift controls affect the processing of the next graphic character in the received data stream, it is necessary to retain their occurrence until subsequent processing occurs.</p>
+<pre><code>typedef enum    /* single_shift_type */
+    {
+    NONE, SS2, SS3
+    } single_shift_type;
+
+single_shift_type single_shift;
+</code></pre>
+</section>
+<section id="3.7.5">
+<h3>3.7.5  Environments</h3>
+<p>The environment of the host port can be selected for either a seven or eight bit data path in set-up.  The environment of the printer port can be selected independently of the host environment as a set-up function.  See <a><u>DEC</u> <u>STD</u> <u>070-7</u> <u>Video</u> <u>Systems</u> <u>Reference</u> <u>Manual</u> <u>-</u> <u>Printer</u> <u>Port</u> <u>Extension</u></a>.</p>
+<p>Note that the logical environment for which each port is set is independent of the actual physical hardware setting of the ports, and may in fact be different.  For example, it may be possible to set the host port for an 8-bit environment, even though the physical channel is limited by the hardware to 7-bits.  The architecture assumes that the physical and logical settings are compatible, and does not define the results when this is not the case.  The terminal characteristics are dependent on both the environment and the conformance level of operation.  However, there are only three possible states for the terminal to be in that this architecture specifies:</p>
+<ul>
+<li><p>Level 1 operation</p><table>
+<tbody>
+<tr><td>Host Port</td><td>transmit -</td><td>7-bit controls</td><td>7-bit graphics</td></tr>
+<tr><td></td><td>receive -</td><td>7-bit controls</td><td>7-bit graphics</td></tr>
+<tr><td>(Printer Port</td><td>transmit -</td><td>7-bit controls</td><td>7-bit graphics)</td></tr>
+</tbody>
+</table>
+</li>
+<li><p>Level 2 or Level 3 operation, 7-bit C1 controls</p><a id="3-67" data-page="3-67"></a><table>
+<tbody>
+<tr><td>Host Port</td><td>transmit -</td><td>7-bit controls</td><td>8-bit graphics</td></tr>
+<tr><td></td><td>receive -</td><td>8-bit controls</td><td>8-bit graphics</td></tr>
+</tbody>
+</table>
+</li>
+<li><p>Level 2 or Level 3 operation, 8-bit C1 controls</p><table>
+<tbody>
+<tr><td>Host Port</td><td>transmit -</td><td>8-bit controls</td><td>8-bit graphics</td></tr>
+<tr><td></td><td>receive -</td><td>8-bit controls</td><td>8-bit graphics</td></tr>
+</tbody>
+</table>
+</li>
+</ul>
+<section id="3.7.5.1">
+<h4>3.7.5.1  Level 1 - Host Port</h4>
+<p>Level 1 operation provides only for 7-bit communications.  Thus.  in Level 1 all control and graphic characters can only be received and transmitted in seven bits.  The high order bit of all 8-bit characters received will be stripped by the terminal before any processing occurs.  All C1 controls will be transmitted by the terminal as ESC Fe sequences.  Only 7-bit characters will be generated from the keyboard (that is, attempts to generate 8-bit characters will fail).</p>
+</section>
+<section id="3.7.5.2">
+<h4>3.7.5.2  Level 2 or Level 3 - Host Port</h4>
+<p>In Level 2 or Level 3 operation both 7-bit and 8-bit communications are supported.  The terminal will accept C1 control characters and GR graphic characters in both 7-bit and 8-bit C1 Transmission Modes.</p>
+<p>When 7-bit communications is selected (7-bit host port environment), C1 controls will only be transmitted as ESC Fe sequences, and only 7-bit characters will be generated from the keyboard (that is, attempts to generate 8-bit characters on line will fail).</p>
+<p>When 8-bit communications is selected (8-bit host port environment), the terminal can be selected to transmit C1 control characters either as 7-bit ESC Fe sequences, or as 8-bit control characters.  The terminal will generate GR characters from the keyboard in eight bits.</p>
+<pre><code>typedef enum    /* environment_type */
+    {
+    SEVEN_BIT, EIGHT_BIT
+    } environment_type;
+
+environment_type
+    host_port_environment,
+    printer_port_environment,
+    c1_transmission_mode;
+</code></pre>
+</section>
+</section>
+</section>
+<a id="3-68" data-page="3-68"></a>
+<section id="3.8">
+<h2><u>3.8</u>  <u>Control</u> <u>Operations</u></h2>
+<section id="3.8.1">
+<h3>3.8.1  Announce Subset Of Code Extension Facilities</h3>
+<section id="ACS">
+<h4>Announce Subset Of Code Extension Facilities</h4>
+<p><em>Levels:</em> 2X, 3  (8-bit Interface Architecture Extension)</p>
+<p><em>Purpose:</em> To indicate which subset of code extension facilities defined in ISO 4873 conforming interchange will use.</p>
+<div>
+<p><em>Format:</em></p>
+<pre><samp>ESC     SP      &lt;final>
+
+1/11    2/0</samp></pre>
+</div>
+<table>
+<thead>
+<tr><th>&lt;final></th><th>Level of conformance</th></tr>
+</thead>
+<tbody>
+<tr><td>L  4/12</td><td>Level 1 of ISO 4873</td></tr>
+<tr><td>M  4/13</td><td>Level 2 of ISO 4873</td></tr>
+<tr><td>N  4/14</td><td>Level 3 of ISO 4873</td></tr>
+</tbody>
+</table>
+<p><em>Description:</em> This sequence announces the level of conformance that the subsequent interchange will conform to.  Conformance to ISO 4873 requires some default designation and invocations on the part of the terminal.</p>
+<p>Upon receipt of a Level 1, 2, or 3 announcer sequence, the terminal will make the following designations and invocations:</p>
+<ul>
+<li>Level 1<ul>
+<li>ASCII is designated into G0</li>
+<li>ISO Latin Alphabet Nr 1 supplemental is designated into G1</li>
+<li>G0 is invoked into GL</li>
+<li>G1 is invoked into GR</li>
+</ul>
+</li>
+<li>Level 2<ul>
+<li>ASCII is designated into G0</li>
+<li>ISO Latin Alphabet Nr 1 supplemental is designated into G1</li>
+<li>G0 is invoked into GL</li>
+<li>G1 is invoked into GR</li>
+</ul>
+</li>
+<li>Level 3<ul>
+<li>ASCII is designated into G0</li>
+<li>G0 is invoked into GL</li>
+</ul>
+</li>
+</ul>
+<aside>
+<h4>NOTES:</h4>
+<p>Conformance to a subset of ISO 4873 code extension and interchange is NOT equivalent to the Digital conformance levels for Character Cell Display terminals.  These announcer sequences and DECSCL both specify conformance levels, but to a different standard (ISO 4873 in this case).</p>
+<p>Any hard or soft terminal reset (receipt of RIS, <a id="3-69" data-page="3-69"></a>DECSTR, or DECSCL, or issuing the RECALL function from Set-Up), will cause the Terminal to reset the "Default Designations And Invocations" as described previously to conform with DEC STD 169-&NoBreak;0.</p>
+<p>Interchange conforming to ISO 4873 which issues a RIS, DECSTR, or DECSCL, must subsequently send an announcer sequence to regain the default ISO designations and invocations.</p>
+</aside>
+<p><em>State Affected:</em></p>
+<ul>
+<li><code>graphic_character_set_type  designated_graphic_sets[4];</code></li>
+<li><code>graphic_character_set_type  gl;</code></li>
+<li><code>graphic_character_set_type  gr;</code></li>
+<li><code>gset_name_type              invoked_gl;</code></li>
+<li><code>gset_name_type              invoked_gr;</code></li>
+</ul>
+<p><em>Algorithm:</em></p>
+<pre><code>void announce_level_1 ()
+{
+if ( (conformance_level > 2) ||
+     (level_2_extensions[8bit_ia]) )
+    {
+    designated_graphic_sets[0] = ASCII_G;
+    designated_graphic_sets[1] = ISO_LATIN1_SUPPLEMENTAL_G;
+    gl = designated_graphic_sets[0];
+    invoked_gl = G0;
+    gr = designated_graphic_sets[1];
+    invoked_gr = G1;
+    }
+}
+
+
+void announce_level_2 ()
+{
+if ( (conformance_level > 2) ||
+     (level_2_extensions[8bit_ia]) )
+    {
+    designated_graphic_sets[0] = ASCII_G;
+    designated_graphic_sets[1] = ISO_LATIN1_SUPPLEMENTAL_G;
+    gl = designated_graphic_sets[0];
+    invoked_gl = G0;
+    gr = designated_graphic_sets[1];
+    invoked_gr = G1;
+    }
+}
+
+void announce_level_3 ()
+{
+if ( (conformance_level > 2) ||
+     (level_2_extensions[8bit_ia]) )
+<a id="3-70" data-page="3-70"></a>    {
+    designated_graphic_sets[0] = ASCII_G;
+    gl = designated_graphic_sets[0];
+    invoked_gl = G0;
+    }
+}
+</code></pre>
+<p><em>Known Deviations:</em> None</p>
+</section>
+</section>
+<a id="3-71" data-page="3-71"></a>
+<section id="3.8.2">
+<h3>3.8.2  Communications Environment</h3>
+<section id="S7C1T">
+<h4>Select 7-Bit C1 Transmission <span>&mdash;</span> S7C1T</h4>
+<p><em>Levels:</em> 2, 3</p>
+<p><em>Purpose:</em> Cause the device to generate C1 controls in 7-bits as two character ESC Fe sequences.</p>
+<div>
+<p><em>Format:</em></p>
+<pre><samp>ESC     SP      F
+
+1/11    2/0     4/6</samp></pre>
+</div>
+<p><em>Description:</em> The S7C1T control causes the terminal to use the 7-&NoBreak;bit encoding for all C1 control characters transmitted.  Therefore, all C1 characters will be represented as two character ESC Fe sequences.</p>
+<p><em>Notes:</em></p>
+<ol>
+<li><p>The coding of this control is defined in ISO and ANSI standards, but is not assigned a name in those standards.</p></li>
+</ol>
+<p><em>State Affected:</em></p>
+<ul>
+<li><code>environment_type c1_transmission_mode;</code></li>
+</ul>
+<p><em>Algorithm:</em></p>
+<pre><code>void select_7_bit_c1_transmission ()
+{
+if (conformance_level != LEVEL_1)
+    c1_transmission_mode = SEVEN_BIT;
+}
+</code></pre>
+<p><em>Known Deviations:</em> None</p>
+</section>
+<a id="3-72" data-page="3-72"></a>
+<section id="S8C1T">
+<h4>Select 8-Bit C1 Transmission <span>&mdash;</span> S8C1T</h4>
+<p><em>Levels:</em> 2, 3</p>
+<p><em>Purpose:</em> Cause the device to generate C1 controls in 8-bits as single character control codes.</p>
+<div>
+<p><em>Format:</em></p>
+<pre><samp>ESC     SP      G
+
+1/11    2/0     4/7</samp></pre>
+</div>
+<p><em>Description:</em> The S8C1T control causes the terminal to use the 8-bit encoding for all C1 control characters transmitted.  Therefore, all C1 characters will be represented as single character control codes.</p>
+<p><em>Notes:</em></p>
+<ol>
+<li><p>The coding of this control is defined in ISO and ANSI standards, but is not assigned a name in those standards.</p></li>
+<li><p>If the Host_Port_environment is set to Seven_Bit, this control will be ignored by the terminal.</p></li>
+</ol>
+<p><em>State Affected:</em></p>
+<ul>
+<li><code>environment_type c1_transmission_mode;</code></li>
+</ul>
+<p><em>Algorithm:</em></p>
+<pre><code>void select_8_bit_c1_transmission ()
+{
+if ( (conformance_level != LEVEL_1) &amp;&amp;
+     (host_port_environment == EIGHT_BIT) )
+    c1_transmission_mode = EIGHT_BIT;
+}
+</code></pre>
+<p><em>Known Deviations:</em> None</p>
+</section>
+</section>
+<a id="3-73" data-page="3-73"></a>
+<section id="3.8.3">
+<h3>3.8.3  Shift Functions</h3>
+<section id="3.8.3.1">
+<h4>3.8.3.1  Locking Shifts</h4>
+<section id="SI/LS0">
+<h4>Shift In<span>/</span>Locking Shift Zero <span>&mdash;</span> SI<span>/</span>LS0</h4>
+<p><em>Levels:</em> 1, 2, 3</p>
+<p><em>Purpose:</em> Invoke the G0 graphic character set into the GL position of the code table.</p>
+<div>
+<p><em>Format:</em></p>
+<pre><samp>LS0  (SI)
+
+1/15</samp></pre>
+</div>
+<p><em>Description:</em> The LS0 or SI control invokes the set of graphic characters currently designated as a G0 set into the left-hand graphics portion of the Code Table.  Receipt of this control causes subsequent data in the range 2/1 through 7/14 that is entered into the display to be rendered according to the current contents of the G0 character set.</p>
+<aside>
+<h4>NOTE</h4>
+<p>G0 cannot normally be a 96-character set since there is no control function to designate a 96-&NoBreak;character set as G0.  A 96 character UPSS could be designated as G0 in which case subsequent data in the range 2/0 to 7/15 would be affected. Conforming software shall not designate a 96 character UPSS as G0.</p>
+</aside>
+<p><em>State Affected:</em></p>
+<ul>
+<li><code>in_use_table_type in_use_table;</code></li>
+</ul>
+<p><em>Algorithm:</em></p>
+<pre><code>void shift_in ()
+{
+in_use_table.gl = designated_graphic_sets[0];
+in_use_table.invoked_gl = G0;
+}
+</code></pre>
+<p><em>Known Deviations:</em> None</p>
+</section>
+<a id="3-74" data-page="3-74"></a>
+<section id="SO/LS1">
+<h4>Shift Out<span>/</span>Locking Shift One <span>&mdash;</span> SO<span>/</span>LS1</h4>
+<p><em>Levels:</em> 1, 2, 3</p>
+<p><em>Purpose:</em> Invoke the G1 graphic character set into the GL position of the code table.</p>
+<div>
+<p><em>Format:</em></p>
+<pre><samp>LS1  (SO)
+
+1/14</samp></pre>
+</div>
+<p><em>Description:</em> The LS1 or SO control invokes the set of graphic characters currently designated as a G1 set into the left-hand graphics portion of the Code Table.  Receipt of this control causes subsequent data in the range 2/1 through 7/14 (or 2/0 through 7/15 for 96 character sets) that is entered into the display to be rendered according to the current_contents of the G1 character set.</p>
+<p><em>State Affected:</em></p>
+<ul>
+<li><code>in_use_table_type in_use_table;</code></li>
+</ul>
+<p><em>Algorithm:</em></p>
+<pre><code>void shift_out ()
+{
+in_use_table.gl = designated_graphic_sets[1];
+in_use_table.invoked_gl = G1;
+}
+</code></pre>
+<p><em>Known Deviations:</em> None</p>
+</section>
+<a id="3-75" data-page="3-75"></a>
+<section id="LS2">
+<h4>Locking Shift Two <span>&mdash;</span> LS2</h4>
+<p><em>Levels:</em> 2, 3</p>
+<p><em>Purpose:</em> Invoke the G2 graphic character set into the GL position of the code table.</p>
+<div>
+<p><em>Format:</em></p>
+<pre><samp>ESC     n
+
+1/11    6/14</samp></pre>
+</div>
+<p><em>Description:</em> The LS2 control invokes the set of graphic characters currently designated as a G2 set into the left-hand graphics portion of the Code Table.  Receipt of this control causes subsequent data in the range 2/1 through 7/14 (or 2/0 through 7/15 for 96 character sets) that is entered into the display to be rendered according to the current contents of the G2 character set.</p>
+<p><em>Notes:</em></p>
+<ol>
+<li><p>This control is included in the terminal interface for interchange compatibility with ISO and ANSI standards.  It is not to be used by conforming software.</p></li>
+</ol>
+<p><em>State Affected:</em></p>
+<ul>
+<li><code>in_use_table_type in_use_table;</code></li>
+</ul>
+<p><em>Algorithm:</em></p>
+<pre><code>void locking_shift_two ()
+{
+if (conformance_level == LEVEL_2)
+    {
+    in_use_table.gl = designated_graphic_sets[2];
+    in_use_table.invoked_gl = G2;
+    }
+}
+</code></pre>
+<p><em>Known Deviations:</em> None</p>
+</section>
+<a id="3-76" data-page="3-76"></a>
+<section id="LS3">
+<h4>Locking Shift Three <span>&mdash;</span> LS3</h4>
+<p><em>Levels:</em> 2, 3</p>
+<p><em>Purpose:</em> Invoke the G3 graphic character set into the GL position of the code table.</p>
+<div>
+<p><em>Format:</em></p>
+<pre><samp>ESC     o
+
+1/11    6/15</samp></pre>
+</div>
+<p><em>Description:</em> The LS3 control invokes the set of graphic characters currently designated as a G3 set into the left-hand graphics portion of the Code Table.  Receipt of this control causes subsequent data in the range 2/1 through 7/14 (or 2/0 through 7/15 for 96 character sets) that is entered into the display to be rendered according to the current contents of the G3 character set.</p>
+<p><em>Notes:</em></p>
+<ol>
+<li><p>This control is included in the terminal interface for interchange compatibility with ISO and ANSI standards.  It is not to be used by conforming software.  See DEC STD 070-1.</p></li>
+</ol>
+<p><em>State Affected:</em></p>
+<ul>
+<li><code>in_use_table_type in_use_table;</code></li>
+</ul>
+<p><em>Algorithm:</em></p>
+<pre><code>void locking_shift_three ()
+{
+if (conformance_level == LEVEL_2)
+    {
+    in_use_table.gl = designated_graphic_sets[3];
+    in_use_table.invoked_gl = G3;
+    }
+}
+</code></pre>
+<p><em>Known Deviations:</em> None</p>
+</section>
+<a id="3-77" data-page="3-77"></a>
+<section id="LS1R">
+<h4>Locking Shift One Right <span>&mdash;</span> LS1R</h4>
+<p><em>Levels:</em> 2</p>
+<p><em>Purpose:</em> Invoke the G1 graphic character set into the GR position of the code table.</p>
+<div>
+<p><em>Format:</em></p>
+<pre><samp>ESC     ~
+
+1/11    7/14</samp></pre>
+</div>
+<p><em>Description:</em> The LS1R control invokes the set of graphic characters currently designated as a G1 set into the right-hand graphics portion of the Code Table.  Receipt of this control causes subsequent data in the range 10/1 through 15/14 (or 10/0 through 15/15 for 96 character sets) that is entered into the display to be rendered according to the current contents of the G1 character set.</p>
+<p><em>Notes:</em></p>
+<ol>
+<li><p>This control is included in the terminal interface for interchange compatibility with ISO and ANSI standards.  It is not to be used by conforming software.  (See DEC STD 070-1.)</p></li>
+<li><p>Conformance to Level 3 of ISO 4873 requires the use of LS1R to invoke the right-hand part of the eight-bit code table.</p></li>
+</ol>
+<p><em>State Affected:</em></p>
+<ul>
+<li><code>in_use_table_type in_use_table;</code></li>
+</ul>
+<p><em>Algorithm:</em></p>
+<pre><code>void locking_shift_one_right ()
+{
+if (conformance_level == LEVEL_2)
+    {
+    in_use_table.gr = designated_graphic_sets[1];
+    in_use_table.invoked_gr = G1;
+    }
+}
+</code></pre>
+<p><em>Known Deviations:</em> None</p>
+</section>
+<a id="3-78" data-page="3-78"></a>
+<section id="LS2R">
+<h4>Locking Shift Two Right <span>&mdash;</span> LS2R</h4>
+<p><em>Levels:</em> 2, 3</p>
+<p><em>Purpose:</em> Invoke the G2 graphic character set into the GR position of the code table.</p>
+<div>
+<p><em>Format:</em></p>
+<pre><samp>ESC     }
+
+1/11    7/13</samp></pre>
+</div>
+<p><em>Description:</em> The LS2R control invokes the set of graphic characters currently designated as a G2 set into the right-hand graphics portion of the Code Table.  Receipt of this control causes subsequent data in the range 10/1 through 15/14 (or 10/0 through 15/15 for 96 character sets), that is entered into the display to be rendered according to the current contents of the G2 character set.</p>
+<p><em>State Affected:</em></p>
+<ul>
+<li><code>in_use_table_type in_use_table;</code></li>
+</ul>
+<p><em>Algorithm:</em></p>
+<pre><code>void locking_shift_two_right ()
+{
+if (conformance_level == LEVEL_2)
+    {
+    in_use_table.gr = designated_graphic_sets[2];
+    in_use_table.invoked_gr = G2;
+    }
+}
+</code></pre>
+<p><em>Known Deviations:</em> None</p>
+</section>
+<a id="3-79" data-page="3-79"></a>
+<section id="LS3R">
+<h4>Locking Shift Three Right <span>&mdash;</span> LS3R</h4>
+<p><em>Levels:</em> 2, 3</p>
+<p><em>Purpose:</em> Invoke the G3 graphic character set into the GR position of the code table.</p>
+<div>
+<p><em>Format:</em></p>
+<pre><samp>ESC     |
+
+1/11    7/12</samp></pre>
+</div>
+<p><em>Description:</em> The LS3R control invokes the set of graphic characters currently designated as a G3 set into the right-hand graphics portion of the Code Table.  Receipt of this control causes subsequent data in the range 10/1 through 15/14 (or 10/0 through 15/15 for 96 character sets) that is entered into the display to be rendered according to the current contents of the G3 character set.</p>
+<p><em>State Affected:</em></p>
+<ul>
+<li><code>in_use_table_type in_use_table;</code></li>
+</ul>
+<p><em>Algorithm:</em></p>
+<pre><code>void locking_shift_three_right ()
+{
+if (conformance_level == LEVEL_2)
+    {
+    in_use_table.gr = designated_graphic_sets[3];
+    in_use_table.invoked_gr = G3;
+    }
+}
+</code></pre>
+<p><em>Known Deviations:</em> None</p>
+</section>
+</section>
+<a id="3-80" data-page="3-80"></a>
+<section id="3.8.3.2">
+<h4>3.8.3.2  Single Shifts</h4>
+<section id="SS2">
+<h4>Single Shift Two <span>&mdash;</span> SS2</h4>
+<p><em>Levels:</em> 1, 2, 3</p>
+<p><em>Purpose:</em> Temporarily invoke a single character from the designated G2 set.</p>
+<div>
+<p><em>Format:</em></p>
+<pre><samp>SS2
+
+8/14</samp></pre>
+</div>
+<p><em>Description:</em> The SS2 control causes the next character in the received data stream, which must be in the range 2/0 through 7/15 or 10/0 through 15/15, to be rendered according to the current contents of the G2 set.  If the next character in the received data stream is not a graphic character in this range, the single shift function is ignored and the received character is processed as if the single shift had not been received.</p>
+<p>The only exception to this rule is that a single Shift Out (0/14) or Shift In (0/15) control character may occur between the Single Shift and the subsequent graphic character.  The Shift Out or Shift In character will be interpreted normally, but does not cancel the Single Shift.  The following bit combination shall be interpreted as a character from the G2 set.  This is done for conformance to ISO 2022, and is intended to facilitate the design of 8-bit to 7-bit transformation facilities.</p>
+<p><em>State Affected:</em></p>
+<ul>
+<li><code>single_shift_type single_shift;</code></li>
+<li><code>boolean_type cancel_single_shift;</code></li>
+</ul>
+<p><em>Algorithm:</em></p>
+<pre><code>(See <a href="#SS3">"Single Shift Three"</a> below.)
+</code></pre>
+</section>
+<a id="3-81" data-page="3-81"></a>
+<section id="SS3">
+<h4>Single Shift Three <span>&mdash;</span> SS3</h4>
+<p><em>Levels:</em> 1, 2, 3</p>
+<p><em>Purpose:</em> Temporarily invoke a single character from the designated G3 set.</p>
+<div>
+<p><em>Format:</em></p>
+<pre><samp>SS3
+
+8/15</samp></pre>
+</div>
+<p><em>Description:</em> The SS3 control causes the next character in the received data stream, which must be in the range 2/0 through 7/15 or 10/0 through 15/15, to be rendered according to the current contents of the G3 set.  If the next character in the received data stream is not a graphic character in this range, the single shift function is ignored and the received character is processed as if the single shift had not been received.</p>
+<p>The only exception to this rule is that a single Shift Out (0/14) or Shift In (0/15) control character may occur between the Single Shift and the subsequent graphic character.  The Shift Out or Shift In character will be interpreted normally, but does not cancel the Single Shift.  The following bit combination shall be interpreted as a character from the G3 set.  This is done for conformance to ISO 2022, and is intended to facilitate the design of 8-bit to 7-bit transformation facilities.</p>
+<p><em>State Affected:</em></p>
+<ul>
+<li><code>single_shift_type single_shift;</code></li>
+<li><code>boolean_type cancel_single_shift;</code></li>
+</ul>
+<p><em>Algorithm:</em></p>
+<pre><code>/* . . . main loop */
+c = readcom();
+
+parse_ansi(c, &amp;com_state, &amp;event, &amp;start, &amp;final);
+
+if (single_shift != NONE)
+    {
+    if (cancel_single_shift) single_shift = NONE;
+    cancel_single_shift = IS_TRUE;
+    }
+
+/* process recognized events . . . */
+if (event == R_CONTROL)
+    {
+    code = com_state->data[final];
+
+    if (code == 0x0E)    /* SO (LS1) */
+        {
+        shift_out();
+<a id="3-82" data-page="3-82"></a>        cancel_single_shift = IS_FALSE;
+        }
+    else if (code == 0x0F)    /* SI (LS0) */
+        {
+        shift_in();
+        cancel_single_shift = IS_FALSE;
+        }
+
+    else if (code == 0x8E)
+        {
+        single_shift = SS2;
+        cancel_single_shift = IS_FALSE;
+        }
+    else if (code == 0x8F)
+        {
+        single_shift = SS3;
+        cancel_single_shift = IS_FALSE;
+        }
+    /* . . . */
+    }
+/* continue main loop . . . */
+</code></pre>
+<p><em>Known Deviations:</em></p>
+<p>Previous versions of this standard incorrectly stated that an SO or SI between a Single Shift and its operand would be ignored.  Since we do not normally translate between 7-bit and 8-bit environments within Digital, this has not been a problem.  Future implementations should conform to ISO 2022 as described above.</p>
+</section>
+</section>
+</section>
+</section>
+<a id="3-83" data-page="3-83"></a>
+<section id="3.9">
+<h2><u>3.9</u>  <u>Change</u> <u>History</u></h2>
+<section id="3.9.1">
+<h3>3.9.1  Revision 0.2 to 0.3</h3>
+<ol>
+<li><p>The standard's title was changed from "Communications and Coding Interchange" to "Code Extension Layer".</p></li>
+<li><p>The names of the Reference Standards were corrected.</p></li>
+<li><p>The conformance section was removed, and will later be integrated into the section "Concepts and Conformance Criteria".</p></li>
+<li><p>The terminology section was moved from the back of the document to the front.</p></li>
+<li><p>A sentence was added to the section on graphic character codes to clarify the handling of bit combinations in the range 2/1 through 7/14 and 10/1 through 15/14 when received within a control function.</p></li>
+<li><p>Qualifications were added to the section on rate limiting in terminals.</p></li>
+<li><p>XON was removed from the definition of the Universal Terminator.</p></li>
+<li><p>Sections were added to the notes on Escape Sequences and Control Sequences to clarify the processing of 7/15 and 15/15 and C1 control characters within control functions.</p></li>
+<li><p>The section on processing of control sequence parameter values was substantially rewritten.</p></li>
+<li><p>The section on Control Strings was moved ahead of the parser design.</p></li>
+<li><p>A note was added on the non-conformance of the VT125 in processing CAN within control strings.</p></li>
+<li><p>Global changes were made to the parser design to incorporate the processing of DCS introducer sequences.</p></li>
+<li><p>A figure was added showing the logical relationship of the C sets, G sets, In Use Table, and character sets.</p></li>
+<li><p>A note was added referencing DEC STD 169-0 and clarifying the distinction between conforming Presentation interchange and conforming Application interchange.</p></li>
+<li><p>The 8-bit locking shifts table was corrected for LS3R.</p></li>
+<li><p>All state descriptions were rewritten, and the names changed for consistency with other parts of the SRM.</p><a id="3-84" data-page="3-84"></a></li>
+<li><p>The environments section was substantially rewritten.</p></li>
+<li><p>The default character set designations were changed to distinguish between Level 1 operation and Level 2 operation.</p></li>
+<li><p>The names of Select 7-bit C1 and Select 8-bit C1 were changed to include "Transmission".  These controls are now called S7C1T and S8C1T.</p></li>
+<li><p>GR Transmission Mode and Send/Receive Mode were removed from the architecture.</p></li>
+<li><p>The coding was changed for LS0, LS1, LS1R, LS2R. LS3R, SS2 and SS3.  Notes were added on conforming software use of these controls.</p></li>
+<li><p>The character set designators were removed from this section and will later be incorporated into the section "Character Cell Display".</p></li>
+</ol>
+</section>
+<section id="3.9.2">
+<h3>3.9.2  Revision 0.3 to AX10</h3>
+<ol>
+<li><p>Removed reference to use of Delete as a pad character, and made wording stronger that conforming software must use NUL only.</p></li>
+<li><p>Added note to description of the processing of the 10/0 character to indicate that it is treated as Space (2/0) within control functions.</p></li>
+<li><p>Made minor corrections and changed a few variable names in the parser algorithms to be consistent with other sections of the SRM.</p></li>
+<li><p>Added a note to the section on environments indicating that the "logical" environment might in fact be different from the "physical" environment of the hardware, and if this is the case the architecture does not define the result.</p></li>
+<li><p>Changed descriptions of Single_Shift_Two and Single_Shift_Three as well as the algorithms to indicate that they will be ignored if the next character in the received data stream is not a graphic character.  (With the exception that a single Shift Out or Shift In character may occur.)</p></li>
+<li><p>Removed the notes which restricted conforming software from using Single Shift Two and Single Shift Three.</p><a id="3-85" data-page="3-85"></a></li>
+<li><p>Added a note that rate limiting should be the factory default in devices which have a capability of defeating this feature.</p></li>
+<li><p>Changed the description of control characters occurring within control strings to permit, but deprecate the use of, any function other than String Terminator to terminate a string.</p></li>
+<li><p>Added a note that GR (8-bit) graphic characters may occur within control strings.</p></li>
+</ol>
+</section>
+<section id="3.9.3">
+<h3>3.9.3  Revision AX10 to AX11</h3>
+<ol>
+<li><p>Removed Rev AX10 change bars.  Added change bars to any change that could affect conformance or interpretation of the document or should be brought to the attention of terminal implementors or software engineers.</p></li>
+<li><p>Changed GET__NEXT__CODE__FROM__INPUT__BUFFER to strip parity bit in Level 1.</p></li>
+<li><p>Added statement that the inclusion of C0 Controls 0/8 to 0/13 in control string data is intended for convenience in formating and storing control strings.  It is recommended that these characters not affect the interpretation of the control string.</p></li>
+</ol>
+</section>
+<a id="3-86" data-page="3-86"></a>
+<section id="3.9.4">
+<h3>3.9.4  Revision AX11 to AX12</h3>
+<ol>
+<li><p>Removed Rev AX11 change bars.  Added change bars to any change that could affect conformance or interpretation of the document or should be brought to the attention of terminal implementors or software engineers.</p></li>
+<li><p>Added description of 8-bit Interface Architecture Extension including Support for 96-character graphic character sets, ISO Latin-1 Supplemental, and the User Preference Supplemental Set (UPSS).  The 8-bit Interface Architecture Extension is required for Level 3 conformance, and strongly recommended for Level 2.  Modified rest of chapter to assume the 8-bit Interface Architecture Extension is present.  Graphic characters can now be in the range 2/0-7/15 and 10/0-15/15 when 96-&NoBreak;character graphic sets are used.  Expanded description of default designations and invocations for 8-bit Interface Architecture.</p></li>
+<li><p>Updated referenced standards section.  Added dpANS X3.134.1-1985, X3.134.2-1985, and ISO 8859-1:1987.</p></li>
+<li><p>Removed one page section on communication controls (XON/&NoBreak;XOFF, padding, and rate limiting) because they are not really part of Code Extension.  These will included in chapter 12 on Terminal Synchronization.</p></li>
+<li><p>Changed recommendation for minimum size of parameters that should be supported.  Was 255 (8-bits), changed to 16384 (14-bits).</p></li>
+<li><p>Added recommendation for handling parameters beyond the device maximum.  Parameters beyond the maximum number supported should be ignored.</p></li>
+<li><p>Extended description of multiple selective parameters to conform with current usage.  Not all sequences containing more than one selective parameter have the same effect as a corresponding number of separate control sequences, each with a single parameter.</p></li>
+<li><p>Clarified range of final characters for DCS sequences 7/0 to 7/14 (same as for private control sequences).</p></li>
+<li><p>Added description of Digital extended syntax for other Control Strings (APC, OSC, PM).  Syntax is patterned after Private Escape Sequences.</p></li>
+<li><p>Added description of Character Strings (SOS) and anticipatory guidelines compatible with ISO 6429.</p></li>
+<li><p>Clarified rules for 8-bit graphic characters within control strings including exception for DCS strings.  8-&NoBreak;bit graphic characters are treated as their 7-bit <a id="3-87" data-page="3-87"></a>equivalents (8th bit ignored) in APC, OSC, PM strings, and DCS introducer sequences.  Interpretation of 8-bit characters in data portion of DCS strings is dependent on the internal control string format.</p></li>
+<li><p>Added description of NRCS Extension allowing ASCII to be replaced with NRC set (including default designations and invocations).  Removed previous description of British NRCS as a special case.  Included reference to section 6 where DECNRCM is documented.</p></li>
+<li><p>Removed description of Printer Port Environment (7-&NoBreak;bits/8-bits) within Host Port Environment.  Added reference to "Printer Port Extension" chapter.</p></li>
+<li><p>Added description of "Announce Subset of Code Extension Facilities" per ISO 4873 including algorithm and escape sequences.</p></li>
+<li><p>Added note about the possibility of a 96-character UPSS being designated as G0.  Normally there is no way to directly designate a 96-character set as G0.  Conforming software shall not designate a 96-character UPSS as G0.</p></li>
+<li><p>Changed algorithms to use character re-entrant parser coded in VAX-11 C.  This table driven ANSI parser is easier to follow, and is being used in actual products.</p></li>
+<li><p>Changed standard to show that SI or SO occurring between a Single Shift and its operand does not cancel the Single Shift (SS2 or SS3) but may still affect subsequent data.</p></li>
+</ol>
+</section>
+</section>
+<a id="3-88" data-page="3-88"></a>
+<section id="3.10">
+<h2><u>3.10</u>  <u>Referenced</u> <u>Documents</u></h2>
+<p>DIGITAL STANDARDS</p>
+<dl>
+<dt>EL-00070-01</dt>
+<dd>DEC STD 070-1 Video Systems Reference
+Manual - Concepts and Conformance Criteria</dd>
+<dt>EL-00070-05</dt>
+<dd>DEC STD 070-5 Video Systems Reference
+Manual - Character Cell Display</dd>
+<dt>EL-00070-06</dt>
+<dd>DEC STD 070-6 Video Systems Reference
+Manual - Keyboard Processing</dd>
+<dt>EL-00070-07</dt>
+<dd>DEC STD 070-7 Video Systems Reference
+Manual - Printer Port Extension</dd>
+<dt>EL-00138-00</dt>
+<dd>DEC STD 138-0 Registry of Control
+Functions for Character Imaging Devices</dd>
+<dt>EL-00169-00</dt>
+<dd>DEC STD 169-0 DEC Standard Coded
+Graphic Character Sets for Hardware
+and Software</dd>
+</dl>
+<p>Copies of Digital Standards Can be obtained from Standards and Methods Control, $ VTX SMC, JOKUR::SMC, DTN 287-3724, or CTS1-&NoBreak;2/&NoBreak;D4.</p>
+<p>Please provide your name, badge number, cost center, mailstop, and ENET node when ordering.</p>
+<p>ANSI AND ISO STANDARDS</p>
+<dl>
+<dt>ANSI X3.4 - 1986</dt>
+<dd>American National Standard Code for
+Information Interchange (ASCII character set)</dd>
+<dt>ANSI X3.41 - 1974</dt>
+<dd>American National Standard Code Extension
+Techniques for use with the 7-Bit Coded
+Character Set of the American National
+Standard Code for Information Interchange</dd>
+<dt>ANSI X3.64 - 1979</dt>
+<dd>Additional Controls for use with American
+National Standard Code for Information
+Interchange</dd>
+<dt>ANSI X4.23 - 1982</dt>
+<dd>Keyboard Arrangement for Alphanumeric
+Machines<a id="3-89" data-page="3-89"></a></dd>
+<dt>dpANS X3.134.1-1985</dt>
+<dd>8-bit ASCII Structure and Rules</dd>
+<dt>dpANS X3.134.2-1985</dt>
+<dd>7-bit and 8-bit ASCII Supplemental
+Multinational Graphic Character Set</dd>
+<dt>ISO 646</dt>
+<dd>Information Processing /
+7-Bit Coded Character Set
+for Information Interchange</dd>
+<dt>ISO 2022:1986</dt>
+<dd>Information Processing /
+ISO 7-Bit and 8-Bit Coded Character Sets -
+Code Extension Techniques</dd>
+<dt>ISO 6429:1988</dt>
+<dd>Information Processing /
+Control Functions for Coded Character Sets</dd>
+<dt>ISO 8859-1:1987</dt>
+<dd>Information Processing /
+8-Bit Single-Byte Coded Character Sets -
+Part 1 : ISO Latin Alphabet Nr 1;</dd>
+</dl>
+<p>Copies of ANSI and ISO Standards can be obtained from local Digital Libraries.</p>
+<a id="3-90" data-page="3-90"></a>
+<p>This page deliberately left blank.</p>
+</section>
+</main>
+<footer>
+<a id="Index-1" data-page="Index-1"></a>
+<section id="Index">
+<h2>Section Index</h2>
+<ul>
+<li>10/0, <a href="#3-17">3-17</a></li>
+<li>15/15, <a href="#3-17">3-17</a><ul>
+<li>within control function, <a href="#3-22">3-22</a>,
+<a href="#3-23">3-23</a></li>
+</ul>
+</li>
+<li>2/0, <a href="#3-17">3-17</a></li>
+<li>7/15, <a href="#3-17">3-17</a><ul>
+<li>within control function, <a href="#3-22">3-22</a>,
+<a href="#3-23">3-23</a></li>
+</ul>
+</li>
+<li>Announce Subset of Code Extension
+Facilities, <a href="#3-68">3-68</a></li>
+<li>APC<ul>
+<li>introducer, <a href="#3-29">3-29</a></li>
+</ul>
+</li>
+<li>Application Program Command, <a href="#3-28">3-28</a></li>
+<li>8-bit Character Set<ul>
+<li>within control function, <a href="#3-22">3-22</a>,
+<a href="#3-24">3-24</a></li>
+</ul>
+</li>
+<li>7-bit Characters, <a href="#3-7">3-7</a>, <a href="#3-64">3-64</a></li>
+<li>8-bit Characters, <a href="#3-7">3-7</a></li>
+<li>Bit Combination, <a href="#3-12">3-12</a>, <a href="#3-61">3-61</a><ul>
+<li>definition, <a href="#3-10">3-10</a></li>
+<li>parameter, <a href="#3-24">3-24</a></li>
+<li>within control function, <a href="#3-16">3-16</a></li>
+</ul>
+</li>
+<li>C language, <a href="#3-31">3-31</a></li>
+<li>C0 Control Characters, <a href="#3-60">3-60</a>, <a href="#3-65">3-65</a><ul>
+<li>7-bit encoding, <a href="#3-12">3-12</a></li>
+<li>8-bit encoding, <a href="#3-14">3-14</a></li>
+</ul>
+</li>
+<li>C0 Control Code<ul>
+<li>within control function, <a href="#3-22">3-22</a>,
+<a href="#3-23">3-23</a></li>
+</ul>
+</li>
+<li>C1 Control Characters, <a href="#3-60">3-60</a>, <a href="#3-65">3-65</a><ul>
+<li>7-bit encoding, <a href="#3-23">3-23</a>, <a href="#3-71">3-71</a></li>
+<li>8-bit encoding, <a href="#3-14">3-14</a>, <a href="#3-72">3-72</a></li>
+<li>within control functions, <a href="#3-19">3-19</a></li>
+<li>within control strings, <a href="#3-30">3-30</a></li>
+</ul>
+</li>
+<li>C1 Control Code<ul>
+<li>within control function, <a href="#3-22">3-22</a>,
+<a href="#3-24">3-24</a></li>
+</ul>
+</li>
+<li>C1 Transmission Mode, <a href="#3-67">3-67</a>, <a href="#3-71">3-71</a>,
+<a href="#3-72">3-72</a></li>
+<li>Cancel, <a href="#3-19">3-19</a>, <a href="#3-30">3-30</a></li>
+<li>Character<ul>
+<li>defined, <a href="#3-10">3-10</a></li>
+</ul>
+</li>
+<li>Character Code, <a href="#3-12">3-12</a><ul>
+<li>control, <a href="#3-16">3-16</a></li>
+<li>definition, <a href="#3-10">3-10</a></li>
+<li>graphic, <a href="#3-16">3-16</a></li>
+</ul>
+</li>
+<li>Character Set, <a href="#3-59">3-59</a><ul>
+<li>7-bit, <a href="#3-12">3-12</a></li>
+<li>8-bit, <a href="#3-14">3-14</a></li>
+<li>definition, <a href="#3-10">3-10</a></li>
+<li>designation, <a href="#3-62">3-62</a></li>
+<li>repertory, <a href="#3-60">3-60</a></li>
+</ul>
+</li>
+<li>Code Extension, <a href="#3-16">3-16</a><ul>
+<li>control code, <a href="#3-18">3-18</a></li>
+<li>control sequence, <a href="#3-23">3-23</a></li>
+<li>definition, <a href="#3-10">3-10</a></li>
+<li>escape sequence, <a href="#3-22">3-22</a></li>
+<li>graphic code, <a href="#3-59">3-59</a></li>
+</ul>
+</li>
+<li>Code Table, <a href="#3-62">3-62</a><ul>
+<li>definition, <a href="#3-10">3-10</a></li>
+<li>row and column, <a href="#3-11">3-11</a></li>
+<li>structure, <a href="#3-13">3-13</a>, <a href="#3-15">3-15</a></li>
+</ul>
+</li>
+<li>Command String, <a href="#3-29">3-29</a></li>
+<li>Conformance<ul>
+<li>locking shifts, <a href="#3-61">3-61</a></li>
+<li>single shifts, <a href="#3-62">3-62</a></li>
+<li>software, <a href="#3-62">3-62</a></li>
+</ul>
+</li>
+<li>Control Character, <a href="#3-16">3-16</a><ul>
+<li>7-bit environment, <a href="#3-16">3-16</a></li>
+<li>8-bit environment, <a href="#3-16">3-16</a></li>
+<li>C0, <a href="#3-14">3-14</a></li>
+<li>C1, <a href="#3-14">3-14</a>, <a href="#3-19">3-19</a></li>
+<li>C1 expansion, <a href="#3-23">3-23</a></li>
+<li>cancel, <a href="#3-19">3-19</a></li>
+<li>code extension techniques, <a href="#3-18">3-18</a></li>
+<li>definition, <a href="#3-10">3-10</a></li>
+<li>escape, <a href="#3-19">3-19</a></li>
+<li>substitute, <a href="#3-19">3-19</a></li>
+<li>unimplemented, <a href="#3-20">3-20</a></li>
+<li>within control function, <a href="#3-22">3-22</a>,
+<a href="#3-23">3-23</a></li>
+</ul>
+</li>
+<li>Control Function, <a href="#3-16">3-16</a><ul>
+<li>categories, <a href="#3-18">3-18</a></li>
+<li>definition, <a href="#3-10">3-10</a></li>
+<li>precedence, <a href="#3-18">3-18</a></li>
+</ul>
+</li>
+</ul>
+<a id="Index-2" data-page="Index-2"></a>
+<ul>
+<li>Control Sequence, <a href="#3-18">3-18</a>, <a href="#3-23">3-23</a><ul>
+<li>definition, <a href="#3-10">3-10</a></li>
+<li>format, <a href="#3-23">3-23</a></li>
+<li>introducer, <a href="#3-23">3-23</a></li>
+<li>numeric parameter, <a href="#3-11">3-11</a>, <a href="#3-25">3-25</a></li>
+<li>parameter, <a href="#3-24">3-24</a></li>
+<li>parameter string, <a href="#3-11">3-11</a>, <a href="#3-24">3-24</a></li>
+<li>parsing, <a href="#3-31">3-31</a></li>
+<li>private parameter, <a href="#3-26">3-26</a></li>
+<li>selective parameter, <a href="#3-11">3-11</a>, <a href="#3-25">3-25</a></li>
+<li>termination, <a href="#3-18">3-18</a>, <a href="#3-19">3-19</a></li>
+<li>unimplemented, <a href="#3-20">3-20</a></li>
+</ul>
+</li>
+<li>Control Sets, <a href="#3-65">3-65</a></li>
+<li>Control String, <a href="#3-18">3-18</a><ul>
+<li>definition, <a href="#3-10">3-10</a></li>
+<li>string terminator, <a href="#3-28">3-28</a></li>
+<li>termination, <a href="#3-19">3-19</a>, <a href="#3-30">3-30</a></li>
+<li>types, <a href="#3-28">3-28</a></li>
+<li>unimplemented, <a href="#3-20">3-20</a></li>
+</ul>
+</li>
+<li>DEC STD 070-1, <a href="#3-62">3-62</a>, <a href="#3-76">3-76</a>, <a href="#3-77">3-77</a>,
+<a href="#3-88">3-88</a></li>
+<li>DEC STD 070-5, <a href="#3-65">3-65</a>, <a href="#3-88">3-88</a></li>
+<li>DEC STD 070-6, <a href="#3-7">3-7</a>, <a href="#3-17">3-17</a>, <a href="#3-63">3-63</a>,
+<a href="#3-64">3-64</a>, <a href="#3-88">3-88</a></li>
+<li>DEC STD 070-7, <a href="#3-66">3-66</a>, <a href="#3-88">3-88</a></li>
+<li>DEC STD 138-0, <a href="#3-25">3-25</a>, <a href="#3-88">3-88</a></li>
+<li>DEC STD 169-0, <a href="#3-62">3-62</a>, <a href="#3-68">3-68</a>, <a href="#3-83">3-83</a>,
+<a href="#3-88">3-88</a></li>
+<li>DECNRCM, <a href="#3-7">3-7</a>, <a href="#3-64">3-64</a></li>
+<li>Default Designation and
+Invocation, <a href="#3-63">3-63</a>, <a href="#3-68">3-68</a>, <a href="#3-69">3-69</a></li>
+<li>Defaults<ul>
+<li>character set designation, <a href="#3-63">3-63</a>,
+<a href="#3-68">3-68</a></li>
+<li>character set invocation, <a href="#3-63">3-63</a>,
+<a href="#3-68">3-68</a></li>
+</ul>
+</li>
+<li>Delete, <a href="#3-12">3-12</a>, <a href="#3-14">3-14</a>, <a href="#3-17">3-17</a></li>
+<li>Designate, <a href="#3-60">3-60</a>, <a href="#3-62">3-62</a><ul>
+<li>defaults, <a href="#3-63">3-63</a>, <a href="#3-68">3-68</a></li>
+<li>definition, <a href="#3-10">3-10</a></li>
+</ul>
+</li>
+<li>Designated Graphic Sets, <a href="#3-60">3-60</a><ul>
+<li>definition, <a href="#3-65">3-65</a></li>
+</ul>
+</li>
+<li>Device Control String, <a href="#3-28">3-28</a><ul>
+<li>format, <a href="#3-28">3-28</a></li>
+<li>introducer, <a href="#3-28">3-28</a></li>
+<li>numeric parameter, <a href="#3-11">3-11</a></li>
+<li>parameter string, <a href="#3-11">3-11</a></li>
+<li>parsing, <a href="#3-31">3-31</a></li>
+<li>selective parameter, <a href="#3-11">3-11</a></li>
+</ul>
+</li>
+<li>dpANS X3.134.1-1985, <a href="#3-89">3-89</a></li>
+<li>Environment<ul>
+<li>7-bit and 8-bit, <a href="#3-12">3-12</a>, <a href="#3-21">3-21</a>,
+<a href="#3-59">3-59</a>, <a href="#3-66">3-66</a></li>
+<li>definition, <a href="#3-10">3-10</a></li>
+<li>host port, <a href="#3-66">3-66</a></li>
+<li>printer port, <a href="#3-66">3-66</a></li>
+<li>transformation, <a href="#3-21">3-21</a></li>
+</ul>
+</li>
+<li>Escape, <a href="#3-19">3-19</a>, <a href="#3-22">3-22</a>, <a href="#3-30">3-30</a></li>
+<li>Escape Sequence, <a href="#3-18">3-18</a>, <a href="#3-22">3-22</a><ul>
+<li>definition, <a href="#3-10">3-10</a></li>
+<li>expansion escape sequence, <a href="#3-11">3-11</a>,
+<a href="#3-23">3-23</a></li>
+<li>format, <a href="#3-22">3-22</a></li>
+<li>parsing, <a href="#3-31">3-31</a></li>
+<li>termination, <a href="#3-18">3-18</a>, <a href="#3-19">3-19</a></li>
+<li>unimplemented, <a href="#3-20">3-20</a></li>
+</ul>
+</li>
+<li>Expansion Escape Sequence, <a href="#3-23">3-23</a><ul>
+<li>definition, <a href="#3-11">3-11</a></li>
+</ul>
+</li>
+<li>Final Character<ul>
+<li>APC, <a href="#3-29">3-29</a></li>
+<li>control sequence, <a href="#3-23">3-23</a></li>
+<li>definition, <a href="#3-11">3-11</a></li>
+<li>device control string, <a href="#3-28">3-28</a></li>
+<li>escape sequence, <a href="#3-22">3-22</a></li>
+<li>OSC, <a href="#3-29">3-29</a></li>
+<li>PM, <a href="#3-29">3-29</a></li>
+</ul>
+</li>
+<li>G-Sets, <a href="#3-59">3-59</a><ul>
+<li>G0, <a href="#3-60">3-60</a>, <a href="#3-65">3-65</a></li>
+<li>G1, <a href="#3-60">3-60</a>, <a href="#3-65">3-65</a></li>
+<li>G2, <a href="#3-60">3-60</a>, <a href="#3-65">3-65</a></li>
+<li>G3, <a href="#3-60">3-60</a>, <a href="#3-65">3-65</a></li>
+</ul>
+</li>
+<li>GL, <a href="#3-14">3-14</a>, <a href="#3-60">3-60</a>, <a href="#3-65">3-65</a></li>
+<li>GR, <a href="#3-14">3-14</a>, <a href="#3-60">3-60</a>, <a href="#3-65">3-65</a></li>
+<li>GR Graphic Character<ul>
+<li>within control function, <a href="#3-24">3-24</a></li>
+</ul>
+</li>
+<li>Graphic Character, <a href="#3-16">3-16</a><ul>
+<li>code extension techniques, <a href="#3-59">3-59</a></li>
+<li>definition, <a href="#3-11">3-11</a></li>
+<li>GL, <a href="#3-14">3-14</a></li>
+<li>GR, <a href="#3-14">3-14</a></li>
+<li>within control function, <a href="#3-22">3-22</a></li>
+</ul>
+</li>
+<li>Host Port Environment Mode, <a href="#3-66">3-66</a>,
+<a href="#3-67">3-67</a></li>
+<li>In Use Table, <a href="#3-15">3-15</a>, <a href="#3-60">3-60</a>, <a href="#3-65">3-65</a></li>
+<li>Interface<ul>
+<li>external, <a href="#3-9">3-9</a></li>
+<li>internal, <a href="#3-9">3-9</a></li>
+</ul>
+</li>
+</ul>
+<a id="Index-3" data-page="Index-3"></a>
+<ul>
+<li>Intermediate Character<ul>
+<li>control sequence, <a href="#3-23">3-23</a></li>
+<li>definition, <a href="#3-11">3-11</a></li>
+<li>device control string, <a href="#3-28">3-28</a></li>
+<li>escape sequence, <a href="#3-22">3-22</a></li>
+</ul>
+</li>
+<li>Invoke, <a href="#3-60">3-60</a>, <a href="#3-62">3-62</a><ul>
+<li>defaults, <a href="#3-63">3-63</a>, <a href="#3-68">3-68</a></li>
+<li>definition, <a href="#3-11">3-11</a></li>
+</ul>
+</li>
+<li>ISO 4873, <a href="#3-68">3-68</a></li>
+<li>ISO 8859-1, <a href="#3-89">3-89</a></li>
+<li>Locking Shift, <a href="#3-59">3-59</a><ul>
+<li>Level 1, <a href="#3-61">3-61</a></li>
+<li>Level 2, <a href="#3-61">3-61</a></li>
+</ul>
+</li>
+<li>Locking Shift One, <a href="#3-74">3-74</a></li>
+<li>Locking Shift One Right, <a href="#3-77">3-77</a></li>
+<li>Locking Shift Three, <a href="#3-76">3-76</a></li>
+<li>Locking Shift Three Right, <a href="#3-79">3-79</a></li>
+<li>Locking Shift Two, <a href="#3-75">3-75</a></li>
+<li>Locking Shift Two Right, <a href="#3-78">3-78</a></li>
+<li>Locking Shift Zero, <a href="#3-73">3-73</a></li>
+<li>Modes<ul>
+<li>C1 transmission, <a href="#3-67">3-67</a>, <a href="#3-71">3-71</a>,
+<a href="#3-72">3-72</a></li>
+<li>host port environment, <a href="#3-67">3-67</a></li>
+<li>printer port environment, <a href="#3-67">3-67</a></li>
+</ul>
+</li>
+<li>Multinational Mode, <a href="#3-7">3-7</a></li>
+<li>National Mode, <a href="#3-7">3-7</a>, <a href="#3-64">3-64</a></li>
+<li>National Replacement Character
+Set (NRCS), <a href="#3-7">3-7</a>, <a href="#3-64">3-64</a></li>
+<li>Numeric Parameter<ul>
+<li>definition, <a href="#3-11">3-11</a></li>
+<li>multiple, <a href="#3-25">3-25</a></li>
+</ul>
+</li>
+<li>Operating System Command (OSC),
+<a href="#3-28">3-28</a><ul>
+<li>introducer, <a href="#3-29">3-29</a></li>
+</ul>
+</li>
+<li>Parameter<ul>
+<li>device control string, <a href="#3-28">3-28</a></li>
+<li>maximum value, <a href="#3-24">3-24</a></li>
+<li>numeric, <a href="#3-11">3-11</a>, <a href="#3-25">3-25</a></li>
+<li>private, <a href="#3-26">3-26</a></li>
+<li>selective, <a href="#3-11">3-11</a>, <a href="#3-25">3-25</a></li>
+<li>unimplemented, <a href="#3-20">3-20</a></li>
+</ul>
+</li>
+<li>Parameter String, <a href="#3-23">3-23</a><ul>
+<li>definition, <a href="#3-11">3-11</a></li>
+<li>device control string, <a href="#3-28">3-28</a></li>
+<li>examples, <a href="#3-27">3-27</a></li>
+<li>maximum length, <a href="#3-24">3-24</a></li>
+</ul>
+</li>
+<li>Parsing, <a href="#3-31">3-31</a></li>
+<li>PM<ul>
+<li>introducer, <a href="#3-29">3-29</a></li>
+</ul>
+</li>
+<li>Printer Port<ul>
+<li>environment, <a href="#3-66">3-66</a>, <a href="#3-67">3-67</a></li>
+</ul>
+</li>
+<li>Privacy Message, <a href="#3-28">3-28</a></li>
+<li>Private Parameter, <a href="#3-26">3-26</a></li>
+<li>Referenced Documents, <a href="#3-88">3-88</a></li>
+<li>S7C1T, <a href="#3-71">3-71</a></li>
+<li>S8C1T, <a href="#3-72">3-72</a></li>
+<li>Select 7-Bit C1 Transmission<ul>
+<li>control function, <a href="#3-71">3-71</a></li>
+</ul>
+</li>
+<li>Select 8-Bit C1 Transmission<ul>
+<li>control function, <a href="#3-72">3-72</a></li>
+</ul>
+</li>
+<li>Selective Parameter<ul>
+<li>definition, <a href="#3-11">3-11</a></li>
+<li>multiple, <a href="#3-25">3-25</a></li>
+</ul>
+</li>
+<li>Shift Functions, <a href="#3-59">3-59</a></li>
+<li>Shift In, <a href="#3-73">3-73</a><ul>
+<li>within control function, <a href="#3-21">3-21</a></li>
+</ul>
+</li>
+<li>Shift Out, <a href="#3-74">3-74</a><ul>
+<li>within control function, <a href="#3-21">3-21</a></li>
+</ul>
+</li>
+<li>Single Shift, <a href="#3-59">3-59</a>, <a href="#3-62">3-62</a>, <a href="#3-66">3-66</a></li>
+<li>Single Shift Three, <a href="#3-81">3-81</a></li>
+<li>Single Shift Two, <a href="#3-80">3-80</a></li>
+<li>Software Conformance<ul>
+<li>designating character sets,
+<a href="#3-62">3-62</a></li>
+<li>invoking character sets, <a href="#3-62">3-62</a></li>
+<li>pad characters, <a href="#3-17">3-17</a></li>
+<li>terminating control strings,
+<a href="#3-30">3-30</a></li>
+</ul>
+</li>
+<li>Space, <a href="#3-12">3-12</a>, <a href="#3-14">3-14</a>, <a href="#3-17">3-17</a></li>
+<li>Special Characters<ul>
+<li>10/0, <a href="#3-17">3-17</a></li>
+<li>15/15, <a href="#3-17">3-17</a></li>
+<li>7/15 (delete), <a href="#3-17">3-17</a></li>
+<li>2/0 (space), <a href="#3-17">3-17</a></li>
+</ul>
+</li>
+<li>String Terminator, <a href="#3-19">3-19</a>, <a href="#3-28">3-28</a></li>
+<li>Substitute, <a href="#3-19">3-19</a>, <a href="#3-30">3-30</a></li>
+</ul>
+<a id="Index-4" data-page="Index-4"></a>
+<ul>
+<li>Termination<ul>
+<li>C1 control codes, <a href="#3-19">3-19</a></li>
+<li>cancel, <a href="#3-19">3-19</a></li>
+<li>control sequence, <a href="#3-18">3-18</a></li>
+<li>control string, <a href="#3-28">3-28</a>, <a href="#3-30">3-30</a></li>
+<li>escape, <a href="#3-19">3-19</a></li>
+<li>escape sequence, <a href="#3-18">3-18</a></li>
+<li>substitute, <a href="#3-19">3-19</a></li>
+<li>universal, <a href="#3-19">3-19</a></li>
+</ul>
+</li>
+<li>Transformation, <a href="#3-21">3-21</a></li>
+<li>Unimplemented Functions<ul>
+<li>control character, <a href="#3-20">3-20</a></li>
+<li>control sequence, <a href="#3-20">3-20</a></li>
+<li>control string, <a href="#3-20">3-20</a>, <a href="#3-30">3-30</a></li>
+<li>escape sequence, <a href="#3-20">3-20</a></li>
+</ul>
+</li>
+<li>Universal Terminator, <a href="#3-19">3-19</a></li>
+</ul>
+</section>
+</footer>
+</body>
+</html>
