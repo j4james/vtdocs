@@ -1,0 +1,1284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>VSRM - Dynamically Redefinable Character Sets Extension</title>
+<meta charset="UTF-8" />
+<style>*{text-shadow:1px 0px 0px #000000;color:#000000;padding:0;margin:0;border-collapse:collapse}body{background:#d4d4d8;>header,>main,>footer{width:731px;padding-left:85px;padding-bottom:17.25px;background:#ffffff;margin:0 auto}>footer{border-bottom:11px solid #d4d4d8}font-family:"Times New Roman";font-size:16.25px;line-height:17.25px;word-spacing:0.3px;letter-spacing:0.5px}a{text-decoration:none}a[href]:hover{color:#bb0000}header>hgroup{>h1,>h2{display:inline;text-transform:none;font-size:25.5px;line-height:27px;letter-spacing:-0.5px}>h1{&:before{content:'DEC STD 070-10 ';font-size:25px;word-spacing:2px}&:after{content:','}}margin-top:171px;margin-bottom:34px;width:550px}h2,h3,h4,p{white-space:pre-wrap}h1,h2,h3,h4{font-family:Arial;font-weight:bold;text-transform:uppercase}h2{font-size:16.5px;line-height:19px;letter-spacing:-0.3px}h3{font-size:14.7px;letter-spacing:0.1px}h4{font-size:14.7px;line-height:11px;letter-spacing:0.1px;text-transform:none}p,ol,section{+section{margin-top:22px}}h2+*,h3+*,h4+*{margin-top:9px}h3+ol{margin-top:15px}h4+section{margin-top:12.5px}p+p{margin-top:8.25px}p>a:not([id]){font-style:italic}img{display:none}aside{margin-top:11px;margin-bottom:9px;margin-left:24px;font-family:Sylfaen;font-weight:bold;font-size:15px;line-height:16px;word-spacing:1px;>h4{font-family:Sylfaen;margin-bottom:10.5px;margin-left:269px;text-transform:uppercase}}dl{>dt{float:left;padding-right:3px;font-weight:bold;letter-spacing:0.8px;&:after{content:' -'}}>dd{margin-bottom:9px;white-space:pre}}header>dl{font-family:Arial;font-size:15px;>dt{text-transform:uppercase;letter-spacing:-0.1px}>dt:after{content:':';padding-right:2px}>dd{margin-bottom:35px;word-spacing:1.5px;letter-spacing:-0.1px}&:nth-of-type(2){>dt:nth-of-type(1){display:none}>dd:nth-of-type(1){font-weight:bold;margin-bottom:9px;&:before{content:'DEC STD 070-10 '}}>dt:nth-of-type(3){font-size:12.5px;line-height:14.5px;padding-right:91px}>dd:nth-of-type(3){white-space:normal;margin-bottom:9.5px;td{font-size:12px;line-height:14.5px;width:99px}}}&:nth-of-type(3){font-size:12px;margin-bottom:9.5px;>dt,>dd{line-height:14.5px}>dt{text-transform:none;word-spacing:1px;letter-spacing:-0.3px;width:304px}>dd{margin-left:307px;margin-bottom:0;letter-spacing:0;width:320px;white-space:normal}}&:nth-of-type(4){>dt{letter-spacing:-0.3px}>dd{white-space:normal;word-spacing:1px;>p:nth-of-type(n+2){margin-top:64px;border-top:3px solid black;width:405px;margin-left:96px;padding-left:30px;padding-top:5.75px;font-size:15px;word-spacing:0.5px}>p:nth-of-type(3){margin-top:54px}}}}header>p{font-family:Arial;font-size:12px;line-height:15px;letter-spacing:0.2px;&:nth-of-type(1){margin-top:84px;margin-left:94px}&:nth-of-type(2){margin-top:25px;margin-left:144px}&:nth-of-type(n+3){font-size:15px;line-height:17px;word-spacing:0.5px;letter-spacing:0}&:nth-of-type(4){margin-top:27px;margin-left:275px;word-spacing:1.1px}&:nth-of-type(5){margin-top:0;margin-left:147px;word-spacing:1.1px}&:nth-of-type(3){margin-top:137px}&:nth-of-type(6){margin-top:78px}}ul{list-style:none;margin-top:9px;margin-bottom:27px;word-spacing:-1px;>li{>span{visibility:hidden;display:inline-block;width:16px;white-space:pre;&:before{content:'-';visibility:visible;padding-left:5px}}&:has(>code){line-height:0}}}ol{list-style-type:none;margin-top:6px;margin-bottom:12px;>li>p{margin-bottom:6.6px;margin-left:28px;&:before{content:counter(list-item,decimal) ".";display:inline-block;width:28px;margin-left:-28px}>a[id]{transform:translateX(-28px)}}>li>ul{margin-top:-8px;margin-bottom:22px;margin-left:29px;>li{line-height:18px}}}#Contents{>hgroup{>h2{font-family:"Times New Roman";font-size:16px;font-weight:normal;letter-spacing:0.2px;padding-left:272px;margin-top:-1px;margin-bottom:31px}>p{display:none}}a[href]{background:#ffffff;position:relative;z-index:1;&:nth-of-type(1):after{content:'\A0'}&:nth-of-type(2){position:absolute;right:105px;text-align:right;display:inline-block;width:35px;letter-spacing:0}}ol{margin:0;>li{padding:0;margin:0;padding-left:10px;line-height:18.5px;&:before{content:counters(list-item,".");display:inline-block;width:15px;letter-spacing:-0.1px}>ol>li:before{width:25px}>ol>li>ol>li:before{width:37px}>ol>li>ol>li>ol>li:before{width:47px}}}>ol{font-size:15px;letter-spacing:-0.1px;width:100%;position:relative;>li{padding-left:28px;text-transform:uppercase;li li{text-transform:none;letter-spacing:0.4px}&:nth-child(6)>ol>li{text-transform:none}&:not(:first-child){margin-top:7.5px}}}>ol[type=A]{margin-top:20px;li{padding-left:27px;text-transform:none;>a:first-of-type,&:before{font-size:15.5px;letter-spacing:0px}&:before{content:'A.' counter(list-item);width:30px}}>li{padding-left:0;li{margin-top:-2px}>a:first-of-type,&:before{font-size:16.5px;letter-spacing:0.1px}>a:first-of-type{text-transform:uppercase}&:before{content:'Appendix A';width:96px}}}>ul{text-transform:uppercase;margin-top:30px}li>span{visibility:hidden;&:after{content:'...........................................................';visibility:visible;position:absolute;right:105px;letter-spacing:4.5px}}}#Index{>h2{font-size:19px;margin-top:106px;margin-bottom:60px}>ul{column-count:2;width:712px;font-size:13.5px;>li>ul{margin:0;margin-left:17px}li,a{line-height:14.5px;word-spacing:1px;letter-spacing:0.2px}>li{&:before{font-family:Arial;font-size:20px;font-weight:bold;line-height:27px;display:block;border-bottom:2px solid black;width:266px;margin-top:4px;margin-bottom:3px}&:nth-child(1):before{content:'C'}&:nth-child(9):before{content:'D'}&:nth-child(16):before{content:'E'}&:nth-child(18):before{content:'F';padding-top:16px}&:nth-child(24):before{content:'I'}&:nth-child(25):before{content:'L'}&:nth-child(26):before{content:'S'}}}}code{font-family:"Courier New";font-weight:bold;font-size:13px;line-height:13.2px;word-spacing:0;letter-spacing:-0.55px;text-shadow:none;white-space:pre;pre>&{display:block;padding-top:10px;padding-left:50px;>a[id]{transform:translateX(-50px)}>br{display:block;margin-bottom:-5.5px;content:''}}}div{margin-top:26px;>pre>samp{display:block;margin-left:43px;margin-top:10px;margin-bottom:5.5px}}samp,#DECDLD>p:nth-of-type(2){font-family:"Courier New";font-weight:bold;font-size:12px;line-height:21px;word-spacing:0;letter-spacing:0;text-shadow:none}figure{>pre{font-family:"Courier New";font-weight:bold;font-size:11.6px;line-height:13.2px;word-spacing:0;letter-spacing:0.25px;text-shadow:none;margin-top:7.5px;margin-bottom:8px;>br{display:block;margin-bottom:-5.5px;content:''}}>svg{margin:63px 0 13px 180px}}section:has(>h4>span){margin-top:16px;>h4{display:grid;grid-template-columns:525px 100px;margin-bottom:0;white-space:normal;text-transform:uppercase;font-size:12.5px;line-height:16.5px;letter-spacing:-0.2px;border-bottom:3px solid black;margin-bottom:12px;width:626px;>span{visibility:hidden;grid-row:2;grid-column:1}}}section:has(>h4>span){&#DECDLD>p{&:nth-of-type(2){line-height:13.5px;margin-left:166px;margin-top:7px;margin-bottom:9px}&:has(>samp){margin-left:87px;margin-top:3px;margin-bottom:-4px}&:nth-of-type(8){margin-top:26px}&:nth-of-type(12){margin-top:10px}}}em{font-size:17px;font-style:normal;font-weight:bold}#\31\30\.4\.1{margin-top:34px;>section>p:has(>em)+p{margin-top:0}}#\31\30\.4\.1\.4>p:nth-of-type(5){margin-top:36px}#\31\30\.4\.1\.5>aside{margin-top:28.5px;margin-left:25px}#\31\30\.4\.1\.7{margin-top:42px}#\31\30\.4\.1\.8>ul{margin-top:0}#\31\30\.4\.2\.1{>ul{margin-top:0}>p:nth-of-type(3){padding-top:14px}}#\31\30\.4\.2\.2\.1{>p:nth-of-type(2){margin-top:0}>ul{margin-top:5px;margin-bottom:12px;>li>p{&:before{content:'\2022';font-size:22px;display:inline-block;position:relative;top:1.5px;width:28px;margin-left:-28px}margin-left:28px;margin-bottom:5px}}}#\31\30\.4\.2\.2\.3>figure{&:nth-of-type(1){margin-left:123px;>pre{margin-bottom:0}}&:nth-of-type(2){margin-left:80px}}#\31\30\.4\.3{>p>em{font-size:17px}>ul{margin-top:32px;margin-left:109px;margin-bottom:9.5px}>pre>code{padding-top:15px}}#\31\30\.5>section{>figure{margin-left:58px}>p>em{font-size:18px}}#\31\30\.5\.2{>figure{margin-top:17px}}#\31\30\.5\.3{margin-top:34px}#\31\30\.6>section>h3{text-transform:none;font-size:15px}#\31\30\.A>h2{margin-top:96px;margin-left:112px;font-size:19px;word-spacing:6px;&:before{content:'APPENDIX\2003'}}#\31\30\.A\.1>h3{font-size:16px;line-height:28px;text-transform:none;margin-top:33px}#\31\30\.A\.1>dl{font-family:Arial;font-size:12.5px;margin-top:0;margin-bottom:12px;border-top:3px solid black;border-bottom:3px solid black;width:628px;>dt,>dd{line-height:15px;&:first-of-type{&:before{display:block;height:21px;line-height:21px;border-bottom:3px solid black;margin-bottom:6px}}}>dt{width:165px;padding:0;letter-spacing:-0.5px;&:first-of-type:before{content:'EL-Class Number'}&:after{display:none}}>dd{margin-left:165px;margin-bottom:3px;font-style:italic;word-spacing:1.25px;letter-spacing:-0.25px;&:first-of-type:before{content:'Document Title';font-style:normal}}&+p{font-size:17px;word-spacing:-1px;letter-spacing:0.1px}}header,main{counter-reset:page}a[id]{display:block;position:relative;left:-85px;padding-left:85px;width:731px;height:17.25px;margin-top:74px;margin-bottom:32px;+section:has(>h4){margin-top:36px}border-top:11px solid #d4d4d8;padding-top:39.5px;white-space:pre;font-family:Arial;font-size:14px;font-weight:bold;word-spacing:0.8px;letter-spacing:-0.3px;&:before{content:'EL-00070-10\A' '04-Oct-1990';line-height:0;position:absolute;left:643px;text-indent:-558px;padding-top:9px;font-size:12.5px;word-spacing:2.1px}&:after{--content:'Digital Internal Use Only\A';counter-increment:page;content:var(--content) counter(page);line-height:0;position:absolute;top:982px;text-indent:292px}header &:after{content:var(--content) counter(page,lower-roman)}&#iii,&#\31\30-1,&#\31\30-3,&#\31\30-5,&#\31\30-7,&#\31\30-9,&#\31\30-11,&#\31\30-13,&#\31\30-15,&#\31\30-17,&#\31\30-19,&#\31\30-21,&#\31\30-23,&#\31\30-25,&#Index-1{&:after{text-indent:207px;text-align:right;direction:rtl;right:105px}}&#i:after{content:var(--content);text-indent:270px}&#i,&#ii{&:before{content:'EL-00070-10                                 Digital Internal Use Only\A' '04-Oct-1990'}}&#Index-1{&:before{content:'\A' 'EL-00070-10'}&:after{content:var(--content) 'Index-1';text-indent:223px}}}#\31\30-3{margin-top:94px}#\31\30-19{margin-top:96px}#\31\30-8,#\31\30-15{margin-top:100px}#\31\30-11{margin-top:105px}#\31\30-21{margin-top:114px}#\31\30-7{margin-top:117px}#\31\30-12{margin-top:122px}#\31\30-17{margin-top:123px}#\31\30-6{margin-top:124px}#\31\30-23{margin-top:125px}#\31\30-2{margin-top:133px}#\31\30-14{margin-top:157px}#iv{margin-top:163px}#\31\30-10{margin-top:206px}#iii{margin-top:207px}#\31\30-9{margin-top:219px}#\31\30-22{margin-top:238px}#ii{margin-top:271px}#\31\30-4{margin-top:296px}#\31\30-16{margin-top:307px}#\31\30-13{margin-top:327px}#\31\30-18{margin-top:432px}#\31\30-5{margin-top:606px}#\31\30-24{margin-top:615px}#\31\30-26{margin-top:626px}#\31\30-20{margin-top:849px}#\31\30-25{margin-top:986px}body{>header,>main,>footer{>a[id]:first-child{margin-top:0}}>header{padding-bottom:864px}>main{padding-bottom:954px}>footer{padding-bottom:386px}}</style>
+</head>
+<body>
+<header>
+<a id="i"></a>
+<hgroup>
+<h1>Video Systems Reference Manual</h1>
+<h2>Dynamically Redefinable Character Sets Extension</h2>
+</hgroup>
+<dl>
+<dt>Document Identifier</dt>
+<dd><p>A-DS-EL00070-10-0000 Rev A, 04-Oct-1990</p></dd>
+<dt>Abstract</dt>
+<dd><p>This document describes the Interface to load and designate Dynamically
+Redefinable Character Sets (DRCS), which forms extensions to Levels 2, 3 and 4 of the
+Character Cell Display service classes and Levels 1 and 2 of the Hardcopy Display service
+classes.</p></dd>
+<dt>Applicability</dt>
+<dd><p>Mandatory for engineers designing hardware for terminal products and
+software engineers designing programs using terminal interfaces. Additional requirements are
+defined in the DEC STD 070-1 Concepts and Conformance Criteria.</p></dd>
+<dt>Status</dt>
+<dd><p>APPROVED 04-0ct-1990; use VTX SMC for current status.</p></dd>
+</dl>
+<p>This document is confidential and proprietary, and is the property of Digital
+Equipment Corporation. It is an unpublished work protected under the Federal
+copyright laws.</p>
+<p>©Digital Equipment Corporation.   1990. All rights reserved.</p>
+<a id="ii"></a>
+<dl>
+<dt>Title</dt>
+<dd>Video Systems Reference Manual, Dynamically Redefinable Character
+Sets Extension</dd>
+<dt>Document Identifier</dt>
+<dd>A-DS-EL00070-10-0000 Rev A, 04-Oct-1990</dd>
+<dt>Revision History</dt>
+<dd><table>
+<tbody>
+<tr><td>Original Draft</td><td>30-Oct-1982</td></tr>
+<tr><td>Revision 0.1</td><td>25-Dec-1982</td></tr>
+<tr><td>Rev A,</td><td>04-Oct-1990</td></tr>
+</tbody>
+</table>
+</dd>
+</dl>
+<dl>
+<dt>Document Management Category</dt>
+<dd>Terminal Interface Architecture (STI)</dd>
+<dt>Responsible Department</dt>
+<dd>Video, Image, and Printing Systems (VIPS) Terminals Architecture</dd>
+<dt>Responsible Person</dt>
+<dd>Peter Sichel</dd>
+</dl>
+<dl>
+<dt>Approval</dt>
+<dd><p>This standard, prepared by the Desktop Systems Group, has been reviewed and
+recommended for approval by the General Review group for its category.</p>
+<p>Peter Sichel, Video, Image, and Printing Systems</p>
+<p>Eric Williams - Standards Process Manager</p></dd>
+</dl>
+<p>Direct requests for further information to:</p>
+<p>Peter Sichel</p>
+<p>Use $ VTX ELF for the latest location information.</p>
+<p>Use VTX SMC to order copies of this document from Standards and Methods Control. Send
+distribution questions to JOKUR::SMC or call DTN: 287-3724.</p>
+<a id="iii"></a>
+<section id="Contents">
+<hgroup>
+<h2>Contents</h2>
+<p>Chapter 10<br />Dynamically Redefinable Character Sets Extension</p>
+</hgroup>
+<ol>
+<li><a href="#10.1">Introduction</a><span> … </span><a href="#10-1">1</a><ol>
+<li><a href="#10.1.1">Video Character Cell Display Requirements</a><span> … </span><a href="#10-1">1</a></li>
+<li><a href="#10.1.2">Hardcopy Character Cell Display Requirements</a><span> … </span><a href="#10-1">1</a></li>
+</ol>
+</li>
+<li><a href="#10.2">Terminology</a><span> … </span><a href="#10-1">1</a></li>
+<li><a href="#10.3">Functional Description</a><span> … </span><a href="#10-2">2</a><ol>
+<li><a href="#10.3.1">Loading Font Files</a><span> … </span><a href="#10-2">2</a></li>
+<li><a href="#10.3.2">Associating Font Files With Character Sets</a><span> … </span><a href="#10-2">2</a></li>
+<li><a href="#10.3.3">Designating And Invoking Character Sets</a><span> … </span><a href="#10-3">3</a></li>
+<li><a href="#10.3.4">Note On Future Use Of Fonts</a><span> … </span><a href="#10-3">3</a></li>
+<li><a href="#10.3.5">Cell Matrix Size, Set Size, And Font Usage</a><span> … </span><a href="#10-3">3</a></li>
+</ol>
+</li>
+<li><a href="#10.4">Control Functions</a><span> … </span><a href="#10-5">5</a><ol>
+<li><a href="#10.4.1">Introducer Sequence Format</a><span> … </span><a href="#10-6">6</a><ol>
+<li><a href="#10.4.1.1">Parameter (Pfn): Font Number</a><span> … </span><a href="#10-6">6</a></li>
+<li><a href="#10.4.1.2">Parameter (Pcn): First Character In Set To Load</a><span> … </span><a href="#10-6">6</a></li>
+<li><a href="#10.4.1.3">Parameter (Pe): Erase Control</a><span> … </span><a href="#10-7">7</a></li>
+<li><a href="#10.4.1.4">Parameter (Pcmw): Character Cell Matrix Width</a><span> … </span><a href="#10-7">7</a></li>
+<li><a href="#10.4.1.5">Parameter (Pss): Font Set Size (Video Terminals Only)</a><span> … </span><a href="#10-8">8</a></li>
+<li><a href="#10.4.1.6">Parameter (Pu): Font Usage</a><span> … </span><a href="#10-9">9</a></li>
+<li><a href="#10.4.1.7">Parameter (Pcmh): Character Cell Matrix Height</a><span> … </span><a href="#10-9">9</a></li>
+<li><a href="#10.4.1.8">Parameter (Pcss): Character Set Size</a><span> … </span><a href="#10-10">10</a></li>
+</ol>
+</li>
+<li><a href="#10.4.2">Command String Format</a><span> … </span><a href="#10-10">10</a><ol>
+<li><a href="#10.4.2.1">Character Set Designation String</a><span> … </span><a href="#10-10">10</a></li>
+<li><a href="#10.4.2.2">Character Font Data</a><span> … </span><a href="#10-11">11</a><ol>
+<li><a href="#10.4.2.2.1">Summary</a><span> … </span><a href="#10-11">11</a></li>
+<li><a href="#10.4.2.2.2">Sixel Definition</a><span> … </span><a href="#10-12">12</a></li>
+<li><a href="#10.4.2.2.3">Sixel Bit Pattern</a><span> … </span><a href="#10-12">12</a></li>
+</ol>
+</li>
+</ol>
+</li>
+<li><a href="#10.4.3">Algorithm</a><span> … </span><a href="#10-14">14</a></li>
+</ol>
+</li>
+<li><a href="#10.5">DRCS Font Loading Examples</a><span> … </span><a href="#10-20">20</a><ol>
+<li><a href="#10.5.1">Example One</a><span> … </span><a href="#10-20">20</a></li>
+<li><a href="#10.5.2">Example Two</a><span> … </span><a href="#10-20">20</a></li>
+<li><a href="#10.5.3">Example Three</a><span> … </span><a href="#10-21">21</a></li>
+</ol>
+</li>
+<li><a href="#10.6">Change History</a><span> … </span><a href="#10-22">22</a><ol>
+<li><a href="#10.6.1">Revision 0.0 To AX10</a><span> … </span><a href="#10-22">22</a></li>
+<li><a href="#10.6.2">Rev AX10 to AX11</a><span> … </span><a href="#10-22">22</a></li>
+<li><a href="#10.6.3">Rev AX11 to AX12</a><span> … </span><a href="#10-22">22</a></li>
+<li><a href="#10.6.4">Rev AX12 to AX13</a><span> … </span><a href="#10-22">22</a></li>
+</ol>
+</li>
+</ol>
+<ol type="A">
+<li><a href="#10.A">Referenced Documents</a><span> … </span><a href="#10-25">25</a><a id="iv"></a><ol>
+<li><a href="#10.A.1">EL-Class Digital Documents</a><span> … </span><a href="#10-25">25</a></li>
+</ol>
+</li>
+</ol>
+<ul>
+<li><a href="#Index">Index</a></li>
+</ul>
+</section>
+</header>
+<main>
+<a id="10-1"></a>
+<section id="10.1">
+<h2>1&emsp;Introduction</h2>
+<p>Dynamically Redefinable Character Sets (DRCS) are an extension to levels 2, 3 and 4 of
+the Character Cell service class and levels 1 and 2 of the Hardcopy Display service class.
+They provide the capability of loading into the terminal a font description which can be
+designated and invoked as a resident character set. The font loading format as defined for
+DRCS is flexible enough to be applicable to a wide variety of devices, including display and
+printing devices of various resolutions, and varying amounts of font storage capability.</p>
+<p>In this document (DEC STD 070-10), the term "font file" refers to a sequence of bit patterns
+that define the graphic symbols of a coded character set.</p>
+<section id="10.1.1">
+<h3>1.1&emsp;Video Character Cell Display Requirements</h3>
+<p>In Level 2 only one 94-character font buffer is required for conformance. Because Level 2
+is a Character Cell Display, the font files which can be loaded are fixed width only. A 94-
+or 96-character font buffer is required for conformance in Level 2 if the device supports
+a 96-character graphic set designation. The 96-character graphic set designation is part
+of the 8-bit Interface Architecture Extension. In Level 3 and 4, only one character font
+buffer is required to support either a 94- or 96-character set for conformance; support of
+96-character graphic sets is required in Level 3 or higher. Refer to <a>DEC STD 070-3 Code
+Extension Layer</a> for more information.</p>
+<p>For Level 2, 3 or 4 conforming devices, the minimum number of logical pixels per character
+in the DRCS font buffer is 80, defining a character cell matrix 8 wide by 10 high. This does
+not include inter-character space for text characters, which is provided automatically when
+text format is specified.</p>
+</section>
+<section id="10.1.2">
+<h3>1.2&emsp;Hardcopy Character Cell Display Requirements</h3>
+<p>For devices which conform to Level 1 or 2 of the Hardcopy Display service class, a minimum
+of three character font buffers is required, each supporting either a 94- or 96-character
+graphic character set; support of 96-character graphic character sets is required in all
+levels of the Hardcopy Display service class. The number of logical pixels per character is
+device-dependent but shall support at least the resolution of the draft-quality resident font
+files. Hardcopy DRCS fonts may use the whole character cell, including inter-character
+space.</p>
+</section>
+</section>
+<section id="10.2">
+<h2>2&emsp;Terminology</h2>
+<dl>
+<dt>Cell Matrix Size</dt>
+<dd>The width and height in logical pixels of a character cell.</dd>
+<dt>Character Cell</dt>
+<dd>A rectangular bit pattern which defines the foreground and background
+values of a single character rendition.</dd>
+<dt>Coded Character Set</dt>
+<dd>A set of named characters and their one-to-one relationship with
+bit combinations.</dd>
+<dt>Control String</dt>
+<dd>A class of control functions (bit strings) introduced by a special
+bit combination and terminated by a string terminator, the interpretation of which is
+dependent on the introductory character sequence.<a id="10-2"></a></dd>
+<dt>DCS Introducer Sequence</dt>
+<dd>The sequence of characters in a Device Control String
+which immediately follows the DCS control code and precedes the command string. Within
+Digital, DCS Introducer Sequences have the same format and follow the same parsing
+rules as control sequences.</dd>
+<dt>Designate</dt>
+<dd>To identify a set of characters that are to be represented, in some cases
+immediately and in others on the further occurrence of a control function, in a prescribed
+manner.</dd>
+<dt>Font</dt>
+<dd>An instance of a type family having a specific type size, style, characteristic weight,
+and character proportion.</dd>
+<dt>Font File</dt>
+<dd>A sequence of bit patterns or picture descriptors which define the graphic
+symbols of a coded character set.</dd>
+<dt>Escape Sequence</dt>
+<dd>A bit string that is for control purposes in code extension procedures
+consisting of two or more bit combinations, the first of which is an Escape (ESC) character.</dd>
+<dt>Invoke</dt>
+<dd>To cause a designated set of characters to be the prescribed bit combinations
+whenever those bit combinations occur, until an appropriate code extension function occurs.</dd>
+<dt>Logical Pixel</dt>
+<dd>A single element of a binary image, which may (but does not necessarily)
+map to a physical pixel in either the transmitting or receiving device.</dd>
+<dt>Scan</dt>
+<dd>One pass across an image in either the encoding or decoding process, consisting of
+the height of one sixel, or six pixels.</dd>
+<dt>Set Size</dt>
+<dd>A value which defines the relationship of a font definition to physical display
+parameters.</dd>
+<dt>Sixel</dt>
+<dd>A 7-bit or 8-bit character, the lower six bits of which represent binary image data.</dd>
+</dl>
+</section>
+<section id="10.3">
+<h2>3&emsp;Functional Description</h2>
+<section id="10.3.1">
+<h3>3.1&emsp;Loading Font Files</h3>
+<p>The DRCS font buffers may be down-line loaded on command from the host, using the
+Down-Line Load (DECDLD) control string. The DECDLD command string consists of a
+sequence of binary data in sixel format which defines the composition of the font file.</p>
+</section>
+<section id="10.3.2">
+<h3>3.2&emsp;Associating Font Files With Character Sets</h3>
+<p>The command string also contains parameters which specify the association between a
+character set designation string and the font file to be loaded into a buffer. The downloaded
+font file may be identified as replacing one of the character sets built into the device (for
+example, ASCII) or as a new character set not present in the device. Refer to <a>DEC STD
+070-3 Code Extension Layer</a> and <a>DEC STD 070-5 Character Cell Display</a>.</p>
+<p>When the character set designation string of a loaded font file which replaces a built-in
+character set is changed, either to another built-in set, or to a new character set, the
+built-in set that was replaced must be made available in the device without additional
+interchange.</p>
+<p>It is recommended for new devices that when a loaded font file which replaces a built-in
+character set is completely erased by an application, via the Pe parameter, that the device
+make the original built-in set available without additional interchange (not mandatory).</p>
+</section>
+<a id="10-3"></a>
+<section id="10.3.3">
+<h3>3.3&emsp;Designating And Invoking Character Sets</h3>
+<p>Once a font has been loaded its associated character set, whether DRCS or otherwise, may
+be designated to any of the four G-sets (G0, G1, G2, or G3), and may invoked into either
+the left or right hand sides (GL or GR) of the In Use Table, according to the restrictions of
+ANSI code extension.</p>
+<aside>
+<h4>Note</h4>
+<p>96-character fonts may not be directly designated into G0. Refer to the "Code
+Extension Layer" section.</p>
+</aside>
+<p>In other words, it may be used in any manner that standard character sets are used
+including, if applicable, as the User Preference Set.</p>
+</section>
+<section id="10.3.4">
+<h3>3.4&emsp;Note On Future Use Of Fonts</h3>
+<p>It should be noted that the font file loading mechanism as defined in this specification for
+DRCS character sets may have broader application in the future, when fonts are used
+widely as a means of modifying the graphic rendition of a particular coded character set.
+In this case, the font number parameter included in the DECDLD load sequence will be
+used as a font identifier which may subsequently be assigned to a rendition value and
+selected using the Select Graphic Rendition (SGR) control function. The assignment may
+be accomplished using the Font Selection (FNT) control as defined in ANSI X3.64-1979
+(p.37).</p>
+</section>
+<section id="10.3.5">
+<h3>3.5&emsp;Cell Matrix Size, Set Size, And Font Usage</h3>
+<p>There are four parameters which affect the relationship between a font file definition as
+loaded into the font buffer memory and its physical appearance on the display. These
+parameters are:</p>
+<ol>
+<li><p>Character Cell Matrix Size</p></li>
+<li><p>Font Set Size</p></li>
+<li><p>Font Usage</p></li>
+</ol>
+<p>For any given font file, there are two possible Font Usage values, Text and Full Cell.
+For any given Font Usage, there are appropriate Character Cell Matrix Sizes which are
+typically device dependent. Furthermore, each Character Cell Matrix Size in a particular
+device may be limited to rendition in certain Set Sizes (80- or 132-column widths, for
+example).</p>
+<a id="10-4"></a>
+<p>The following diagram describes this relationship:</p>
+<figure>
+<svg width="264" height="200" xmlns="http://www.w3.org/2000/svg">
+<style>
+text { font: 11.5px Arial, sans-serif; font-weight: bold; letter-spacing: 0.1px; }
+line { stroke: #000; stroke-width: 2; }
+</style>
+<text x="64" y="19">FONT FILE DEFINITION</text>
+<line x1="107" y1="28" x2="82" y2="78"/>
+<line x1="156" y1="28" x2="181" y2="78"/>
+<text x="65" y="91">TEXT</text>
+<text x="155" y="91">FULL CELL</text>
+<line x1="59" y1="98" x2="46" y2="124"/>
+<line x1="77" y1="98" x2="77" y2="124"/>
+<line x1="95" y1="98" x2="108" y2="124"/>
+<line x1="174" y1="98" x2="161" y2="124"/>
+<line x1="192" y1="98" x2="192" y2="124"/>
+<line x1="210" y1="98" x2="223" y2="124"/>
+<text x="14" y="140">CELL MATRIX SIZES</text>
+<text x="142" y="140">CELL MATRIX SIZES</text>
+<line x1="59" y1="148" x2="46" y2="174"/>
+<line x1="77" y1="148" x2="77" y2="174"/>
+<line x1="95" y1="148" x2="108" y2="174"/>
+<line x1="174" y1="148" x2="161" y2="174"/>
+<line x1="192" y1="148" x2="192" y2="174"/>
+<line x1="210" y1="148" x2="223" y2="174"/>
+<text x="48" y="188">SET SIZES</text>
+<text x="163" y="188">SET SIZES</text>
+</svg>
+</figure>
+<p>Because of the device dependent nature of these interactions, the product literature must
+be consulted for each device to determine the appropriate combination of parameters for a
+particular application.</p>
+</section>
+</section>
+<a id="10-5"></a>
+<section id="10.4">
+<h2>4&emsp;Control Functions</h2>
+<section id="DECDLD">
+<h4>Down Line Load (Font File) <span>&mdash;</span> DECDLD</h4>
+<p><em>Levels:</em></p>
+<p>2X, 3X, 4X Video Character Cell<br />1X, 2X     Hardcopy Display</p>
+<p><em>Purpose:</em> Down-line load font file patterns.</p>
+<div>
+<p><em>Format:</em> The DECDLD control is a Device Control String consisting of an introducer
+sequence, followed by a command string. The format of the introducer sequence is:</p>
+<pre><samp>DCS  Pfn ; Pcn ; Pe ; Pcmw ; Pss ; Pu ; Pcmh ; Pcss {
+9/0  Parameter String ...                          7/11</samp></pre>
+</div>
+<p>The introducer sequence is terminated by the final character {
+(7/11).</p>
+<p>The command string format is:</p>
+<p><samp>Dscs  Sxbp1 ; Sxbp2 ;...; Sxbpn  ST</samp></p>
+<p>The command string is terminated by the String Terminator character 9/12 (in 7-bits, ESC
+\, or 1/11 5/12). Refer to DEC STD 070-3 for a complete description of the Device Control
+String format.</p>
+<p><em>Description:</em></p>
+<p>The DECDLD control string down-line loads one or more characters of a specified
+94-character or 96-character (if required) Dynamically Redefinable Character Set (DRCS)
+with a specified logical pixel pattern.</p>
+<p>On video terminals, the affected characters in the DRCS set may also change the
+presentation of characters from this set currently being displayed on the screen. The
+DECDLD control does not clear the screen.</p>
+<p>In printers, DECDLD will not affect the presentation of characters already on the page.</p>
+<p><em>Notes:</em></p>
+<ol>
+<li><p>Only character positions 2/1 through 7/14 may be loaded in 94-character sets.</p></li>
+<li><p>Character positions from 2/0 through 7/15 may be loaded in 96-character sets.</p></li>
+<li><p>Character cell sizes are given in logical pixels, width by height.</p></li>
+<li><p>Loaded character sets are not required to be loaded into non-volatile memory.
+Therefore, if the terminal is powered down all loaded sets may be lost.</p></li>
+<li><p>The host cannot read back loaded character sets.</p></li>
+<li><p>The fonts loaded by the DECDLD command are separate and distinct from the ReGIS
+graphics "Load Pattern Cell" command. The ReGIS character sets may not be used
+except with ReGIS "text" commands.</p><a id="10-6"></a></li>
+<li><p>A Soft Reset function (DECSTR) does not erase font files loaded by the DECDLD
+command (although the designation of character sets associated with those font files
+may change).</p></li>
+<li><p>The soft character set may be cleared using any of four techniques: (1) Using the
+DECDLD function from the host; (2) By result of a power up test sequence; (3) From
+Setup - the RECALL or DEFAULT functions, (but not RESET TERMINAL); (4) On
+video terminals via the RIS sequence, ESC c, (but not DECSTR).</p></li>
+<li><p>On video terminals, DECSCL performs a soft reset to put the terminal in a known
+presentation state without affecting data already displayed (does not clear DRCS). In
+printers, DECSCL is interpreted as "reset to base state" and will clear any DRCS.</p></li>
+</ol>
+</section>
+<section id="10.4.1">
+<h3>4.1&emsp;Introducer Sequence Format</h3>
+<p>The following selective parameters control the operation of the font load function. All
+parameters have the same syntax as a control sequence and may be omitted, in which case
+the default values are used.</p>
+<section id="10.4.1.1">
+<h4>4.1.1&emsp;Parameter (Pfn): Font Number</h4>
+<p>The font number parameter, Pfn, specifies the particular DRCS font buffer to be loaded,
+starting with buffer 1.</p>
+<p>On video terminals, only one font buffer is required for conforming products implementing
+the DRCS extension. An omitted parameter, or a parameter value of zero, will default to
+the first empty font buffer, or, if none are empty, to font buffer 1.</p>
+<p>On printers, three font buffers are required. An omitted parameter, or a parameter value
+of zero, will default to font buffer 1.</p>
+<p>Attempts to load font buffers greater than the required number will produce results which
+are UNDEFINED by the architecture. Therefore, conforming software will not specify font
+numbers greater than the number of font buffers required. Hardware will ignore attempts
+to load font buffers greater than the number implemented.</p>
+</section>
+<section id="10.4.1.2">
+<h4>4.1.2&emsp;Parameter (Pcn): First Character In Set To Load</h4>
+<p>The second parameter selects the first character in the font buffer to be loaded. Parameter
+value 0 means 2/0, 1 means 2/1, 2 means 2/2, ... 94 means 7/14, and 95 means 7/15.</p>
+<p>If the device supports only 94-character buffers, (Level 2 conforming video products that
+do not include the 8-bit Interface Architecture Extension), attempts to start loading at
+location zero will cause the first character definition to be ignored, and the second character
+definition will be used for position 2/1. Any attempt to start loading beyond (or continue
+beyond) location 94 will also be ignored.</p>
+<p>If the device supports 94- or 96-character buffers, (required for printers and Level 3 or
+higher conforming video products), the Pcss parameter (see below) determines whether the
+font file is being loaded for a 94-character or 96-character set. If a 94-character set is being
+loaded, the restricted 94-character buffer interpretation of Pcn applies. If a 96-character
+set is being loaded, attempts to start loading at location zero will load the character 2/0,
+and loading at a location greater than 95 will be ignored.</p>
+<a id="10-7"></a>
+<p>Conforming software loading 94-character sets or font buffers, will not specify values less
+than one or greater than 94. Conforming software loading 96-character fonts will not
+specify values greater than 95.</p>
+</section>
+<section id="10.4.1.3">
+<h4>4.1.3&emsp;Parameter (Pe): Erase Control</h4>
+<p>The third parameter controls which characters are erased before loading takes place
+according to:</p>
+<ul>
+<li>0<span> &mdash; </span>Erase all characters in the specified font buffer (default)</li>
+<li>1<span> &mdash; </span>Erase only the characters that are loaded</li>
+<li>2<span> &mdash; </span>Erase all characters in all font butters</li>
+</ul>
+<p>A parameter value of 1 permits the changing of one or more characters in the specified
+font without affecting the remaining characters of that font. Characters which have been
+erased from the buffer and not redefined are represented in the visual display by the error
+character (reverse question mark).</p>
+<p><em>Guideline:</em></p>
+<p>For video terminals, conforming software should only use the parameter value of 2 (erase
+all characters in all font buffers) in response to an explicit user request.</p>
+</section>
+<section id="10.4.1.4">
+<h4>4.1.4&emsp;Parameter (Pcmw): Character Cell Matrix Width</h4>
+<p>The fourth parameter defines the limit of the character cell matrix width in pixels of the
+font being loaded. Note that legal values for this parameter are dependent on the values of
+the Font Set Size parameter and the Font Usage parameter, and may vary from device to
+device.</p>
+<p>The legal combinations of these three parameters must be clearly defined in the product
+literature for conforming terminals. Illegal values of the Character Cell Matrix Width
+parameter cause the remainder of the load sequence to be ignored. Changes to this
+parameter since the last DECDLD sequence to this buffer will result in the erasure of the
+entire set, and cause a new load to start.</p>
+<p><em>Guideline:</em></p>
+<p>Implementations may discard pixels beyond the width of the character cell specified by
+this parameter. Software can use the Character Matrix Width parameter to obtain device
+independent, predictable results.</p>
+<p><em>Additional Requirements for Video Terminals:</em></p>
+<p>For video terminals, some values of the Character Cell Matrix Width parameter also
+specify the Character Cell Matrix Height, as shown in the table below. If one of these
+parameters is specified, the Character Cell Matrix Height (Pcmh) parameter is ignored.</p>
+<p>Possible values of the parameter for conforming devices include:</p>
+<ul>
+<li>0<span> &mdash; </span>Device default</li>
+<li>1<span> &mdash; </span>Not used, illegal</li>
+<li>2<span> &mdash; </span>5 x 10 matrix (width x height)</li>
+<li>3<span> &mdash; </span>6 x 10 matrix (width x height)</li>
+<li>4<span> &mdash; </span>7 x 10 matrix (width x height)</li>
+<li><a id="10-8"></a>5<span> &mdash; </span>5 pixel wide matrix</li>
+<li>6<span> &mdash; </span>6 pixel wide matrix</li>
+<li>7<span> &mdash; </span>7 pixel wide matrix</li>
+<li>8<span> &mdash; </span>8 pixel wide matrix</li>
+<li>9<span> &mdash; </span>9 pixel wide matrix</li>
+<li>10<span> &mdash; </span>10 pixel wide matrix</li>
+<li>11<span> &mdash; </span>11 pixel wide matrix</li>
+<li>12<span> &mdash; </span>12 pixel wide matrix</li>
+</ul>
+<p>A parameter value of 0 indicates that the width (or matrix) of the character cell is the
+device default, which is dependent on the implementing device.</p>
+<p><em>Guideline:</em></p>
+<p>7 x 10 is the device default for Level 2 video devices. 5 x 10, 6 x 10 and 7 x 10 character
+cells are always scaled for VT220 compatibility.</p>
+</section>
+<section id="10.4.1.5">
+<h4>4.1.5&emsp;Parameter (Pss): Font Set Size (Video Terminals Only)</h4>
+<p>This parameter specifies the intended visual rendition of the font file, and is used by
+the device when such restriction can affect the use of the loaded set. For example, some
+implementations restrict a loaded font file to use in an 80-column or 132-column screen.
+Note that legal values for this parameter are dependent on the values of the Character Cell
+Matrix Size parameter and the Font Usage parameter, and may vary from device to device.</p>
+<p>The legal combinations of these three parameters must be clearly defined in the product
+literature for conforming terminals. Illegal values of the Font Set Size parameter cause
+the remainder of the load sequence to be ignored. Changes to this parameter since the last
+DECDLD sequence to this buffer will result in the erasure of the entire set, and cause a
+new load to start.</p>
+<p>Possible values of the parameter for conforming devices include (VT420 Example):</p>
+<ul>
+<li>0<span> &mdash; </span>Device default (80 columns, 24 lines, not mandatory)</li>
+<li>1<span> &mdash; </span>80 columns, 24 lines, (normal rendition)</li>
+<li>2<span> &mdash; </span>132 columns, 24 lines, (normal rendition)</li>
+<li>11<span> &mdash; </span>80 columns, 36 lines, (normal rendition)</li>
+<li>12<span> &mdash; </span>132 columns, 36 lines, (normal rendition)</li>
+<li>21<span> &mdash; </span>80 columns, 48 lines, (normal rendition)</li>
+<li>22<span> &mdash; </span>132 columns, 48 lines, (normal rendition)</li>
+</ul>
+<aside>
+<h4>Note</h4>
+<p>The values for this parameter may be extended in the future to include character
+pitch and other physical rendition values which may affect the use of the loaded
+set.</p>
+</aside>
+</section>
+<a id="10-9"></a>
+<section id="10.4.1.6">
+<h4>4.1.6&emsp;Parameter (Pu): Font Usage</h4>
+<p>The sixth parameter defines the loaded font file as either a text font file or as a full cell
+font file. Full cell font files can individually address all pixels in a cell, while text font
+files may not be able to address all pixels individually. Text font files may also define the
+centering and spacing characteristics of the area around the character cell. Note that legal
+values for this parameter are dependent on the values of the Character Cell Matrix Size
+parameter and the Font Set Size parameter, and may vary from device to device.</p>
+<p>The legal combinations of these three parameters must be clearly defined in the product
+literature for conforming terminals. Illegal values of the Font Usage parameter cause the
+remainder of the load sequence to be ignored. Changes to this parameter since the last
+DECDLD sequence to this buffer will result in the erasure of the entire set, and cause a
+new load to start.</p>
+<p>Possible values of this parameter for conforming devices are:</p>
+<ul>
+<li>0<span> &mdash; </span>Device default (Guideline: text on VT220)</li>
+<li>1<span> &mdash; </span>Text</li>
+<li>2<span> &mdash; </span>Full Cell</li>
+</ul>
+</section>
+<section id="10.4.1.7">
+<h4>4.1.7&emsp;Parameter (Pcmh): Character Cell Matrix Height</h4>
+<p>The seventh parameter defines the limit of the character cell matrix height in pixels of
+the font file being loaded. Note that legal values for this parameter are dependent on the
+values of the Font Set Size parameter and the Font Usage parameter, and may vary from
+device to device.</p>
+<p>The legal combinations of these three parameters must be clearly defined in the product
+literature for conforming terminals. Illegal values of the Character Cell Matrix Height
+parameter cause the remainder of the load sequence to be ignored. Changes to this
+parameter since the last DECDLD sequence to this buffer will result in the erasure of the
+entire set, and cause a new load to start.</p>
+<p>On video terminals, some values of the Character Cell Matrix Width (Pcmw) parameter
+also specify the Character Cell Matrix Height. If one of these Pcmw parameters is specified,
+the Character Cell Matrix Height (Pcmh) parameter is ignored.</p>
+<p>The value of this parameter indicates the height of the Character Cell Matrix. For example,
+a value of 15 indicates a 15-pixel high character cell matrix. If a parameter value of 0 is
+specified, this indicates that the height of the character cell matrix is the device default,
+which is dependent on the implementing device.</p>
+<p><em>Guideline:</em></p>
+<p>Implementations may discard pixels beyond the height of the character cell specified by
+this parameter. Software can use the Character Matrix Width parameter to obtain device
+independent, predictable results.</p>
+</section>
+<a id="10-10"></a>
+<section id="10.4.1.8">
+<h4>4.1.8&emsp;Parameter (Pcss): Character Set Size</h4>
+<p>The eighth parameter controls the size of the associated character set (and modifies the
+interpretation of the Character Number (Pcn) parameter). The value of the parameter
+indicates the size of character set associated with the downloaded font according to:</p>
+<ul>
+<li>0<span> &mdash; </span>94-character set (default)</li>
+<li>1<span> &mdash; </span>96-character set</li>
+</ul>
+<p>A parameter value of 1 permits the loading of the 2/0 and 7/15 characters in the font. And
+requires that the 96-character designating escape sequences (refer to the "Code Extension
+Layer" section) be used to designate the font.</p>
+<p>The Final character { (7/11) indicates that this DCS string is the DECDLD control function.
+The data following it up to the String Terminator (ST) is from 2/0 to 7/14 and represents
+the actual font load command string.</p>
+</section>
+</section>
+<section id="10.4.2">
+<h3>4.2&emsp;Command String Format</h3>
+<p>The syntax of the DECDLD command string is as follows:</p>
+<ol>
+<li><p>Dscs - (Select Character Set) The command string begins with a character set
+designation string, which defines the intermediate and final characters of the escape
+sequence which will subsequently be used to designate the loaded font as a character
+set.</p></li>
+<li><p>Sxbp - The final character of the character set designation string is followed by a
+sequence of sixel bit pattern strings, each string containing the complete definition
+for one character of the font. Refer to subhead 10.4.2.2. Devices which support only
+94-character sets should include only 94-sixel bit pattern strings in a single DECDLD
+command. Devices which support 96-character sets may include up to 96 sixel bit
+pattern strings in a single DLD command. Additional patterns will be ignored as
+necessary, but will not cause the command to be aborted.</p></li>
+<li><p>ST - The String Terminator (ST, 9/12) control.</p></li>
+</ol>
+<section id="10.4.2.1">
+<h4>4.2.1&emsp;Character Set Designation String</h4>
+<p>The Dscs string is a set of zero, one, two, or three ANSI intermediates, followed by an
+ANSI final. (Dscs = I I I F). The Dscs defines the character set for the loaded font, and is
+used in the SCS (Select Character Set) escape sequence. Note that the same Dscs can be
+used to describe a 94-character or 96-character graphic set. The Pcss parameter indicates
+which initial intermediate character of the SCS sequence is to be used to designate the
+character set (see below). Refer to the DEC STD 070-3 and DEC STD 070-5 for a complete
+description of the escape sequence format, and particularly the SCS sequence.</p>
+<p>The SCS sequence for designating the loaded font will be of the form:</p>
+<ul>
+<li>ESC ( Dscs<span> &mdash; </span>Load the set into G0 (94-character set)</li>
+<li>ESC ) Dscs<span> &mdash; </span>Load the set into G1 (94-character set)</li>
+<li>ESC * Dscs<span> &mdash; </span>Load the set into G2 (94-character set)</li>
+<li>ESC + Dscs<span> &mdash; </span>Load the set into G3 (94-character set)</li>
+<li>ESC - Dscs<span> &mdash; </span>Load the set into G1 (96-character set)</li>
+<li>ESC . Dscs<span> &mdash; </span>Load the set into G2 (96-character set)</li>
+<li>ESC / Dscs<span> &mdash; </span>Load the set into G3 (96-character set)</li>
+</ul>
+<a id="10-11"></a>
+<p>Changes to the Dscs string since the last DECDLD sequence to this buffer will result in
+the erasure of the entire set, and cause a new load to start.</p>
+<p>Examples of Dscs:</p>
+<ol>
+<li><p>Dscs = sp @
+Defines the loaded font file to be a DRCS set. (This particular value is the recommended
+value for user defined sets for either 94-character or 96-character graphic character
+sets.)</p></li>
+<li><p>Dscs = B
+Defines the loaded font file to be ASCII (94-character), or ISO Latin Alphabet Nr 2
+supplemental (96-character), depending on the value of the Pcss parameter.</p></li>
+<li><p>Dscs = &amp; % C
+Defines the loaded font file to an as yet unregistered set.</p></li>
+</ol>
+</section>
+<section id="10.4.2.2">
+<h4>4.2.2&emsp;Character Font Data</h4>
+<section id="10.4.2.2.1">
+<h4>4.2.2.1&emsp;Summary</h4>
+<p>The remainder of the command data is a sequence of sixel bit pattern strings (Sxbp string),
+each defining the pattern for a single character in the font. Each Sxbp string is separated
+by a semicolon character (;, 3/11). Each individual Sxbp string consists of several sequences
+of sixel data (refer to subhead 10.4.2.2.3) which define the individual horizontal scans of
+the character pattern, each sixel data sequence being terminated by a slash character (/,
+2/15).</p>
+<p>Bit combinations 0/8 to 0/13 may be included in the command string, and have no affect
+on the interpretation of the data. They permit convenient formatting of command strings
+when being created by text editors since TAB, CR, and LF are included in this range. The
+following bit combinations are considered as error conditions when they occur within the
+character font data. Because existing implementations differ in how they handle these bit
+combinations, their processing is UNDEFINED by the architecture. It is not mandatory,
+but recommended that future implementations adopt the following conventions for these
+bit combinations.</p>
+<ul>
+<li><p>C0 controls 0/0 to 0/7 and 0/14 to 1/15 should be ignored except for ESC 1/11 which
+terminates the DCS and begins a new sequence. ESC followed immediately by \ 5/12
+is the 7-bit representation of STRING TERMINATOR and ends the DECDLD normally.
+Other ESC sequences should cause the entire DECDLD command string to be ignored
+(aborted).</p></li>
+<li><p>2/0 and 7/15 should be ignored.</p></li>
+<li><p>2/1 to 3/14 with the exception of 2/15 and 3/11 should be ignored.</p></li>
+<li><p>C1 controls 8/0 to 9/15 should abort the DECDLD command string except for 9/12
+STRING TERMINATOR which ends the DECDLD normally.</p></li>
+<li><p>10/0 and 15/15 should be ignored.</p></li>
+<li><p>10/1 to 15/14 should be interpreted as 2/1 to 7/14.</p></li>
+</ul>
+<p>These characters should not be used by conforming software (except 2/15, 3/11, and
+STRING TERMINATOR).</p>
+</section>
+<a id="10-12"></a>
+<section id="10.4.2.2.2">
+<h4>4.2.2.2&emsp;Sixel Definition</h4>
+<p>A sixel is an encoded representation of six pixels. It is used to transfer pixel information
+in Device Control Strings. Sixel data consists of characters from ? (3/15) through (7/14),
+in which the character code represents a binary bit pattern. Each character represents
+a binary value plus 63 decimal. Thus 3/15 represents the binary value 000000, and 7/14
+represents 111111. The bits are represented as a vertical, 1 by 6 pixel matrix ("the sixel"),
+with the least significant bit at the top. A reset bit (zero) specifies the font background,
+and a set bit (one) specifies the font foreground.</p>
+<aside>
+<h4>Note</h4>
+<p>Refer to <a>DEC STD 070-9 Sixel Graphics Extension</a> for a more complete description
+of the conversion algorithms. Note that the DECDLD command string uses the
+sixel data format, but does not use the control functions as defined in the Sixel
+Graphics Extension.</p>
+</aside>
+</section>
+<section id="10.4.2.2.3">
+<h4>4.2.2.3&emsp;Sixel Bit Pattern</h4>
+<p>To load the logical pixel pattern for an individual character in a font (one Sxbp), a sequence
+of sixel characters is sent, with each sixel specifying one vertical column of six logical
+pixels. After each character the font pattern scan advances horizontally by one logical
+pixel. This sequence continues until either a scan terminator (the / character, 2/15) is
+received, a sixel bit pattern terminator (the ; character, 3/11) is received, or a STRING
+TERMINATOR (9/12) is received. If the number of characters in a horizontal scan is
+greater than the width of the loaded character (as defined in the Character Cell Matrix
+Size parameter of the introducer sequence), the characters in excess of the loaded character
+width are ignored.</p>
+<p>The scan terminator character (/, 2/15) advances the font pattern scan to the next lower
+row of six vertical logical pixels. When the height of a loaded character (as defined in the
+Character Cell Matrix Size parameter of the introducer sequence) is not a multiple of six,
+the high order bits of the sixel values are ignored on the last row of the font pattern. If the
+number of horizontal scans is greater than the height of the loaded character (divided by
+six), the characters in excess of the loaded character height are ignored.</p>
+<p>Any pixels of a loaded character that are not specified are set to zero. This might occur
+either as a result of a horizontal scan being terminated before the pattern has reached
+the full width of the loaded character, or as the result of the sixel bit pattern string being
+terminated before the full character matrix has been defined.</p>
+<a id="10-13"></a>
+<p>The following picture shows the mapping of sixels onto an 8 x 10 logical pixel character
+cell:</p>
+<figure>
+<pre>  1    2    3    4    5    6    7    8
+_________________________________________
+| b0 | b0 | b0 | b0 | b0 | b0 | b0 | b0 |
+| b1 | b1 | b1 | b1 | b1 | b1 | b1 | b1 |
+| b2 | b2 | b2 | b2 | b2 | b2 | b2 | b2 |
+| b3 | b3 | b3 | b3 | b3 | b3 | b3 | b3 |
+| b4 | b4 | b4 | b4 | b4 | b4 | b4 | b4 |
+| b5 | b5 | b5 | b5 | b5 | b5 | b5 | b5 |
+|____|____|____|____|____|____|____|____|
+| b0 | b0 | b0 | b0 | b0 | b0 | b0 | b0 |
+| b1 | b1 | b1 | b1 | b1 | b1 | b1 | b1 |
+| b2 | b2 | b2 | b2 | b2 | b2 | b2 | b2 |
+| b3 | b3 | b3 | b3 | b3 | b3 | b3 | b3 |
+|____|____|____|____|____|____|____|____|<br />
+  9    10   11   12   13   14   15   16</pre>
+</figure>
+<p>The rows of numbers on the top and bottom relate to the order in which sixel values are
+sent to the terminal.</p>
+<p>The following picture shows the mapping of Sixels onto an 10 x 20 logical pixel full-cell
+character cell:</p>
+<figure>
+<pre>  1    2    3    4    5    6    7    8    9    10
+___________________________________________________
+| b0 | b0 | b0 | b0 | b0 | b0 | b0 | b0 | b0 | b0 |
+| b1 | b1 | b1 | b1 | b1 | b1 | b1 | b1 | b1 | b1 |
+| b2 | b2 | b2 | b2 | b2 | b2 | b2 | b2 | b2 | b2 |
+| b3 | b3 | b3 | b3 | b3 | b3 | b3 | b3 | b3 | b3 |
+| b4 | b4 | b4 | b4 | b4 | b4 | b4 | b4 | b4 | b4 |
+| b5 | b5 | b5 | b5 | b5 | b5 | b5 | b5 | b5 | b5 |
+|____|____|____|____|____|____|____|____|____|____|
+  11   12   13   14   15   16   17   18   19   20
+___________________________________________________
+| b0 | b0 | b0 | b0 | b0 | b0 | b0 | b0 | b0 | b0 |
+| b1 | b1 | b1 | b1 | b1 | b1 | b1 | b1 | b1 | b1 |
+| b2 | b2 | b2 | b2 | b2 | b2 | b2 | b2 | b2 | b2 |
+| b3 | b3 | b3 | b3 | b3 | b3 | b3 | b3 | b3 | b3 |
+| b4 | b4 | b4 | b4 | b4 | b4 | b4 | b4 | b4 | b4 |
+| b5 | b5 | b5 | b5 | b5 | b5 | b5 | b5 | b5 | b5 |
+|____|____|____|____|____|____|____|____|____|____|
+  21   22   23   24   25   26   27   28   29   30
+___________________________________________________
+| b0 | b0 | b0 | b0 | b0 | b0 | b0 | b0 | b0 | b0 |
+| b1 | b1 | b1 | b1 | b1 | b1 | b1 | b1 | b1 | b1 |
+| b2 | b2 | b2 | b2 | b2 | b2 | b2 | b2 | b2 | b2 |
+| b3 | b3 | b3 | b3 | b3 | b3 | b3 | b3 | b3 | b3 |
+| b4 | b4 | b4 | b4 | b4 | b4 | b4 | b4 | b4 | b4 |
+| b5 | b5 | b5 | b5 | b5 | b5 | b5 | b5 | b5 | b5 |
+|____|____|____|____|____|____|____|____|____|____|
+  31   32   33   34   35   36   37   38   39   40
+___________________________________________________
+| b0 | b0 | b0 | b0 | b0 | b0 | b0 | b0 | b0 | b0 |
+| b1 | b1 | b1 | b1 | b1 | b1 | b1 | b1 | b1 | b1 |
+|____|____|____|____|____|____|____|____|____|____|</pre>
+</figure>
+<p>The rows of numbers on the top and bottom relate to the order in which sixel values are
+sent to the terminal.</p>
+</section>
+</section>
+</section>
+<a id="10-14"></a>
+<section id="10.4.3">
+<h3>4.3&emsp;Algorithm</h3>
+<p><em>State Affected:</em></p>
+<ul>
+<li><code>FONT: ARRAY [1..MAX_NUM_FONTS] OF FONT_BUFFER_TYPE;</code></li>
+<li><code>CELL_NUMBER: CHARACTER_VALUE_TYPE;</code></li>
+<li><code>FONT_NUMBER: 1..MAX_NUM_FONTS;</code></li>
+<li><code>FIRST_CHARACTER: CHARACTER_VALUE_TYPE;</code></li>
+<li><code>ERASE_CONTROL: (ERASE_THIS_FONT,NO_ERASE,ERASE_ALL_FONTS);</code></li>
+<li><code>CELL_WIDTH: CELL_WIDTH_TYPE;</code></li>
+<li><code>CELL_HEIGHT: CELL_HEIGHT_TYPE;</code></li>
+<li><code>SET_SIZE: (EIGHTY;ONE_THIRTY_TWO);</code></li>
+<li><code>CELL_USAGE: (TEXT,FULL_CELL);</code></li>
+<li><code>CHARACTER_SET_SIZE: (94,96);</code></li>
+<li><code>CHARACTER_SET_DESIGNATOR:
+  ARRAY [1..MAX_LENGTH_DESIGNATOR] OF
+  DESIGNATOR_CHARACTER_TYPE;</code></li>
+</ul>
+<p><em>Algorithm:</em></p>
+<pre><code>CONST   MAX_NUM_FONTS = 1;<br />
+        MIN_CHARACTER_VALUE = 0;
+        MAX_CHARACTER_VALUE = 95;
+        (* Devices which are not required to support
+           96-character sets may set these values to 1 and 94 *)<br />
+        MAX_CELL_WIDTH = 8;
+        MAX_CELL_HEIGHT = 10;
+        (* These values may vary from device to device *)<br />
+        MAX_LENGTH_DESIGNATOR = 3;<br />
+        ON = TRUE;
+        OFF = FALSE;<br />
+TYPE    CELL_WIDTH_TYPE = 1..MAX_CELL_WIDTH;
+        CELL_HEIGHT_TYPE = 1..MAX_CELL_HEIGHT;<br />
+        CHARACTER_CELL_TYPE =
+          ARRAY [CELL_WIDTH_TYPE,CELL_HEIGHT_TYPE] OF BOOLEAN;<br />
+        CHARACTER_VALUE_TYPE =
+          MIN_CHARACTER_VALUE..MAX_CHARACTER_VALUE;<br />
+        FONT_BUFFER_TYPE =
+          ARRAY [CHARACTER_VALUE_TYPE] OF CHARACTER_CELL_TYPE;<br />
+VAR     FONT: ARRAY [1..MAX_NUM_FONTS] OF FONT_BUFFER_TYPE;
+        CELL_NUMBER: CHARACTER_VALUE_TYPE;
+        FONT_NUMBER: 1..MAX_NUM_FONTS;
+        FIRST_CHARACTER: CHARACTER_VALUE_TYPE;
+        DRCS_ERASE_CONTROL:
+(ERASE_THIS_FONT,NO_ERASE,ERASE_ALL_FONTS);
+        CELL_WIDTH: CELL_WIDTH_TYPE;
+        CELL_HEIGHT: CELL_HEIGHT_TYPE;
+        SET_SIZE: (EIGHTY,ONE_THIRTY_TWO);
+        CELL_USAGE: (TEXT,FULL_CELL);
+        CHARACTER_SET_SIZE: (94,96);
+        VALID_DRCS_SYNTAX: BOOLEAN;
+        DRCS_STRING_TERMINATED: BOOLEAN;
+        H,V,N: INTEGER;<br />
+PROCEDURE GET_NEXT_EVENT (VAR EVENT: EVENT_BUFFER_TYPE); EXTERN;
+PROCEDURE GET_DRCS_PARAMETERS (EVENT: EVENT_BUFFER_TYPE); FORWARD;
+PROCEDURE GET_CHARACTER_SET_DESIGNATOR; FORWARD;
+PROCEDURE FILL_CELLS; FORWARD;
+<a id="10-15"></a>PROCEDURE EXECUTE_FONT_LOAD (EVENT: EVENT_BUFFER_TYPE);
+(*
+  This routine processes DECDLD font load command strings.
+  The input to this routine is the parsed DCS introducer
+  sequence. Successive calls are made to the ANSI parser
+  (GET_NEXT_EVENT) to input a character at a time for
+  processing. The routine will not exit until a String
+  Terminator (9/12) is received.
+*)
+BEGIN
+(* first, process the DCS introducer sequence parameters *)
+GET_DRCS_PARAMETERS (EVENT);
+IF VALID_DRCS_SYNTAX THEN
+  BEGIN
+  DRCS_STRING_TERMINATED:= FALSE;
+  (* if the sequence is valid, get the character set designator *)
+  GET_CHARACTER_SET_DESIGNATOR;
+  IF VALID_DRCS_SYNTAX THEN
+    BEGIN
+    (* erase according to the erase parameter *)
+    CASE DRCS_ERASE_CONTROL OF
+      ERASE_THIS_FONT:
+        FOR CELL_NUMBER:=
+        MIN_CHARACTER_VALUE TO MAX_CHARACTER_VALUE DO
+          FOR H:= 1 TO MAX_CELL_WIDTH DO
+            FOR V:= 1 TO MAX_CELL_HEIGHT DO
+              FONT[FONT_NUMBER,CELL_NUMBER,H,V]:= OFF;
+      ERASE_ALL_FONTS:
+        FOR N:= 1 TO MAX_NUM_FONTS DO
+          FOR CELL_NUMBER:=
+          MIN_CHARACTER_VALUE TO MAX_CHARACTER_VALUE DO
+            FOR H:= 1 TO MAX_CELL_WIDTH DO
+              FOR V:= 1 TO MAX_CELL_HEIGHT DO
+                FONT[FONT_NUMBER,CELL_NUMBER,H,V]:= OFF;
+      OTHERWISE IGNORE;
+      END;
+    (* then process the command string *)
+    FILL_CELLS;
+    (* on overflow, keep going until String Terminator *)
+    WHILE NOT DRCS_STRING_TERMINATED DO
+      BEGIN
+      GET_NEXT_EVENT (EVENT);
+      IF (EVENT.EVENT_CODE = CONTROL_CODE)
+      AND (EVENT.CODE_VALUE = 156) THEN
+        DRCS_STRING_TERMINATED:= TRUE;
+      END;
+    END;
+  END;
+END;
+<a id="10-16"></a>PROCEDURE GET_DRCS_PARAMETERS;
+(*
+  This routine gets the DCS introducer sequence parameters
+  from the event buffer and sets the appropriate state
+  prior to loading the font.
+*)
+BEGIN
+VALID_DRCS_SYNTAX:= TRUE;
+(* the first parameter is the font number to be loaded *)
+IF (EVENT.PARAMETERS[1] = 0) OR (EVENT.PARAMETERS[1] = 1) THEN
+  FONT_NUMBER:= 1
+ELSE VALID_DRCS SYNTAX:= FALSE;
+(* the second parameter is the first character to be loaded *)
+FIRST_CHARACTER:= EVENT.PARAMETERS[2];
+IF (FIRST_CHARACTER = 0) OR (FIRST_CHARACTER > 95) THEN
+  FIRST_CHARACTER:= 1;
+(* the third parameter is the erase control specifier *)
+CASE EVENT.PARAMETERS[3] OF
+  0: DRCS_ERASE_CONTROL:= ERASE_THIS_FONT;
+  1: DRCS_ERASE_CONTROL:= NO_ERASE;
+  2: DRCS_ERASE_CONTROL:= ERASE_ALL_FONTS;
+  OTHERWISE VALID_DRCS_SYNTAX:= FALSE;
+  END;
+(* the fourth parameter is the cell width or size *)
+CELL_HEIGHT:= MAX_CELL_HEIGHT;      (* assume no cell height
+                                       parameter at start    *)
+CASE EVENT.PARAMETERS[4] OF
+  0: CELL_WIDTH:= MAX_CELL_WIDTH;   (* 0 is device default *)
+  1: VALID_DRCS_SYNTAX:= FALSE;     (* 1 is illegal*)
+  2: CELL_WIDTH:= 5;
+  3: CELL_WIDTH:= 6;
+  4: CELL_WIDTH:= 7;
+  OTHERWISE  CELL_WIDTH:= EVENT.PARAMETERS[4];
+  END;
+IF (CELL_WIDTH > MAX_CELL_WIDTH)
+ THEN CELL_WIDTH:= MAX_CELL_WIDTH;
+(* the fifth parameter is the set size *)
+CASE EVENT.PARAMETERS[5] OF
+  0,1: SET_SIZE:= EIGHTY;
+  2: SET_SIZE:= ONE_THIRTY_TWO;
+  OTHERWISE VALID_DRCS_SYNTAX:= FALSE;
+  END;
+(* the sixth parameter is the font usage *)
+CASE EVENT.PARAMETERS[6] OF
+  0,1: CELL_USAGE:= TEXT;
+  2: CELL_USAGE:= FULL_CELL;
+  OTHERWISE VALID_DRCS_SYNTAX:= FALSE;
+  END;
+(* the seventh parameter (if present) is the cell height *)
+CASE EVENT.PARAMETERS[7] OF
+  0: CELL_HEIGHT:= MAX_CELL_HEIGHT;  (* device dependant default
+*)
+  OTHERWISE CELL_HEIGHT:= EVENT.PARAMETERS[7];
+  END;
+IF (CELL_HEIGHT > MAX_CELL_HEIGHT)
+ THEN CELL_HEIGHT:= MAX_CELL_HEIGHT;
+(* the eighth parameter is the character set size *)
+CASE EVENT.PARAMETERS[8] OF
+  0: CHARACTER_SET_SIZE:= 94;
+  1: CHARACTER_SET_SIZE:= 96;
+  OTHERWISE VALID_DRCS_SYNTAX:= FALSE;
+  END;
+END;
+<a id="10-17"></a>PROCEDURE GET_CHARACTER_SET_DESIGNATOR;
+(*
+  This routine parses the character set designating escape
+  sequence to be associated with the loaded font. This sequence
+  must immediately follow the DCS introducer sequence.<br />
+  Refer to DEC STD 070-5 for a description of the character set
+  table and the subsequent designation procedure.
+*)
+BEGIN
+(* accept characters until final or String Terminator *)
+N:= 1;
+REPEAT
+  GET_NEXT_EVENT (EVENT);
+  CASE EVENT.EVENT_CODE OF
+    GRAPHIC_CODE:     (* put legal characters in the buffer *)
+      BEGIN
+      IF (N=1) AND (EVENT.CODE_VALUE >= 32)
+      AND (EVENT.CODE_VALUE &lt;= 47) THEN
+        CHARACTER_SET_TABLE[4].FIRST_INTERMEDIATE:=
+        EVENT.CODE_VALUE;
+      IF (N=2) AND (EVENT.CODE_VALUE >= 32)
+      AND (EVENT.CODE_VALUE &lt;= 47) THEN
+        CHARACTER_SET_TABLE[4].SECOND_INTERMEDIATE:=
+        EVENT.CODE_VALUE;
+      IF (EVENT.CODE_VALUE >= 48)
+      AND (EVENT.CODE_VALUE &lt;= 126) THEN
+        CHARACTER_SET_TABLE[4].FINAL:= EVENT.CODE_VALUE;
+      IF (EVENT.CODE_VALUE >= 32)
+      AND (EVENT.CODE_VALE &lt;= 126) THEN N:= N+1;
+      END;
+    CONTROL_CODE:     (* terminate on String Terminator, 9/12 *)
+      IF EVENT.CODE_VALUE = 156 THEN DRCS_STRING_TERMINATED:= TRUE
+      ELSE IGNORE;    (* ignore other control characters *)
+    OTHERWISE IGNORE; (* ignore escape and control sequences *)
+    END;
+UNTIL ((EVENT.EVENT_CODE = GRAPHIC_CODE)
+AND ((EVENT.CODE_VALUE >= 64) AND (EVENT.CODE_VALUE &lt;= 126)))
+OR DRCS_STRING_TERMINATED;
+END;
+<a id="10-18"></a>PROCEDURE FILL_CELLS;
+(*
+  This routine processes the sixel command string and loads
+  the character cells in succession, starting with the first
+  character specified in the introducer sequence.
+*)
+VAR     NEXT_CELL: BOOLEAN;
+BEGIN
+(* start with the first character as specified *)
+CELL_NUMBER:= FIRST_CHARACTER;
+NEXT_CELL:= TRUE;
+REPEAT
+  (* clear the cell if not already cleared *)
+  IF NEXT_CELL THEN
+    BEGIN
+    IF DRCS_ERASE_CONTROL = NO_ERASE THEN
+      FOR H:= 1 TO MAX_CELL_WIDTH DO
+        FOR V:= 1 TO MAX_CELL_HEIGHT DO
+          FONT[FONT_NUMBER,CELL_NUMBER,H,V]:= OFF;
+    H:= 1;
+    V:= 1;
+    NEXT_CELL:= FALSE;
+    END;
+  (* now, fill it *)
+  GET_NEXT_EVENT (EVENT);
+  CASE EVENT.EVENT_CODE OF
+    GRAPHIC_CODE:
+      BEGIN
+      (* convert sixels into the font memory *)
+      IF (EVENT.CODE_VALUE >= 63)
+      AND (EVENT.CODE_VALUE &lt;= 126) THEN
+        BEGIN
+        EVENT.CODE_VALUE:= EVENT.CODE_VALUE - 63;
+        IF H &lt;= CELL_WIDTH THEN
+          BEGIN
+          FOT N:= 1 TO 6 DO
+            BEGIN
+            IF V+N-1 &lt;= CELL_HEIGHT THEN
+              BEGIN
+              IF ODD(EVENT.CODE_VALUE) THEN
+                FONT[FONT_NUMBER,CELL_NUMBER,H,V+N-1]:= ON;
+              (* shift in one bit at a time *)
+              EVENT.CODE_VALUE:= EVENT.CODE_VALUE DIV 2;
+              END
+            ELSE IGNORE;
+            END;
+          H:= H+1;
+          END
+        ELSE IGNORE;
+        END
+      ELSE
+        BEGIN
+        CASE EVENT.CODE_VALUE OF
+          (* / terminates a horizontal scan *)
+          47: BEGIN H:= 1; V:= V+6; END;
+          59: (* ; terminates a cell, go to the next *)
+            BEGIN
+            NEXT_CELL:= TRUE;
+            CELL_NUMBER:= CELL_NUMBER+1;
+            H:= 1; V:= 1;
+            END;
+          OTHERWISE IGNORE;
+          END;
+        END;
+      END;
+<a id="10-19"></a>    CONTROL_CODE:     (* terminate on String Terminator, 9/12 *)
+      IF EVENT.CODE_VALUE = 156 THEN DRCS_STRING_TERMINATED:= TRUE
+      ELSE IGNORE;    (* ignore other control characters *)
+    OTHERWISE IGNORE; (* ignore escape and control sequences *)
+    END;
+UNTIL (CELL_NUMBER > MAX_CHARACTER_VALUE)
+OR (DRCS_STRING_TERMINATED);
+END;
+</code></pre>
+</section>
+</section>
+<a id="10-20"></a>
+<section id="10.5">
+<h2>5&emsp;DRCS Font Loading Examples</h2>
+<p>The following are examples of DECDLD font loading sequences:</p>
+<section id="10.5.1">
+<h3>5.1&emsp;Example One</h3>
+<figure>
+<pre>DCS 1 ; 1 ; 0 ; 0 ; 0 ; 0 { sp @
+~~~~~~~~/~~~~~~~~;
+????????/????????;
+~@@@@@~?/~WWWWW~?;
+TTTTTTTT/TTTTTTTT;
+ST</pre>
+</figure>
+<p><em>Notes:</em></p>
+<ol>
+<li><p>This load is into the first DRCS font buffer.</p></li>
+<li><p>The font is an 80 column text font with a character cell matrix size of 7 x 10.</p></li>
+<li><p>"sp" represents the Space character (2/0).</p></li>
+<li><p>The loaded character set can be designated using the following Select Character Set
+(SCS) sequences:</p><ul>
+<li>ESC ( sp @</li>
+<li>ESC ) sp @</li>
+<li>ESC * sp @</li>
+<li>ESC + sp @</li>
+</ul>
+</li>
+<li><p>Carriage return is ignored in the sequence and can be used to facilitate formatting and
+editing of the command string.</p></li>
+<li><p>The first character loaded is a solid rectangle.</p></li>
+<li><p>The second character loaded is blank.</p></li>
+<li><p>The third character loaded is a rectangular box.</p></li>
+<li><p>The fourth character loaded is a set of horizontal stripes.</p></li>
+</ol>
+</section>
+<section id="10.5.2">
+<h3>5.2&emsp;Example Two</h3>
+<figure>
+<pre>DCS 5 ; 65 ; 1 ; 2 ; 2 ; 1 { B
+???/??????????/?????;
+~~~~~/~~~~~;
+?????/~~~~~~~~~~~~~~/???????????????/~?~?~?~?~?~?~?~;
+??~~??/??~~?
+ST</pre>
+</figure>
+<p><em>Notes:</em></p>
+<ol>
+<li><p>This load is into the fifth DRCS font buffer. Since only one buffer is required for Level
+2 conformance, the entire load sequence may be ignored.</p></li>
+<li><p>The load will start with the 65th character in the set, which would be the character 6/1
+(ASCII 'a').</p></li>
+<li><p>Only the characters actually loaded will be erased. Thus, this load could be used to
+redefine only the lower case characters.</p></li>
+<li><p>The font is a 132 column text font with a character cell matrix size of 5 x 10.</p><a id="10-21"></a></li>
+<li><p>B is the designator for the ASCII character set - therefore, this font replaces ASCII,
+and may be designated using the following Select Character Set (SCS) sequences:</p><ul>
+<li>ESC ( B</li>
+<li>ESC ) B</li>
+<li>ESC * B</li>
+<li>ESC + B</li>
+</ul>
+</li>
+<li><p>The first character loaded is blank.</p></li>
+<li><p>The second character loaded is solid.</p></li>
+<li><p>The third character loaded is top 6/10 blank, bottom 4/10 solid.</p></li>
+<li><p>The fourth character loaded is a thick vertical bar.</p></li>
+</ol>
+</section>
+<section id="10.5.3">
+<h3>5.3&emsp;Example Three</h3>
+<figure>
+<pre>DCS 1 ; 65 ; 1 ; 4 ; 2 ; 2 ; 16 ; 1 { B
+???/??????????/?????;
+~~~~~~~~~~~~/~~~~~~~~~~/~~~~~~~~~~~~~~~~~~~~~~~~~~~~~;
+?????/{{{{{/~~~~~/?????;
+?~~?/?~~?/?~~?
+ST</pre>
+</figure>
+<p><em>Notes:</em></p>
+<ol>
+<li><p>The font is a 132-column, full-cell font with character matrix size of 4 x 16</p></li>
+<li><p>The first character loaded corresponds to the 6/0 position in the code table.</p></li>
+<li><p>The first character loaded is blank</p></li>
+<li><p>The second character loaded is solid</p></li>
+<li><p>The third character loaded has the top half blank, and the bottom half solid</p></li>
+<li><p>The fourth character is a thick vertical bar</p></li>
+<li><p>The excess Sixel information (outside of the 4 x 16 cell) is ignored</p></li>
+<li><p>"B" could be confused with the ASCII designator, however, since Pcss is 1, making
+this a 96-character soft character set, this font does not replace the ASCII font. (It
+is, however, the registered designator for the supplemental character set of ISO Latin
+Alphabet Nr 2, and would replace that set, if it were present in the device.)</p></li>
+<li><p>The character set can be designated using the 96-character SCS sequence. The Dscs is
+"B". The SCS sequences are:</p><ul>
+<li>ESC - B</li>
+<li>ESC . B</li>
+<li>ESC / B</li>
+</ul>
+</li>
+</ol>
+</section>
+</section>
+<a id="10-22"></a>
+<section id="10.6">
+<h2>6&emsp;Change History</h2>
+<section id="10.6.1">
+<h3>6.1&emsp;Revision 0.0 To AX10</h3>
+<ol>
+<li><p>Added Introduction, Terminology, and Functional Description sections.</p></li>
+<li><p>Revised the DECDLD command format.</p></li>
+<li><p>Restricted the legal values for the Font Number parameter.</p></li>
+<li><p>Restricted the legal values for the First Character parameter.</p></li>
+<li><p>Added a parameter value to erase all font definitions (User Preference Feature).</p></li>
+<li><p>Added parameters for Character Cell Matrix Size, Font Set Size, and Font Usage.</p></li>
+<li><p>Extensively revised the section on Command String Format.</p></li>
+<li><p>Added the DECDLD algorithm.</p></li>
+<li><p>Added examples for DECDLD.</p></li>
+<li><p>Added references to the Character Cell Display section for character set tables of
+designating escape sequences.</p></li>
+</ol>
+</section>
+<section id="10.6.2">
+<h3>6.2&emsp;Rev AX10 to AX11</h3>
+<ol>
+<li><p>Added statement that starting to load at location greater than 94 will be ignored in
+level 2.</p></li>
+</ol>
+</section>
+<section id="10.6.3">
+<h3>6.3&emsp;Rev AX11 to AX12</h3>
+<ol>
+<li><p>Added support and Character Set Size parameter for 96-character graphic charcter
+sets for Level 2 and 3 DRCS.</p></li>
+<li><p>Modified meaning of Character Matrix parameter to mean Character Matrix Width
+parameter as a modification to Level 2 DRCS.</p></li>
+<li><p>Added Character Matrix Height parameter as a modification to Level 2 DRCS.</p></li>
+<li><p>Added example containing new parameters.</p></li>
+<li><p>Extended behavior of Font Number parameter when parameter is omitted or zero.</p></li>
+<li><p>Clarified behavior of DRCS which replace standard character sets when the DRCS is
+erased.</p></li>
+<li><p>Updated algorithm to reflect new parameters and 96-character graphic character set
+support.</p></li>
+</ol>
+</section>
+<section id="10.6.4">
+<h3>6.4&emsp;Rev AX12 to AX13</h3>
+<ol>
+<li><p>Changed title to "Video &amp; Printer Systems Reference Manual".</p></li>
+<li><p>Clarified use of terms "font", "font file", and "character set" to be more consistent with
+printer terminology. "Font file" refers to a sequence of bit patterns that define the
+graphic symbols of a coded character set. "Fonts" are styles (an instance of a type
+family).</p><a id="10-23"></a></li>
+<li><p>Added minimum requirements for Hardcopy Display service class (three 96 character
+buffers).</p></li>
+<li><p>Clarified that DRCS can be used as the User Preference Supplemental Set.</p></li>
+<li><p>Clarifed effect of DECDLD on characters already on the page in printers (do not
+change).</p></li>
+<li><p>Specified behavior of DECSTR, RIS, and DECSCL with respect to DRCS buffers for
+both video and hardcopy devices.</p></li>
+<li><p>Clarified differences in behavior of DECDLD parameters for video and hardcopy
+devices (Pfn, Pcmw, Pss, Pcmh). Printers have three buffers minimum. Printers never
+deduce Pcmh from Pcmw. Pss (Font set size) is for video terminals only. Extended list
+of possible values for Pss to reflect VT420 implementation.</p></li>
+<li><p>Specified Dscs may include up to 3 intermediates in addition to the first SCS
+intermediate which specifies the G-set.</p></li>
+<li><p>Included error handling recommendations for unexpected bit combinations. ESC and
+C1 controls abort DECDLD (except ST and DCS). 10/1 to 15/14 should be interpreted as
+2/1 to 7/14. This reflects latest consensus among hardcopy and video implementations.</p></li>
+<li><p>Clarified that ST may terminate an individual character load.<a id="10-24"></a></p><a id="10-25"></a></li>
+</ol>
+</section>
+</section>
+<section id="10.A">
+<h2>A&emsp;Referenced Documents</h2>
+<section id="10.A.1">
+<h3>A.1&emsp;EL-Class Digital Documents</h3>
+<dl>
+<dt>EL-00070-01</dt>
+<dd>DEC STD 070-1 Video Systems Reference Manual - Concepts and Conformance
+Criteria</dd>
+<dt>EL-00070-03</dt>
+<dd>DEC STD 070-3 Video Systems Standard - Code Extension Layer</dd>
+<dt>EL-00070-05</dt>
+<dd>DEC STD 070-5 Video Systems Reference Manual - Character Cell Display</dd>
+<dt>EL-00070-09</dt>
+<dd>DEC STD 070-9 Video and Printer Systems Reference Manual - SIXEL Graphics
+Extension</dd>
+</dl>
+<p>Use VTX SMC to order copies of EL-class documents from Standards and Methods Control.
+Send distribution questions to JOKUR::SMC or call DTN: 287-3724.</p>
+<a id="10-26"></a>
+</section>
+</section>
+</main>
+<footer>
+<a id="Index-1"></a>
+<section id="Index">
+<h2>Index</h2>
+<ul>
+<li>Cell Matrix<ul>
+<li>width, <a href="#10-7">7</a></li>
+</ul>
+</li>
+<li>Cell Matrix Size, <a href="#10-1">1</a>, <a href="#10-3">3</a></li>
+<li>Character Cell, <a href="#10-1">1</a></li>
+<li>Character Cell Matrix Size,
+<a href="#10-8">8</a>, <a href="#10-12">12</a></li>
+<li>Character Font Data, <a href="#10-11">11</a></li>
+<li>Coded Character Set, <a href="#10-1">1</a></li>
+<li>Conforming software, <a href="#10-7">7</a></li>
+<li>Control String, <a href="#10-1">1</a></li>
+<li>DCS Introducer Sequence, <a href="#10-2">2</a></li>
+<li>DECDLD, <a href="#10-2">2</a>, <a href="#10-3">3</a>, <a href="#10-5">5</a>, <a href="#10-7">7</a></li>
+<li>Designate, <a href="#10-2">2</a></li>
+<li>Down-Line Load, <a href="#10-2">2</a>, <a href="#10-5">5</a></li>
+<li>DRCS, <a href="#10-1">1</a></li>
+<li>Dynamically Redefinable
+Character Set, <a href="#10-5">5</a></li>
+<li>Dynamically Redefinable
+Character Sets, <a href="#10-1">1</a></li>
+<li>Erase Control, <a href="#10-7">7</a></li>
+<li>Escape Sequence, <a href="#10-2">2</a></li>
+<li>FNT, <a href="#10-3">3</a></li>
+<li>Font, <a href="#10-2">2</a></li>
+<li>Font File, <a href="#10-2">2</a></li>
+<li>Font Number, <a href="#10-6">6</a></li>
+<li>Font Selection, <a href="#10-3">3</a></li>
+<li>Font Set Size, <a href="#10-3">3</a></li>
+<li>Invoke, <a href="#10-2">2</a></li>
+<li>Logical Pixel, <a href="#10-2">2</a></li>
+<li>Scan, <a href="#10-2">2</a></li>
+<li>Select Graphic Rendition, <a href="#10-3">3</a></li>
+<li>Set Size, <a href="#10-2">2</a></li>
+<li>SGR, <a href="#10-3">3</a></li>
+<li>Sixel, <a href="#10-2">2</a><ul>
+<li>bit pattern, <a href="#10-12">12</a></li>
+<li>definition, <a href="#10-12">12</a></li>
+</ul>
+</li>
+<li>Soft Reset, <a href="#10-5">5</a></li>
+</ul>
+</section>
+</footer>
+</body>
+</html>
