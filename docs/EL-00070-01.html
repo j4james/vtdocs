@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>VSRM - Concepts and Conformance Criteria</title>
+<meta charset="UTF-8" />
+<style>*{font-family:"Courier New";font-weight:bold;font-size:16px;line-height:16.55px;padding:0;margin:0;border-collapse:collapse}body{color:#000000;background:#d4d4d8;>header,>main,>footer{width:66ch;padding-left:91px;padding-right:calc(725px - 66ch);padding-bottom:16.55px;background:#ffffff;margin:0 auto}>footer{border-bottom:11px solid #d4d4d8}}a{color:#000000;text-decoration:none}a[href]:hover{color:#bb0000}header>hgroup{>h1{text-transform:uppercase}>h2{padding-right:1ch}>h1,>h2{text-align:center;margin-bottom:16.55px}margin-bottom:33.1px}h2,h3,h4,p{margin-bottom:16.55px;white-space:pre-wrap}section{>h2,>h3,>h4{&:first-child:before{content:'1.'}}>h4:has(>span){&:first-child:before{content:none}}&#Index>h2:first-child:before{content:none}&:has(>h2){margin-top:49.65px}&:has(>h3){margin-top:49.65px}&:has(>h4){margin-top:49.65px}a[id]+&{margin-top:0}h2+&{margin-top:16.55px}h3+&{margin-top:16.55px}>h2{text-transform:uppercase}>h4{padding-left:9ch;text-indent:-9ch;&:after{content:' -';padding-right:0.999ch;white-space:pre}}}aside{margin:33.1px auto;header>&{position:relative;overflow:hidden;white-space:nowrap;&:before{content:'+----------------------------------------------------------------------------\A|\A|\A|\A|\A|\A|\A|\A|\A|\A|\A|\A|';white-space:pre;position:absolute;top:0;left:0;pointer-events:none}&:after{content:'+----------------------------------------------------------------------------'}>*{padding:0 2ch;&:first-child{padding-top:16.55px;&:before{content:'+\A|\A|\A|\A|\A|\A|\A|\A|\A|\A|\A|\A|';white-space:pre;position:absolute;top:0;right:0;background:#ffffff}}&:last-child{margin:0;&:after{content:'+';position:absolute;bottom:0;right:0;background:#ffffff}}}&:nth-of-type(2){width:40ch;>p{text-align:center;padding-top:33.1px;padding-bottom:16.55px}}}}dl{>dt{float:left;padding-right:0.999ch}}header>dl{>dt{text-transform:uppercase}>dt:after{content:':'}>dd{margin-bottom:33.1px}&:nth-of-type(1){>dt{padding-right:1.999ch}>dt:first-child{padding-left:2ch;padding-right:1ch;text-transform:none;+dd{margin-bottom:49.65px}}}&:nth-of-type(2)>dd{td{min-width:22ch}&:last-of-type tr:first-of-type>td{padding-bottom:16.55px}}&:nth-of-type(3){margin-bottom:49.65px;>dt{text-transform:none}>dd{margin-bottom:0}}&:nth-of-type(4){>dt{padding-right:1.999ch}>dd>p{margin-bottom:33.1px}}}header>p:last-of-type{text-align:center;padding-right:1ch}ul{list-style:none;margin-bottom:33.1px;li>&{margin-bottom:0}}#\31\.2,#\31\.3,#\31\.8{ul>li{position:relative;padding-left:9ch;>a[id]{transform:translateX(-9ch)}&:before{content:'o';position:absolute;left:6ch}}}#\31\.6,#\31\.7{ul{span{visibility:hidden;position:absolute}}li{>a:has(+span){text-transform:uppercase;width:39ch;display:inline-block;>small{text-transform:none}}>a:has(+ul){text-transform:uppercase}>a:has(~ul>li>span){text-transform:none}>ul{margin-left:2ch;>li>a:has(+span){width:37ch}}}}ol{list-style-type:none;margin-top:33.1px;>li{position:relative;padding-left:9ch;a[id]{transform:translateX(-9ch)}&:before{content:counter(list-item,decimal) ".";position:absolute;width:3ch;left:4ch;text-align:right}}}#Contents{>hgroup{text-transform:uppercase;margin-bottom:33.1px;>h2{margin-bottom:49.65px;padding-left:33ch}>p{padding-left:16ch;text-indent:-16ch;>br{margin-top:-16.55px;display:block;content:' '}}}a[href]{background:#ffffff;position:relative;z-index:1;&:nth-of-type(1):after{content:'\A0'}&:nth-of-type(2){position:absolute;right:4ch;&:before{content:'\A0' '1-'}}}ol{margin:0;>li{padding:0;>a[id]{transform:none}&:before{content:"1." counters(list-item,".");padding-left:4ch;padding-right:5ch;position:static}&:has(>a>br){padding-left:16ch;text-indent:-16ch;>a[href]:nth-of-type(2){text-indent:0}}}}>ol>li{margin-top:16.55px;>a:first-child{text-transform:uppercase}}li>span{color:transparent;&:after{content:'. . . . . . . . . . . . . . . . . . . . .';color:#000000;position:absolute;right:4ch}}}#Index{>h2{text-align:center;text-transform:none;margin-bottom:0;&:after{content:' \A------------- '}}>ul{>li{position:relative;>ul{margin-bottom:0;li{padding-left:2ch}a[id]{transform:translateX(-2ch)}}&:nth-child(7)>ul>li:nth-child(10){display:grid;grid-template-columns:34ch 4ch 2ch 4ch 2ch 4ch;>a[href]{position:static}}&:nth-child(1):before{content:'-A-'}&:nth-child(3):before{content:'-C-'}&:nth-child(10):before{content:'-D-';padding-top:0}&:nth-child(11):before{content:'-E-'}&:nth-child(14):before{content:'-I-'}&:nth-child(16):before{content:'-L-'}&:nth-child(19):before{content:'-P-'}&:nth-child(22):before{content:'-R-'}&:nth-child(23):before{content:'-S-'}&:nth-child(25):before{content:'-T-'}&:nth-child(27):before{content:'-U-'}&:nth-child(29):before{content:'-V-'}&:nth-child(31):before{content:'-W-'}&:before,&:after{display:block;padding:16.55px 12ch}}a[href]{position:absolute;left:36ch;&:before{content:'1-'}}}}tr>*:not(:last-child){padding-right:0.999ch}td{box-sizing:border-box}figure{margin-bottom:33.1px;>figcaption{text-align:center;&:first-child{margin-bottom:33.1px}&:last-child{margin-top:82.75px}}}#\31\.2{>ul{margin-top:33.1px}>figure{margin-top:33.1px;margin-left:4ch;margin-right:5ch;>figcaption:after{content:'===============================';display:block;padding-bottom:16.55px}}}#\31\.3\.2>figure{margin-left:8ch}#\31\.4>figure{margin-top:82.75px;margin-left:1ch;margin-right:2ch}#\31\.5\.3\.1\.1,#\31\.5\.3\.2\.1,#\31\.8\.2\.1,#\31\.8\.3\.1{>h4{float:left;height:0}}#\31\.5\.1\.5,#\31\.5\.3\.1\.1{>ol{margin-top:16.55px}}#\31\.6\.2>ul{margin-top:33.1px;>li{&:nth-child(3),&:nth-child(7),&:nth-child(9){margin-top:16.55px}&:nth-child(16){text-transform:none}}}#\31\.6\.3\.2>ul>li:nth-child(2){margin-top:16.55px}#\31\.6\.3\.4>ul>li:last-child>a{text-transform:none;~ ul{text-transform:uppercase}}#\31\.6\.3\.5>ul{>li{&:nth-child(2),&:nth-child(3),&:nth-child(4){margin-top:16.55px}>a{text-transform:none}>ul>li{text-transform:uppercase;abbr{text-transform:none}}}}#\31\.6\.4,#\31\.7\.4{>ul{margin-top:33.1px}}#\31\.7\.2{>p:nth-of-type(2){margin-top:33.1px}>ul>li{&:nth-child(8),&:nth-child(9){margin-top:16.55px}}}#\31\.7\.3\.7>ul>li:nth-child(2){margin-top:16.55px}#\31\.8\.1,#\31\.8\.3{>ol>li{margin-bottom:33.1px}}#\31\.8\.3\.1{margin-top:66.2px}header{counter-reset:page}a[id]{display:block;position:relative;left:-91px;padding-left:91px;padding-right:calc(725px - 66ch);width:66ch;height:33.1px;margin-top:56px;margin-bottom:33.1px;border-top:11px solid #d4d4d8;padding-top:55px;white-space:pre;&:before{content:'VSRM Concepts and Conformance Criteria  EL-00070-01\A' '*** COMPANY CONF - DEC Internal Use Only  15-May-1983'}&:after{counter-increment:page;content:'Page 1-' counter(page);position:absolute;top:55px;right:calc(725px - 66ch)}}#\31-9,#\31-21,#\31-25,#\31-29{margin-top:89px}#\31-6,#\31-12,#\31-14{margin-top:105px}#\31-15,#\31-24,#\31-33{margin-top:122px}#\31-11{margin-top:138px}#\31-32{margin-top:155px}#\31-10{margin-top:188px}#\31-2{margin-top:221px}#\31-28{margin-top:271px}#\31-3,#\31-17{margin-top:304px}#\31-8{margin-top:337px}#\31-30{margin-top:354px}#\31-18,#\31-22{margin-top:370px}#\31-27{margin-top:453px}#\31-7{margin-top:536px}#\31-23,#\31-26{margin-top:718px}#\31-20{margin-top:751px}body{>header,>main,>footer{>a[id]:first-child{margin-top:0}}>header{padding-bottom:536px}>main{padding-bottom:172px}>footer{padding-bottom:453px}}</style>
+</head>
+<body>
+<header>
+<a id="1-1"></a>
+<hgroup>
+<h1>Video Systems Reference Manual</h1>
+<h2>Concepts and Conformance Criteria</h2>
+</hgroup>
+<dl>
+<dt>Document Identifier</dt>
+<dd><p>A-DS-EL00070-01-0 Rev. AX10, 15-May-1983</p></dd>
+<dt>Abstract</dt>
+<dd><p>This section describes the conformance requirements for devices  implementing  the  Video  Systems  and  intending  to  be certified as conforming implementations.</p></dd>
+<dt>Applicability</dt>
+<dd><p>SARA Formal Cross-Component  Standard.   Mandatory for   Engineers  designing  hardware  for  terminal  products  and Software Engineers designing programs using terminal interfaces.</p></dd>
+<dt>Status</dt>
+<dd><p>FOR REVIEW ONLY</p></dd>
+</dl>
+<aside>
+<p>  This document has been placed in the SARA "Formal Cross-&NoBreak;Component Standard" category. The material contained within this document is assumed to define mandatory standards unless it is clearly marked as (a) not mandatory or (b)&nbsp;guidelines. Material which is marked as "not mandatory" is considered to be of potential benefit to the corporation and should be followed unless there are good reasons for non-&NoBreak;compliance. "Guidelines" define approaches and techniques which are considered to be good practice, but should not be considered as requirements. The procedures for modifying or evolving this standard are contained within the contents of this document.</p>
+</aside>
+<aside>
+<p>FOR INTERNAL USE ONLY&nbsp;</p>
+</aside>
+<a id="1-2"></a>
+<dl>
+<dt>Title</dt>
+<dd>VIDEO SYSTEMS - CONCEPTS AND CONFORMANCE CRITERIA</dd>
+<dt>Document Identifier</dt>
+<dd>A-DS-EL00070-01-0 Rev. AX10, 15-May-1983</dd>
+<dt>Revision History</dt>
+<dd><table>
+<tbody>
+<tr><td>Original Draft</td><td>25-Dec-1982</td></tr>
+<tr><td>Revision AX01</td><td>28-Feb-1983</td></tr>
+</tbody>
+</table>
+</dd>
+<dt>Files</dt>
+<dd><table>
+<tbody>
+<tr><td>User Documentation</td><td>EL070S1.mem</td></tr>
+<tr><td>Internal Documentation</td><td>EL070S1.rno</td></tr>
+<tr><td></td><td>EL070S1.rnt</td></tr>
+<tr><td></td><td>EL070S1.rnx</td></tr>
+</tbody>
+</table>
+</dd>
+</dl>
+<dl>
+<dt>Document Management Group</dt>
+<dd>Terminal Interface Architecture</dd>
+<dt>Responsible Department</dt>
+<dd>Video Architecture Group</dd>
+<dt>Responsible Individual</dt>
+<dd>Peter Sichel</dd>
+</dl>
+<dl>
+<dt>Acceptance</dt>
+<dd><p>This document has been approved by the Manager of the Video  Architecture  Group  based on a comprehensive review of its individual sections by the members of the  SARA  component  groups working  Terminal  Interface  Architecture  issues.   The  list of individuals on the  review  and  approval  list  are  on  file  in Standards and Methods Control.</p></dd>
+</dl>
+<p>Direct  requests  for  further  information   to   Peter   Sichel, PKO3-1/10C, DTN 223-5162, RANI::VIDARCH</p>
+<p>Copies of this document can be ordered from:</p>
+<p>Standards and Methods Control<br />APO1/F7, DTN 289-1414, JOKUR::SIMONETTI</p>
+<a id="1-3"></a>
+<section id="Contents">
+<hgroup>
+<h2>Contents</h2>
+<p>Chapter 1<br />Concepts And Conformance Criteria</p>
+</hgroup>
+<ol>
+<li><a href="#1.1">Introduction</a><span> … </span><a href="#1-5">5</a></li>
+<li><a href="#1.2">Structure Of The Manual</a><span> … </span><a href="#1-5">5</a></li>
+<li><a href="#1.3">Architectural Structure</a><span> … </span><a href="#1-8">8</a><ol>
+<li><a href="#1.3.1">Virtual Terminals</a><span> … </span><a href="#1-8">8</a></li>
+<li><a href="#1.3.2">Layers</a><span> … </span><a href="#1-8">8</a><ol>
+<li><a href="#1.3.2.1">Code Extension Layer</a><span> … </span><a href="#1-9">9</a></li>
+<li><a href="#1.3.2.2">Presentation Service Class</a><span> … </span><a href="#1-9">9</a></li>
+<li><a href="#1.3.2.3">Input Processing</a><span> … </span><a href="#1-10">10</a></li>
+<li><a href="#1.3.2.4">Terminal Management</a><span> … </span><a href="#1-10">10</a></li>
+</ol>
+</li>
+<li><a href="#1.3.3">Service Classes</a><span> … </span><a href="#1-10">10</a></li>
+</ol>
+</li>
+<li><a href="#1.4">Scope</a><span> … </span><a href="#1-11">11</a></li>
+<li><a href="#1.5">Architectural Conformance</a><span> … </span><a href="#1-12">12</a><ol>
+<li><a href="#1.5.1">Definitions</a><span> … </span><a href="#1-12">12</a><ol>
+<li><a href="#1.5.1.1">Levels</a><span> … </span><a href="#1-12">12</a></li>
+<li><a href="#1.5.1.2">Extensions</a><span> … </span><a href="#1-12">12</a></li>
+<li><a href="#1.5.1.3">Exceptions</a><span> … </span><a href="#1-13">13</a></li>
+<li><a href="#1.5.1.4">Exclusions</a><span> … </span><a href="#1-13">13</a></li>
+<li><a href="#1.5.1.5">Waivers</a><span> … </span><a href="#1-13">13</a></li>
+<li><a href="#1.5.1.6">Deviations</a><span> … </span><a href="#1-14">14</a></li>
+<li><a href="#1.5.1.7">UNDEFINED Operations</a><span> … </span><a href="#1-14">14</a></li>
+</ol>
+</li>
+<li><a href="#1.5.2">User Preference Features</a><span> … </span><a href="#1-14">14</a></li>
+<li><a href="#1.5.3">Rules For Conformance</a><span> … </span><a href="#1-15">15</a><ol>
+<li><a href="#1.5.3.1">Hardware/Firmware Conformance</a><span> … </span><a href="#1-15">15</a><ol>
+<li><a href="#1.5.3.1.1">Levels</a><span> … </span><a href="#1-15">15</a></li>
+<li><a href="#1.5.3.1.2">Extensions</a><span> … </span><a href="#1-16">16</a></li>
+<li><a href="#1.5.3.1.3">Exceptions</a><span> … </span><a href="#1-16">16</a></li>
+</ol>
+</li>
+<li><a href="#1.5.3.2">Software Conformance</a><span> … </span><a href="#1-16">16</a><ol>
+<li><a href="#1.5.3.2.1">Levels</a><span> … </span><a href="#1-16">16</a></li>
+<li><a href="#1.5.3.2.2">Extensions</a><span> … </span><a href="#1-17">17</a></li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><a href="#1.6">Level 1 Conformance</a><span> … </span><a href="#1-17">17</a><ol>
+<li><a href="#1.6.1">Conforming Products</a><span> … </span><a href="#1-17">17</a></li>
+<li><a href="#1.6.2">Required Functions</a><span> … </span><a href="#1-18">18</a></li>
+<li><a href="#1.6.3">Extensions To Level 1</a><span> … </span><a href="#1-20">20</a><ol>
+<li><a href="#1.6.3.1">Identification And Conformance</a><span> … </span><a href="#1-20">20</a></li>
+<li><a href="#1.6.3.2">Editing Controls</a><span> … </span><a href="#1-20">20</a></li>
+<li><a href="#1.6.3.3">132-Column Mode</a><span> … </span><a href="#1-20">20</a></li>
+<li><a href="#1.6.3.4">Printer Port</a><span> … </span><a href="#1-20">20</a></li>
+<li><a href="#1.6.3.5">ReGIS Graphics Display</a><span> … </span><a href="#1-21">21</a></li>
+<li><a href="#1.6.3.6">Sixel Protocol</a><span> … </span><a href="#1-21">21</a></li>
+<li><a href="#1.6.3.7">Katakana Character Set</a><span> … </span><a href="#1-21">21</a></li>
+</ol>
+</li>
+<li><a href="#1.6.4">Level 1 User Preference Features</a><span> … </span><a href="#1-22">22</a></li>
+</ol>
+<a id="1-4"></a></li>
+<li><a href="#1.7">Level 2 Conformance</a><span> … </span><a href="#1-23">23</a><ol>
+<li><a href="#1.7.1">Conforming Products</a><span> … </span><a href="#1-23">23</a></li>
+<li><a href="#1.7.2">Required Functions</a><span> … </span><a href="#1-23">23</a></li>
+<li><a href="#1.7.3">Extensions To Level 2</a><span> … </span><a href="#1-23">23</a><ol>
+<li><a href="#1.7.3.1">132-Column Mode</a><span> … </span><a href="#1-24">24</a></li>
+<li><a href="#1.7.3.2">Printer Port</a><span> … </span><a href="#1-24">24</a></li>
+<li><a href="#1.7.3.3">ReGIS Graphics Display</a><span> … </span><a href="#1-24">24</a></li>
+<li><a href="#1.7.3.4">Sixel Protocol</a><span> … </span><a href="#1-24">24</a></li>
+<li><a href="#1.7.3.5">Katakana Character Set</a><span> … </span><a href="#1-24">24</a></li>
+<li><a href="#1.7.3.6">Selectively Erasable Characters</a><span> … </span><a href="#1-24">24</a></li>
+<li><a href="#1.7.3.7">DRCS (Dynamically Redefinable Character<br />Set)</a><span> … </span><a href="#1-24">24</a></li>
+<li><a href="#1.7.3.8">UDK (User Defined Keys)</a><span> … </span><a href="#1-24">24</a></li>
+</ol>
+</li>
+<li><a href="#1.7.4">Level 2 User Preference Features</a><span> … </span><a href="#1-25">25</a></li>
+</ol>
+</li>
+<li><a href="#1.8">Certification</a><span> … </span><a href="#1-26">26</a><ol>
+<li><a href="#1.8.1">Certification Test Process</a><span> … </span><a href="#1-27">27</a></li>
+<li><a href="#1.8.2">The Waiver Process</a><span> … </span><a href="#1-28">28</a><ol>
+<li><a href="#1.8.2.1">General Information</a><span> … </span><a href="#1-28">28</a></li>
+</ol>
+</li>
+<li><a href="#1.8.3">Resolution Of Open Issues</a><span> … </span><a href="#1-28">28</a><ol>
+<li><a href="#1.8.3.1">Results Of The Waiver Process</a><span> … </span><a href="#1-29">29</a></li>
+</ol>
+</li>
+</ol>
+</li>
+<li><a href="#1.9">Change History</a><span> … </span><a href="#1-30">30</a><ol>
+<li><a href="#1.9.1">Revision 0.0 To AX10</a><span> … </span><a href="#1-30">30</a></li>
+</ol>
+</li>
+</ol>
+</section>
+</header>
+<main>
+<a id="1-5"></a>
+<section id="1.1">
+<h2>1  Introduction</h2>
+<p>The Video Systems Reference Manual (or Video  SRM)  documents  the interfaces  to  DEC  video  terminal  products.  It is intended to serve  as  both  an  implementation  specification   for   product developers,  as  well  as  a  guide  to  programmers attempting to produce software which will be transportable across a  wide  range of  devices.   It  defines  the  interfaces  in  a manner which is independent of the physical characteristics of a particular device implementation.   Enough  flexibility  is allowed in the interface description to permit a wide variety of terminal  products  to  be produced,  while  insuring  that software can be designed that can intelligently make use of the full range of features  in  a  given product.</p>
+<p>As new functionality is developed for new  terminal  products,  it will  be  added  to  the  Video  SRM  before final implementation.  Furthermore, an architectural  certification  process  provides  a means  of measuring product performance against the Video SRM, and ensures software compatibility across products.</p>
+<p>Products claiming conformance must be submitted for  certification testing and evaluated against these standards.</p>
+</section>
+<section id="1.2">
+<h2>2  Structure Of The Manual</h2>
+<p>Terminal  technology  has  become  increasingly  complex  as   the emphasis  in  computer  system  design has shifted from performing mathematical and scientific  calculations  to  making  information services  readily  accessible to the public.  Even so-called "dumb terminals" of today incorporate a wide range of capabilities  that bridge  all aspects of computer architecture and design.  In order to reduce this complexity to a state which  is  comprehensible  to those  who  are  not  intimately familiar with these technologies, this manual has  been  broken  up  into  sections  which  describe different  functional  components  of  a  typical terminal system.  Although there is some interaction between these components,  they are  described  in  such  a  way  that they can more or less stand alone.</p>
+<p>The sections of this manual include descriptions of the  following components:</p>
+<ul>
+<li><p>Code Extension Layer - defines  7  and  8  bit  character processing;  defines escape and control sequence parsing; defines compatibility with  DEC  STD  169  for  hardware, including graphic code extension techniques.</p><a id="1-6"></a></li>
+<li><p>Terminal Management - defines  basic  device  independent terminal management functions.</p></li>
+<li><p>Character Cell Display - defines  Level  1  and  Level  2 operation for character cell display devices.</p></li>
+<li><p>Keyboard Processing - defines use of the  LK201  keyboard in terminals.</p></li>
+<li><p>Printer Port - defines the display  terminal  to  printer interface.</p></li>
+<li><p>ReGIS Graphics - defines descriptor graphics protocol for Base ReGIS and Raster Extensions.</p></li>
+<li><p>Sixel  Graphics  -  defines  serial  protocol  for  image transfer.</p></li>
+<li><p>Dynamically Redefinable Character Sets - defines  loading and designation of Dynamically Redefinable Character Sets ("soft" character sets).</p></li>
+<li><p>User Definable Keys - defines loading and  invocation  of User Definable Keys (programmable function keys).</p></li>
+</ul>
+<a id="1-7"></a>
+<p>These components have the following functional relationship in the design of an actual terminal product:</p>
+<figure>
+<figcaption>Components of a Terminal System</figcaption>
+<pre>    +-----------------------------------------------+
+    |\                                              |
+    | \                                             |
+    |  \                                            |
+    |   \                                           |
+    |    \                              +-----+     |
+    |     \       +-----------------+   | C   |     |
+    |      |      |                 |   | O   |     |
+ DISPLAY   |      |                 |   | D L |
+    |      | &lt;----|     TERMINAL    | --| E A |---> ) --->
+    |      |      |    MANAGEMENT   |   |   Y |
+     \     |      |                 |   | E E |  PRINTER
+    | \    |      |                 |   | X R |   PORT
+    |  \   |      +-----------------+   | T   |
+  /\|   \  |                 ^  |       | N   |     |
+ / .\    \ |                 |  |       +-----+     |
+/.::.\    \|                 |  |
+\::::.\                      |  v                 HOST
+ \::::.\                 +-------------------+    PORT
+  \::::.\                |                   |
+KEYBOARD \ ------------> |   CODE EXTENSION  | ---> ) --->
+    \::::.\              |       LAYER       | &lt;--- ) &lt;---
+     \::::.\             |                   |
+      \::::.\            +-------------------+      |
+       \::: /                                       |
+        \: /----------------------------------------+
+         \/</pre>
+</figure>
+</section>
+<a id="1-8"></a>
+<section id="1.3">
+<h2>3  Architectural Structure</h2>
+<p>Terminals are an important part of any communications scheme.  The earliest   computer   communications  was  performed  using  coded character sets and control functions.  This document describes  in detail  some  portions  of an architectural model which provides a consistent and uniform  basis  for  the  development  of  terminal service interfaces.</p>
+<section id="1.3.1">
+<h3>3.1  Virtual Terminals</h3>
+<p>The architectural model is built around the  concept  of  'Virtual Terminals',  which  virtualize  the  interface  to  real  physical terminals.  "A virtual  terminal  is  a  model  which  defines  an abstract  terminal  in  terms  of  logical  functions  that can be implemented differently on different real terminals;  therefore  a virtual  terminal  consists  of  a  real  terminal  and a protocol adaptor." (Electrical Communication, Vol.  56, No.  1, 1981).  The virtual  terminal  interface  consists  of  a  number of disparate service classes, or sets of functions.</p>
+</section>
+<section id="1.3.2">
+<h3>3.2  Layers</h3>
+<p>The architecture is layered in an attempt to group those  sets  of functions  together  which  perform  similar  services  within the communications structure.</p>
+<p>The architecture is broken  down  broadly  into  three  functional layers.  These layers are referred to as the Code Extension layer, the Presentation Service Class layer,  and  the  Input  Processing layer.   In addition, there is a set of management functions which operate across layers.</p>
+<figure>
+<pre>            |   Input Processing
+Terminal    |
+            |   Presentation Service Class
+Management  |
+            |   Code Extension Layer</pre>
+</figure>
+<p>The purpose of layering the architecture is to separate components which  are logically distinct, allowing components in one layer to be modified or replaced without impacting components in the  other layers  of  the architecture.  For example, the incorporation of a new  keyboard  interface  would   not   necessarily   affect   the presentation   protocol,  or  the  syntax  of  the  communications interchange.</p>
+<a id="1-9"></a>
+<section id="1.3.2.1">
+<h4>3.2.1  Code Extension Layer</h4>
+<p>The lowest layer of the architecture is referred to  as  the  Code Extension  Layer.   This  layer includes all services which form a part of the interface into the communications environment, as well as the syntax, or coding, of data and control functions.</p>
+<p>Since all of the existing terminal services  use  character  coded data  and  controls  (referred  to  as "ASCII stream"), this layer currently includes the following functions:</p>
+<ul>
+<li><p>Communications     Controls     (such     as     XON/XOFF synchronization, padding, etc.)</p></li>
+<li><p>ANSI Parsing (separation of controls and data)</p></li>
+<li><p>Graphic Character Coding (7-bit and 8-bit environments)</p></li>
+</ul>
+<p>In the future this layer may be extended or  replaced  with  other interfaces  into  DECnet,  ISDN, X.25, etc., without affecting the overall structure of the architecture.</p>
+</section>
+<section id="1.3.2.2">
+<h4>3.2.2  Presentation Service Class</h4>
+<p>The next layer is referred to as the  Presentation  Service  Class Layer.   This  layer  includes all services which directly provide imaging information.  Output to the terminal is presented  in  the form  of  data types, whose structure and operations are unique to each service class definition.  The only service  class  currently defined  for  this  layer  is  the Character Cell Display.  Future architectural  development  may  include  the  definition  of  the following service classes:</p>
+<ul>
+<li><p>Character Cell Printer</p></li>
+<li><p>Proportionally Spaced Printer</p></li>
+<li><p>Videotex</p></li>
+<li><p>Image Transfer</p></li>
+<li><p>Voice</p></li>
+</ul>
+</section>
+<a id="1-10"></a>
+<section id="1.3.2.3">
+<h4>3.2.3  Input Processing</h4>
+<p>The upper layer of the architecture is referred to  as  the  Input Processing  Layer.   This layer includes all services which relate to the processing  of  data  entered  into  the  terminal  by  the terminal  user.   Currently  the only such device is the corporate standard keyboard, but this may  be  extended  in  the  future  to include   other   entry   devices  (such  as  voice  input,  mice, digitizers, etc.).</p>
+<p>This layer also  may  be  extended  to  include  local  processing functions  such  as  editing  of  text and graphics.  It should be noted that the services provided at this  layer  may  utilize  the various  services of the Presentation Service Class Layer in order to execute the functions  they  provide.   For  example,  a  field editor  might  use  ANSI  text, ReGIS text, Videotex text, Teletex text (or even voice I/O)  to  perform  the  same  requirements  of processing field input.</p>
+</section>
+<section id="1.3.2.4">
+<h4>3.2.4  Terminal Management</h4>
+<p>Terminal Management functions operate across the other  layers  of the  architecture.   These  functions  include  all services which provide for identification, negotiation, and management of  device resources.   Examples  of these services include Device Attributes (DA), Soft Terminal Reset (DECSTR), and  other  control  functions which  affect  the  physical state of the terminal device.  In the future this layer may include  multiplexing  of  virtual  terminal connections   (Virtual   Terminal   Management),   service   class selection, and window management (multiple display windows).</p>
+</section>
+</section>
+<section id="1.3.3">
+<h3>3.3  Service Classes</h3>
+<p>Within each layer of the architecture  there  may  be  classes  of service.   Functions  within  a  layer  are  grouped  into classes according to their logical relationship.  For  example,  character oriented   text  displays  might  form  a  service  class  at  the presentation layer which is  distinct  from  a  graphics  protocol using  logical  pixel addressing.  Furthermore, character oriented keyboard processing would form a class at the  applications  layer distinct  from  a  forms  editing  protocol.   By separating these functions according to classes it is possible to build  a  variety of  compatible products which conform to a common set of functions within a given class of operations.</p>
+</section>
+</section>
+<a id="1-11"></a>
+<section id="1.4">
+<h2>4  Scope</h2>
+<p>The interfaces defined within this  specification  apply  to  both internal and external product interfaces.  External interfaces are interfaces between a terminal, personal  computer  or  workstation and a remote system.  Internal interfaces are interfaces between a terminal  sub-system  and  software  processes  running  within  a terminal, personal computer or workstation.</p>
+<figure>
+<pre>                          *
+                          *
+      terminal system     *                        host system
+--------------------------*                      ---------------
+|            |            *                      |             |
+|  physical  |  virtual   *..........            | application |
+|  terminal  |  terminal  *        ..............|   process   |
+|            |            *                      |             |
+--------------------------*                      ---------------
+  &lt;hardware>   &lt;firmware> * &lt;communications link>   &lt;software>
+                          *
+                          *
+                          * EXTERNAL INTERFACE
+
+
+
+
+
+                          *
+                          *
+              terminal system
+--------------------------*--------------
+|            |            *             |
+|  physical  |  virtual   * application |
+|  terminal  |  terminal  *   process   |
+|            |            *             |
+--------------------------*--------------
+  &lt;hardware>   &lt;software/ *  &lt;software>
+                firmware> *
+                          *
+                          * INTERNAL INTERFACE</pre>
+<figcaption>External and Internal Terminal Interfaces</figcaption>
+</figure>
+</section>
+<a id="1-12"></a>
+<section id="1.5">
+<h2>5  Architectural Conformance</h2>
+<p>The  Video  Systems  Reference  Manual  is  based  on  a   modular architectural  structure  made up of discrete components which can be combined in a variety of ways to meet  evolving  product  needs and  requirements.   For purposes of defining conformance, service class  interfaces  can  be   further   subdivided   into   levels, extensions,  and  exceptions.   The following definitions describe these concepts.</p>
+<section id="1.5.1">
+<h3>5.1  Definitions</h3>
+<section id="1.5.1.1">
+<h4>5.1.1  Levels</h4>
+<p>Levels reflect an agreement between software  and  hardware  on  a fixed  group of functions within a class of operations that are to be adhered to for some  period  of  time.   When  significant  new functionality is required to be added, a new level will be defined and agreed to, which will be a super  set  of  the  levels  below.  Lower  levels  of the architecture may be discontinued from use as new higher levels are defined.   The  decision  to  discontinue  a lower level will be based on marketing and product requirements.</p>
+<p>Each level will consist of a number of  functions  which  must  be included  in all products claiming to implement that level.  These functions are referred to as "required".  When a level n  function is  used  in level n+1 operation, it must be defined in such a way that it will not affect any level n state differently than it does in  level  n,  to  insure  compatibility  for  level  n conforming software running in level n+1.</p>
+<p>The advantage of having levels is that software can be written  to a  specific  level of functionality based on hardware availability and compatibility requirements, and will be guaranteed all of  the functionality  of  that level and all lower levels.  As new levels are adopted, terminals can be upgraded to support the  new  levels without  losing  compatibility  with existing software.  Likewise, software can be intelligently upgraded  to  support  new  terminal products  without  losing  backwards  compatibility  with previous levels of the architecture.</p>
+</section>
+<section id="1.5.1.2">
+<h4>5.1.2  Extensions</h4>
+<p>In order to minimise the number  of  service  classes  and  levels supported  by  the  architecture, and still meet a wide variety of product needs, each level of the architecture  will  have  certain defined   extensions.   Extensions  are  fully  specified  by  the architecture, but are optional to product implementors claiming to conform to a particular level of the architecture.  (Products may, <a id="1-13"></a>in fact, permit the customer to optionally  purchase  extensions.) Functions  which  are included as extensions are not guaranteed to software,  and  therefore  conforming  software  should   not   be dependent  on those functions to operate in a logical and reliable manner.  For example, 132-column  mode  is  an  extension  to  the Character  Cell  Display  service  class,  and  thus  might not be included in all products.  Software should be designed in  such  a way that it will behave in a logical manner if this feature is not present in a particular terminal product.</p>
+</section>
+<section id="1.5.1.3">
+<h4>5.1.3  Exceptions</h4>
+<p>Each  level  may  also  include  a  set  of  "exceptions".   These functions are not required by product implementations, and are not to be used by conforming software.  For  example,  Tektronix  4010 emulation  might  be required by particular products, but not be a part of the architecture because DEC  software  did  not  want  to support this feature.  The interface, however, would be documented and included as an appendix to the architecture, so that  products implementing this feature could do so in a compatible manner.</p>
+<p>Products must get management approval before using  exceptions  to the  architecture,  and  any  new exception specifications must be approved by  the  Terminal  Interface  Architecture  Review  Board before being implemented.</p>
+</section>
+<section id="1.5.1.4">
+<h4>5.1.4  Exclusions</h4>
+<p>In rare cases there may be certain functions which are  explicitly excluded  from  a  given  level.   This  will typically be done to clarify  that  a  particular   function   is   not   allowed   for implementation at that level.</p>
+</section>
+<section id="1.5.1.5">
+<h4>5.1.5  Waivers</h4>
+<p>Products which cannot pass certification cannot claim  conformance with  the  architecture  unless  they receive a formal waiver from Terminals and Workstations management.  The following are examples of conditions for which a waiver might be granted:</p>
+<ol>
+<li><p>If a product wished to implement functions which were not previously  defined  by  the  architecture,  and were not warranted  to  be   general   enough   to   require   new architectural development.</p><a id="1-14"></a></li>
+<li><p>If a product were incapable of  properly  implementing  a defined  function  for  sound  technical  reasons, but in other ways conformed to the architecture.</p></li>
+<li><p>If a product conforming to  a  certain  level  wished  to include  functions  defined  by  a  higher level, but not implement all of the functions of that level.</p></li>
+</ol>
+<p>Waivers are intended to be used to resolve  time-to-market  issues and  are  temporary.  Products not conforming are expected to come into conformance by changing  the  product,  or  by  changing  the architecture through the Architecture ECO process.</p>
+</section>
+<section id="1.5.1.6">
+<h4>5.1.6  Deviations</h4>
+<p>Deviations   represent   permanent   non-conformance   with    the architecture.   Deviations  apply  only  to  products  which  were developed before the architecture was defined, but are in  general conformance  with  the architectural specifications.  New products are not allowed deviations.</p>
+</section>
+<section id="1.5.1.7">
+<h4>5.1.7  UNDEFINED Operations</h4>
+<p>Occasionally  there  are  operations  whose   effect   cannot   be guaranteed to be the same in all implementations.  Such operations shall  be  identified  in  both  the  architectural  and   product specifications   as   UNDEFINED.    Software   conforming  to  the architecture shall not use UNDEFINED  operations.   Every  attempt will be made to minimise the number of UNDEFINED operations in the architecture, since software that executes UNDEFINED functions may not operate the same on all terminal products.</p>
+</section>
+</section>
+<section id="1.5.2">
+<h3>5.2  User Preference Features</h3>
+<p>Certain states of the terminal are  defined  as  "User  Preference Features".    User   Preference   Features   that   have  a  coded representation for interchange with a host are indicated to be  of a special status in this specification.</p>
+<p>The terminal user should be in charge of the  state  of  all  User Preference   Features,   not   the  general  application  program.  Conforming software applications shall not change the state of any User Preference Feature, except in response to an explicit <a id="1-15"></a>request by the terminal user.  It is preferred that these requests be  handled  as an operating system service.  In cases where these services are not provided  by  the  operating  system,  and  these functions  are  changed  by  an application program, the operating system must be notified.</p>
+</section>
+<section id="1.5.3">
+<h3>5.3  Rules For Conformance</h3>
+<p>Terminal and Workstation products  will  be  required  to  provide standard  interfaces  for  the  purpose  of synchronizing hardware product release with software product support.  To this end, it is important  that  products  claiming to conform to the architecture should follow certain guidelines in implementing the architectural interfaces.   Products  should  not  be excluded from implementing features not defined by the architecture.  However, it  should  be made  clear  in  both  the architectural and product documentation that these features are not guaranteed in all products, and should not  be  used  by  conforming  software.   Products  should not be allowed to selectively  implement  portions  of  the  architecture without   receiving   an   explicit   waiver  from  Terminals  and Workstations   management   prior   to   beginning   any   product development,  as  this  will  render  the  architecture useless in determining cross-product compatibility.</p>
+<section id="1.5.3.1">
+<h4>5.3.1  Hardware/Firmware Conformance</h4>
+<section id="1.5.3.1.1">
+<h4>5.3.1.1  Levels</h4>
+<p>Terminal hardware/firmware claiming to conform to Level n:</p>
+<ol>
+<li><p>shall implement ALL functions of the lowest defined level to Level n,</p></li>
+<li><p>may NOT implement any functions defined by a higher level unless  it  implements all of the functions of that level (in which case it would conform to the higher level),</p></li>
+<li><p>may NOT implement any function not defined in  any  level (unless  it  is  included  in  an  appendix  to  both the architectural  and  product  specifications  and  clearly identified as an exception to the architecture).</p></li>
+</ol>
+<p>For example, a conforming Level 1 implementation cannot leave  out bold,  since  it  is  a  Level  1  function  (however, bold may be implemented either by increasing the intensity or  the  number  of pixels).  A conforming Level 1 implementation cannot implement any Level 2 functions (or  it  must  implement  all  of  the  Level  2 functions, in which case it is a Level 2 conforming terminal).</p>
+</section>
+<a id="1-16"></a>
+<section id="1.5.3.1.2">
+<h4>5.3.1.2  Extensions</h4>
+<p>Terminal hardware/firmware  claiming  to  implement  an  extension shall implement ALL functions of that extension and the associated conformance  level,  but  need  not  implement  any  lower   level extensions,  unless  specifically required by the specification of the extension.</p>
+</section>
+<section id="1.5.3.1.3">
+<h4>5.3.1.3  Exceptions</h4>
+<p>Finally, a conforming terminal may NOT implement  any  VT100/VT125 function  that  has  been  excluded from all of the levels by this document, unless it has been  included  in  an  appendix  to  this document.    Such   functions   will   be   defined  for  backward compatibility with existing terminals.   However,  conforming  DEC software shall NOT use those functions defined in an appendix.</p>
+</section>
+</section>
+<section id="1.5.3.2">
+<h4>5.3.2  Software Conformance</h4>
+<section id="1.5.3.2.1">
+<h4>5.3.2.1  Levels</h4>
+<p>Software claiming to conform to Level n:</p>
+<ol>
+<li><p>may use ANY functions in  the  lowest  defined  level  to Level n,</p></li>
+<li><p>shall NOT use any functions of levels higher than n,</p></li>
+<li><p>shall NOT use any functions defined in an appendix of the SRM,</p></li>
+<li><p>shall NOT depend on product-specific side  effects  which are left UNDEFINED by the architecture.</p></li>
+</ol>
+</section>
+<a id="1-17"></a>
+<section id="1.5.3.2.2">
+<h4>5.3.2.2  Extensions</h4>
+<p>Software supporting an extension may  use  any  function  in  that extension  (and  any extensions which are required to support that extension), but shall use the functions in such a way as  to  make the  software  modular  with  respect  to extensions when it makes sense to do so.  Furthermore, software that supports an  extension shall  operate  in a sensible way if that extension is NOT present in the terminal.  The intent  of  this  requirement  is  two-fold.  First,  no  conforming software should ever blindly assume that it is using a terminal with an  extension  which  it  requires.   All software  must verify that its environment is correct.  Second, if the software  determines  that  it  does  not  have  the  required facilities,  it  must  behave  rationally.   This  could mean that certain features of the software  are  inoperative.   Or,  if  the entire  software package requires an extension (e.g., DECgraph and ReGIS), then rational behavior means exiting  gracefully  with  an appropriate informational message.</p>
+</section>
+</section>
+</section>
+</section>
+<section id="1.6">
+<h2>6  Level 1 Conformance</h2>
+<p>Level 1 of the architecture  provides  a  compatibility  mode  for software  designed  to  operate  with  the VT100 family of display terminals, specifically  the  VT102  display  terminal  and  VTl25 graphics display terminal.</p>
+<section id="1.6.1">
+<h3>6.1  Conforming Products</h3>
+<p>For a list of conforming Level 1 products,  consult  the  appendix "Product Reference".</p>
+</section>
+<a id="1-18"></a>
+<section id="1.6.2">
+<h3>6.2  Required Functions</h3>
+<p>The following controls are required for  all  conforming  Level  1 implementations.</p>
+<ul>
+<li><a>NUL</a> <span>&mdash;</span> NUL</li>
+<li><a>Space</a> <span>&mdash;</span> SP</li>
+<li><a>Shift In (Locking Shift Zero)</a> <span>&mdash;</span> SI (LS0)</li>
+<li><a>Shift Out (Locking Shift One)</a> <span>&mdash;</span> SO (LS1)</li>
+<li><a>Single Shift Two</a> <span>&mdash;</span> SS2</li>
+<li><a>Single Shift Three</a> <span>&mdash;</span> SS3</li>
+<li><a>Identification</a> <span>&mdash;</span> DECID</li>
+<li><a>Device Status Report</a> <span>&mdash;</span> DSR</li>
+<li><a>Set Top And Bottom Margins</a> <span>&mdash;</span> DECSTBM</li>
+<li><a>Select Character Set</a> to G0, G1<ul>
+<li>ASCII</li>
+<li>Line Drawing</li>
+</ul>
+</li>
+<li><a>Select Graphic Rendition</a> <span>&mdash;</span> SGR<ul>
+<li>Normal</li>
+<li>Bold</li>
+<li>Blink</li>
+<li>Underscore</li>
+<li>Reverse Video</li>
+</ul>
+</li>
+<li><a>Single Width Line</a> <span>&mdash;</span> DECSWL</li>
+<li><a>Double Width Line</a> <span>&mdash;</span> DECDWL</li>
+<li><a>Double Height Line Top</a> <span>&mdash;</span> DECDHLT</li>
+<li><a>Double Height Line Bottom</a> <span>&mdash;</span> DECDHLB</li>
+<li><a>Set/Reset Mode</a> <span>&mdash;</span> SM,RM<ul>
+<li><a>Scrolling Mode</a> <span>&mdash;</span> DECSCLM</li>
+<li><a>Screen Mode</a> <span>&mdash;</span> DECSCNM</li>
+<li><a>Origin Mode</a> <span>&mdash;</span> DECOM</li>
+<li><a>New Line Mode</a> <span>&mdash;</span> LNM</li>
+<li><a>Keyboard Action Mode</a> <span>&mdash;</span> KAM</li>
+<li><a>Auto Repeat Mode</a> <span>&mdash;</span> DECARM</li>
+<li><a>Cursor Key Mode</a> <span>&mdash;</span> DECCKM</li>
+<li><a>Keypad Mode</a> <span>&mdash;</span> DECKPAM,DECKPNM</li>
+</ul>
+</li>
+<li><a>Cursor Up</a> <span>&mdash;</span> CUU</li>
+<li><a>Cursor Down</a> <span>&mdash;</span> CUD</li>
+<li><a>Cursor Forward</a> <span>&mdash;</span> CUF</li>
+<li><a>Cursor Backward</a> <span>&mdash;</span> CUB</li>
+<li><a>Cursor Position</a> <span>&mdash;</span> CUP</li>
+<li><a>Horizontal/Vertical Position</a> <span>&mdash;</span> HVP</li>
+<li><a>Cursor Position Report</a> <span>&mdash;</span> CPR</li>
+<li><a>Save Cursor</a> <span>&mdash;</span> DECSC</li>
+<li><a>Restore Cursor</a> <span>&mdash;</span> DECRC</li>
+<li><a>BEL</a> <span>&mdash;</span> BEL</li>
+<li><a>Back Space</a> <span>&mdash;</span> BS</li>
+<li><a>Horizontal Tab</a> <span>&mdash;</span> HT</li>
+<li><a>Line Feed</a> <span>&mdash;</span> LF<a id="1-19"></a></li>
+<li><a>Vertical Tab</a> <span>&mdash;</span> VT</li>
+<li><a>Form Feed</a> <span>&mdash;</span> FF</li>
+<li><a>Carriage Return</a> <span>&mdash;</span> CR</li>
+<li><a>Substitute</a> <span>&mdash;</span> SUB</li>
+<li><a>Index</a> <span>&mdash;</span> IND</li>
+<li><a>Reverse Index</a> <span>&mdash;</span> RI</li>
+<li><a>Next Line</a> <span>&mdash;</span> NEL</li>
+<li><a>Horizontal Tabulation Set</a> <span>&mdash;</span> HTS</li>
+<li><a>Tabulation Clear</a> <span>&mdash;</span> TBC</li>
+<li><a>Erase In Line</a> <span>&mdash;</span> EL</li>
+<li><a>Erase In Display</a> <span>&mdash;</span> ED</li>
+</ul>
+</section>
+<a id="1-20"></a>
+<section id="1.6.3">
+<h3>6.3  Extensions To Level 1</h3>
+<p>The following functions are each independent extensions to Level 1 as   an   implementation  or  customer  option,  and  require  the associated controls.</p>
+<section id="1.6.3.1">
+<h4>6.3.1  Identification And Conformance</h4>
+<p>The following functions form an  extension  to  Level  1  that  is required in all future products, and in Level 2:</p>
+<ul>
+<li><a>Device Attributes <small>(primary)</small></a> <span>&mdash;</span> DA(1)</li>
+<li><a>Device Attributes <small>(secondary)</small></a> <span>&mdash;</span> DA(2)</li>
+<li><a>Select Conformance Level</a> <span>&mdash;</span> DECSCL</li>
+</ul>
+</section>
+<section id="1.6.3.2">
+<h4>6.3.2  Editing Controls</h4>
+<p>The following editing controls form an extension to Level  1  that is required in all future products, and in Level 2:</p>
+<ul>
+<li><a>Set/Reset Mode</a> <span>&mdash;</span> SM,RM<ul>
+<li><a>Insert/Replacement Mode</a> <span>&mdash;</span> IRM</li>
+</ul>
+</li>
+<li><a>Delete Character</a> <span>&mdash;</span> DCH</li>
+<li><a>Insert Line</a> <span>&mdash;</span> IL</li>
+<li><a>Delete Line</a> <span>&mdash;</span> DL</li>
+</ul>
+</section>
+<section id="1.6.3.3">
+<h4>6.3.3  132-Column Mode</h4>
+<ul>
+<li><a>Set/Reset Mode</a> <span>&mdash;</span> SM,RM<ul>
+<li><a>Column Mode</a> <span>&mdash;</span> DECCOLM</li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="1.6.3.4">
+<h4>6.3.4  Printer Port</h4>
+<ul>
+<li><a>Device Status Report</a> <span>&mdash;</span> DSR</li>
+<li><a>Set/Reset Mode</a> <span>&mdash;</span> SM,RM<ul>
+<li><a>Printer Controller Mode</a> <span>&mdash;</span> DECPCM</li>
+<li><a>Auto Print Mode</a> <span>&mdash;</span> DECAPM</li>
+<li><a>Print Form Feed Mode</a> <span>&mdash;</span> DECPFF</li>
+<li><a>Print Extent Mode</a> <span>&mdash;</span> DECPEX</li>
+</ul>
+</li>
+<li><a>Media Copy</a> <span>&mdash;</span> MC<ul>
+<li>Print Screen</li>
+<li>Print Line</li>
+</ul>
+</li>
+</ul>
+</section>
+<a id="1-21"></a>
+<section id="1.6.3.5">
+<h4>6.3.5  <abbr>ReGIS</abbr> Graphics Display</h4>
+<ul>
+<li><a>Set/Reset Mode</a> <span>&mdash;</span> SM,RM<ul>
+<li><a>Graphics Cursor Enable Mode</a> <span>&mdash;</span> DECGCEM</li>
+</ul>
+</li>
+<li><a>Media Copy</a> <span>&mdash;</span> MC</li>
+<li><a>Device Control String</a> <span>&mdash;</span> DCS,ST<ul>
+<li>Enter <abbr>ReGIS</abbr> Graphics</li>
+</ul>
+</li>
+<li><abbr>ReGIS</abbr> Commands<ul>
+<li><a>Screen Control</a> <span>&mdash;</span> S</li>
+<li><a>Position Control</a> <span>&mdash;</span> P</li>
+<li><a>Writing Control</a> <span>&mdash;</span> W</li>
+<li><a>Vector Drawing</a> <span>&mdash;</span> V</li>
+<li><a>Curve Drawing</a> <span>&mdash;</span> C</li>
+<li><a>Text Drawing</a> <span>&mdash;</span> T</li>
+<li><a>Report</a> <span>&mdash;</span> R</li>
+<li><a>Load Character Set</a> <span>&mdash;</span> L</li>
+<li><a>Macrograph</a> <span>&mdash;</span> M</li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="1.6.3.6">
+<h4>6.3.6  Sixel Protocol</h4>
+<p>As defined in the section "Sixel Graphics Extension"</p>
+</section>
+<section id="1.6.3.7">
+<h4>6.3.7  Katakana Character Set</h4>
+<ul>
+<li><a>Select Character Set</a> to G0, G1<ul>
+<li>JIS_Roman</li>
+<li>JIS_Katakana</li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+<a id="1-22"></a>
+<section id="1.6.4">
+<h3>6.4  Level 1 User Preference Features</h3>
+<p>The following functions are included in Level 1 operation, but are indicated as User Preference Features, and thus are not to be used by  conforming  DEC  application  programs  (except  as  described above):</p>
+<ul>
+<li><a>Set/Reset Mode</a> <span>&mdash;</span> SM,RM<ul>
+<li><a>Column Mode</a> <span>&mdash;</span> DECCOLM</li>
+<li><a>Scrolling Mode</a> <span>&mdash;</span> DECSCLM</li>
+<li><a>Screen Mode</a> <span>&mdash;</span> DECSCNM</li>
+<li><a>Auto Repeat Mode</a> <span>&mdash;</span> DECARM</li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+<a id="1-23"></a>
+<section id="1.7">
+<h2>7  Level 2 Conformance</h2>
+<p>Level 2 defines a new level  of  architectural  compatibility  for video display terminals which is a complete super set of Level 1.</p>
+<section id="1.7.1">
+<h3>7.1  Conforming Products</h3>
+<p>For a list of conforming Level 2 products,  consult  the  appendix "Product Reference".</p>
+</section>
+<section id="1.7.2">
+<h3>7.2  Required Functions</h3>
+<p>The following controls are required for  all  conforming  Level  2 implementations.</p>
+<p>All Level  1  required  functions,  and  all  Level  1  extensions required for future products, plus:</p>
+<ul>
+<li><a>Select 7-Bit C1 Transmission</a> <span>&mdash;</span> S7C1T</li>
+<li><a>Select 8-Bit C1 Transmission</a> <span>&mdash;</span> S8C1T</li>
+<li><a>Locking Shift Two</a> <span>&mdash;</span> LS2</li>
+<li><a>Locking Shift Three</a> <span>&mdash;</span> LS3</li>
+<li><a>Locking Shift One Right</a> <span>&mdash;</span> LS1R</li>
+<li><a>Locking Shift Two Right</a> <span>&mdash;</span> LS2R</li>
+<li><a>Locking Shift Three Right</a> <span>&mdash;</span> LS3R</li>
+<li><a>Soft Terminal Reset</a> <span>&mdash;</span> DECSTR</li>
+<li><a>Select Character Set</a> to G0, G1, G2, G3<ul>
+<li>ASCII</li>
+<li>Line Drawing</li>
+<li>Supplemental</li>
+</ul>
+</li>
+<li><a>Set/Reset Mode</a> <span>&mdash;</span> SM,RM<ul>
+<li><a>Text Cursor Enable Mode</a> <span>&mdash;</span> DECTCEM</li>
+</ul>
+</li>
+<li><a>Insert Character</a> <span>&mdash;</span> ICH</li>
+<li><a>Erase Character</a> <span>&mdash;</span> ECH</li>
+</ul>
+</section>
+<section id="1.7.3">
+<h3>7.3  Extensions To Level 2</h3>
+<p>The following functions are each independent extensions to Level 2 as   an   implementation  or  customer  option,  and  require  the associated controls.</p>
+<a id="1-24"></a>
+<section id="1.7.3.1">
+<h4>7.3.1  132-Column Mode</h4>
+<p>All Level 1 required functions for this extension.</p>
+</section>
+<section id="1.7.3.2">
+<h4>7.3.2  Printer Port</h4>
+<p>All Level 1 required functions for this extension.</p>
+</section>
+<section id="1.7.3.3">
+<h4>7.3.3  ReGIS Graphics Display</h4>
+<p>All Level 1 required functions for this extension.</p>
+</section>
+<section id="1.7.3.4">
+<h4>7.3.4  Sixel Protocol</h4>
+<p>All Level 1 required functions for this extension.</p>
+</section>
+<section id="1.7.3.5">
+<h4>7.3.5  Katakana Character Set</h4>
+<p>All Level 1 required functions for this extension.</p>
+</section>
+<section id="1.7.3.6">
+<h4>7.3.6  Selectively Erasable Characters</h4>
+<ul>
+<li><a>Select Character Attribute</a> <span>&mdash;</span> DECSCA</li>
+<li><a>Selective Erase In Line</a> <span>&mdash;</span> DECSEL</li>
+<li><a>Selective Erase In Display</a> <span>&mdash;</span> DECSED</li>
+</ul>
+</section>
+<section id="1.7.3.7">
+<h4>7.3.7  DRCS (Dynamically Redefinable Character Set)</h4>
+<ul>
+<li><a>Down Line Load DRCS</a> <span>&mdash;</span> DECDLD</li>
+<li><a>Select Character Set</a> to G0, G1, G2, G3<ul>
+<li>DRCS</li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="1.7.3.8">
+<h4>7.3.8  UDK (User Defined Keys)</h4>
+<ul>
+<li><a>Device Status Report</a> <span>&mdash;</span> DSR</li>
+<li><a>User Defined Keys</a> <span>&mdash;</span> DECUDK</li>
+</ul>
+</section>
+</section>
+<a id="1-25"></a>
+<section id="1.7.4">
+<h3>7.4  Level 2 User Preference Features</h3>
+<p>The following functions are included in Level 2 operation, but are indicated as User Preference Features, and thus are not to be used by  conforming  DEC  application  programs  (except  as  described above):</p>
+<ul>
+<li><a>Set/Reset Mode</a> <span>&mdash;</span> SM,RM<ul>
+<li><a>Column Mode</a> <span>&mdash;</span> DECCOLM</li>
+<li><a>Scrolling Mode</a> <span>&mdash;</span> DECSCLM</li>
+<li><a>Screen Mode</a> <span>&mdash;</span> DECSCNM</li>
+<li><a>Auto Repeat Mode</a> <span>&mdash;</span> DECARM</li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+<a id="1-26"></a>
+<section id="1.8">
+<h2>8  Certification</h2>
+<p>Certification testing is performed on products claiming to conform to   the   architecture   by   the   Terminals   and  Workstations Certification Group.  Products may not  claim  compatibility  with the architecture or with other Terminals and Workstations products unless they have passed certification testing, or have been  given specific   clearance  to  do  so  by  Terminals  and  Workstations management.</p>
+<p>The goal of Certification is to prove  a  product's  compatibility claims,  not  according  to  its  own  interpretation  of  what is required for compatibility, but as defined in The Video  Standards Systems  Reference  Manual  (DEC  Standard  070).  This means that multiple products will use the same set of Certification tests.</p>
+<p>Certification assumes  the  unit  functions,  but  checks  if  the functions  were  implemented  in  a compatible manner.  It is also important to note that certification testing is  limited  to  that subset  of  functions  which  are  either  required  functions  or extensions to the architecture.  This implies that a product  that passes  certification  may  have problems executing commands which are not part of that subset.</p>
+<p>Outstanding certification issues are handled  through  the  Waiver Process,  and  are  not  likely  to  cause  a  delay  in shipment.  Non-compliances are brought to the attention of  upper  management who  can  then  decide  to  restrict  the  advertising  of certain compatibility claims until the product passes certification.</p>
+<a id="1-27"></a>
+<section id="1.8.1">
+<h3>8.1  Certification Test Process</h3>
+<p>Certification is a five step process:</p>
+<ol>
+<li><p>Review Architectural and Product Specifications</p>
+<p>The Certification Group participates in the review of new architectural   elements,   and   attempts   to   uncover discrepancies   between   the   architecture   and    the implementation even before hands-on testing begins.</p>
+<p>The Certification Group, in cooperation with Architecture Group,  will  decide  the  LEVEL that the product must be tested against based on the list of implemented functions contained in the Product Specification.</p></li>
+<li><p>Design Tests</p></li>
+<li><p>Run Tests</p></li>
+<li><p>Report Results</p>
+<p>Certification  Reports  list   deviations   between   the architecture and the implementation.  Interim reports are produced periodically, and a final  certification  report is  published at the end of the testing.  It is the final certification report that is used as  the  input  to  the Waiver Process.</p></li>
+<li><p>Chair the Waiver Panel</p>
+<p>The Certification Group conducts Waiver  Panel  meetings, seeks   resolution   of   compatibility  issues,  obtains commitments for any proposed changes, and  publishes  the results.</p></li>
+</ol>
+</section>
+<a id="1-28"></a>
+<section id="1.8.2">
+<h3>8.2  The Waiver Process</h3>
+<section id="1.8.2.1">
+<h4>8.2.1  General  Information</h4>
+<p>The   Terminals   &amp;   Workstations Certification  Waiver  Panel  is  composed  of  three people:  one representative from Product Development,  one  from  Architecture, and  a  non-voting  chair  person  from Certification.  Others may attend the meetings of the Waiver Panel and can participate in the discussions, but they have no vote.</p>
+<p>The Waiver Panel  is  responsible  for  reviewing  the  deviations between  the  architecture and implementation as documented in the Certification Report, for assessing  the  technical  and  business impact  of  every  deviation,  and for recommending an appropriate resolution for every deviation.</p>
+</section>
+</section>
+<section id="1.8.3">
+<h3>8.3  Resolution Of Open Issues</h3>
+<p>There are six possible recommendations that the Waiver Panel  will make for each level of certification under consideration:</p>
+<ol>
+<li><p>Change The Product:</p>
+<p>It is agreed that the problem must  be  fixed,  but  that because  plans are in place to do so by a specified time, a waiver is granted.</p></li>
+<li><p>Change The Architecture:</p>
+<p>It is agreed  that  the  product  was  implemented  in  a reasonable   fashion   and   the  Architecture  may  need clarification.</p></li>
+<li><p>Change The Certification Procedure:</p>
+<p>It is agreed that the certification process was in  error in  that  it  either  failed  to  properly  interpret the architecture or failed to properly test the product.</p></li>
+<li><p>Waive By Agreement of The Panel:</p>
+<p>It is agreed that no change is to be made at this time to the   product,  the  architecture  or  the  certification procedures.   By  granting  this  waiver,  the  Panel  is expressing  the  opinion  that  it  considers  the  issue insufficient cause for the product to fail certification.</p><a id="1-29"></a></li>
+<li><p>Restrict:</p>
+<p>It is agreed that although no change to  the  product  is involved at this time, the deviation is serious enough to warrant placing a restriction on  what  compatibility  or other claims the product should be allowed to make.</p></li>
+<li><p>No Resolution:</p>
+<p>The Waiver Panel was unable to agree on a resolution  for the  issue  or on the proposed time frame for resolution, and will present it to upper management for a decision.</p></li>
+</ol>
+<section id="1.8.3.1">
+<h4>8.3.1  Results Of The Waiver  Process</h4>
+<p>The  Waiver  Panel  will determine  a  final  disposition  for  each level of certification under consideration.  Accordingly, the results  for  a  particular level can be:</p>
+<ul>
+<li><p>PASSED CERTIFICATION</p></li>
+<li><p>PASSED CERTIFICATION WITH WAIVERS  -  No  category  5  or category 6 deviations</p></li>
+<li><p>PASSED CERTIFICATION WITH RESTRICTION  -  No  category  6 deviations, one or more category 5 deviations</p></li>
+<li><p>FAILED CERTIFICATION - One or more category 6 deviations</p></li>
+</ul>
+<p>In addition,  the  Waiver  Panel  may  wish  to  state  any  other restrictions which it agrees should be placed on the product.</p>
+</section>
+</section>
+</section>
+<a id="1-30"></a>
+<section id="1.9">
+<h2>9  Change History</h2>
+<section id="1.9.1">
+<h3>9.1  Revision 0.0 To AX10</h3>
+<ol>
+<li><p>This section was merged with  the  introductory  section, the  remainder  of  which  now  forms  section  0  of the standards.</p></li>
+<li><p>Removed DELETE as a required Level 1  function.   (It  is ignored as an unimplemented C1 control.  Its use as a pad character should be discouraged in favor of NUL).</p></li>
+<li><p>Removed Answerback (ENQ) and Test  (DECTST)  as  required functions for both Level 1 and Level 2 conformance.  They will be included as an appendix to the SRM.</p></li>
+<li><p>Added VT125-type Media Copy (MC) controls  to  the  ReGIS extension requirements for Levels 1 and 2.</p></li>
+<li><p>Removed Hard Copy (DECHCP) as a requirement for the sixel extension  in  Levels  1 and 2.  The only required way to access  the  sixel  format  is  through  the  ReGIS  S(H) command.</p></li>
+<li><p>Removed Control Representation Mode (CRM) as  a  Level  2 requirement.   CRM  will be defined in an appendix to the SRM.</p></li>
+<li><p>Added Insert Character (ICH) and Erase Character (ECH) as Level 2 requirements.</p></li>
+<li><p>Added  Selectively  Erasable  Characters  as  a  Level  2 Extension.</p></li>
+<li><p>Added Device Status Report (DSR) to the UDK extension for Level  2.   DSR  is used to return the lock conditions of the User Defined Keys.</p></li>
+<li><p>Made IRM, DL, IL, and DCH part of an Editing Extension to Level  1  that is required in all future products (and in Level 2).</p></li>
+<li><p>Added a complete description of the Certification process and the waiver procedure.</p></li>
+</ol>
+</section>
+</section>
+</main>
+<footer>
+<a id="1-31"></a>
+<section id="Index">
+<h2>Section Index</h2>
+<ul>
+<li>Architecture<ul>
+<li>conformance levels <a href="#1-12">12</a></li>
+<li>deviations <a href="#1-14">14</a></li>
+<li>exceptions <a href="#1-13">13</a></li>
+<li>exclusions <a href="#1-13">13</a></li>
+<li>extensions <a href="#1-12">12</a></li>
+<li>hardware/firmware conformance <a href="#1-15">15</a></li>
+<li>layers <a href="#1-8">8</a></li>
+<li>model <a href="#1-8">8</a></li>
+<li>required <a href="#1-12">12</a></li>
+<li>service classes <a href="#1-10">10</a></li>
+<li>software conformance <a href="#1-16">16</a></li>
+<li>undefined <a href="#1-14">14</a></li>
+<li>virtual terminal <a href="#1-8">8</a></li>
+<li>waivers <a href="#1-13">13</a></li>
+</ul>
+</li>
+<li>ASCII Stream <a href="#1-9">9</a></li>
+<li>Certification<ul>
+<li>waiver panel <a href="#1-28">28</a></li>
+</ul>
+</li>
+<li>Certification Testing <a href="#1-27">27</a></li>
+<li>Code Extension <a href="#1-9">9</a></li>
+<li>Compatibility <a href="#1-26">26</a></li>
+<li>Conformance<ul>
+<li>deviations <a href="#1-14">14</a></li>
+<li>exceptions <a href="#1-13">13</a></li>
+<li>exclusions <a href="#1-13">13</a></li>
+<li>extensions <a href="#1-12">12</a><ul>
+<li>Level 1 <a href="#1-20">20</a></li>
+<li>Level 2 <a href="#1-23">23</a></li>
+</ul>
+</li>
+<li>hardware/firmware <a href="#1-15">15</a></li>
+<li>Level 1 <a href="#1-17">17</a></li>
+<li>Level 2 <a href="#1-23">23</a></li>
+<li>product <a href="#1-26">26</a></li>
+<li>required functions <a href="#1-12">12</a></li>
+<li>software <a href="#1-12">12</a>, <a href="#1-14">14</a>, <a href="#1-16">16</a></li>
+<li>waiver process <a href="#1-28">28</a></li>
+<li>waivers <a href="#1-13">13</a></li>
+</ul>
+</li>
+<li>Conformance Levels<ul>
+<li>definition <a href="#1-12">12</a></li>
+</ul>
+</li>
+<li>Conformance Requirements <a href="#1-12">12</a><a id="1-32"></a></li>
+<li>Deviations<ul>
+<li>definition <a href="#1-14">14</a></li>
+</ul>
+</li>
+<li>Exceptions<ul>
+<li>definition <a href="#1-13">13</a></li>
+</ul>
+</li>
+<li>Exclusions<ul>
+<li>definition <a href="#1-13">13</a></li>
+</ul>
+</li>
+<li>Extensions<ul>
+<li>definition <a href="#1-12">12</a></li>
+<li>Level 1 <a href="#1-20">20</a></li>
+<li>Level 2 <a href="#1-23">23</a></li>
+</ul>
+</li>
+<li>Input Processing <a href="#1-10">10</a></li>
+<li>Interface<ul>
+<li>external <a href="#1-11">11</a></li>
+<li>internal <a href="#1-11">11</a></li>
+</ul>
+</li>
+<li>Layer<ul>
+<li>code extension <a href="#1-9">9</a></li>
+<li>input processing <a href="#1-10">10</a></li>
+<li>presentation service class <a href="#1-9">9</a></li>
+</ul>
+</li>
+<li>Layers <a href="#1-8">8</a></li>
+<li>Levels<ul>
+<li>definition <a href="#1-12">12</a></li>
+</ul>
+</li>
+<li>Presentation Service Class <a href="#1-9">9</a></li>
+<li>Product Certification <a href="#1-26">26</a></li>
+<li>Product Conformance <a href="#1-26">26</a></li>
+<li>Required Functions<ul>
+<li>Level 1 <a href="#1-18">18</a></li>
+<li>Level 2 <a href="#1-23">23</a></li>
+</ul>
+</li>
+<li>Service Class<ul>
+<li>definition <a href="#1-10">10</a><a id="1-33"></a></li>
+</ul>
+</li>
+<li>Software Conformance<ul>
+<li>extensions <a href="#1-12">12</a></li>
+</ul>
+</li>
+<li>Terminal Components <a href="#1-7">7</a></li>
+<li>Terminal Management <a href="#1-10">10</a></li>
+<li>Undefined Operations <a href="#1-14">14</a></li>
+<li>User Preference Features<ul>
+<li>definition <a href="#1-14">14</a></li>
+<li>Level 1 <a href="#1-22">22</a></li>
+<li>Level 2 <a href="#1-25">25</a></li>
+</ul>
+</li>
+<li>Video Systems Reference Manual <a href="#1-5">5</a></li>
+<li>Virtual Terminal <a href="#1-8">8</a></li>
+<li>Waiver Panel<ul>
+<li>certification <a href="#1-28">28</a></li>
+</ul>
+</li>
+<li>Waivers<ul>
+<li>definition <a href="#1-13">13</a></li>
+</ul>
+</li>
+</ul>
+</section>
+</footer>
+</body>
+</html>
