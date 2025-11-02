@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>VSRM - Specification Program Structure</title>
+<meta charset="UTF-8" />
+<style>*{font-family:"Courier New";font-weight:bold;font-size:16px;line-height:16.55px;padding:0;margin:0;border-collapse:collapse}body{color:#000000;background:#d4d4d8;>header,>main,>footer{width:66ch;padding-left:91px;padding-right:calc(725px - 66ch);padding-bottom:16.55px;background:#ffffff;margin:0 auto}>footer{border-bottom:11px solid #d4d4d8}}a{color:#000000;text-decoration:none}a[href]:hover{color:#bb0000}header>hgroup{>h1{text-transform:uppercase}>h2{padding-right:1ch}>h1,>h2{text-align:center;margin-bottom:16.55px}margin-bottom:33.1px}h2,h3,h4,p{margin-bottom:16.55px;white-space:pre-wrap}section{>h2,>h3,>h4{&:first-child:before{content:'2.'}}&#Index>h2:first-child:before{content:none}&:has(>h3){margin-top:49.65px}a[id]+&{margin-top:0}h2+&{margin-top:16.55px}>h2{text-transform:uppercase}>h4:after{content:' -'}>h3+pre,>h3+p:has(>em),h4+p:has(>em){&:before{content:'------------------------------------------------------------------';display:block;margin-bottom:16.55px}}h4+p:has(>em):before{margin-top:-16.55px}}aside{margin:33.1px auto;header>&{position:relative;overflow:hidden;white-space:nowrap;&:before{content:'+----------------------------------------------------------------------------\A|\A|\A|\A|\A|\A|\A|\A|\A|\A|\A|\A|';white-space:pre;position:absolute;top:0;left:0;pointer-events:none}&:after{content:'+----------------------------------------------------------------------------'}>*{padding:0 2ch;&:first-child{padding-top:16.55px;&:before{content:'+\A|\A|\A|\A|\A|\A|\A|\A|\A|\A|\A|\A|';white-space:pre;position:absolute;top:0;right:0;background:#ffffff}}&:last-child{margin:0;&:after{content:'+';position:absolute;bottom:0;right:0;background:#ffffff}}}&:nth-of-type(2){width:40ch;>p{text-align:center;padding-top:33.1px;padding-bottom:16.55px}}}}dl>dt{float:left;padding-right:0.999ch}header>dl{>dt{text-transform:uppercase}>dt:after{content:':'}>dd{margin-bottom:33.1px}&:nth-of-type(1){>dt{padding-right:1.999ch}>dt:first-child{padding-left:2ch;padding-right:1ch;text-transform:none;+dd{margin-bottom:49.65px}}}&:nth-of-type(2)>dd{td{min-width:22ch}&:last-of-type tr:first-of-type>td{padding-bottom:16.55px}}&:nth-of-type(3){margin-bottom:49.65px;>dt{text-transform:none}>dd{margin-bottom:0}}&:nth-of-type(4)>dt{padding-right:1.999ch}}header>p:last-of-type{text-align:center;padding-right:1ch}ul{list-style:none;margin-bottom:16.55px;>li>span{visibility:hidden;display:inline-block;width:5ch;white-space:pre;&:before{content:'  -';visibility:visible}}}#\32\.1\.2>ul>li{position:relative;padding-left:9ch;&:before{content:'-';position:absolute;left:6ch}}ol{list-style-type:none;margin-bottom:49.65px;>li{position:relative;padding-left:9ch;&:before{content:counter(list-item,decimal) ".";position:absolute;width:3ch;left:4ch;text-align:right}}}#Contents{>hgroup{text-transform:uppercase;margin-bottom:33.1px;>h2{margin-bottom:49.65px;padding-left:33ch}>p{padding-left:16ch;text-indent:-16ch;>br{margin-top:-16.55px;display:block;content:' '}}}a[href]{background:#ffffff;position:relative;z-index:1;&:nth-of-type(1):after{content:'\A0'}&:nth-of-type(2){position:absolute;right:0ch;&:before{content:'\A0' '2-'}}}ol{margin:0;>li{padding:0;&:before{content:"2." counters(list-item,".");padding-left:4ch;padding-right:5ch;position:static}}}>ol>li{margin-top:16.55px;>a:first-child{text-transform:uppercase}}li>span{color:transparent;&:after{content:'. . . . . . . . . . . . . . . . . . . . .';color:#000000;position:absolute;right:4ch}}}#Index{>h2{text-align:center;text-transform:none;margin-bottom:0;&:after{content:' \A------------- '}}>ul{>li{position:relative;>ul{margin-bottom:0;li{padding-left:2ch}a[id]{transform:translateX(-2ch)}}&:nth-child(1):before{content:'-A-'}&:nth-child(2):before{content:'-C-'}&:nth-child(5):before{content:'-D-'}&:nth-child(10):before{content:'-E-'}&:nth-child(13):before{content:'-I-'}&:nth-child(14):before{content:'-M-'}&:nth-child(15):before{content:'-P-';padding-top:0}&:nth-child(17):before{content:'-R-'}&:nth-child(19):before{content:'-S-'}&:before{display:block;padding:16.55px 12ch}}a[href]{position:absolute;left:36ch;&:before{content:'2-'}}}}tr>*:not(:last-child){padding-right:0.999ch}td{box-sizing:border-box}pre>code{display:block;margin-bottom:33.1px}div{margin:33.1px 0;>p{float:left}>pre>samp{display:block;margin-left:16ch}}figure{margin-top:-16.55px;>figcaption{text-align:center;margin-top:16.55px}}em{font-style:normal;margin-right:-0.01px}p+p:has(>em){margin-top:33.1px;&:has(+ol){margin-top:0}}#\32\.3\.6,#\32\.3\.7{margin-top:66.2px}#\32\.5 ol{margin-top:33.1px}#\32\.5\.2{>p:last-of-type{text-align:center;display:block;margin-top:463.4px}}header{counter-reset:page}a[id]{display:block;position:relative;left:-91px;padding-left:91px;padding-right:calc(725px - 66ch);width:66ch;height:33.1px;margin-top:56px;margin-bottom:33.1px;border-top:11px solid #d4d4d8;padding-top:55px;white-space:pre;&:before{content:'VSRM - Specification Program Structure  EL-00070-02\A' '*** COMPANY CONF - DEC Internal Use Only  18-Mar-1985'}&:after{counter-increment:page;content:'Page 2-' counter(page);position:absolute;top:55px;right:calc(725px - 66ch)}&#\32-32:after{right:calc(725px - 65ch)}}#\32-5,#\32-13{margin-top:105px}#\32-11{margin-top:122px}#\32-32{margin-top:155px}#\32-2,#\32-8{margin-top:188px}#\32-16{margin-top:205px}#\32-18,#\32-22{margin-top:221px}#\32-29{margin-top:254px}#\32-21{margin-top:271px}#\32-3{margin-top:287px}#\32-9{margin-top:387px}#\32-12{margin-top:420px}#\32-1O{margin-top:453px}#\32-15{margin-top:519px}#\32-24{margin-top:552px}#\32-26{margin-top:701px}#\32-30{margin-top:718px}#\32-6,#\32-28{margin-top:751px}#\32-20{margin-top:784px}body{>header,>main,>footer{>a[id]:first-child{margin-top:0}}>header{padding-bottom:304px}>main{padding-bottom:469px}>footer{padding-bottom:651px}}</style>
+</head>
+<body>
+<header>
+<a id="2-1"></a>
+<hgroup>
+<h1>Video Systems Reference Manual</h1>
+<h2>Specification Program Structure</h2>
+</hgroup>
+<dl>
+<dt>Document Identifier</dt>
+<dd><p>A-DS-EL00070-02-0 Rev. AX11, 18-Mar-1985</p></dd>
+<dt>Abstract</dt>
+<dd><p>This document describes the  algorithmic  specification language  used  in  the  Video  Systems  Reference  Manual and the program flow across sections of the Manual.</p></dd>
+<dt>Applicability</dt>
+<dd><p>SARA Formal Cross-Component  Standard.   Mandatory for   Engineers  designing  hardware  for  terminal  products  and Software Engineers designing programs using  terminal  interfaces. Additional  requirements  are defined in the section "Concepts and Conformance Criteria".</p></dd>
+<dt>Status</dt>
+<dd><p>FOR REVIEW ONLY</p></dd>
+</dl>
+<aside>
+<p>  This document has been placed in the SARA "Formal Cross-&NoBreak;Component Standard" category. The material contained within this document is assumed to define mandatory standards unless it is clearly marked as (a) not mandatory or (b)&nbsp;guidelines. Material which is marked as "not mandatory" is considered to be of potential benefit to the corporation and should be followed unless there are good reasons for non-&NoBreak;compliance. "Guidelines" define approaches and techniques which are considered to be good practice, but should not be considered as requirements. The procedures for modifying or evolving this standard are contained within the contents of this document.</p>
+</aside>
+<aside>
+<p>FOR INTERNAL USE ONLY&nbsp;</p>
+</aside>
+<a id="2-2"></a>
+<dl>
+<dt>Title</dt>
+<dd>VIDEO SYSTEMS - Specification Program Structure</dd>
+<dt>Document Identifier</dt>
+<dd>A-DS-EL00070-02-0 Rev. AX11, 18-Mar-1985</dd>
+<dt>Revision History</dt>
+<dd><table>
+<tbody>
+<tr><td>Original Draft</td><td>25-Oct-1982</td></tr>
+<tr><td>Revision AX01</td><td>28-Feb-1983</td></tr>
+<tr><td>Revision AX10</td><td>15-May-1984</td></tr>
+</tbody>
+</table>
+</dd>
+<dt>Files</dt>
+<dd><table>
+<tbody>
+<tr><td>User Documentation</td><td>EL070S2.mem</td></tr>
+<tr><td>Internal Documentation</td><td>EL070S2.rno</td></tr>
+<tr><td></td><td>EL070S2.rnt</td></tr>
+<tr><td></td><td>EL070S2.rnx</td></tr>
+</tbody>
+</table>
+</dd>
+</dl>
+<dl>
+<dt>Document Management Group</dt>
+<dd>Terminal Interface Architecture</dd>
+<dt>Responsible Department</dt>
+<dd>Video Architecture Group</dd>
+<dt>Responsible Individual</dt>
+<dd>Peter Sichel</dd>
+</dl>
+<dl>
+<dt>Acceptance</dt>
+<dd><p>This document has been approved by the Manager of the Video  Architecture  Group  based on a comprehensive review of its individual sections by the members of the  SARA  component  groups working  Terminal  Interface  Architecture  issues.   The  list of individuals on the  review  and  approval  list  are  on  file  in Standards and Methods Control.</p></dd>
+</dl>
+<p>Direct  requests  for  further  information   to   Peter   Sichel, PKO3-1/10C, DTN 223-5162, RANI::VIDARCH</p>
+<p>Copies of this document can be ordered from:</p>
+<p>Standards and Methods Control<br />APO1/F7, DTN 289-1414, JOKUR::SIMONETTI</p>
+<a id="2-3"></a>
+<section id="Contents">
+<hgroup>
+<h2>Contents</h2>
+<p>Chapter 2<br />Specification Program Structure</p>
+</hgroup>
+<ol>
+<li><a href="#2.1">Introduction</a><span> … </span><a href="#2-4">4</a><ol>
+<li><a href="#2.1.1">Algorithmic Specification</a><span> … </span><a href="#2-4">4</a></li>
+<li><a href="#2.1.2">Use Of Pascal</a><span> … </span><a href="#2-4">4</a></li>
+</ol>
+</li>
+<li><a href="#2.2">Specification Program Structure</a><span> … </span><a href="#2-6">6</a></li>
+<li><a href="#2.3">Summary Of State</a><span> … </span><a href="#2-7">7</a><ol>
+<li><a href="#2.3.1">Code Extension Layer - Parsing</a><span> … </span><a href="#2-7">7</a></li>
+<li><a href="#2.3.2">Code Extension Layer - Graphics</a><span> … </span><a href="#2-8">8</a></li>
+<li><a href="#2.3.3">Terminal Management</a><span> … </span><a href="#2-9">9</a></li>
+<li><a href="#2.3.4">Character Cell Display</a><span> … </span><a href="#2-10">10</a></li>
+<li><a href="#2.3.5">Keyboard Processing</a><span> … </span><a href="#2-12">12</a></li>
+<li><a href="#2.3.6">Printer Port Extension</a><span> … </span><a href="#2-12">12</a></li>
+<li><a href="#2.3.7">Extensions</a><span> … </span><a href="#2-12">12</a></li>
+</ol>
+</li>
+<li><a href="#2.4">Executive Procedures</a><span> … </span><a href="#2-13">13</a><ol>
+<li><a href="#2.4.1">Executive Loop</a><span> … </span><a href="#2-13">13</a></li>
+<li><a href="#2.4.2">Event Handling Tables</a><span> … </span><a href="#2-15">15</a><ol>
+<li><a href="#2.4.2.1">Execute Control Code</a><span> … </span><a href="#2-15">15</a></li>
+<li><a href="#2.4.2.2">Execute Escape Sequence</a><span> … </span><a href="#2-16">16</a></li>
+<li><a href="#2.4.2.3">Execute Control Sequence</a><span> … </span><a href="#2-18">18</a></li>
+<li><a href="#2.4.2.4">Execute Device Control String</a><span> … </span><a href="#2-20">20</a></li>
+</ol>
+</li>
+<li><a href="#2.4.3">Device Attributes</a><span> … </span><a href="#2-21">21</a></li>
+<li><a href="#2.4.4">Device Status Report</a><span> … </span><a href="#2-22">22</a></li>
+<li><a href="#2.4.5">Set And Reset Modes</a><span> … </span><a href="#2-24">24</a><ol>
+<li><a href="#2.4.5.1">Set Mode</a><span> … </span><a href="#2-24">24</a></li>
+<li><a href="#2.4.5.2">Reset Mode</a><span> … </span><a href="#2-26">26</a></li>
+</ol>
+</li>
+</ol>
+</li>
+<li><a href="#2.5">Change History</a><span> … </span><a href="#2-28">28</a><ol>
+<li><a href="#2.5.1">Rev 0.0 To AX10</a><span> … </span><a href="#2-28">28</a></li>
+<li><a href="#2.5.2">Rev AX10 To AX11</a><span> … </span><a href="#2-29">29</a></li>
+</ol>
+</li>
+</ol>
+</section>
+</header>
+<main>
+<a id="2-4"></a>
+<section id="2.1">
+<h2>1  Introduction</h2>
+<p>This section contains information  regarding  the  coding  methods used within the Video Systems Reference Manual to specify the data types for terminal state information, and to describe the  control operations  which  affect  the  state  of  the  device.   It  also describes the program structure across sections of the manual, and includes  the  top  level routines which bind the program sections together.  It should serve as a reference point for  understanding the   relationship   of   the  detailed  algorithms  which  appear throughout the specifications.  However, it is not intended to  be a  complete  or  thorough  implementation  of  the architecture as described herein.</p>
+<section id="2.1.1">
+<h3>1.1  Algorithmic Specification</h3>
+<p>The coding of algorithms within this specification is intended  to serve as a guideline to implementors, and as a clear specification of the interfaces rules against which product certification can be performed.   The  code is optimized for architectural clarity.  It is intended to be as efficient as possible, but it  is  recognized that  specific implementations may alter the algorithms or program structure in order to optimize  for  memory  or  execution  speed.  They must do so, however, without sacrificing the functionality or rules provided by the algorithms.</p>
+<p>In other words, for all possible received interchange,  conforming implementation  algorithms  shall produce identical results to the program specifications in terms of the presentation on the  visual display  and  the  state variables that an application process can solicit from the terminal.</p>
+</section>
+<section id="2.1.2">
+<h3>1.2  Use Of Pascal</h3>
+<p>Pascal was selected as an  architectural  implementation  language because  of its rigid structure and type checking, simplicity, and wide usage both inside and outside of DEC.   Standard  Pascal  has been used throughout, with the following exceptions:</p>
+<ul>
+<li><p>underline is allowable in user-defined symbols</p></li>
+<li><p>forward  declaration  of  procedures  and  functions   is implied</p></li>
+<li><p>OTHERWISE is used as  an  exception  condition  for  case statements</p></li>
+</ul>
+<a id="2-5"></a>
+<p>Implementation Notes:</p>
+<ol>
+<li><p>Because PACKED  ARRAYS  are  provided  by  Pascal  as  an implementation    technique,    to    optimize    storage requirements at the expense of execution speed, they  are not utilized within this specification.</p></li>
+<li><p>The internal procedure IGNORE is a null operation,  which is used throughout the specification in order to leave as little room as possible for interpretation  of  undefined states of the device.</p></li>
+</ol>
+</section>
+</section>
+<a id="2-6"></a>
+<section id="2.2">
+<h2>2  Specification Program Structure</h2>
+<p>The following diagram is provided as an overview to the  structure of the coded algorithms within this manual.  It is not intended as a detailed description of the program logic.</p>
+<figure>
+<pre>                    --------------------
+                       EXECUTIVE LOOP   ===> GET_NEXT_EVENT
+                    --------------------     (ANSI PARSER)
+                  .     .     .     .     .
+               .       .      .       .       .
+           .          .       .         .         .
+       .             .        .           .           .
+
+|INSERT OR    |EXECUTE     |EXECUTE     |EXECUTE     |EXECUTE
+|REPLACE      |CONTROL     |ESCAPE      |CONTROL     |CONTROL
+|CHARACTER    |CODE        |SEQUENCE    |SEQUENCE    |STRING
+|---------    |---------   |---------   |---------   |----------
+              |BEL         |DECSC       |ICH (2)     |DCS (ReGIS)
+              |BS          |DECRC       |CUU         |DCS (Sixel)
+              |HT          |DECDHLT     |CUD         |DCS (DRCS)
+              |LF          |DECDHLB     |CUF         |DCS (UDK)
+              |VT          |DECSWL      |CUB         |BS
+              |FF          |DECDWL      |CUP         |HT
+              |CR          |S7C1T (2)   |ED          |LF
+              |SO          |S8C1T (2)   |DECSED (2X) |VT
+              |SI          |LS2 (2)     |EL          |FF
+              |SUB         |LS3 (2)     |DECSEL (2X) |CR
+              |IND         |LS1R (2)    |IL (1X,2)   |ST
+              |NEL         |LS2R (2)    |DL (1X,2)
+              |HTS         |LS3R (2)    |DCH (1X,2)
+              |RI          |SCS         |ECH (2)
+              |SS2                      |DA1
+              |SS3                      |DA2 (2)
+                                        |HVP
+                                        |TBC
+                                        |SM
+                                        |MC (1X,2X)
+                                        |RM
+                                        |SGR
+                                        |DSR
+                                        |DECSCL (2)
+                                        |DECSCA (2X)
+                                        |DECSTBM
+
+  .  .          .  .          .  .          .  .
+.      .      .      .      .      .      .      .      .
+         .  .          .  .          .  .          .  .
+
+general purpose routines
+
+  END_OF_LINE    SCROLL_UP     SCROLL_DOWN     IGNORE</pre>
+<figcaption>Program Flow Diagram</figcaption>
+</figure>
+</section>
+<a id="2-7"></a>
+<section id="2.3">
+<h2>3  Summary Of State</h2>
+<section id="2.3.1">
+<h3>3.1  Code Extension Layer - Parsing</h3>
+<pre><code>CONST   MAX_NUM_INTERMEDIATES = 3;
+        MAX_NUM_PARAMETERS = 16;
+        MAX_PARAMETER_VALUE = 16384;
+        RANGE_PRIVATES = 2;
+
+TYPE    EVENT_TYPE = (GRAPHIC_CODE,CONTROL_CODE,ESCAPE_SEQUENCE,
+          CONTROL_SEQUENCE,DCS_INTRODUCER);
+
+        CODE_TYPE = 0..255;         (* legal 8-bit code values *)
+        INTERMEDIATE_TYPE = 32..47; (* legal intermediate values
+*)
+        PARAMETER_TYPE = 0..MAX_PARAMETER_VALUE;
+        ROW_COLUMN_TYPE = 0..15;
+
+        SEQUENCE_TYPE = (ESCAPE,CONTROL,DCS);
+
+        EVENT_BUFFER_TYPE = RECORD
+          EVENT_CODE: EVENT_TYPE;
+          CODE_VALUE: CODE_TYPE;
+          INTERMEDIATE_COUNT: 0..MAX_NUM_INTERMEDIATES;
+          INTERMEDIATES:
+            ARRAY [1..MAX_NUM_INTERMEDIATES] OF INTERMEDIATE_TYPE;
+          PARAMETER_COUNT: 0..MAX_NUM_PARAMETERS;
+          PARAMETERS:
+            ARRAY [1..MAX_NUM_PARAMETERS] OF PARAMETER_TYPE;
+          PRIVATE_PARAMETER: 0..RANGE_PRIVATES;
+          VALID_SYNTAX: BOOLEAN;
+          (* The following values are internal state variables
+             required by the parser. Note that the boolean flag
+             SEQUENCE_IN_PROGRESS must be initialized to FALSE
+             by the calling routine prior to the first time the
+             parser is invoked. *)
+          SEQUENCE_IN_PROGRESS: BOOLEAN;
+          KIND_OF_SEQUENCE: SEQUENCE_TYPE;
+          PARAMETER_OVERFLOW: BOOLEAN;
+          END;
+
+
+VAR     EVENT: EVENT_BUFFER_TYPE;
+</code></pre>
+</section>
+<a id="2-8"></a>
+<section id="2.3.2">
+<h3>3.2  Code Extension Layer - Graphics</h3>
+<pre><code>TYPE    GRAPHIC_CHARACTER_SET_TYPE =
+          (ASCII_G,SUPPLEMENTAL_G,LINE_DRAWING,  (* standard *)
+          JIS_ROMAN,JIS_KATAKANA,                (* extension *)
+          DRCS);                                 (* extension *)
+
+        C0_CONTROL_CHARACTER_SET_TYPE = (ASCII_C);
+        C1_CONTROL_CHARACTER_SET_TYPE = (SUPPLEMENTAL_C);
+
+        DESIGNATED_GRAPHIC_SET_TYPE = (G0,G1,G2,G3);
+
+        IN_USE_TABLE_TYPE = RECORD
+          C0: C0_CONTROL_CHARACTER_SET_TYPE;
+          GL: GRAPHIC_CHARACTER_SET_TYPE;
+          INVOKED_GL: DESIGNATED_GRAPHIC_SET_TYPE;
+          C1: C1_CONTROL_CHARACTER_SET_TYPE;
+          GR: GRAPHIC_CHARACTER_SET_TYPE;
+          INVOKED_GR: DESIGNATED_GRAPHIC_SET_TYPE;
+          END;
+
+        ENVIRONMENT_TYPE = (SEVEN_BIT,EIGHT_BIT);
+
+
+VAR     IN_USE_TABLE: IN_USE_TABLE_TYPE;
+        DESIGNATED_GRAPHIC_SETS:
+          ARRAY [G0..G3] OF GRAPHIC_CHARACTER_SET_TYPE;
+
+        HOST_PORT_ENVIRONMENT: ENVIRONMENT_TYPE;
+        C1_TRANSMISSION_MODE: ENVIRONMENT_TYPE;
+        SINGLE_SHIFT: (NONE, SS2, SS3);
+</code></pre>
+</section>
+<a id="2-9"></a>
+<section id="2.3.3">
+<h3>3.3  Terminal Management</h3>
+<pre><code>CONST   MAX_NUM_OPTIONS =     (* defined by implementation *);
+        MAX_POSITION = 20     (* Level 1 *);
+                       30     (* Level 2 *);
+TYPE    EXTENSION_TYPE =
+          (ONE_THIRTY_TWO_COLUMN,PRINTER_PORT_EXT,
+          REGIS_GRAPHICS,SIXEL_GRAPHICS,KATAKANA_EXT,
+          SELECTIVELY_ERASABLE_CHARACTERS,DRCS_EXT,UDK_EXT);
+
+VAR     SERVICE_CLASS: INTEGER;
+        CONFORMANCE_LEVEL: (LEVEL_1,LEVEL_2);
+        LEVEL_1_EXTENSIONS:
+          ARRAY [ONE_THIRTY_TWO_COLUMN..KATAKANA_EXT] OF BOOLEAN;
+        LEVEL_2_EXTENSIONS:
+          ARRAY [ONE_THIRTY_TWO_COLUMN..UDK_EXT] OF BOOLEAN;
+        PRODUCT_ID: INTEGER;
+        REVISION_LEVEL: INTEGER;
+        PRODUCT_OPTIONS: ARRAY [0..MAX_NUM_OPTIONS] OF INTEGER;
+
+        ANSWERBACK_MESSAGE_BUFFER:
+          ARRAY [1..MAX_POSITION] OF CODE_TYPE;
+
+        DEVICE_STATUS: (READY,MALFUNCTION);
+
+        POWER_ON: BOOLEAN;
+        IN_CONTROL_STRING: BOOLEAN;
+</code></pre>
+</section>
+<a id="2-1O"></a>
+<section id="2.3.4">
+<h3>3.4  Character Cell Display</h3>
+<pre><code>CONST   MAX_NUM_LINES = 24;
+        MAX_NUM_COLUMNS = 132;
+
+        EMPTY_CHARACTER = 0;
+
+        MAX_NUM_CHARACTER_SETS = 4; (* for Level 2 with DRCS *)
+
+TYPE    LINE_TYPE = 1..MAX_NUM_LINES;
+        COLUMN_TYPE = 1..MAX_NUM_COLUMNS;
+
+        CHARACTER_POSITION_TYPE = RECORD
+          LINE: LINE_TYPE;
+          COLUMN: COLUMN_TYPE;
+          END;
+
+        GRAPHIC_RENDITION_TYPE =
+          (BOLD,BLINK,UNDERSCORE,REVERSE);
+
+        CHARACTER_RENDITION_TYPE =
+          ARRAY [GRAPHIC_RENDITION_TYPE] OF BOOLEAN;
+
+        LOGICAL_ATTRIBUTE_TYPE = (SELECTIVELY_ERASABLE);
+
+        CHARACTER_ATTRIBUTE_TYPE =
+          ARRAY [LOGICAL_ATTRIBUTE_TYPE] OF BOOLEAN;
+
+        LINE_RENDITION_TYPE =
+          (DOUBLE_HEIGHT_TOP,DOUBLE_HEIGHT_BOTTOM,
+          SINGLE_WIDTH,DOUBLE_WIDTH);
+
+        CHARACTER_TYPE = RECORD
+          CODE: 0..126; (* 0 is used for empty characters *)
+          RENDITION: CHARACTER_RENDITION_TYPE;
+          ATTRIBUTE: CHARACTER_ATTRIBUTE_TYPE;
+          CHARACTER_SET: GRAPHIC_CHARACTER_SET_TYPE;
+          END;
+
+        CHARACTER_SET_DESIGNATOR_TYPE = RECORD
+          NAME: GRAPHIC_CHARACTER_SET_TYPE;
+          FIRST_INTERMEDIATE: 0..47; (* 0 = no intermediate *)
+          SECOND_INTERMEDIATE: 0..47;
+          FINAL: 0..126; (* 0 indicates no table entry *)
+          END;
+
+        ORIGIN_MODE_TYPE = (ABSOLUTE,DISPLACED);
+<a id="2-11"></a>        SAVE_BUFFER_TYPE = RECORD
+          POSITION: CHARACTER_POSITION_TYPE;
+          RENDITION: CHARACTER_RENDITION_TYPE;
+          ORIGIN_MODE: ORIGIN_MODE_TYPE;
+          LEFT: GRAPHIC_CHARACTER_SET_TYPE;
+          RIGHT: GRAPHIC_CHARACTER_SET_TYPE;
+          SETS: ARRAY [G0..G3] OF GRAPHIC_CHARACTER_SET_TYPE;
+          ATTRIBUTE: CHARACTER_ATTRIBUTE_TYPE;
+          END;
+
+
+VAR     DISPLAY: ARRAY [LINE_TYPE,COLUMN_TYPE] OF CHARACTER_TYPE;
+        LINE_RENDITION: ARRAY [LINE_TYPE] OF LINE_RENDITION_TYPE;
+        ACTIVE_POSITION: CHARACTER_POSITION_TYPE;
+        TOP_MARGIN: LINE_TYPE;
+        BOTTOM_MARGIN: LINE_TYPE;
+        CURSOR_SAVE_BUFFER: SAVE_BUFFER_TYPE;
+        CURRENT_RENDITION: CHARACTER_RENDITION_TYPE;
+        CURRENT_ATTRIBUTE: CHARACTER_ATTRIBUTE_TYPE;
+        CHARACTER_SET_TABLE:
+          ARRAY [1..MAX_NUM_CHARACTER_SETS] OF
+          CHARACTER_SET_DESIGNATOR_TYPE;
+        HORIZONTAL_TAB_STOPS: ARRAY [COLUMN_TYPE] OF BOOLEAN;
+        COLUMN_MODE: (EIGHTY,ONE_THIRTY_TWO);
+        SCROLLING_MODE: (JUMP,SLOW);
+        SCREEN_MODE: (NORMAL_SCREEN,REVERSE_SCREEN);
+        ORIGIN_MODE: ORIGIN_MODE_TYPE;
+        AUTO_WRAP_MODE: (WRAP_OFF,WRAP_ON);
+        TEXT_CURSOR_ENABLE_MODE: (TEXT_CURSOR_OFF,TEXT_CURSOR_ON);
+        INSERT_REPLACEMENT_MODE: (REPLACE,INSERT);
+        NEW_LINE_MODE: (NEW_LINE_OFF,NEW_LINE_ON);
+</code></pre>
+</section>
+<a id="2-12"></a>
+<section id="2.3.5">
+<h3>3.5  Keyboard Processing</h3>
+<pre><code>VAR     KEYBOARD_ACTION_MODE: (UNLOCKED,LOCKED);
+        AUTO_REPEAT_MODE: (REPEAT_OFF,REPEAT_ON);
+        CURSOR_KEY_MODE: (CURSOR,CK_APPLICATION);
+        KEYPAD_MODE: (NUMERIC,KP_APPLICATION);
+
+        KEYBOARD_USAGE_MODE: (TYPEWRITER,DATA_PROCESSING);
+        CAPS_SHIFT_LOCK_MODE: (CAPS_LOCK,SHIFT_LOCK);
+        HOLD_SCREEN_MODE: (HOLD_OFF,HOLD_ON);
+        LOCK_MODE: (LOCK_OFF,LOCK_ON);
+        COMPOSE_MODE: (COMPOSE_OFF,COMPOSE_ON);
+        KEYCLICK_MODE: (KEYCLICK_OFF,KEYCLICK_ON);
+</code></pre>
+</section>
+<section id="2.3.6">
+<h3>3.6  Printer Port Extension</h3>
+<pre><code>VAR     PRINTER_PORT_ENVIRONMENT: ENVIRONMENT_TYPE;
+        PRINTER_STATUS: (PRINTER_READY,PRINTER_NOT_READY,
+          PRINTER_NOT_PRESENT);
+        PRINTER_STYLE: (ASCII_ONLY,ASCII_PLUS,FULL_8_BIT);
+        PRINTER_CONTROLLER_MODE:
+          (PRINTER_CONTROLLER_OFF,PRINTER_CONTROLLER_ON);
+        AUTO_PRINT_MODE: (AUTO_PRINT_OFF,AUTO_PRINT_ON);
+        PRINT_FORM_FEED_MODE: (PRINT_FF_OFF,PRINT_FF_ON);
+        PRINT_EXTENT_MODE: (PRINT_SCROLLING_REGION,PRINT_DISPLAY);
+</code></pre>
+</section>
+<section id="2.3.7">
+<h3>3.7  Extensions</h3>
+<pre><code>VAR     GRAPHICS_CURSOR_ENABLE_MODE:
+          (GRAPHICS_CURSOR_ON,GRAPHICS_CURSOR_OFF);
+
+        REGIS_GRAPHICS_MODE: (REGIS_OFF,REGIS_ON);
+
+        SIXEL_GRAPHICS_MODE: (SIXEL_OFF,SIXEL_ON);
+
+        LOAD_DRCS_MODE: (DRCS_LOAD_OFF,DRCS_LOAD_ON);
+
+        LOAD_UDK_MODE: (UDK_LOAD_OFF,UDK_LOAD_ON);
+</code></pre>
+</section>
+</section>
+<a id="2-13"></a>
+<section id="2.4">
+<h2>4  Executive Procedures</h2>
+<section id="2.4.1">
+<h3>4.1  Executive Loop</h3>
+<p><em>Purpose:</em>  Describe the power on state.</p>
+<p><em>Description:</em>    When power is applied to the terminal all state is initialized  to  its default values.  Input and output buffers are cleared and interrupts are enabled.  The terminal  then  enters  a loop  in  which  it  makes  repeated calls to the parsing routine, executing events as they  occur.   This  process  continues  until power is turned off.</p>
+<p><em>State Affected:</em> None</p>
+<p><em>Algorithm:</em></p>
+<pre><code>PROCEDURE EXECUTIVE_LOOP;
+BEGIN
+POWER_ON:= TRUE;
+INITIALIZE_TERMINAL;
+INITIALIZE_PARSER (EVENT);
+WHILE POWER_ON DO
+  BEGIN
+  GET_NEXT_EVENT (EVENT);
+  IF NOT IN_CONTROL_STRING THEN
+    BEGIN
+    (* check for single shifts *)
+    SINGLE_SHIFT:= NONE;
+    WHILE (EVENT.EVENT_CODE = CONTROL_CODE) AND
+      (EVENT.CODE_VALUE = 142) OR (EVENT.CODE_VALUE = 143) DO
+      BEGIN
+      CASE EVENT.CODE_VALUE OF
+        142: SINGLE_SHIFT_TWO;
+        143: SINGLE_SHIFT_THREE;
+        END;
+      END;
+    (* then process the function *)
+    CASE EVENT.EVENT_CODE OF
+      GRAPHIC_CODE: INSERT_OR_REPLACE_CHARACTER;
+      CONTROL_CODE: EXECUTE_CONTROL_CODE;
+      ESCAPE_SEQUENCE: IF EVENT.VALID_SYNTAX THEN
+        EXECUTE_ESCAPE_SEQUENCE;
+      CONTROL_SEQUENCE: IF EVENT.VALID_SYNTAX THEN
+        EXECUTE_CONTROL_SEQUENCE;
+      DCS_INTRODUCER: IF EVENT.VALID_SYNTAX THEN
+        EXECUTE_DCS_INTRODUCER_SEQUENCE;
+      OTHERWISE IGNORE;
+<a id="2-14"></a>      END;
+    END
+  ELSE (* in control string *)
+    BEGIN
+    IF (EVENT.EVENT_CODE = CONTROL_CODE)
+      AND (EVENT.CODE_VALUE = 156) THEN (* String Terminator *)
+        IN_CONTROL_STRING:= FALSE
+    ELSE
+      BEGIN
+      IF REGIS_GRAPHICS_MODE = REGIS_ON THEN
+        (* pass all events to ReGIS parser for processing *)
+        EXECUTE_REGIS (EVENT);
+      IF SIXEL_GRAPHICS_MODE = SIXEL_ON THEN
+        (* pass all events to sixel parser for processing *)
+        EXECUTE_SIXEL (EVENT);
+      IF LOAD_DRCS_MODE = DRCS_LOAD_ON THEN
+        (* pass all events to DRCS load routine for processing *)
+        LOAD_DRCS (EVENT);
+      IF LOAD_UDK_MODE = UDK_LOAD_ON THEN
+        (* pass all events to UDK load routine for processing *)
+        LOAD_UDK (EVENT);
+      END;
+    END;
+  END;
+END;
+</code></pre>
+</section>
+<a id="2-15"></a>
+<section id="2.4.2">
+<h3>4.2  Event Handling Tables</h3>
+<section id="2.4.2.1">
+<h4>4.2.1  Execute Control Code</h4>
+<p><em>Purpose:</em>  Execute valid control codes.</p>
+<p><em>Description:</em>    When a control code is received by the terminal it is  immediately  dispatched  to  the appropriate action routine by this table of 8-bit code values.</p>
+<p><em>State Affected:</em> None</p>
+<p><em>Algorithm:</em></p>
+<pre><code>PROCEDURE EXECUTE_CONTROL_CODE;
+BEGIN
+CASE EVENT.CODE_VALUE OF
+  7: WARNING_BELL;
+  8: BACK_SPACE;
+  9: HORIZONTAL_TAB;
+  10: LINE_FEED;
+  11: VERTICAL_TAB;
+  12: FORM_FEED;
+  13: CARRIAGE_RETURN;
+  14: SHIFT_OUT; (* Locking Shift One *)
+  15: SHIFT_IN; (* Locking Shift Zero *)
+  26: SUBSTITUTE;
+  132: INDEX;
+  133: NEXT_LINE;
+  136: HORIZONTAL_TABULATION_SET;
+  141: REVERSE_INDEX;
+  157: IN_CONTROL_STRING:= TRUE; (* Operating System Command *)
+  158: IN_CONTROL_STRING:= TRUE; (* Privacy Message *)
+  159: IN_CONTROL_STRING:= TRUE; (* Application Program Command *)
+  OTHERWISE IGNORE;
+  END;
+END;
+</code></pre>
+<p><em>Known Deviations:</em>  None</p>
+</section>
+<a id="2-16"></a>
+<section id="2.4.2.2">
+<h4>4.2.2  Execute Escape Sequence</h4>
+<p><em>Purpose:</em>  Execute valid escape sequences.</p>
+<p><em>Description:</em>    Escape  sequences  exhibiting  valid   syntax   on termination  are  acted upon immediately upon receipt of the final character.  The parser returns the final character code as well as the  count  of code values of any intermediate characters received during processing of the sequence.</p>
+<p><em>State Affected:</em> None</p>
+<p><em>Algorithm:</em></p>
+<pre><code>PROCEDURE EXECUTE_ESCAPE_SEQUENCE;
+VAR     N: INTEGER;
+BEGIN
+IF EVENT.INTERMEDIATE_COUNT = 0 THEN
+  BEGIN
+  CASE EVENT.CODE_VALUE OF
+    55: SAVE_CURSOR;
+    56: RESTORE_CURSOR;
+    110: IF CONFORMANCE_LEVEL = LEVEL_2 THEN LOCKING_SHIFT_TWO
+         ELSE IGNORE;
+    111: IF CONFORMANCE_LEVEL = LEVEL_2 THEN LOCKING_SHIFT_THREE
+         ELSE IGNORE;
+    126: IF CONFORMANCE_LEVEL = LEVEL_2 THEN
+         LOCKING_SHIFT_ONE_RIGHT ELSE IGNORE;
+    125: IF CONFORMANCE_LEVEL = LEVEL_2 THEN
+         LOCKING_SHIFT_TWO_RIGHT ELSE IGNORE;
+    124: IF CONFORMANCE_LEVEL = LEVEL_2 THEN
+         LOCKING_SHIFT_THREE_RIGHT ELSE IGNORE;
+    OTHERWISE IGNORE;
+    END;
+  END
+ELSE
+  BEGIN
+  CASE EVENT.INTERMEDIATE_COUNT OF
+    1: (* three character escape sequences *)
+      BEGIN
+      CASE EVENT.INTERMEDIATES[1] OF
+        35: (* #, 2/3 *)
+          BEGIN
+          CASE EVENT.CODE_VALUE OF
+            51: DOUBLE_HEIGHT_LINE_TOP;
+            52: DOUBLE_HEIGHT_LINE_BOTTOM;
+            53: SINGLE_WIDTH_LINE;
+            54: DOUBLE_WIDTH_LINE;
+            OTHERWISE IGNORE;
+<a id="2-17"></a>            END;
+          END;
+        32: (* SP, 2/0 *)
+          BEGIN
+          CASE EVENT.CODE_VALUE OF
+            70: IF CONFORMANCE_LEVEL = LEVEL_2 THEN
+                SELECT_7_BIT_C1_TRANSMISSION ELSE IGNORE;
+            71: IF CONFORMANCE_LEVEL = LEVEL_2 THEN
+                SELECT_8_BIT_C1_TRANSMISSION ELSE IGNORE;
+            OTHERWISE IGNORE;
+            END;
+          END;
+        40,41,42,43:
+          FOR N:= 1 TO 4 DO
+            IF EVENT.CODE_VALUE =
+            CHARACTER_SET_TABLE[N].FINAL THEN
+              DESIGNATE_CHARACTER_SET;
+        OTHERWISE IGNORE;
+        END;
+      END;
+    2: (* four character escape sequences *)
+      BEGIN
+      IF CONFORMANCE_LEVEL = LEVEL_2 THEN
+        BEGIN
+        CASE EVENT.INTERMEDIATES[1] OF
+          40,41,42,43:
+            IF (EVENT.INTERMEDIATES[2] =
+            CHARACTER_SET_TABLE[4].SECOND_INTERMEDIATE)
+            AND (EVENT.CODE_VALUE =
+            CHARACTER_SET_TABLE[4].FINAL) THEN
+              DESIGNATE_CHARACTER_SET;
+          OTHERWISE IGNORE;
+          END;
+        END
+      ELSE IGNORE;
+      END;
+    OTHERWISE IGNORE;
+    END;
+  END;
+END;
+</code></pre>
+<p><em>Known Deviations:</em>  None</p>
+</section>
+<a id="2-18"></a>
+<section id="2.4.2.3">
+<h4>4.2.3  Execute Control Sequence</h4>
+<p><em>Purpose:</em>  Execute valid control sequences.</p>
+<p><em>Description:</em>    Control  sequences  exhibiting  valid  syntax   on termination  are  acted upon immediately upon receipt of the final character.  The parser returns the final character code as well as the  count  of  code  values of any parameters and/or intermediate characters received during processing of the  sequence.   It  also indicates whether a private parameter value was received.</p>
+<p><em>State Affected:</em> None</p>
+<p><em>Algorithm:</em></p>
+<pre><code>PROCEDURE EXECUTE_CONTROL_SEQUENCE;
+BEGIN
+IF EVENT.INTERMEDIATE_COUNT = 0 THEN
+  BEGIN
+  CASE EVENT.CODE_VALUE OF
+    64: IF CONFORMANCE_LEVEL = LEVEL_2 THEN INSERT_CHARACTER;
+    65: CURSOR_UP;
+    66: CURSOR_DOWN;
+    67: CURSOR_FORWARD;
+    68: CURSOR_BACKWARD;
+    72: CURSOR_POSITION;
+    74: ERASE_IN_DISPLAY; (* also Selective Erase In Display *)
+    75: ERASE_IN_LINE;    (* also Selective Erase In Line *)
+    76: INSERT_LINE;
+    77: DELETE_LINE;
+    80: DELETE_CHARACTER;
+    88: IF CONFORMANCE_LEVEL = LEVEL_2 THEN ERASE_CHARACTER;
+    99: DEVICE_ATTRIBUTES;
+    102: HORIZONTAL_VERTICAL_POSITION;
+    103: TABULATION_CLEAR;
+    104: SET_MODE;
+    105: MEDIA_COPY;
+    108: RESET_MODE;
+    109: SELECT_GRAPHIC_RENDITION;
+    110: DEVICE_STATUS_REPORT;
+    112: IF (EVENT.INTERMEDIATE_COUNT = 1) AND
+         (EVENT.INTERMEDIATES[1] = 34) THEN
+         SELECT_CONFORMANCE_LEVEL;
+    113: IF (CONFORMANCE_LEVEL = LEVEL_2) AND
+         (LEVEL_2_EXTENSIONS[SELECTIVELY_ERASABLE_CHARACTERS])
+THEN
+         SELECT_CHARACTER_ATTRIBUTE;
+    114: SET_TOP_AND_BOTTOM_MARGINS;
+    OTHERWISE IGNORE;
+<a id="2-19"></a>    END;
+  END
+ELSE
+  (* no intermediates defined yet for control sequences *)
+  IGNORE;
+END;
+</code></pre>
+<p><em>Known Deviations:</em>  None</p>
+</section>
+<a id="2-20"></a>
+<section id="2.4.2.4">
+<h4>4.2.4  Execute Device Control String</h4>
+<p><em>Purpose:</em>  Execute valid device control strings.</p>
+<p><em>Description:</em>    Device   Control   String   Introducer   sequences exhibiting  valid syntax on termination are acted upon immediately upon receipt of the final character.  The parser returns the final character  code  as  well  as  the  count  of  code  values of any parameters  and/or   intermediate   characters   received   during processing  of  the sequence.  It also indicates whether a private parameter value was received.</p>
+<p><em>State Affected:</em> None</p>
+<p><em>Algorithm:</em></p>
+<pre><code>PROCEDURE EXECUTE_DCS_INTRODUCER_SEQUENCE;
+BEGIN
+IN_CONTROL_STRING:= TRUE;
+IF EVENT.INTERMEDIATE_COUNT = 0 THEN
+  BEGIN
+  CASE EVENT.CODE_VALUE OF
+    112: REGIS_GRAPHICS_MODE:= REGIS_ON;
+    113: SIXEL_GRAPHICS_MODE:= SIXEL_ON;
+    123: LOAD_DRCS_MODE:= DRCS_LOAD_ON;
+    124: LOAD_UDK_MODE:= UDK_LOAD_ON;
+    OTHERWISE IGNORE;
+    END;
+  END
+ELSE
+  IGNORE;
+  (* no intermediates defined yet for DCS introducers *)
+END;
+</code></pre>
+<p><em>Known Deviations:</em>  None</p>
+</section>
+</section>
+<a id="2-21"></a>
+<section id="2.4.3">
+<h3>4.3  Device Attributes</h3>
+<p><em>Purpose:</em>  Request device identification.</p>
+<div>
+<p><em>Format:</em></p>
+<pre><samp>CSI     Pp      0       c       default Pp: none
+
+9/11    Pp      3/0     6/3</samp></pre>
+</div>
+<p><em>Description:</em>    The DA control with a zero  or  omitted  parameter prompts  the  terminal to return an identifying sequence in one of two forms, depending on  the  setting  of  the  private  parameter value, Pp.  If the private parameter is omitted, the terminal will return a Primary  Device  Attributes  response  (see  the  section "Terminal  Management" for more details on the terminal's response to this request).  If the private parameter value is > (3/14)  and the  device  is  a  Level  2  or higher terminal, it will return a Secondary Device Attributes response.</p>
+<p><em>State Affected:</em> None</p>
+<p><em>Algorithm:</em></p>
+<pre><code>PROCEDURE DEVICE_ATTRIBUTES;
+BEGIN
+IF EVENT.PARAMETERS[1] = 0 THEN
+  BEGIN
+  CASE EVENT.PRIVATE_PARAMETER OF
+    0: DEVICE_ATTRIBUTES_1;
+    2: DEVICE_ATTRIBUTES_2;
+    OTHERWISE IGNORE;
+    END;
+  END
+ELSE IGNORE;
+END;
+</code></pre>
+<p><em>Known Deviations:</em>  None</p>
+</section>
+<a id="2-22"></a>
+<section id="2.4.4">
+<h3>4.4  Device Status Report</h3>
+<p><em>Purpose:</em>  Request or report the general status of the device.</p>
+<div>
+<p><em>Format:</em></p>
+<pre><samp>CSI     Ps      n               default Ps: 0
+
+9/11    Ps      6/14</samp></pre>
+</div>
+<p><em>Description:</em>    The DSR control is  used  as  an  inquiry  of  the current state of the terminal device.  Three levels of request are provided:  device availability, position  reporting,  and  printer availability.   If the parameter value is five (5) the device will respond with a DSR control, the parameter of which will be one  of the following:</p>
+<ul>
+<li>0<span> &mdash; </span>Device ready, no malfunctions detected</li>
+<li>3<span> &mdash; </span>Device not ready, malfunction detected</li>
+</ul>
+<p>If the parameter value is six (6) the device will respond  with  a Cursor Position Report (CPR) control.</p>
+<p>Printer status requests use the private parameter value ?15  (3/15 3/1 3/5).</p>
+<p>Requests for the lock status of User Defined Keys use the  private parameter value ?25 (3/15 3/2 3/5).</p>
+<p><em>Notes:</em></p>
+<ol>
+<li><p>There is no  guarantee  of  synchronization  between  the status  reports  transmitted by the device in response to this command and the actual device  states  at  the  time they  are  received  by  a communicating party.  They are only indicators of the device state at the time  the  DSR control is executed by the device.</p></li>
+</ol>
+<p><em>State Affected:</em> None</p>
+<p><em>Algorithm:</em></p>
+<pre><code>PROCEDURE DEVICE_STATUS_REPORT;
+BEGIN
+CASE EVENT.PRIVATE_PARAMETER OF
+  0: (* not a private *)
+    BEGIN
+    CASE EVENT.PARAMETERS[1] OF
+<a id="2-23"></a>      5: REPORT_DEVICE_STATUS;
+         (* see section "Terminal Management" *)
+      6: CURSOR_POSITION_REPORT;
+         (* see section "Character Cell Display" *)
+      OTHERWISE IGNORE;
+      END;
+    END;
+  1: (* private parameter '?' *)
+    BEGIN
+    CASE EVENT.PARAMETERS[1] OF
+      15: REPORT_PRINTER_STATUS;
+          (* see section "Printer Port Extension *)
+      25: REPORT_UDK_LOCK_STATUS;
+          (* see section "UDK Extension *)
+      OTHERWISE IGNORE;
+      END;
+    END;
+  OTHERWISE IGNORE;
+  END;
+END;
+</code></pre>
+<p><em>Known Deviations:</em>  None</p>
+</section>
+<a id="2-24"></a>
+<section id="2.4.5">
+<h3>4.5  Set And Reset Modes</h3>
+<section id="2.4.5.1">
+<h4>4.5.1  Set Mode</h4>
+<p><em>Purpose:</em>  Place one or more mode values in the set state.</p>
+<div>
+<p><em>Format:</em></p>
+<pre><samp>CSI     Ps ; ... ; Ps   h       default Ps: none
+
+9/11    Ps ; ... ; Ps   6/8</samp></pre>
+</div>
+<p><em>Description:</em>    The SM control provides a means of placing one  or more of the terminal mode values into the set state.</p>
+<p><em>Notes:</em></p>
+<ol>
+<li><p>The parameter list sent with a single  instance  of  this control  should  not exceed the maximum allowable for the parser   implementation.    (Note:    for   a    detailed description   of   the  parser,  see  the  section  "Code Extension Layer".)</p></li>
+</ol>
+<p><em>Algorithm:</em></p>
+<pre><code>PROCEDURE SET_MODE;
+VAR     N: INTEGER;
+BEGIN
+IF EVENT.PARAMETER_COUNT = 0 THEN EVENT.PARAMETER_COUNT:= 1;
+(* check all parameters *)
+FOR N:= 1 TO EVENT.PARAMETER_COUNT DO
+  BEGIN
+  (* check private parameter '?' (3/15) *)
+  IF EVENT.PRIVATE_PARAMETER = 1 THEN
+    BEGIN
+    CASE EVENT.PARAMETERS[N] OF
+      1: SET_CURSOR_KEY_MODE;
+      3: SET_COLUMN_MODE;
+      4: SET_SCROLLING_MODE;
+      5: SET_SCREEN_MODE;
+      6: SET_ORIGIN_MODE;
+      8: SET_AUTO_REPEAT_MODE;
+      18: SET_PRINT_FORM_FEED_MODE;
+      19: SET_PRINT_EXTENT_MODE;
+      25: IF CONFORMANCE_LEVEL = LEVEL_2 THEN
+          SET_TEXT_CURSOR_ENABLE_MODE;
+      OTHERWISE IGNORE;
+      END;
+    END
+  (* check standard parameters *)
+<a id="2-25"></a>  ELSE IF EVENT.PRIVATE_PARAMETER = 0 THEN
+    BEGIN
+    CASE EVENT.PARAMETERS[N] OF
+      2: SET_KEYBOARD_ACTION_MODE;
+      4: SET_INSERT_REPLACEMENT_MODE;
+      20: SET_NEW_LINE_MODE;
+      OTHERWISE IGNORE;
+      END;
+    END;
+  END;
+END;
+</code></pre>
+<p><em>Known Deviations:</em>  None</p>
+</section>
+<a id="2-26"></a>
+<section id="2.4.5.2">
+<h4>4.5.2  Reset Mode</h4>
+<p><em>Purpose:</em>  Place one or mode values in the reset state.</p>
+<div>
+<p><em>Format:</em></p>
+<pre><samp>CSI     Ps ; ... ; Ps   l       default Ps: none
+
+9/11    Ps ; ... ; Ps   6/12</samp></pre>
+</div>
+<p><em>Description:</em>    The RM control provides a means of placing one  or more of the terminal mode values into the reset state.</p>
+<p><em>Notes:</em></p>
+<ol>
+<li><p>The parameter list sent with a single  instance  of  this control  should  not exceed the maximum allowable for the parser implementation (sixteen or less is recommended for backwards compatibility).</p></li>
+</ol>
+<p><em>Algorithm:</em></p>
+<pre><code>PROCEDURE RESET_MODE;
+VAR     N: INTEGER;
+BEGIN
+IF EVENT.PARAMETER_COUNT = 0 THEN EVENT.PARAMETER_COUNT:= 1;
+(* check all parameters *)
+FOR N:= 1 TO EVENT.PARAMETER_COUNT DO
+  BEGIN
+  (* check private parameter '?' (3/15) *)
+  IF EVENT.PRIVATE_PARAMETER = 1 THEN
+    BEGIN
+    CASE EVENT.PARAMETERS[N] OF
+      1: RESET_CURSOR_KEY_MODE;
+      3: RESET_COLUMN_MODE;
+      4: RESET_SCROLLING_MODE;
+      5: RESET_SCREEN_MODE;
+      6: RESET_ORIGIN_MODE;
+      8: RESET_AUTO_REPEAT_MODE;
+      18: RESET_PRINT_FORM_FEED_MODE;
+      19: RESET_PRINT_EXTENT_MODE;
+      25: IF CONFORMANCE_LEVEL = LEVEL_2 THEN
+          RESET_TEXT_CURSOR_ENABLE_MODE;
+      OTHERWISE IGNORE;
+      END;
+    END
+  (* check standard parameters *)
+  ELSE IF EVENT.PRIVATE_PARAMETER = 0 THEN
+    BEGIN
+    CASE EVENT.PARAMETERS[N] OF
+<a id="2-27"></a>      2: RESET_KEYBOARD_ACTION_MODE;
+      4: RESET_INSERT_REPLACEMENT_MODE;
+      20: RESET_NEW LINE_MODE;
+      OTHERWISE IGNORE;
+      END;
+    END;
+  END;
+END;
+</code></pre>
+<p><em>Known Deviations:</em>  None</p>
+</section>
+</section>
+</section>
+<a id="2-28"></a>
+<section id="2.5">
+<h2>5  Change History</h2>
+<section id="2.5.1">
+<h3>5.1  Rev 0.0 To AX10</h3>
+<ol>
+<li><p>Removed  ENQ,  DECTST,  and  DECHCP  from  program   flow diagram.  Added ICH, ECH, DECSCA, DECSEL, and DECSED.</p></li>
+<li><p>Corrected  value  range  for   Character_Type.Code   from 32..126  to  0..126  to  permit 0 to be used to represent empty character positions in the display state.</p></li>
+<li><p>Removed Control_Representation_Mode from the state tables as well as the Set_Mode and Reset_Mode algorithms.</p></li>
+<li><p>Corrected the  name  of  ReGIS_Graphics_Mode,  and  added Sixel_Graphics_Mode, Load_DRCS_Mode, and Load_UDK_Mode to the state table for Extensions.</p></li>
+<li><p>Made minor editorial corrections  to  the  Executive_Loop algorithm,  and  added  code to process Single Shifts and the Load_DRCS and Load_UDK control strings.</p></li>
+<li><p>Removed   Answerback   from   the    Execute_Control_Code algorithm.   Removed  the  processing of Single_Shift_Two and Single_Shift_Three from this routine.</p></li>
+<li><p>Removed  Hard_Copy   from   the   Execute_Escape_Sequence algorithm, and changed the character set designator value 50 to 60.</p></li>
+<li><p>Added     Insert_Character,     Erase_Character,      and Select_Character_Attribute             to             the Execute_Control_Sequence algorithm.  Removed DECTST.</p></li>
+<li><p>Changed  the  name  of  Execute_Device_Control_String  to Execute_DCS_Introducer_Sequence.</p></li>
+<li><p>Changed the escape sequence handling algorithm to support the  character  set  designation  scheme  for  DRCS which allows designators to be redefined dynamically.</p></li>
+</ol>
+</section>
+<a id="2-29"></a>
+<section id="2.5.2">
+<h3>5.2  Rev AX10 To AX11</h3>
+<ol>
+<li><p>Removed Rev AX10 change bars.  Added change bars  to  any change that could affect conformance or interpretation of the document or should be brought  to  the  attention  of terminal implementors or software engineers.</p></li>
+<li><p>Modified code to test intermediate count so that  Control Sequences are uniquely recognized.</p></li>
+<li><p>Modified code to test  intermediate  count  so  that  DCS introducer sequences are uniquely recognized.</p></li>
+</ol>
+<a id="2-30"></a>
+<p hidden>This page deliberately left blank.</p>
+</section>
+</section>
+</main>
+<footer>
+<a id="2-31"></a>
+<section id="Index">
+<h2>Section Index</h2>
+<ul>
+<li>Algorithms <a href="#2-4">4</a></li>
+<li>Coding<ul>
+<li>algorithms <a href="#2-4">4</a></li>
+</ul>
+</li>
+<li>Control Code<ul>
+<li>execution <a href="#2-15">15</a></li>
+</ul>
+</li>
+<li>Control Sequence<ul>
+<li>execution <a href="#2-18">18</a></li>
+</ul>
+</li>
+<li>DA <a href="#2-21">21</a></li>
+<li>Device Attributes<ul>
+<li>control function <a href="#2-21">21</a></li>
+</ul>
+</li>
+<li>Device Control String<ul>
+<li>execution <a href="#2-20">20</a></li>
+</ul>
+</li>
+<li>Device Status Report<ul>
+<li>control function <a href="#2-22">22</a></li>
+</ul>
+</li>
+<li>DSR <a href="#2-22">22</a></li>
+<li>Escape Sequence<ul>
+<li>execution <a href="#2-16">16</a></li>
+</ul>
+</li>
+<li>Event Handling Tables<ul>
+<li>control codes <a href="#2-15">15</a></li>
+<li>control sequences <a href="#2-18">18</a></li>
+<li>device control string <a href="#2-20">20</a></li>
+<li>escape sequences <a href="#2-16">16</a></li>
+</ul>
+</li>
+<li>Executive Loop <a href="#2-13">13</a></li>
+<li>IGNORE <a href="#2-5">5</a></li>
+<li>Mode<ul>
+<li>reset mode <a href="#2-26">26</a></li>
+<li>set mode <a href="#2-24">24</a><a id="2-32"></a></li>
+</ul>
+</li>
+<li>Pascal <a href="#2-4">4</a></li>
+<li>Program Structure <a href="#2-6">6</a></li>
+<li>Reset Mode<ul>
+<li>control function <a href="#2-26">26</a></li>
+</ul>
+</li>
+<li>RM <a href="#2-26">26</a></li>
+<li>Set Mode<ul>
+<li>control function <a href="#2-24">24</a></li>
+</ul>
+</li>
+<li>SM <a href="#2-24">24</a></li>
+</ul>
+</section>
+</footer>
+</body>
+</html>
