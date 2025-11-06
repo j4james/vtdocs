@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>VSRM - User Defined Keys Extension</title>
+<meta charset="UTF-8" />
+<style>*{font-family:"Courier New";font-weight:bold;font-size:15.5px;line-height:16.15px;padding:0;margin:0;border-collapse:collapse}body{color:#000000;background:#d4d4d8;>header,>main,>footer{width:66ch;padding-left:101px;padding-right:calc(715px - 66ch);padding-bottom:16.15px;background:#ffffff;margin:0 auto}>footer{border-bottom:11px solid #d4d4d8}}a{color:#000000;text-decoration:none}a[href]:hover{color:#bb0000}header>hgroup{>h1{text-transform:uppercase}>h2{padding-right:1ch}>h1,>h2{text-align:center;margin-bottom:16.15px}margin-bottom:32.3px}h2,h3,h4,p{margin-bottom:16.15px;white-space:pre-wrap}section{>h2,>h3,>h4{&:first-child:before{content:'11.'}}>h4:has(>span){&:first-child:before{content:none}}&#Index>h2:first-child:before{content:none}>h2{text-transform:uppercase}}aside{margin:32.3px auto;header>&{position:relative;overflow:hidden;white-space:nowrap;&:before{content:'+----------------------------------------------------------------------------\A|\A|\A|\A|\A|\A|\A|\A|\A|\A|\A|\A|';white-space:pre;position:absolute;top:0;left:0;pointer-events:none}&:after{content:'+----------------------------------------------------------------------------'}>*{padding:0 2ch;&:first-child{padding-top:16.15px;&:before{content:'+\A|\A|\A|\A|\A|\A|\A|\A|\A|\A|\A|\A|';white-space:pre;position:absolute;top:0;right:0;background:#ffffff}}&:last-child{margin:0;&:after{content:'+';position:absolute;bottom:0;right:0;background:#ffffff}}}&:nth-of-type(2){width:40ch;>p{text-align:center;padding-top:32.3px;padding-bottom:16.15px}}}}dl>dt{float:left;padding-right:0.999ch}header>dl{>dt{text-transform:uppercase}>dt:after{content:':'}>dd{margin-bottom:32.3px}&:nth-of-type(1){>dt{padding-right:1.999ch}>dt:first-child{padding-left:3ch;padding-right:1ch;text-transform:none;+dd{margin-bottom:48.45px}}}&:nth-of-type(2) tr:first-of-type>td{padding-bottom:16.15px}&:nth-of-type(3){margin-bottom:48.45px;>dt{text-transform:none}>dd{margin-bottom:0}}&:nth-of-type(4)>dt{padding-right:1.999ch}}header>p:last-of-type{text-align:center;padding-right:1ch}ul{list-style:none;margin-bottom:16.15px;>li>code{margin-left:9ch}}#\31\31\.3\.2>ul>li{position:relative;padding-left:9ch;&:before{content:'o';position:absolute;left:6ch}}ol{list-style-type:none;>li{position:relative;padding-left:9ch;a[id]{transform:translateX(-9ch)}&:before{content:counter(list-item,decimal) ".";position:absolute;width:3ch;left:4ch;text-align:right}}}#Contents{>hgroup{text-transform:uppercase;margin-bottom:32.3px;>h2{margin-bottom:48.45px;padding-left:33ch}>p{padding-left:16ch;text-indent:-16ch;>br{margin-top:-16.15px;display:block;content:' '}}}a[href]{background:#ffffff;position:relative;z-index:1;&:nth-of-type(1):after{content:'\A0'}&:nth-of-type(2){position:absolute;right:4ch;&:before{content:'\A0' '11-'}}}ul{margin-bottom:0;>li{padding-left:12ch}}ol{margin:0;>li{padding:0;&:before{content:"11." counters(list-item,".");padding-left:4ch;padding-right:4ch;position:static}}}>ol>li{margin-top:16.15px;>a:first-child{text-transform:uppercase}}li>span{color:transparent;&:after{content:'. . . . . . . . . . . . . . . . . . . . .';color:#000000;position:absolute;right:4ch}}}#Index{>h2{text-align:center;text-transform:none;&:after{content:' \A------------- '}}>ul{>li{position:relative;>ul{margin-bottom:0;li{padding-left:2ch}a[id]{transform:translateX(-2ch)}}&:nth-child(15)>a[href]{position:static;&:first-child{padding-left:32ch}}&:nth-child(1):before{content:'-C-'}&:nth-child(4):before{content:'-D-'}&:nth-child(7):before{content:'-E-'}&:nth-child(8):before{content:'-F-'}&:nth-child(9):before{content:'-K-'}&:nth-child(11):before{content:'-P-'}&:nth-child(12):before{content:'-R-'}&:nth-child(14):before{content:'-S-'}&:nth-child(15):before{content:'-U-';padding-top:0}&:nth-child(18):before{content:'-X-'}&:before{display:block;padding:16.15px 12ch}}a[href]{position:absolute;left:36ch;&:before{content:'11-'}}}}tr{height:16.15px;>*:not(:last-child){padding-right:0.999ch}}th,td{box-sizing:border-box}th{vertical-align:bottom;text-align:left;thead>tr>&{padding-bottom:32.3px}}td{vertical-align:top}pre>code{display:block;margin-bottom:32.3px}div{margin:32.3px 0;>p{float:left}>pre>samp{display:block;margin-left:17ch}>pre:not(:last-of-type){margin-bottom:32.3px}}samp{p>&{margin-left:9ch}}figure{margin-left:16ch}section:has(>h4>span){>h4{display:grid;grid-template-columns:57ch 10ch;margin-bottom:0;white-space:normal;text-transform:uppercase;&:after{content:'------------------------------------------------------------------';grid-row:2;grid-column:1;white-space:pre}>span{color:transparent;grid-row:2;grid-column:1}}}em{font-style:normal;display:inline-block;min-width:9ch}#DSR{>p:nth-of-type(3)>em{min-width:16ch}>p:last-of-type>em{min-width:18ch}>p:nth-of-type(6){margin-top:32.3px}>table{margin:32.3px 0;th{&:first-child:after{content:'============================================================';display:block;position:absolute}&:last-child{padding-left:9ch}}td{padding-bottom:16.15px;&:first-child{width:18ch}&:last-child{width:42ch}}}}#DECUDK{>div{margin-bottom:16.15px;>p>em{min-width:0}>pre{clear:both;>samp{margin-left:9ch}}}>p{&:nth-of-type(4),&:nth-of-type(n+7){margin-top:32.3px;>em{min-width:16ch}}}}#\31\31\.3\.1>ol>li{margin-top:32.3px}#\31\31\.3\.2\.1>table{margin-left:8ch;margin-bottom:16.15px;th:first-child{width:24ch;&:after{content:'-----------------------------------';display:block;position:absolute}}td:first-child{padding-left:14ch}}#\31\31\.3\.4>p:nth-of-type(n+2){margin-top:32.3px}#\31\31\.4>h2{margin-bottom:32.3px}#\31\31\.5\.1{>h3{margin-bottom:32.3px}>p:first-of-type{width:50ch}>p:last-of-type{text-align:center;display:block;margin-top:452.2px}}header{counter-reset:page}a[id]{display:block;position:relative;left:-101px;padding-left:101px;padding-right:calc(715px - 66ch);width:66ch;height:32.3px;margin-top:108px;margin-bottom:32.3px;border-top:11px solid #d4d4d8;padding-top:58px;white-space:pre;&:before{content:'VSRM - User Definable Keys Extension  EL-00070-011\A' '*** COMPANY CONF - DEC Internal Use Only  15-May-1983'}&:after{counter-increment:page;content:'Page 11-' counter(page);position:absolute;top:58px;right:calc(715px - 66ch)}&#\31\31-26:after{right:calc(715px - 65ch)}}#\31\31-19{margin-top:59px}#\31\31-8{margin-top:92px}#\31\31-14,#\31\31-26{margin-top:124px}#\31\31-18{margin-top:189px}#\31\31-2{margin-top:205px}#\31\31-15{margin-top:237px}#\31\31-22{margin-top:253px}#\31\31-6{margin-top:285px}#\31\31-17,#\31\31-20{margin-top:318px}#\31\31-3{margin-top:334px}#\31\31-21{margin-top:382px}#\31\31-16{margin-top:576px}#\31\31-5{margin-top:592px}#\31\31-9,#\31\31-24{margin-top:625px}#\31\31-23{margin-top:689px}#\31\31-7{margin-top:770px}#\31\31-13{margin-top:818px}#\31\31-11{margin-top:883px}body{>header,>main,>footer{>a[id]:first-child{margin-top:0}}>header{padding-bottom:463px}>main{padding-bottom:479px}>footer{padding-bottom:721px}}</style>
+</head>
+<body>
+<header>
+<a id="11-1"></a>
+<hgroup>
+<h1>Video Systems Reference Manual</h1>
+<h2>User Defined Keys Extension</h2>
+</hgroup>
+<dl>
+<dt>Document Identifier</dt>
+<dd><p>A-DS-EL00070-011-0 Rev. AX10, 15-May-83</p></dd>
+<dt>Abstract</dt>
+<dd><p>This section describes the interface to load and invoke User Definable Keys (UDK), which form an extension to the Level 2 Character Cell Display service class.</p></dd>
+<dt>Applicability</dt>
+<dd><p>SARA Formal Cross-Component Standard.  Mandatory for Engineers designing hardware for terminal products and Software Engineers designing programs using terminal interfaces. Additional requirements are defined in the section on "Concepts and Conformance Criteria".</p></dd>
+<dt>Status</dt>
+<dd><p>FOR REVIEW ONLY</p></dd>
+</dl>
+<aside>
+<p>  This document has been placed in the SARA "Formal Cross-&NoBreak;Component Standard" category. The material contained within this document is assumed to define mandatory standards unless it is clearly marked as (a) not mandatory or (b)&nbsp;guidelines. Material which is marked as "not mandatory" is considered to be of potential benefit to the corporation and should be followed unless there are good reasons for non-&NoBreak;compliance. "Guidelines" define approaches and techniques which are considered to be good practice, but should not be considered as requirements. The procedures for modifying or evolving this standard are contained within the contents of this document.</p>
+</aside>
+<aside>
+<p>FOR INTERNAL USE ONLY&nbsp;</p>
+</aside>
+<a id="11-2"></a>
+<dl>
+<dt>Title</dt>
+<dd>VIDEO SYSTEMS - UDK EXTENSION</dd>
+<dt>Document Identifier</dt>
+<dd>A-DS-EL00070-011-0 Rev. AX10, 15-May-1983</dd>
+<dt>Revision History</dt>
+<dd>Original Draft 25-Dec-1982</dd>
+<dt>Files</dt>
+<dd><table>
+<tbody>
+<tr><td>User Documentation</td><td>EL070S11.mem</td></tr>
+<tr><td>Internal Documentation</td><td>EL070S11.rno</td></tr>
+<tr><td></td><td>EL070S11.rnt</td></tr>
+<tr><td></td><td>EL070S11.rnx</td></tr>
+</tbody>
+</table>
+</dd>
+</dl>
+<dl>
+<dt>Document Management Group</dt>
+<dd>Terminal Interface Architecture</dd>
+<dt>Responsible Department</dt>
+<dd>Video Architecture Group</dd>
+<dt>Responsible Individual</dt>
+<dd>Peter Sichel</dd>
+</dl>
+<dl>
+<dt>Acceptance</dt>
+<dd><p>This document has been approved by the Manager of the Video Architecture Group based on a comprehensive review of its individual sections by the members of the SARA component groups working Terminal Interface Architecture issues.  The list of individuals on the review and approval list are on file in Standards and Methods Control.</p></dd>
+</dl>
+<p>Direct requests for further information to Peter Sichel, PKO3-&NoBreak;1/10C, DTN 223-5162, RANI::VIDARCH</p>
+<p>Copies of this document can be ordered from:</p>
+<p>Standards and Methods Control<br />APO1/F7, DTN 289-1414, JOKUR::SIMONETTI</p>
+<a id="11-3"></a>
+<section id="Contents">
+<hgroup>
+<h2>Contents</h2>
+<p>Chapter 11<br />User Definable Keys Extension</p>
+</hgroup>
+<ol>
+<li><a href="#11.1">Introduction</a><span> … </span><a href="#11-4">4</a></li>
+<li><a href="#11.2">Functional Description</a><span> … </span><a href="#11-5">5</a><ol>
+<li><a href="#11.2.1">Programmable Keys</a><span> … </span><a href="#11-5">5</a></li>
+<li><a href="#11.2.2">Default Definitions</a><span> … </span><a href="#11-5">5</a></li>
+<li><a href="#11.2.3">Key Definitions</a><span> … </span><a href="#11-5">5</a></li>
+<li><a href="#11.2.4">Lock Control</a><span> … </span><a href="#11-6">6</a></li>
+</ol>
+</li>
+<li><a href="#11.3">Control Functions</a><span> … </span><a href="#11-7">7</a><ul>
+<li><a href="#DSR">Report UDK Status</a></li>
+<li><a href="#DECUDK">User Defined Keys</a></li>
+</ul>
+<ol>
+<li><a href="#11.3.1">Introducer Sequence Format</a><span> … </span><a href="#11-11">11</a></li>
+<li><a href="#11.3.2">Command String Format</a><span> … </span><a href="#11-13">13</a><ol>
+<li><a href="#11.3.2.1">Key Selection Codes</a><span> … </span><a href="#11-13">13</a></li>
+<li><a href="#11.3.2.2">String Parameters</a><span> … </span><a href="#11-14">14</a></li>
+</ol>
+</li>
+<li><a href="#11.3.3">Error Conditions</a><span> … </span><a href="#11-15">15</a></li>
+<li><a href="#11.3.4">Algorithm</a><span> … </span><a href="#11-16">16</a></li>
+</ol>
+</li>
+<li><a href="#11.4">UDK Key Definition Examples</a><span> … </span><a href="#11-22">22</a></li>
+<li><a href="#11.5">Change History</a><span> … </span><a href="#11-23">23</a><ol>
+<li><a href="#11.5.1">Revision 0.0 To AX10</a><span> … </span><a href="#11-23">23</a></li>
+</ol>
+</li>
+</ol>
+</section>
+</header>
+<main>
+<a id="11-4"></a>
+<section id="11.1">
+<h2>1  Introduction</h2>
+<p>User Defined Keys are a Level 2 extension, which provide the capability of loading into the terminal key definition strings which subsequently be transmitted using a single key stroke.  The format for loading key definition strings is intended to be extensible to future devices which have more complex keyboards, larger memories, or other forms of input processing.  Conforming Level 2 devices which implement this extension, however, are required to provide only fifteen programmable keys, with a total buffer space of at least 256 characters.</p>
+<p>It should be noted that conformance to this standard does not require the ability to retain the key definitions in non-volatile memory.  That is, the loaded definitions may be lost if the terminal is powered off.  On the other hand, non-volatile storage and restoration of the key definition strings is not precluded.  Furthermore, conformance does not preclude a device from providing the ability to interact locally with the key definitions (input, edit, or delete), provided that it is done in keeping with the intent of this standard.</p>
+</section>
+<a id="11-5"></a>
+<section id="11.2">
+<h2>2  Functional Description</h2>
+<section id="11.2.1">
+<h3>2.1  Programmable Keys</h3>
+<p>The keys which may be programmed in Level 2 devices are all of the keys in the Application Function Key Row, when used in combination with the Shift key (see the section "Keyboard Processing" for a complete description of the keyboard).  The keys may only be programmed, and are only operational, when the terminal is in Level 2 operation (as selected by the control function Select Conformance Level (DECSCL); see the section "Terminal Management" for a complete description of the DECSCL function).  When the terminal is in Level 1 operation (or in VT52 mode), the DECUDK control function is ignored and the keys are "dead" (i.e., they do not transmit and do not keyclick).</p>
+</section>
+<section id="11.2.2">
+<h3>2.2  Default Definitions</h3>
+<p>Programmable keys which have not been defined, or have had their definitions erased, do not transmit and therefore do not keyclick.  Programmable keys which have been defined do keyclick, and are also subject to all of the requirements of the lower level transmission layers, such as XON/XOFF flow control, rate limiting, and C1 Control Code translation.</p>
+</section>
+<section id="11.2.3">
+<h3>2.3  Key Definitions</h3>
+<p>The definition for each key consists of a variable length character string of 0 to 255 7-bit or 8-bit characters.  Each character in the string is a code in the range 0/0 through 15/15.  Thus, any character in the code table may be included within a key definition.</p>
+<p>Buffer space for the key definitions is supplied on a first come first serve basis.  Once the supplied buffer space is used up, no more keys may be defined unless space is freed up.  Space may be freed up either by redefining previously defined keys using shorter strings than before, clearing key definitions using the DECUDK control function, or clearing the entire definition set (through a terminal power up reset).</p>
+</section>
+<a id="11-6"></a>
+<section id="11.2.4">
+<h3>2.4  Lock Control</h3>
+<p>The terminal uses a special lock to arbitrate the programming of User Defined Keys.  This lock can be turned on or off through Setup mode.  It may also be turned on (but not off) from the host using the DECUDK control function.  The lock acts globally over all programmable keys.</p>
+<p>The state of the Lock Control may be determined from the host using the Device Status Report control function.</p>
+</section>
+</section>
+<a id="11-7"></a>
+<section id="11.3">
+<h2>3  Control Functions</h2>
+<section id="DSR">
+<h4>Report UDK Status <span>&mdash;</span> DSR</h4>
+<p><em>Levels:</em> 2</p>
+<p><em>Purpose:</em> Report the status of the UDK Lock Control.</p>
+<div>
+<p><em>Request Format:</em></p>
+<pre><samp>CSI     ?       25      n
+
+9/11    3/15    3/2 3/5 6/14</samp></pre>
+<p><em>Report Format:</em></p>
+<pre><samp>CSI     ?       Ps      n
+
+9/11    3/15    Ps      6/14</samp></pre>
+</div>
+<p><em>Description:</em> The DSR control function (Device Status Report) may be used to request the current status of the UDK Lock Control.  (See the section "Terminal Management" for a complete description of Device Status Report.) The terminal will respond to a UDK status request (CSI ?  25 n) by transmitting a Device Status Report control sequence containing one of the following selective parameters (preceded by the private parameter value ?, 3/15):</p>
+<table>
+<thead>
+<tr><th>Selective
+Parameter</th><th>Meaning</th></tr>
+</thead>
+<tbody>
+<tr><td>20</td><td>The User Defined Keys are not locked, and
+all keys may be defined, cleared, or
+redefined from the host.</td></tr>
+<tr><td>21</td><td>The User Defined Keys are locked, and may
+not be defined, cleared, or redefined from
+the host.</td></tr>
+<tr><td>23</td><td>No User Defined Keys are present. The
+device does not support this extension.</td></tr>
+</tbody>
+</table>
+<p><em>Notes:</em></p>
+<ol>
+<li><p>A report will be given even if the UDK extension is not supported.  Thus, this request is an optional means of determining if the extension is present (the other means being the Primary Device Attributes request, as described in the section "Terminal Management").</p></li>
+</ol>
+<a id="11-8"></a>
+<p><em>State Affected:</em> None</p>
+<p><em>Algorithm:</em></p>
+<pre><code>PROCEDURE REPORT_UDK_STATUS;
+BEGIN
+IF LEVEL_2_EXTENSIONS[UDK] THEN
+  BEGIN
+  CASE UDK_LOCK_CONTROL OF
+    UDK_LOCK_OFF: WRITE (HOST_PORT,'&lt;CSI>?20n');
+    UDK_LOCK_ON: WRITE (HOST_PORT,'&lt;CSI>?21n');
+    END;
+  END
+ELSE WRITE (HOST_PORT,'&lt;CSI>?23n');
+END;
+</code></pre>
+<p><em>Known Deviations:</em> None</p>
+</section>
+<a id="11-9"></a>
+<section id="DECUDK">
+<h4>User Defined Keys <span>&mdash;</span> DECUDK</h4>
+<p><em>Levels:</em> 2X</p>
+<p><em>Purpose:</em> Down line load User Defined Key sequences.</p>
+<div>
+<p><em>Format:</em>  The DECUDK control is a Device Control String consisting of an introducer sequence, followed by a command string. The format of the introducer sequence is:</p>
+<pre><samp>DCS  Pe ; Pl  |
+
+9/0  Pe ; Pl  7/12</samp></pre>
+</div>
+<p>The introducer sequence is terminated by the final character | (7/12).</p>
+<p>The command string format is:</p>
+<p><samp>Ky1 / St1 ; Ky2 / St2 ; ... ; Kyn / Stn  ST</samp></p>
+<p>The command string is terminated by the String Terminator character 9/13 (in 7-bits, ESC \, or 1/11 5/12).  See the section "Code Extension Layer" for a complete description of the Device Control String format.</p>
+<p><em>Description:</em> DECUDK control down line loads one or more key definitions into the User Defined Keys.  This sequence is ignored if the UDKs have been locked, either through a previous DECUDK sequence or as a local terminal function.  This sequence executes only when the terminal is in Level 2 operation.</p>
+<p><em>Notes:</em></p>
+<ol>
+<li><p>Software should use the UDK function to reclaim key definition space in the device.  This can be done by clearing keys without locking them.  Once the keys have been cleared the UDK function can be used to redefine the keys and lock them.</p></li>
+<li><p>Host software should not generally leave the user defined keys unlocked.  This may cause a breach of security to the terminal user.</p></li>
+<li><p>The host must keep track of space available for key definitions.  No error indication is given if the available buffer space is filled up.</p><a id="11-10"></a></li>
+<li><p>If a key is redefined the old sequence is lost.  This may free up space if the new sequence is shorter than the previous definition.</p></li>
+</ol>
+</section>
+<a id="11-11"></a>
+<section id="11.3.1">
+<h3>3.1  Introducer Sequence Format</h3>
+<p>The following selective parameter values in the introducer sequence may effect the interpretation of the command string.  All parameters have the same syntax as a control sequence and may be omitted, in which case the default values are used.</p>
+<ol>
+<li><p>Parameter (Pe): Erase Control</p>
+<p>The first parameter controls which key definitions are to be cleared before loading takes place, according to:</p><ul>
+<li>0 - Clear all UDKs before loading new values (default)</li>
+<li>1 - Load new UDK values, clear old only when redefined</li>
+</ul>
+<p>By using Pe=1, it is possible to redefine some keys without reloading them all.</p>
+<p>Note that if the clear parameter is set to 1 (load new, but don't clear old) it is possible that a key load might fail, due to lack of buffer room, even though the final total for all keys would have been 256 bytes or less.  This is because all keys are cleared and loaded sequentially.  Sequential loading without first clearing the key definitions could result in intermediate storage requirements greater than the maximum provided, even though the final requirement would be less than or equal to the maximum.  For example:  If F6 contained 120 bytes, F7 contained 110 bytes, and F8 contained 20 bytes, loading F8 with 40 bytes, F6 with 1 byte and F7 with 1 byte works if all UDKs are cleared first, but not if the keys are cleared as they are sequentially redefined.  (When the user attempts to load F8 with 40 bytes, the load will fail, because only 26 bytes are free at that time (256-120-110=26)).</p></li>
+<li><p>Parameter (Pl): Lock Control</p>
+<p>The second parameter permits the keys to be locked against subsequent deletion or re-definition.  Locking the keys does not effect the definitions included in the current DECUDK sequence (unless the keys were previously locked), but causes all subsequent DECUDK sequences to be ignored (until the lock is cleared by the terminal user under local control).  The following selective parameters may be specified:</p><ul>
+<li>0 - Lock the UDKs against future redefinition (default)</li>
+<li>1 - Don't lock the UDKs against future redefinition</li>
+</ul>
+<a id="11-12"></a><p>Note that Pl=1 does not unlock the UDKs, it just does not lock them.</p></li>
+</ol>
+<p>The Final character | (7/12) indicates that this DCS string is the DECUDK control function.  The data following it up to the String Terminator (ST) is from 2/0 through 7/14 and represents the actual key loading command.</p>
+</section>
+<a id="11-13"></a>
+<section id="11.3.2">
+<h3>3.2  Command String Format</h3>
+<p>The syntax of the DECUDK command string is as follows:</p>
+<p>Key definition strings, Kyn/Stn, are included in the data following the Final character and before the String Terminator (ST).  Each Key Definition String consists of a Key Selector Number, Kyn, and a String Parameter, Stn, separated by a slash "/".  Multiple Key definition strings are separated by semi-colon ";".</p>
+<p>Bit combinations 0/8 to 0/13 may be included in the command string, and have no effect on the interpretation of the data.  They permit convenient formatting of command strings when being created by text editors since TAB, CR, and LF are included in this range.  The following bit combinations are considered as error conditions when they occur within the character font data.  Their processing is UNDEFINED by the architecture.  It is recommended to hardware implementors that they be ignored for future compatibility.</p>
+<ul>
+<li><p>0/1 through 0/7</p></li>
+<li><p>0/14 through 2/14 (with the exception of ESC, 1/11 when it is followed immediately by \, 5/12, to form the two character ESC Fe sequence String Terminator)</p></li>
+<li><p>3/10</p></li>
+<li><p>3/12 through 4/0</p></li>
+<li><p>4/7 through 6/0</p></li>
+<li><p>6/7 through 15/15 (with the exception of ST, 9/12)</p></li>
+</ul>
+<p>These characters should not be used by conforming software.</p>
+<section id="11.3.2.1">
+<h4>3.2.1  Key Selection Codes</h4>
+<p>Key selection codes are specified as string of characters in the range 3/0 through 3/9 ("0" through "9"), indicating a single decimal value.  The values which may be specified in Level 2 are the parameter values of the control sequences normally transmitted by the programmable keys when they are not pressed in combination with the Shift key (CSI ?  Pn ~).  (See the section "Keyboard Processing" for a complete description of the codes transmitted by the Application Function Keys.)</p>
+<p>The following table indicates the relationship between the specified value and actual keys on the keyboard:</p>
+<a id="11-14"></a>
+<table>
+<thead>
+<tr><th data-underline="------------------">Key Selection Code</th><th data-underline="-----------">Related Key</th></tr>
+</thead>
+<tbody>
+<tr><td>17</td><td>F6</td></tr>
+<tr><td>18</td><td>F7</td></tr>
+<tr><td>19</td><td>F8</td></tr>
+<tr><td>20</td><td>F9</td></tr>
+<tr><td>21</td><td>F10</td></tr>
+<tr><td colspan="2"></td></tr>
+<tr><td>23</td><td>F11</td></tr>
+<tr><td>24</td><td>F12</td></tr>
+<tr><td>25</td><td>F13</td></tr>
+<tr><td>26</td><td>F14</td></tr>
+<tr><td colspan="2"></td></tr>
+<tr><td>28</td><td>Help Key</td></tr>
+<tr><td>29</td><td>Do Key</td></tr>
+<tr><td colspan="2"></td></tr>
+<tr><td>31</td><td>F17</td></tr>
+<tr><td>32</td><td>F18</td></tr>
+<tr><td>33</td><td>F19</td></tr>
+<tr><td>34</td><td>F20</td></tr>
+</tbody>
+</table>
+<p>Key selectors may be in any order and may be specified multiple times within the string.  If multiple definitions of a key occur, the last definition is preserved.  If no key definition is specified for a selected key, that UDK will be cleared of it's definition.</p>
+</section>
+<section id="11.3.2.2">
+<h4>3.2.2  String Parameters</h4>
+<p>The string parameters, Stn, are the encoded contents of the UDKs.  They consist of hex pairs in the range 3/0 - 3/9 ("0" through "9"), 4/1 - 4/6 ("A" through "F"), and 6/1 - 6/6 ("a" through "f").  When these hex values are combined they represent an 8-bit quantity.  This allows any of the 256 character codes to be used in the UDK sequence.  The 8-bit code is loaded high byte first, then low byte, as shown below:</p>
+<figure>
+<pre> 1st hex value   2nd hex value
++-------------------------------+
+|  high nibble  |  low  nibble  |
+|    of  code   |    of  code   |
++-------------------------------+</pre>
+</figure>
+</section>
+</section>
+<a id="11-15"></a>
+<section id="11.3.3">
+<h3>3.3  Error Conditions</h3>
+<p>The following error conditions may occur, and have the specified recovery:</p>
+<ol>
+<li><p>Partial Hex Code - If an odd number of hex values is received in any of the string definitions, the current key definition and the entire remainder of the load sequence will be ignored.  The Lock Control will also be set (UDK Lock On).</p></li>
+<li><p>Key Code Out of Range - If a key selection code is received which does not represent a programmable key in the device, the entire definition for that key will be processed and ignored.  The remainder of the string will be processed normally.</p></li>
+<li><p>Null Key Definition - If two key definition separators (semi-colons) occur together, with no properly terminated key selection code intervening, the characters between the semi-colons will be ignored.  The remainder of the string will be processed normally.</p></li>
+</ol>
+</section>
+<a id="11-16"></a>
+<section id="11.3.4">
+<h3>3.4  Algorithm</h3>
+<p>NOTE:  For the sake of clarity, the following algorithm was coded using an excess of UDK buffer memory and working buffers.  It should be recognized that the memory management schemes which will probably be required in many implementations will make this procedure much more complex.</p>
+<p><em>State Affected:</em></p>
+<ul>
+<li><code>UDK: UDK_TYPE;</code></li>
+<li><code>TOTAL_COUNT: 0..MAX_SIZE_UDK_BUFFER;</code></li>
+<li><code>UDK_LOCK_CONTROL: (UDK_LOCK_OFF,UDK_LOCK_ON);</code></li>
+<li><code>UDK_BUFFER_OVERFLOW: BOOLEAN;</code></li>
+</ul>
+<p><em>Algorithm:</em></p>
+<pre><code>CONST    MIN_UDK_VALUE = 17;
+         MAX_UDK_VALUE = 35;
+         MAX_SIZE_UDK_BUFFER = 256;
+
+TYPE     CODE_TYPE = 0..255;
+
+         KEY_DEFINITION_TYPE = RECORD
+           CODE_BUFFER:
+             ARRAY [1..MAX_SIZE_UDK_BUFFER] OF CODE_TYPE;
+           CODE_COUNT: 0..MAX_SIZE_UDK_BUFFER;
+           END;
+
+         UDK_RANGE = MIN_UDK_VALUE..MAX_UDK_VALUE;
+
+         LEGAL_UDK_VALUES_TYPE = SET OF UDK_RANGE;
+
+         UDK_TYPE =
+           ARRAY [UDK_RANGE] OF KEY_DEFINITION_TYPE;
+
+<a id="11-17"></a>VAR      UDK: UDK_TYPE;
+         TOTAL_CODE_COUNT: 0..MAX_SIZE_UDK_BUFFER;
+         UDK_LOCK_CONTROL: (UDK_LOCK_OFF,UDK_LOCK_ON);
+         LEGAL_UDK_VALUES: LEGAL_UDK_VALUES_TYPE;
+         LOCK_SET: BOOLEAN;
+         UDK_ERASE_CONTROL: (NO_ERASE_UDK,ERASE_ALL_UDK);
+         VALID_UDK_SYNTAX: BOOLEAN;
+         UDK_STRING_TERMINATED: BOOLEAN;
+         KEY_CODE: INTEGER;
+         KEY_CODE_TERMINATED: BOOLEAN;
+         HEX_CODE_VALUES: SET OF CODE_TYPE;
+         WORK_BUFFER:
+           ARRAY [1..MAX_SIZE_UDK_BUFFER] OF CODE_TYPE;
+         CODE_PAIR_TERMINATED: BOOLEAN;
+         DEFINITION_TERMINATED: BOOLEAN;
+         UDK_BUFFER_OVERFLOW: BOOLEAN;
+         I,N: INTEGER;
+
+PROCEDURE GET_NEXT_EVENT (VAR EVENT: EVENT_BUFFER_TYPE); EXTERN;
+PROCEDURE GET_UDK_PARAMETERS (EVENT: EVENT_BUFFER_TYPE); FORWARD;
+PROCEDURE GET_KEY_CODE; FORWARD;
+PROCEDURE GET_KEY_DEFINITION; FORWARD;
+PROCEDURE FILL_KEYS; FORWARD;
+
+
+PROCEDURE INITIALIZE_UDKS;
+(*
+  This routine is called on power up reset to initialize
+  the UDK state information to its default values.
+*)
+BEGIN
+(* the following codes are in the specified range,
+and are the valid programmable key codes for Level 2 *)
+LEGAL_UDK_VALUES:= [17..21,23..26,28..29,31..35];
+(* the following are valid hex codes, 0-9, A-F, and a-f *)
+HEX_CODE_VALUES:= [48..57,65..70,97..102];
+UDK_BUFFER_OVERFLOW:= FALSE;
+TOTAL_CODE_COUNT:= 0;
+FOR N:= MIN_UDK_VALUE TO MAX_UDK_VALUE DO
+  UDK[N].CODE_COUNT:= 0;
+(* NOTE: The actual value of the Lock Control on
+initialization is specified by the user in Setup *)
+UDK_LOCK_CONTROL:= UDK_LOCK_OFF;
+END;
+
+
+<a id="11-18"></a>PROCEDURE EXECUTE_UDK (EVENT: EVENT_BUFFER_TYPE);
+(*
+  This routine is called each time a DECUDK control
+  string introducer is received. It provides the top
+  level control for the key loading sequence.
+*)
+BEGIN
+GET_UDK_PARAMETERS (EVENT);
+IF VALID_UDK_SYNTAX THEN
+  BEGIN
+  UDK_STRING_TERMINATED:= FALSE;
+  IF UDK_LOCK_CONTROL = UDK_LOCK_OFF THEN
+    BEGIN
+    (* clear all udk's if requested *)
+    IF UDK_ERASE_CONTROL = ERASE_ALL_UDK THEN
+      BEGIN
+      FOR N:= MIN_UDK_VALUE TO MAX_UDK_VALUE DO
+        UDK[N].CODE_COUNT:= 0;
+      TOTAL_CODE_COUNT:= 0;
+      END;
+    (* then process the command string *)
+    FILL_KEYS;
+    END;
+  (* if locked or overflowed, keep going until the end *)
+  WHILE NOT UDK_STRING_TERMINATED DO
+    BEGIN
+    GET_NEXT_EVENT (EVENT);
+    IF (EVENT.EVENT_CODE = CONTROL_CODE)
+    AND (EVENT.CODE_VALUE = 156) THEN
+      UDK_STRING_TERMINATED:= TRUE;
+    END;
+  END;
+(* set the lock if requested *)
+IF LOCK_SET THEN UDK_LOCK_CONTROL:= UDK_LOCK_ON;
+END;
+
+
+PROCEDURE GET_UDK_PARAMETERS;
+(* get all of the parameters for the load *)
+BEGIN
+VALID_UDK_SYNTAX:= TRUE;
+CASE EVENT.PARAMETERS[1] OF
+  0: UDK_ERASE_CONTROL:= ERASE_ALL_UDK;
+  1: UDK_ERASE_CONTROL:= NO_ERASE_UDK;
+  OTHERWISE VALID_UDK_SYNTAX:= FALSE;
+  END;
+CASE EVENT.PARAMETERS[2] OF
+  0: LOCK_SET:= TRUE;
+  1: LOCK_SET:= FALSE;
+  OTHERWISE VALID_UDK_SYNTAX:= FALSE:
+  END;
+END;
+
+
+<a id="11-19"></a>PROCEDURE FILL_KEYS;
+(*
+  This routine processes the command string and loads the
+  key definition strings into the appropriate key buffers.
+*)
+BEGIN
+UDK_STRING_TERMINATED:= FALSE;
+(* get all of the key definitions in the strings *)
+REPEAT
+  KEY_CODE_TERMINATED:= FALSE;
+  DEFINITION_TERMINATED:= FALSE:
+  GET_KEY_CODE;
+  IF KEY_CODE_TERMINATED THEN
+    BEGIN
+    (* fill work buffer with code string *)
+    GET_KEY_DEFINITION;
+    (* ignore out of range key codes *)
+    IF (KEY_CODE IN LEGAL_UDK_VALUES)
+    AND (CODE_PAIR_TERMINATED) THEN
+      BEGIN
+      IF TOTAL_CODE_COUNT + I &lt;= MAX_SIZE_UDK_BUFFER THEN
+        BEGIN
+        UDK[KEY_CODE].CODE_BUFFER:= WORK_BUFFER;
+        TOTAL_CODE_COUNT:=
+        TOTAL_CODE_COUNT - UDK[KEY_CODE].CODE_COUNT;
+        UDK[KEY_CODE].CODE_COUNT:= I;
+        TOTAL_CODE_COUNT:= TOTAL_CODE_COUNT + I;
+        END
+      ELSE UDK_BUFFER_OVERFLOW:= TRUE;
+      END
+    ELSE IGNORE;
+    END;
+(* these conditions cause the rest of the string to be ignored *)
+UNTIL (NOT CODE_PAIR_TERMINATED) OR (UDK_BUFFER_OVERFLOW)
+OR (UDK_STRING_TERMINATED);
+END;
+
+
+<a id="11-20"></a>PROCEDURE GET_KEY_CODE;
+(*
+  This routine parses a single key selector code
+  from the command string.
+*)
+BEGIN
+KEY_CODE:= 0;
+REPEAT
+  GET_NEXT_EVENT (EVENT);
+  CASE EVENT.EVENT_CODE OF
+    GRAPHIC_CODE:
+      BEGIN
+      IF (EVENT.CODE_VALUE >= 48)
+      AND (EVENT.CODE_VALUE &lt;= 57) THEN
+        KEY_CODE:= (KEY_CODE * 10) + (EVENT.CODE_VALUE - 48)
+      ELSE
+        BEGIN
+        CASE EVENT.CODE_VALUE OF
+          47: KEY_CODE_TERMINATED:= TRUE;
+          59: DEFINITION_TERMINATED:= TRUE;
+          OTHERWISE IGNORE;
+          END;
+        END;
+      END;
+    CONTROL_CODE:     (* terminate on String Terminator, 9/12 *)
+      IF EVENT.CODE_VALUE = 156 THEN UDK_STRING_TERMINATED:= TRUE
+      ELSE IGNORE;    (* ignore other control characters *)
+    OTHERWISE IGNORE; (* ignore escape and control sequences *)
+    END;
+UNTIL (KEY_CODE_TERMINATED) OR (DEFINITION_TERMINATED)
+OR (UDK_STRING_TERMINATED);
+END;
+
+
+<a id="11-21"></a>PROCEDURE GET_KEY_DEFINITION;
+(*
+  This routine parses a single key definition string from the
+  command string.
+*)
+BEGIN
+I:= 0;
+CODE_PAIR_TERMINATED:= TRUE;
+REPEAT
+  GET_NEXT_EVENT (EVENT);
+  CASE EVENT.EVENT_CODE OF
+    GRAPHIC_CODE:
+      BEGIN
+      IF EVENT.CODE_VALUE IN HEX_CODE_VALUES THEN
+        BEGIN
+        (* convert ascii codes to hex values *)
+        EVENT.CODE_VALUE:= EVENT.CODE_VALUE - 48;
+        IF EVENT.CODE_VALUE >= 65 THEN
+          EVENT.CODE_VALUE:= EVENT.CODE_VALUE - 7;
+        IF EVENT.CODE_VALUE >= 97 THEN
+          EVENT.CODE_VALUE:= EVENT.CODE_VALUE - 22;
+        (* then pack into buffer *)
+        IF CODE_PAIR_TERMINATED THEN
+          BEGIN
+          I:= I+1;
+          WORK_BUFFER[I]:= 0;
+          CODE_PAIR_TERMINATED:= FALSE;
+          END
+        ELSE CODE_PAIR_TERMINATED:= TRUE;
+        WORK_BUFFER[I]:=
+        ((WORK_BUFFER[I]) * 16) + EVENT.CODE_VALUE;
+        END;
+      IF EVENT.CODE_VALUE = 59 THEN
+        DEFINITION_TERMINATED:= TRUE;
+      END;
+    CONTROL_CODE:     (* terminate on String Terminator, 9/12 *)
+      IF EVENT.CODE_VALUE = 156 THEN UDK_STRING_TERMINATED:= TRUE
+      ELSE IGNORE;    (* ignore other control characters *)
+    OTHERWISE IGNORE; (* ignore escape and control sequences *)
+    END;
+UNTIL (DEFINITION_TERMINATED) OR (UDK_STRING_TERMINATED);
+END;
+</code></pre>
+</section>
+</section>
+<a id="11-22"></a>
+<section id="11.4">
+<h2>4  UDK Key Definition Examples</h2>
+<p>To clear the UDKs send the following sequence:</p>
+<p><samp>DCS 0 ; 1 | ST</samp></p>
+<p>To lock the UDKs send the following sequence:</p>
+<p><samp>DCS 1 ; 0 | ST</samp></p>
+<p>The following is a generalized example of the recommended way to load the UDKs:</p>
+<p><samp>DCS 0 ; 1 | Ky1 / St1 ; Ky2 / St2 ; ... ; Kyn / Stn ST</samp></p>
+</section>
+<a id="11-23"></a>
+<section id="11.5">
+<h2>5  Change History</h2>
+<section id="11.5.1">
+<h3>5.1  Revision 0.0 To AX10</h3>
+<p>The spec was entirely rewritten from the original draft. The following sections were added:</p>
+<ol>
+<li><p>Introduction</p></li>
+<li><p>Functional Description</p></li>
+<li><p>Report UDK Status (control function)</p></li>
+<li><p>Extensively modified the UDK load sequence, DECUDK</p></li>
+<li><p>Pascal coded algorithms</p></li>
+<li><p>UDK load examples</p></li>
+</ol>
+<a id="11-24"></a>
+<p hidden>This page deliberately left blank.</p>
+</section>
+</section>
+</main>
+<footer>
+<a id="11-25"></a>
+<section id="Index">
+<h2>Section Index</h2>
+<ul>
+<li>C1 Control Characters<ul>
+<li>in user defined keys <a href="#11-5">5</a></li>
+</ul>
+</li>
+<li>Code Table <a href="#11-5">5</a></li>
+<li>Conformance<ul>
+<li>user defined keys <a href="#11-4">4</a></li>
+</ul>
+</li>
+<li>Default Key Definitions <a href="#11-5">5</a></li>
+<li>Device Status Report<ul>
+<li>user defined keys <a href="#11-7">7</a></li>
+</ul>
+</li>
+<li>DSR <a href="#11-7">7</a></li>
+<li>Error Conditions<ul>
+<li>user defined keys <a href="#11-15">15</a></li>
+</ul>
+</li>
+<li>Flow Control<ul>
+<li>user defined keys <a href="#11-5">5</a></li>
+</ul>
+</li>
+<li>Key Definition Strings <a href="#11-5">5</a></li>
+<li>Keyclick<ul>
+<li>user defined keys <a href="#11-5">5</a></li>
+</ul>
+</li>
+<li>Programmable Keys <a href="#11-5">5</a></li>
+<li>Rate Limiting<ul>
+<li>user defined keys <a href="#11-5">5</a></li>
+</ul>
+</li>
+<li>Report UDK Status<ul>
+<li>control function <a href="#11-7">7</a></li>
+</ul>
+</li>
+<li>Software Conformance<ul>
+<li>character font data <a href="#11-13">13</a><a id="11-26"></a></li>
+</ul>
+</li>
+<li>UDK <a href="#11-4">4</a>, <a href="#11-9">9</a></li>
+<li>UDK Lock Control<ul>
+<li>status report <a href="#11-7">7</a></li>
+</ul>
+</li>
+<li>User Defined Keys <a href="#11-4">4</a><ul>
+<li>control function <a href="#11-9">9</a></li>
+</ul>
+</li>
+<li>XON/XOFF<ul>
+<li>with user defined keys <a href="#11-5">5</a></li>
+</ul>
+</li>
+</ul>
+</section>
+</footer>
+</body>
+</html>
