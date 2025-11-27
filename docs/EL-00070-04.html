@@ -1,0 +1,2196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>VSRM - Terminal Management</title>
+<meta charset="UTF-8" />
+<style>*{text-shadow:0.5px 0;color:#000000;padding:0;margin:0;border-collapse:collapse}body{background:#d4d4d8;>header,>main,>footer{width:731px;padding-left:85px;padding-bottom:17.25px;background:#ffffff;margin:0 auto}>footer{border-bottom:11px solid #d4d4d8}font-family:"Times New Roman";font-size:16.25px;line-height:17.25px;word-spacing:0.3px;letter-spacing:0.5px}a{text-decoration:none}a[href]:hover{color:#bb0000}header>hgroup{>h1,>h2{display:inline;text-transform:none;font-size:24.5px;line-height:26.5px;letter-spacing:-0.1px}>h1{&:before{content:'DEC STD 070-4 ';font-size:25px;word-spacing:3px;letter-spacing:-0.6px}&:after{content:' - '}}margin-top:171px;margin-bottom:34px;width:550px}h2,h3,h4,p{white-space:pre-wrap}h1,h2,h3,h4{font-family:Arial;font-weight:bold;text-transform:uppercase}h2{font-size:16.5px;line-height:19px;letter-spacing:-0.3px}h3{font-size:14.7px;letter-spacing:0.1px}h4{font-size:14.7px;line-height:11px;letter-spacing:0.1px;text-transform:none}p,ol,section{+section{margin-top:22px;&:has(>h4){margin-top:23.5px}}}h2+*,h3+*,h4+*{margin-top:9px}p+p{margin-top:8.25px}cite{font-style:italic;letter-spacing:0.2px}aside{margin-top:11px;margin-bottom:14px;margin-left:24px;font-family:Sylfaen;font-weight:bold;font-size:15px;line-height:16px;>h4{font-family:Sylfaen;margin-bottom:34px;margin-left:263px;text-transform:uppercase}header>&{width:428px;margin-left:99px;margin-top:40px;box-sizing:border-box;border:2px solid #000000;padding:5px 0px 5px 8px;>p{font-family:Arial;font-size:11px;line-height:12px;letter-spacing:-0.15px;word-spacing:1px;text-shadow:0.1px 0;+p{margin-top:12px}}}a[id]{transform:translateX(-24px)}}dl{>dt{float:left;padding-right:3px;font-weight:bold;letter-spacing:0.8px;&:after{content:' -'}}>dd{margin-bottom:9px;white-space:pre}}header>dl{font-family:Arial;font-size:15px;>dt{text-transform:uppercase;letter-spacing:-0.1px}>dt:after{content:':';padding-right:2px}>dd{margin-bottom:35px;word-spacing:1.5px;letter-spacing:-0.2px}&:nth-of-type(2){>dt:nth-of-type(1){display:none}>dd:nth-of-type(1){font-weight:bold;margin-bottom:9px;&:before{content:'DEC STD 070-4 '}}>dt:nth-of-type(3){font-size:12.5px;line-height:14.5px;padding-right:90px}>dd:nth-of-type(3){white-space:normal;margin-bottom:9.5px;td{font-size:12.5px;line-height:14.5px;width:99px}}}&:nth-of-type(3){font-size:12px;margin-bottom:9.5px;>dt,>dd{line-height:14.5px}>dt{text-transform:none;word-spacing:1px;letter-spacing:-0.3px}>dd{margin-left:305px;margin-bottom:0;letter-spacing:0;width:320px;white-space:normal}}&:nth-of-type(4){>dt{letter-spacing:-0.3px}>dd{white-space:normal;word-spacing:1px;>p:nth-of-type(n+2){margin-top:65px;border-top:2px solid black;width:401px;margin-left:96px;padding-left:30px;padding-top:5.75px;font-size:15px;word-spacing:0.5px}>p:nth-of-type(3){margin-top:55px}}}}header>p{font-family:Arial;font-size:12px;line-height:15px;letter-spacing:0.15px;&:nth-of-type(1){margin-top:35px;margin-left:93px}&:nth-of-type(2){margin-top:25px;margin-left:144px}&:nth-of-type(n+3){font-size:15px;line-height:17px;word-spacing:0.5px;letter-spacing:0}&:nth-of-type(4){margin-top:27px;margin-left:275px;word-spacing:1.1px}&:nth-of-type(5){margin-top:0;margin-left:147px;word-spacing:1.1px}&:nth-of-type(3){margin-top:160px}&:nth-of-type(6){margin-top:78px}}ul{list-style:none;margin-top:9px;margin-bottom:9px;word-spacing:-1px;>li:has(>code){line-height:0}}ol{list-style-type:none;margin-top:6px;margin-bottom:12px;>li>p{margin-bottom:6.6px;margin-left:28px;&:first-child:before{content:counter(list-item,decimal) ".";display:inline-block;width:28px;margin-left:-28px}>a[id]{transform:translateX(-28px)}}&[type="a"]>li>p:before{content:counter(list-item,lower-alpha) "."}}#Contents{>hgroup{>h2{font-family:"Times New Roman";font-size:16px;font-weight:normal;letter-spacing:0.2px;padding-left:269px;margin-top:-2px;margin-bottom:30px}>p{display:none}}a[href]{background:#ffffff;position:relative;z-index:1;&:nth-of-type(1):after{content:'\A0'}&:nth-of-type(2){position:absolute;right:108px;text-align:right;width:36px}}ol{margin:0;>li{padding-left:10px;line-height:18.5px;&:before{content:counters(list-item,".");display:inline-block;width:14px;letter-spacing:-0.1px}>ol>li:before{width:25px}>ol>li>ol>li:before{width:35px}}}>ol{font-size:15px;letter-spacing:-0.1px;position:relative;>li{padding-left:28px;text-transform:uppercase;li li{text-transform:none;letter-spacing:0.4px}&:nth-child(6)>ol>li:nth-child(n+3){text-transform:none}&:not(:first-child){margin-top:7.5px}}}>ol[type=A]{margin-top:20px;>li{counter-increment:appendix;margin-bottom:21px;padding-left:0;text-transform:none;>a:first-of-type,&:before{font-size:16.5px;letter-spacing:0.1px}>a:first-of-type{text-transform:uppercase}&:before{content:'Appendix ' counter(appendix,upper-alpha);width:96px}li{margin-top:8px;padding-left:27px;>a:first-of-type{letter-spacing:0.1px}&:before{content:counter(appendix,upper-alpha) '.' counter(list-item);width:30px}}}}>ul{text-transform:uppercase;>li{margin-top:29px;>ol{text-transform:none;letter-spacing:0.4px;word-spacing:-0.5px;>li{position:relative;padding-left:18px;counter-increment:sub-item;font-size:15px;&:before{content:counter(sub-item);width:56px}}}}}li>span{visibility:hidden;&:after{content:'..............................................................';visibility:visible;position:absolute;right:111px;letter-spacing:4.3px}}}#Index{>h2{font-size:19px;margin-top:106px;margin-bottom:72px}>ul{column-count:2;width:706px;font-size:13.5px;>li>ul{margin:0;margin-left:17px}li,a{line-height:14.5px;word-spacing:1px;letter-spacing:0.2px}>li{&:before{font-family:Arial;font-size:20px;font-weight:bold;line-height:27px;display:block;border-bottom:2px solid black;width:266px;margin-top:4px;margin-bottom:3px}}&:nth-of-type(1)>li{&:nth-child(1):before{content:'A';margin-top:-10px}&:nth-child(2):before{content:'C'}&:nth-child(3):before{content:'D'}&:nth-child(20):before{content:'F'}&:nth-child(21):before{content:'I'}&:nth-child(27):before{content:'P'}&:nth-child(29):before{content:'R'}&:nth-child(31):before{content:'S'}&:last-child{margin-bottom:110px}}&:nth-of-type(2){column-count:1;margin-top:37px;>li:nth-child(1):before{content:'T'}}}}table{font-family:Arial;font-size:11px;>caption{border-top:2px solid black;text-align:left;font-weight:bold;font-size:14.5px;letter-spacing:0;word-spacing:1.1px;padding:2.5px 0;white-space:pre}th{text-align:left;vertical-align:bottom;font-size:12px;line-height:15px;letter-spacing:-0.5px;box-sizing:border-box;padding:3px 20px 3px 0;border-bottom:2px solid black}}#DA,#DECSTR{>table{border-top:2px solid black;border-bottom:2px solid black;line-height:18.4px;width:626px;tr:first-child>td{padding-top:5px}}}code{font-family:"Courier New";font-weight:bold;font-size:13px;line-height:13.2px;word-spacing:0;letter-spacing:-0.55px;text-shadow:none;white-space:pre;pre>&{display:block;padding-top:6px;padding-left:28px;>a[id]{transform:translateX(-28px)}>br{display:block;margin-bottom:-5.5px;content:''}}}div{margin-top:9px;>pre>samp{display:block;margin-left:28.5px;margin-top:22px;margin-bottom:9px}}samp{font-family:"Courier New";font-weight:bold;font-size:12px;line-height:13px;word-spacing:0;letter-spacing:0;text-shadow:none}figure{margin-top:12px;>figcaption{font-family:Arial;font-weight:bold;font-size:14.5px;letter-spacing:0.2px;white-space:pre}&:nth-of-type(1)>svg{margin-left:174px;margin-top:31px;margin-bottom:13px}&:nth-of-type(2)>svg{margin-left:65px;margin-top:4px;margin-bottom:32px}}section:has(>h4>span){margin-top:37px;h2+&{margin-top:16px}>h4{display:grid;grid-template-columns:520px 100px;position:relative;white-space:normal;text-transform:uppercase;font-size:12.5px;line-height:16.5px;letter-spacing:-0.2px;border-bottom:3px solid black;margin-bottom:12px;width:626px;>span{visibility:hidden;grid-row:3;grid-column:1;line-height:16.5px}>small{font-size:inherit;text-transform:none;position:absolute;left:129px}}&#DA3\/DECRPTUI,&#DECSR\/DECSRC{>h4{grid-auto-flow:column;line-height:15px}}}section:has(>h4>span){&#DA{>pre{margin-top:8px;margin-bottom:8px}>aside{margin-bottom:9px;word-spacing:1px;>h4{margin-bottom:10.5px;margin-left:267px}}>table{&:nth-of-type(1){margin-top:35px;th{&:nth-child(1){width:117px}&:nth-child(2){width:81px}}tr:last-child>td{padding-bottom:4px}}&:nth-of-type(2){margin-top:24px;margin-bottom:10px;th{&:nth-child(1){width:164px}&:nth-child(2){width:117px}}tr:last-child>td{padding-bottom:2px}}}}&#DECSCL{>p:first-of-type{margin-top:-9px}>ul{&:nth-of-type(1){margin-top:33px;margin-bottom:0;margin-left:28px}&:nth-of-type(2){margin-top:1px;>li>code{font-family:"Times New Roman";font-size:16px;line-height:17px;letter-spacing:0}}}>aside>ol>li>ul{margin-top:-7px;margin-bottom:24px;margin-left:29px;>li{font-size:15px;line-height:16px;letter-spacing:0.6px}}>pre{margin-top:38px;margin-bottom:8px}}&#DA2{>p:first-of-type{margin-top:-9px}>div>pre>samp{margin-top:15px}>pre{margin-top:28px;margin-bottom:8px}}&#DA3\/DECRPTUI{margin-top:47px;>div>pre>samp{margin-top:15px}>aside{font-family:inherit;font-weight:inherit;font-size:inherit;line-height:inherit;word-spacing:inherit;margin-top:16px;margin-bottom:35px;margin-left:0;>h4{font-family:inherit;font-size:17px;line-height:inherit;letter-spacing:inherit;text-transform:none;margin-left:0;margin-bottom:0}}>pre{margin-top:26px;margin-bottom:8px}}&#DECID{>p:first-of-type{margin-top:-9px}>div>pre>samp{margin-top:15px}>aside>h4{margin-top:37px}>pre{margin-top:28px;margin-bottom:9px}}&#DECSR\/DECSRC{>div>pre>samp{margin-top:15px}>ul{margin:7px 0px 11px 28px;letter-spacing:0.6px;>li{white-space:pre}}>pre{margin-top:27px;margin-bottom:8px}}&#DECSTR{>div>pre>samp{margin-top:15px}>table{margin-top:22px;margin-bottom:10px;th:first-child{width:256px}tr:last-child>td{padding-bottom:1px}}>pre{margin-bottom:9px}}&#DSR{>div>pre>samp{margin-top:15px}p,ul{+p:has(+ul){font-family:Arial;font-weight:bold;font-size:12px;letter-spacing:-0.4px;margin-left:80px;margin-top:7px}}>ul:nth-of-type(-n+3){font-family:Arial;font-weight:bold;font-size:12px;line-height:18px;letter-spacing:-0.2px;margin-top:20px;margin-bottom:19px;>li{display:grid;grid-template-columns:80px 435px 0;>span{grid-column:3;grid-row:1;color:transparent}}}>aside>h4{margin-top:36px}>ul:nth-of-type(4){margin-top:6px;margin-left:57px}}&#DA3\/DECRPTUI,&#DECSR\/DECSRC{>div:nth-of-type(2)>p{margin-top:-9px;font-weight:bold;>em{font-weight:inherit}&::first-line{font-weight:normal;letter-spacing:0.1px;line-height:35px}}}}em{font-size:17px;font-style:normal;font-weight:bold}#\34\.2>dl{line-height:17.1px}#\34\.3\.2>pre>code{padding-top:33px}#\34\.4{>ul{margin-top:45px;margin-left:28px;>li{>code{line-height:13.1px}&:nth-child(2),&:nth-child(13),&:nth-child(20),&:nth-child(23),&:nth-child(26),&:nth-child(34),&:nth-child(35),&:nth-child(36),&:nth-child(37),&:nth-child(40){margin-top:7px}}}>pre{margin-top:28px}}#\34\.6>section:nth-of-type(n+3)>h3{text-transform:none}#\34\.6\.2>ol{margin-top:15px}#\34\.6\.4>p{font-weight:bold;letter-spacing:0.2px;text-transform:uppercase;margin-left:28px;&:not(:first-of-type){margin-top:17px;margin-bottom:22px}}#\34\.A,#\34\.B{>h2{margin-top:96px;margin-left:112px;font-size:19px;word-spacing:6px;&:before{content:'APPENDIX\2003'}}&#\34\.B>h2{margin-left:132px}>section{>h3{font-size:16px;line-height:28px;text-transform:none}>dl{font-family:Arial;font-size:12.5px;margin-top:0;margin-bottom:12px;border-top:3px solid black;border-bottom:3px solid black;width:628px;>dt,>dd{line-height:15px;&:first-of-type{&:before{display:block;height:21px;line-height:21px;border-bottom:3px solid black;margin-bottom:6px;letter-spacing:-0.4px}}}>dt{width:165px;padding:0;letter-spacing:-0.2px;&:first-of-type:before{content:'EL-Class Number'}&:after{display:none}}>dd{margin-left:165px;margin-bottom:3px;font-style:italic;word-spacing:1.25px;letter-spacing:-0.25px;&:first-of-type:before{content:'Document Title';font-style:normal}}&+p{font-size:17px;word-spacing:-1px;letter-spacing:0.1px}}&:nth-of-type(1){margin-top:33px}&:nth-of-type(2){margin-top:15px;>dl>dt:first-of-type:before{content:'Document Number'}}&:nth-of-type(3){margin-top:46px;position:relative;>p{margin-top:3px}>p:nth-of-type(2){margin-left:27px;margin-top:5px;&:before{content:'\2022';font-size:20px;position:absolute;left:0}}}}}header,main,footer{counter-reset:page}a[id]{display:block;position:relative;left:-85px;padding-left:85px;width:731px;height:17.25px;margin-top:181px;margin-bottom:32px;border-top:11px solid #d4d4d8;padding-top:45px;white-space:pre;font-family:Arial;font-size:14px;font-weight:bold;word-spacing:0.8px;letter-spacing:-0.3px;text-transform:none;&:before{content:'EL-00070-04\A' '04-Oct-1990';line-height:0;position:absolute;left:643px;text-indent:-558px;padding-top:9px;font-size:12.5px;word-spacing:2.1px}&:after{--content:'Digital Internal Use Only\A';counter-increment:page;content:var(--content) counter(page);line-height:0;position:absolute;top:985px;text-indent:290px}header &:after{content:var(--content) counter(page,lower-roman)}&#\34-29,&#\34-35{&:before{text-indent:-533px}}&#iii,&#\34-1,&#\34-3,&#\34-5,&#\34-7,&#\34-9,&#\34-11,&#\34-13,&#\34-15,&#\34-17,&#\34-19,&#\34-21,&#\34-23,&#\34-25,&#\34-27,&#\34-29,&#\34-31,&#\34-33,&#\34-35,&#\34-37,&#\34-39,&#\34-41,&#\34-43,&#\34-45,&#Index-1{&:after{text-indent:207px;text-align:right;direction:rtl;right:105px}}&#i:after{content:var(--content);text-indent:270px}&#i,&#ii{&:before{content:'EL-00070-04                                 Digital Internal Use Only\A' '04-Oct-1990'}}&#Index-1,&#Index-2{&:after{content:var(--content) 'Index-' counter(page)}}&#Index-1{&:before{content:'\A' 'EL-00070-04'}&:after{text-indent:223px}}&#Index-2{&:before{content:'EL-00070-04'}&:after{text-indent:308px}}}#\34-14{margin-top:89px}#\34-23{margin-top:99px}#\34-32{margin-top:103px}#\34-37{margin-top:105px}#\34-8{margin-top:106px}#\34-6,#\34-7{margin-top:111px}#\34-36,#Index-2{margin-top:113px}#\34-3,#\34-41{margin-top:121px}#\34-39{margin-top:123px}#\34-40{margin-top:140px}#\34-16{margin-top:142px}#\34-13{margin-top:143px}#\34-18{margin-top:163px}#\34-30{margin-top:166px}#\34-31{margin-top:167px}#\34-27{margin-top:180px}#\34-29{margin-top:190px}#\34-5{margin-top:198px}#\34-2{margin-top:203px}#ii{margin-top:204px}#\34-22{margin-top:209px}#\34-10{margin-top:226px}#\34-11{margin-top:229px}#\34-35{margin-top:233px}#iii{margin-top:235px}#iv{margin-top:247px}#\34-17{margin-top:251px}#\34-12{margin-top:292px}#\34-9{margin-top:353px}#\34-33{margin-top:373px}#\34-21{margin-top:396px}#\34-4{margin-top:400px}#\34-25{margin-top:402px}#\34-24{margin-top:513px}#\34-34{margin-top:552px}#\34-26{margin-top:559px}#\34-44{margin-top:643px}#\34-42{margin-top:668px}#\34-28{margin-top:687px}#\34-38{margin-top:822px}#\34-19{margin-top:831px}#\34-43,#\34-45{margin-top:992px}body{>header,>main,>footer{>a[id]:first-child{margin-top:0}}>header{padding-bottom:915px}>main{padding-bottom:960px}>footer{padding-bottom:837px}}</style>
+</head>
+<body>
+<header>
+<a id="i"></a>
+<hgroup>
+<h1>Video Systems Reference Manual</h1>
+<h2>Terminal Management</h2>
+</hgroup>
+<dl>
+<dt>Document Identifier</dt>
+<dd><p>A-DS-EL00070-04-0000 Rev A, 04-Oct-1990</p></dd>
+<dt>Abstract</dt>
+<dd><p>This section describes device and service-class independent protocols for
+performing identification and status functions, and for selecting syntax for interchange
+compatibility.</p></dd>
+<dt>Applicability</dt>
+<dd><p>Mandatory for engineers designing hardware for terminal products and
+software engineers designing programs using terminal interfaces. Additional requirements are
+defined in DEC STD 070-1 Video Systems Reference Manual - Concepts and Conformance
+Criteria.</p></dd>
+<dt>Status</dt>
+<dd><p>APPROVED 04-Oct-1990; use VTX SMC for current status.</p></dd>
+</dl>
+<aside>
+<p>The material contained within this document is assumed to define mandatory
+standards unless it is clearly marked as: a. not mandatory; or b. guidelines.</p>
+<p>Material that is marked as "not mandatory" is considered to be of potential
+benefit to the corporation and should be followed unless there are good
+reasons for non&ndash;compliance.  "Guidelines" define approaches and techniques
+that are considered to be good practice, but should not be considered as
+requirements.</p>
+</aside>
+<p>This document is confidential and proprietary, and is the property of Digital
+Equipment Corporation. It is an unpublished work protected under the Federal
+copyright laws.</p>
+<p>©Digital Equipment Corporation.   1990. All rights reserved.</p>
+<a id="ii"></a>
+<dl>
+<dt>Title</dt>
+<dd>Video Systems Reference Manual - Terminal Management</dd>
+<dt>Document Identifier</dt>
+<dd>A-DS-EL00070-04-0000 Rev A, 04-Oct-1990</dd>
+<dt>Revision History</dt>
+<dd><table>
+<tbody>
+<tr><td>Rev A</td><td>04-Oct-1990</td></tr>
+</tbody>
+</table>
+</dd>
+</dl>
+<dl>
+<dt>Document Management Category</dt>
+<dd>Terminal Interface Architecture (STI)</dd>
+<dt>Responsible Department</dt>
+<dd>VIPS Terminals Architecture</dd>
+<dt>Responsible Person</dt>
+<dd>Peter Sichel</dd>
+<dt>SMC Writer</dt>
+<dd>Don Mehaffey</dd>
+</dl>
+<dl>
+<dt>Approval</dt>
+<dd><p>This document has been reviewed and recommended for approval by the General
+Review group for its category.</p>
+<p>Peter Sichel - VIPS Terminals Architecture</p>
+<p>Eric Williams - Standards Process Manager</p></dd>
+</dl>
+<p>Direct requests for further information to:</p>
+<p>Peter Sichel</p>
+<p>Use $ VTX ELF for the latest location information.</p>
+<p>Use VTX SMC to order copies of this document from Standards and Methods Control. Send
+distribution questions to JOKUR::SMC or call DTN: 287-3724.</p>
+<a id="iii"></a>
+<section id="Contents">
+<hgroup>
+<h2>Contents</h2>
+<p>Chapter 4<br />Terminal Management</p>
+</hgroup>
+<ol>
+<li><a href="#4.1">Introduction</a><span> … </span><a href="#4-1">1</a><ol>
+<li><a href="#4.1.1">Scope</a><span> … </span><a href="#4-1">1</a></li>
+<li><a href="#4.1.2">Relationship To Terminal Interface Architecture (TIA)</a><span> … </span><a href="#4-1">1</a></li>
+</ol>
+</li>
+<li><a href="#4.2">Terminology</a><span> … </span><a href="#4-2">2</a></li>
+<li><a href="#4.3">State Descriptions</a><span> … </span><a href="#4-3">3</a><ol>
+<li><a href="#4.3.1">Device Identification</a><span> … </span><a href="#4-3">3</a></li>
+<li><a href="#4.3.2">Terminal State Declarations</a><span> … </span><a href="#4-5">5</a></li>
+<li><a href="#4.3.3">Status And Test</a><span> … </span><a href="#4-12">12</a><ol>
+<li><a href="#4.3.3.1">Virtual Terminal Configuration</a><span> … </span><a href="#4-12">12</a></li>
+<li><a href="#4.3.3.2">Data Integrity</a><span> … </span><a href="#4-12">12</a></li>
+</ol>
+</li>
+</ol>
+</li>
+<li><a href="#4.4">Device Initialization</a><span> … </span><a href="#4-12">12</a></li>
+<li><a href="#4.5">Control Functions</a><span> … </span><a href="#4-17">17</a></li>
+<li><a href="#4.6">Change History</a><span> … </span><a href="#4-38">38</a><ol>
+<li><a href="#4.6.1">Revision 0.0 To 0.1</a><span> … </span><a href="#4-38">38</a></li>
+<li><a href="#4.6.2">Revision 0.1 To AX10</a><span> … </span><a href="#4-38">38</a></li>
+<li><a href="#4.6.3">Rev AX10 to AX11</a><span> … </span><a href="#4-39">39</a></li>
+<li><a href="#4.6.4">Rev AX11 to AX12</a><span> … </span><a href="#4-39">39</a></li>
+</ol>
+</li>
+</ol>
+<ol type="A">
+<li><a href="#4.A">Referenced Documents</a><span> … </span><a href="#4-43">43</a><ol>
+<li><a href="#4.A.1">EL-Class Digital Documents</a><span> … </span><a href="#4-43">43</a></li>
+</ol>
+</li>
+<li><a href="#4.B">Related Documents</a><span> … </span><a href="#4-45">45</a><ol>
+<li><a href="#4.B.1">EL-Class Digital Documents</a><span> … </span><a href="#4-45">45</a></li>
+<li><a href="#4.B.2">Other Documents</a><span> … </span><a href="#4-45">45</a></li>
+<li><a href="#4.B.3">Ordering Information</a><span> … </span><a href="#4-45">45</a></li>
+</ol>
+</li>
+</ol>
+<ul>
+<li><a href="#Index">Index</a></li>
+<li>Figures<ol>
+<li><a href="#4-1">Structuring of the Terminal Interface Architecture</a><span> … </span><a href="#4-1">1</a></li>
+<li><a href="#4-2">External and Internal Terminal Interfaces</a><span> … </span><a href="#4-2">2</a></li>
+</ol>
+<a id="iv"></a></li>
+<li>Tables<ol>
+<li><a href="#4-19">Registered Extensions to the Character Cell Display Service Class</a><span> … </span><a href="#4-19">19</a></li>
+</ol>
+</li>
+</ul>
+</section>
+</header>
+<main>
+<a id="4-1"></a>
+<section id="4.1">
+<h2>1&emsp;Introduction</h2>
+<p>This standard defines the interface to perform terminal management functions in all
+terminal devices.  Terminal management functions include device control operations
+that are independent of any display service class and that are not associated with the
+presentation of data.</p>
+<section id="4.1.1">
+<h3>1.1&emsp;Scope</h3>
+<p>This standard applies to all Digital products that implement terminal management
+interfaces and are to be certified as conforming to the Terminal Interface Architecture
+(TIA). It also applies to software that is intended to use these interfaces in a conforming
+manner.</p>
+</section>
+<section id="4.1.2">
+<h3>1.2&emsp;Relationship To Terminal Interface Architecture (TIA)</h3>
+<p>The terminal management functions are a unique class of device controls that operate
+across layers of the TIA.</p>
+<figure>
+<figcaption>Figure 1:   Structuring of the Terminal Interface Architecture</figcaption>
+<svg class="fig1" width="280" height="280" xmlns="http://www.w3.org/2000/svg">
+<style>
+.fig1 text { font: 11px Arial, sans-serif; letter-spacing: 0.3px; word-spacing: 1px; }
+.fig1 rect { stroke: #000; stroke-width: 1.5; fill: none; stroke-linejoin: round; }
+</style>
+<text x="14" y="89"><tspan x="14" dy="0">T</tspan><tspan x="14" dy="12">e</tspan><tspan x="14" dy="12">r</tspan><tspan x="14" dy="12">m</tspan><tspan x="14" dy="12">i</tspan><tspan x="14" dy="12">n</tspan><tspan x="14" dy="12">a</tspan><tspan x="14" dy="12">l</tspan></text>
+<text x="29" y="89"><tspan x="29" dy="0">M</tspan><tspan x="29" dy="12">a</tspan><tspan x="29" dy="12">n</tspan><tspan x="29" dy="12">a</tspan><tspan x="29" dy="12">g</tspan><tspan x="29" dy="12">e</tspan><tspan x="29" dy="12">m</tspan><tspan x="29" dy="12">e</tspan><tspan x="29" dy="12">n</tspan><tspan x="29" dy="12">t</tspan></text>
+<text x="127" y="17">USER</text>
+<text x="123" y="53">Input Processing</text>
+<text x="102" y="137">Presentation Service Class</text>
+<text x="115" y="221">Code Extension Layer</text>
+<text x="93" y="269">APPLICATION PROCESS</text>
+<rect x="8" y="25" width="41" height="228" />
+<rect x="74" y="25" width="198" height="60" />
+<rect x="74" y="109" width="198" height="60" />
+<rect x="74" y="193" width="198" height="60" />
+</svg>
+</figure>
+<p>To aid in understanding, functions described in this document are identified as intended
+for either application, terminal management, or communications use when an external
+communications interface is present (guideline). These different uses may not always be
+separated.  For example, applications may require their own terminal management.  If
+not otherwise indicated, functions described in this document are intended for terminal
+management use.</p>
+<a id="4-2"></a>
+<p>The interfaces defined within this document apply to both internal and external product
+interfaces.  External interfaces are interfaces between a terminal, personal computer, or
+workstation and a remote system.  Internal interfaces are interfaces between a terminal
+sub-system and software processes running within a terminal, personal computer, or
+workstation.</p>
+<figure>
+<figcaption>Figure 2:   External and Internal Terminal Interfaces</figcaption>
+<svg class="fig2" width="500" height="290" xmlns="http://www.w3.org/2000/svg">
+<style>
+.fig2 text { font: 11px Arial, sans-serif; font-weight: bold; line-height: 12px; letter-spacing: -0.1px; white-space: pre; }
+.fig2 polyline { stroke: #000; stroke-width: 2; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+</style>
+<text x="52" y="16">Terminal      System</text>
+<text x="395" y="16">Host     System</text>
+<text x="25" y="52">Physical</text><text x="25" y="64">Terminal</text>
+<text x="151" y="52">Virtual</text><text x="151" y="64">Terminal</text>
+<text x="407" y="52">Application</text><text x="416" y="64">Process</text>
+<text x="23" y="113">&lt;hardware&gt;</text>
+<text x="128" y="113">&lt;firmware&gt;</text>
+<text x="266" y="113">&lt;communications link&gt;</text>
+<text x="425" y="113">&lt;software&gt;</text>
+<text x="250" y="137">EXTERNAL  INTERFACE</text>
+<text x="25" y="208">Physical</text><text x="25" y="220">Terminal</text>
+<text x="151" y="208">Virtual</text><text x="151" y="220">Terminal</text>
+<text x="257" y="208">Application</text><text x="266" y="220">Process</text>
+<text x="23" y="257">&lt;hardware&gt;</text>
+<text x="128" y="257">&lt;software/</text>
+<text x="130" y="269">firmware&gt;</text>
+<text x="251" y="257">&lt;software&gt;</text>
+<text x="252" y="281">INTERNAL  INTERFACE</text>
+<polyline points="217,24 9,24 9,84 217,84 116,84 116,24" />
+<polyline points="237,49 311,49" stroke-dasharray="3.8 3" />
+<polyline points="299,61 380,61" stroke-dasharray="3.8 3" />
+<polyline points="382,24 490,24 490,84 382,84 382,24" />
+<polyline points="72,93 69,100" style="stroke-width:1.25" />
+<polyline points="217,180 9,180 9,240 217,240 116,240 116,180" />
+<polyline points="242,180 343,180 343,240 242,240" />
+<polyline points="228.5,9 232,19.3 228,31.1 232,42.9 228,54.7 232,66.5 228,78.3 232,90.1" stroke-dasharray="7 5.6" style="stroke-width:1.25"/>
+<polyline points="228.5,105 232,115.3 228,127.1 232,138.9" stroke-dasharray="7 5.6" style="stroke-width:1.25"/>
+<polyline points="231.5,165 228,175.3 232,187.1 228,198.9 232,210.7 228,222.5 232,234.3 228,246.1 232,257.9 228,269.7 232,281.5" stroke-dasharray="7 5.6" style="stroke-width:1.25"/>
+</svg>
+</figure>
+</section>
+</section>
+<section id="4.2">
+<h2>2&emsp;Terminology</h2>
+<dl>
+<dt>Conformance Level</dt>
+<dd>An architectural agreement that defines a number of functions
+within a class of operations that must be adhered to in all products claiming to implement
+that level. Conformance levels are defined to provide interface compatibility with other
+devices at the same level. Selecting a particular conformance level automatically places the
+terminal into a known state (the Soft Terminal Reset state on video terminals), without
+affecting the data currently contained in the display.</dd>
+<dt>Device Self-Test</dt>
+<dd>A control provided as a means of invoking device specific diagnostic
+tests, and subsequently determining the device status by means of the Device Status
+Report (DSR) control.</dd>
+<dt>Device Status Report</dt>
+<dd>A control used to inquire as to the current state of the terminal
+device. Note that some Device Status Reports (DSRs) are properly part of terminal
+management, while others pertain to presentation state or input processing.</dd>
+<dt>Factory Default State</dt>
+<dd>Digital specified default values for all state information. Factory
+Defaults are also the initial configuration of all setable state when the unit is shipped from
+the factory (manufacturing site).</dd>
+<dt>Power-Up State</dt>
+<dd>Factory defaults plus any non-volatile settings, such as Non-Volatile
+Memory (NVM), customization switches. The initial configuration of all setable state
+immediately following power-up.<a id="4-3"></a></dd>
+<dt>Primary Device Attributes Control</dt>
+<dd>The control used to request or report the
+implemented architectural conformance level and extensions.</dd>
+<dt>Secondary Device Attributes Control</dt>
+<dd>The control used to request or report the
+identification code of the specific product in which the interface is implemented.</dd>
+<dt>Tertiary Device Attributes Control</dt>
+<dd>The control used to request the identification code
+of the specific unit in which the interface is implemented.</dd>
+<dt>Terminal Management Functions</dt>
+<dd>A special class of device controls that operate
+across all layers of the Terminal Interface Architecture (TIA) and are not related to the
+presentation of data.</dd>
+</dl>
+</section>
+<section id="4.3">
+<h2>3&emsp;State Descriptions</h2>
+<p>The algorithms in this standard provide a description of terminal state and how it is
+affected by various functions. They have been compiled for accuracy, but have not been
+formally certified. They should be viewed the same as other text in the standard.</p>
+<section id="4.3.1">
+<h3>3.1&emsp;Device Identification</h3>
+<p>A conforming device shall provide an identification mechanism that returns the following
+information upon request.</p>
+<ol type="a">
+<li><p>The general characteristics (display service class) of the device, indicating the
+architectural level to which the device conforms</p></li>
+<li><p>The architectural extensions that the device implements</p></li>
+<li><p>A product specific code registered by the architecture</p></li>
+<li><p>A revision level code, indicating the release level of the communicating firmware or
+software implementing the terminal management functions</p></li>
+<li><p>A list, defined by each product implementation, of product specific options installed in
+the device at the time the identification request is received</p></li>
+<li><p>For Level 4 and higher devices, a unique serial number to identify the specific unit</p></li>
+</ol>
+<a id="4-4"></a>
+<p>The following example illustrates the constants used for VT420 terminal identification.</p>
+<pre><code>/************** Module terminal_identification.h *************/
+/*
+ * Constants used for terminal identification
+ * VT420 example
+ */<br />
+/*
+ * Extensions to the terminal interface architecture
+ * Level 1 through Level 4              1-Feb-1990
+ */
+#define ONE_THIRTY_TWO_COLUMN     1
+#define PRINTER_PORT              2
+#define REGIS_GRAPHICS            3
+#define SIXEL_GRAPHICS            4
+#define KATAKANA_EXT              5
+#define SELECTIVE_ERASE           6
+#define DRCS_EXT                  7
+#define UDK_EXT                   8
+#define NRCS_EXT                  9
+#define KANJI_EXT                10
+#define STATUS_DISPLAY_EXT       11
+#define SERBO_CROATION           12
+#define BLOCK_MODE               13
+#define EIGHT_BIT_IA             14
+#define TCS                      15    /* Technical Char Set */
+#define LOCATOR_PORT             16
+#define TSI                      17    /* State Interrogation */
+#define WINDOWING                18
+#define MULTIPLE_SESSIONS        19    /* via TD/SMP */
+#define APL                      20
+#define HORIZONTAL_SCROLL        21
+#define COLOR_TEXT               22
+#define GREEK                    23
+#define TURKISH                  24
+#define ARABIC_BILINGUAL_M1      25
+#define ARABIC_BILINGUAL_M2      26
+#define ARABIC_BILINGUAL_M3      27
+#define RECTANGULAR_EDITING      28
+#define TEXT_LOCATOR             29
+#define HANZI                    30
+                              /* 31 not assigned */
+#define TEXT_MACROS              32
+#define HANGUL_HANJA             33
+#define ICELANDIC                34
+#define ARABIC_BILINGUAL_TC      35
+#define ARABIC_BILINGUAL_NOTC    36
+#define THAI                     37
+#define CHARACTER_OUTLINING      38<br />
+#define NUMBER_OF_EXTENSIONS     39<br />
+<br />
+/* device identification */
+#define PRODUCT_ID     41     /* VT420 */
+#define REVISION_LEVEL 10     /* Version 1.0 times 10 */<br />
+/* hardware options */
+#define NUMBER_OF_OPTIONS 0   /* VT420 has no options */
+</code></pre>
+</section>
+<a id="4-5"></a>
+<section id="4.3.2">
+<h3>3.2&emsp;Terminal State Declarations</h3>
+<p>The code example below illustrates type declarations for the terminal state.  Type
+declarations in C do not allocate any storage. All these types can be defined regardless of
+the conformance level or extensions actually implemented.</p>
+<pre><code>/**************  Module terminal_state_types.h  *************/
+/*
+ * type declarations for terminal state       PAS 1-Feb-1990
+ * VT420 example
+ */<br />
+/*
+ * terminal management
+ */
+#include "terminal_identification.h"    /* DA definitions */
+typedef short int conformance_level_t;
+#define LEVEL_1 1
+#define LEVEL_2 2
+#define LEVEL_3 3
+#define LEVEL_4 4<br />
+typedef enum
+    {           /* device_status_t */
+    READY,
+    MALFUNCTION
+    } device_status_t;<br />
+typedef enum { LIMITED, UNLIMITED } transmit_rate_limit_mode_t;
+typedef enum
+    {           /* vt_configuration_t */
+    SINGLE_SESSION,
+    SESSIONS_ON_COMM,
+    S1_HOST_S2_PRINTER,
+    S2_HOST_S1_PRINTER
+    /* VT330 with 2nd Host Port
+    SESSIONS_ON_COMM2,
+    S1_COMM1_S2_COMM2,
+    S2_COMM1_S1_COMM2  */
+    } vt_configuration_t;<br />
+typedef enum
+    {          /* control_representation_mode_t */
+    INTERPRET_CONTROLS,
+    DISPLAY_CONTROLS
+    } control_representation_mode_t;<br />
+/*
+ * Code Extension Layer
+ */
+/* type declarations */
+#include "gparse.h"    /* ANSI parser definitions */
+typedef enum { ASCII_C }         c0_control_set_t;
+typedef enum { SUPPLEMENTAL_C }  c1_control_set_t;
+typedef enum
+    {           /* graphic_character_set_t */
+    ASCII_G,
+    LINE_DRAWING_G,
+    DEC_SUPPLEMENTAL_G,
+    ISO_LATIN1_SUPPLEMENTAL_G,
+    DRCS_G,
+    NRCS_G,
+    UPSS_G,
+    TCS_G
+<a id="4-6"></a>    } graphic_character_set_t;
+typedef enum { G0, G1, G2, G3 } gset_name_t;
+typedef struct
+    {           /* in_use_table_t */
+    c0_control_set_t           c0;
+    graphic_character_set_t    gl;
+    gset_name_t                invoked_gl;<br />
+    c0_control_set_t           c1;
+    graphic_character_set_t    gr;
+    gset_name_t                invoked_gr;
+    } in_use_table_t;
+typedef enum { NO_SINGLE_SHIFT, SS2, SS3 } single_shift_t;
+typedef enum
+    {        /* in_control_string_t */
+    NOT_IN_CONTROL_STRING,
+    REGIS,
+    SIXEL,
+    DRCS_LOAD,
+    UDK_LOAD,
+    MACRO_LOAD,
+    TERMINAL_STATE_LOAD,
+    PRESENTATION_STATE_LOAD,
+    SET_TERMINAL_UNIT_ID
+    } in_control_string_t;
+typedef enum { EIGHT_BIT, SEVEN_BIT } environment_t;
+typedef enum { EIGHT_BIT_MULTINATIONAL, SEVEN_BIT_NATIONAL }
+    character_set_mode_t;<br />
+#include "char_cell_types.h"    /* character cell display */<br />
+/*
+ * Status Display Extension
+ */
+typedef enum { MAIN_DISPLAY, STATUS_DISPLAY } active_display_t;
+typedef enum { NO_STATUS_DISPLAY, INDICATOR, HOST } status_display_t;<br />
+/*
+ * keyboard processing
+ */
+typedef enum { UNLOCKED, LOCKED } keyboard_action_mode_t;
+typedef enum { REPEAT_ON, REPEAT_OFF } auto_repeat_mode_t;
+typedef enum { CURSOR, CK_APPLICATION } cursor_key_mode_t;
+typedef enum { NUMERIC, KP_APPLICATION } keypad_mode_t;
+typedef enum { TYPEWRITER, DATA_PROCESSING }
+    keyboard_usage_mode_t;
+typedef enum { CAPS_LOCK, SHIFT_LOCK } caps_shift_lock_mode_t;
+typedef enum { HOLD_OFF, HOLD_ON } hold_screen_mode_t;
+typedef enum { LOCK_OFF, LOCK_ON } lock_mode_t;
+typedef enum { KEYCLICK_OFF, KEYCLICK_ON } keyclick_mode_t;
+typedef enum { ECHO_ON, ECHO_OFF } send_receive_mode_t;
+typedef enum { DELETE, BACKSPACE } backarrow_key_mode_t;
+typedef enum { LOCAL, REPORT, IGNORE } local_key_mode_t;
+typedef enum { LOCAL_F5, SHIFTED_ONLY, REPORT_F5, IGNORE_F5 }
+    F5_key_mode_t;
+typedef enum { CHARACTER, POSITION } keyboard_encoding_mode_t;
+typedef short int keyboard_dialect_t;
+#define KEYBOARD_UNDEFINED 0
+#define NORTH_AMERICAN     1
+#define BRITISH            2
+#define FLEMISH            3
+#define CANADIAN_FRENCH    4
+#define DANISH             5
+#define FINNISH            6
+#define GERMAN             7
+#define DUTCH              8
+<a id="4-7"></a>#define ITALIAN            9
+#define SWISS_FRENCH      10
+#define SWISS_GERMAN      11
+#define SWEDISH           12
+#define NORWEGIAN         13
+#define BELGIAN_FRENCH    14
+#define SPANISH           15
+#define PORTUGUESE        16
+#define CANADIAN_ENGLISH  17
+#define MAX_NUM_DIALECTS  18<br />
+/*
+ * printer port
+ */
+typedef enum { PRINTER_CONTROLLER_OFF, PRINTER_CONTROLLER_ON }
+    printer_controller_mode_t;
+typedef enum { AUTO_PRINT_OFF, AUTO_PRINT_ON } auto_print_mode_t;
+typedef enum { PRINT_FF_OFF, PRINT_FF_ON } print_form_feed_mode_t;
+typedef enum { PRINT_SCROLLING_REGION, PRINT_DISPLAY }
+    print_extent_mode_t;
+typedef enum { NO_PRINTER_TO_HOST, PRINTER_TO_HOST }
+    printer_to_host_mode_t;
+typedef enum { SHARED, SESSION1, SESSION2 }
+    printer_assignment_t;
+typedef enum { NATIONAL_ONLY, NATIONAL_PLUS_LINE_DRAWING,
+               MULTINATIONAL_ONLY, ALL_CHARACTERS } printer_style_t;<br />
+/*
+ * Graphics
+ */
+typedef enum { GRAPHICS_CURSOR_ON, GRAPHICS_CURSOR_OFF }
+    graphics_cursor_enable_mode_t;    /* ReGIS */<br />
+<br />
+<br />
+<br />
+<br />
+/**************  module char_cell_types.h  *************/
+/*
+ * type declarations for character cell display state
+ * PAS 28-Jul-1989
+ */<br />
+typedef enum { JUMP, SLOW } scrolling_mode_t;
+typedef enum { NORMAL_SCREEN, REVERSE_SCREEN } screen_mode_t;
+typedef enum { WRAP_OFF, WRAP_ON } auto_wrap_mode_t;
+typedef enum { TEXT_CURSOR_OFF, TEXT_CURSOR_ON }
+    text_cursor_enable_mode_t;
+typedef enum { INSERT, REPLACE } insert_replace_mode_t;
+typedef enum { NEW_LINE_OFF, NEW_LINE_ON } new_line_mode_t;
+typedef short int line_t;
+typedef short int column_t;
+typedef short int page_t;
+typedef struct
+    {         /* character_position_t */
+    line_t line;
+    column_t column;
+    page_t page; /* L4 or Windowing */
+    } character_position_t;
+typedef enum { TRUE, FALSE } boolean_t;
+typedef struct
+    {         /* character_rendition_t */
+    boolean_t bold;
+    boolean_t blink;
+    boolean_t underscore;
+    boolean_t reverse;
+    } character_rendition_t;
+typedef struct
+<a id="4-8"></a>    {        /* character_attribute_t */
+    boolean_t selective_erase;
+    } character_attribute_t;
+typedef enum
+    {        /* line_rendition_t */
+    DOUBLE_HEIGHT_TOP,
+    DOUBLE_HEIGHT_BOTTOM,
+    SINGLE_WIDTH,
+    DOUBLE_WIDTH
+    } line_rendition_t;
+typedef struct
+    {       /* character_t */
+    short int code;
+    character_rendition_t rendition;
+    character_attribute_t attribute;
+    graphic_character_set_t character_set;
+    } character_t;
+typedef struct
+    {       /* char_set_designator_t */
+    graphic_character_set_t name;
+    short int first_intermediate;    /* 0-47, 0=no intermediate */
+    short int second_intermediate;   /* 0-47 */
+    short int final;                 /* 0 indicates null entry */
+    } char_set_designator_t;
+typedef enum { ABSOLUTE, DISPLACED } origin_mode_t;
+typedef struct
+    {      /* save_buffer_t */
+    character_position_t position;
+    character_rendition_t rendition;
+    origin_mode_t origin_mode;
+    graphic_character_set_t left;
+    graphic_character_set_t right;
+    graphic_character_set_t g0;
+    graphic_character_set_t g1;
+    graphic_character_set_t g2;
+    graphic_character_set_t g3;
+    character_attribute_t attribute;
+    } save_buffer_t;
+typedef enum { EIGHTY, ONE_THIRTY_TWO } column_mode_t;
+typedef enum { UNCOUPLED, COUPLED } cursor_coupling_mode_t;
+typedef enum { FIXED, SETABLE } left_right_margins_mode_t;
+typedef enum { STREAM, RECTANGULAR } area_extent_t;
+typedef short int lines_per_page_t;    /* 24, 25, 36, 72, 144 */
+typedef short int columns_per_page_t;  /* 80, 132 */
+typedef short int number_of_pages_t;   /* 1, 2, 3, 4, 5, 6 */
+/************ end of char_cell_types.h  ****************/
+</code></pre>
+<a id="4-9"></a>
+<p>The following example illustrates storage declarations for the terminal state. Only those
+state variables required for the desired conformance level and extensions need be present.</p>
+<pre><code>/**************  Module terminal_state_extern.h  *************/
+/*
+ * external storage declarations for terminal state
+ * VT420 example                    PAS 28-Feb-1989
+ */<br />
+/*
+ * This code can also used to allocate storage
+ * by redefining "ext" to be null.
+ */
+#define ext extern<br />
+#include "terminal_state_types.h"<br />
+/*
+ * terminal management
+ */
+ext conformance_level_t conformance_level;
+ext boolean_t level_1_extensions[NUMBER_OF_EXTENSIONS];
+ext boolean_t level_2_extensions[NUMBER_OF_EXTENSIONS];
+ext boolean_t level_3_extensions[NUMBER_OF_EXTENSIONS];
+ext boolean_t level_4_extensions[NUMBER_OF_EXTENSIONS];
+/* VT420 has no options --
+ext boolean_t product_options[NUMBER_OF_OPTIONS];
+--*/
+ext long int terminal_unit_id;    /* Level 4, VT420 example */
+ext device_status_t device_status;
+ext transmit_rate_limit_mode_t transmit_rate_limit_mode;
+ext boolean_t power_up_detected_flag;    /* Level 4 */
+ext boolean_t error_detected_flag;       /* Level 4 */
+ext vt_configuration_t vt_configuration; /* session mgmt ext */
+ext control_representation_mode_t
+        control_representation_mode;     /* Set-Up */
+ext boolean_t line_local_mode;           /* Set-Up */<br />
+/*
+ * Code Extension Layer
+ */
+ext struct parse_stack comm_state;      /* ANSI parser state */
+ext graphic_character_set_t  designated_graphic_sets[4];
+ext in_use_table_t           in_use_table;
+ext single_shift_t           single_shift;
+ext in_control_string_t      in_control_string;
+ext graphic_character_set_t  upss;    /* Level 3 or 8-bit IA */
+ext character_set_mode_t     character_set_mode;
+ext character_set_mode_t     r_character_set_mode;
+ext environment_t
+    host_port_environment,
+    c1_transmission_mode;<br />
+<br />
+#include "char_cell_extern.h"    /* character cell display */
+
+<a id="4-10"></a>/*
+ * keyboard processing
+ */
+ext keyboard_action_mode_t  keyboard_action_mode;
+ext auto_repeat_mode_t      auto_repeat_mode;
+ext cursor_key_mode_t       cursor_key_mode;
+ext keypad_mode_t           keypad_mode;
+ext keyboard_usage_mode_t   keyboard_usage_mode;     /* Level 3 */
+ext caps_shift_lock_mode_t  caps_shift_lock_mode;
+ext hold_screen_mode_t      hold_screen_mode;
+ext lock_mode_t             lock_mode;
+ext keyclick_mode_t         keyclick_mode;
+ext send_receive_mode_t     send_receive_mode;
+ext send_receive_mode_t     r_send_receive_mode;
+ext backarrow_key_mode_t    backarrow_key_mode;      /* Level 3 */
+ext local_key_mode_t                                 /* Level 4 */
+        compose_key_mode,
+        alt_key_mode,
+        F1_key,
+        F2_key,
+        F3_key,
+        F4_key;
+ext F5_key_mode_t           F5_key_mode;             /* Level 4 */
+ext keyboard_encoding_mode_t keyboard_encoding_mode; /* Level 4 */
+ext keyboard_dialect_t      keyboard_dialect;           /* NRCS */
+ext graphic_character_set_t nrcs_list[MAX_NUM_DIALECTS];/* NRCS */<br />
+/*
+ * printer port extension
+ */
+ext printer_controller_mode_t  printer_controller_mode;
+ext auto_print_mode_t          auto_print_mode;
+ext print_form_feed_mode_t     print_form_feed_mode;
+ext print_extent_mode_t        print_extent_mode;
+ext printer_to_host_mode_t     printer_to_host_mode; /* Level 3 */
+ext printer_assignment_t       printer_assignment;  /* sessions */
+ext environment_t              printer_port_environment;
+ext printer_style_t            printer_style;<br />
+/*
+ * Graphics
+ */
+ext graphics_cursor_enable_mode_t
+        graphics_cursor_enable_mode;   /* ReGIS */<br />
+/*
+ * communications layer
+ */
+ext int host_port;     /* logical unit number for comm port */
+ext int printer_port;<br />
+/**************  module char_cell_extern.h  *************/
+/*
+ * external storage declarations for character cell display state
+ * PAS 28-Jul-1989
+ */
+
+<a id="4-11"></a>#define MAX_NUM_LINES 73
+#define MAX_NUM_COLUMNS 133
+#define EMPTY_CHARACTER 0
+#define MAX_NUM_CHAR_SETS 8
+/* character set table entries */
+#define TABLE_ASCII 0
+#define TABLE_LINE_DRAWING 1
+#define TABLE_DEC_SUPP 2
+#define TABLE_NRCS 3
+#define TABLE_LATIN1 4
+#define TABLE_UPSS 5
+#define TABLE_TCS 6
+#define TABLE_DRCS 7
+/* Note DRCS must be last in search order
+   to replace others if identical */<br />
+ext character_t            display[MAX_NUM_LINES][MAX_NUM_COLUMNS];
+ext line_rendition_t       line_rendition[MAX_NUM_LINES];
+ext character_position_t   active_position;
+ext line_t                 top_margin;
+ext line_t                 bottom_margin;
+ext column_t               left_margin;    /* Horiz scroll ext */
+ext column_t               right_margin;   /* Horiz scroll ext */
+ext boolean_t              last_column_flag;
+ext active_display_t       active_display; /* L3 or Status Dsply*/
+ext status_display_t       status_display; /* L3 or Status Dsply*/
+ext char_set_designator_t  char_set_table[MAX_NUM_CHAR_SETS];
+ext save_buffer_t          cursor_save_buffer;
+ext character_rendition_t  current_rendition;
+ext character_attribute_t  current_attribute; /* Selective Erase*/
+ext boolean_t              horizontal_tab_stops[MAX_NUM_COLUMNS];
+ext column_mode_t          column_mode;      /* 132 Column Ext */
+ext lines_per_page_t       lines_per_page;   /* Windowing */
+ext columns_per_page_t     columns_per_page; /* Windowing */
+ext number_of_pages_t      number_of_pages;  /* Windowing */
+ext scrolling_mode_t       scrolling_mode;
+ext screen_mode_t          screen_mode;
+ext origin_mode_t          origin_mode;
+ext auto_wrap_mode_t       auto_wrap_mode;
+ext text_cursor_enable_mode_t  text_cursor_enable_mode;
+ext insert_replace_mode_t  insert_replacement_mode;
+ext new_line_mode_t        new_line_mode;
+ext cursor_coupling_mode_t
+        horizontal_cursor_coupling,      /* Windowing */
+        vertical_cursor_coupling,        /* Windowing */
+        page_cursor_coupling;            /* Windowing */
+ext left_right_margins_mode_t
+        left_right_margins_mode; /* Horiz Scroll */
+ext area_extent_t
+        attribute_change_extent; /* L4 or rect editing */
+/********** end of char_cell_extern.h  *************/
+</code></pre>
+</section>
+<a id="4-12"></a>
+<section id="4.3.3">
+<h3>3.3&emsp;Status And Test</h3>
+<p>Upon request, a conforming device shall provide at the terminal interface a means of
+returning device status information. Status information consists of either "Device Ready"
+or "Device Malfunction". (See subhead 5, DEVICE STATUS REPORT.) The device status
+shall be set upon power-up initialization or receipt of RESET TO INITIAL STATE (RIS).
+See <cite><a href="EL-00070-0D.html">Video Systems Reference Manual - Documented Exceptions</a></cite>.</p>
+<p>The architecture does not define the nature or duration of specific device test sequences.
+The architecture provides a registry of test invocation control functions (Refer to <cite>DEC STD
+138-0 Registry of Control Functions for Character-Imaging Devices</cite>) that may have different
+effects on different products. However, failure of any applicable test sequences shall set
+the device status to the "Device Malfunction" state.</p>
+<section id="4.3.3.1">
+<h4>3.3.1&emsp;Virtual Terminal Configuration</h4>
+<p>If the Multiple Sessions extension is supported, a conforming device shall provide a means
+at the terminal interface of returning information on whether the terminal is configured
+to support virtual terminals. Status information returned shall be in the form of a Device
+Status Report (DSR) (see subhead 5, Device Status Report) and consist of: "Virtual
+Terminals Not Enabled", "Virtual Terminals Enabled Over Physical Lines", "Virtual
+Terminals Available Through TD/SMP".</p>
+<p>This feature is intended for terminal management use. Specific information on the state of
+the Terminal Device/Session Management Protocol (TD/SMP) or other session management
+protocol should be ascertained through the protocol handler.</p>
+</section>
+<section id="4.3.3.2">
+<h4>3.3.2&emsp;Data Integrity</h4>
+<p>At Conformance Level 4, a conforming device shall provide a means at the terminal
+interface of returning the status of a data integrity flag. Status information returned shall
+be in the form of a Device Status Report (DSR) (see subhead 5 Device Status Report) and
+consist of: "OK, no comm error detected since last report", "Error, a comm error has been
+detected since last report", or "Power-up, No request since last power-up or reset".</p>
+<p>This is an application feature for defensive programming, and not intended for terminal
+management or communications use.</p>
+</section>
+</section>
+</section>
+<section id="4.4">
+<h2>4&emsp;Device Initialization</h2>
+<p>On power up, all state information (state) in the terminal shall be set to a known value, or
+value previously selected by the user and stored through non-volatile means. This state is
+referred to as the Power-Up State.</p>
+<p>Since the architecture allows the Power-Up State of certain features to be set and stored
+under local control (Set-Up and non-volatile memory for example), software cannot rely
+on the values of this state after an appropriate initialization sequence is executed or after
+the device is powered up. The values given in the algorithm below apply only to those
+implementations in which the state cannot be set and stored locally by the terminal user.
+The state defined by the architecture to which this indeterminate condition may apply is
+limited to the following:</p>
+<a id="4-13"></a>
+<ul>
+<li><code>conformance_level</code></li>
+<li><code>host_port_environment</code></li>
+<li><code>vt_configuration</code></li>
+<li><code>c1_transmission_mode</code></li>
+<li><code>transmit_rate_limit_mode</code></li>
+<li><code>terminal_unit_id</code></li>
+<li><code>character_set_mode</code></li>
+<li><code>upss</code></li>
+<li><code>columns_per_page</code></li>
+<li><code>lines_per_page</code></li>
+<li><code>number_of_pages</code></li>
+<li><code>status_display</code></li>
+<li><code>column_mode</code></li>
+<li><code>scrolling_mode</code></li>
+<li><code>screen_mode</code></li>
+<li><code>auto_wrap_mode</code></li>
+<li><code>text_cursor_enable_mode</code></li>
+<li><code>new_line_mode</code></li>
+<li><code>horizontal_tab_stops</code></li>
+<li><code>vertical_cursor_coupling</code></li>
+<li><code>horizontal_cursor_coupling</code></li>
+<li><code>page_cursor_coupling</code></li>
+<li><code>auto_repeat_mode</code></li>
+<li><code>cursor_key_mode</code></li>
+<li><code>caps_shift_lock_mode</code></li>
+<li><code>keyboard_usage_mode</code></li>
+<li><code>backarrow_key_mode</code></li>
+<li><code>alt_key_mode</code></li>
+<li><code>compose_key_mode</code></li>
+<li><code>F1_key_mode</code></li>
+<li><code>F2_key_mode</code></li>
+<li><code>F3_key_mode</code></li>
+<li><code>F4_key_mode</code></li>
+<li><code>auto_print_mode</code></li>
+<li><code>printer_controller_mode</code></li>
+<li><code>print_form_feed_mode</code></li>
+<li><code>print_extent_mode</code></li>
+<li><code>printer_to_host_mode</code></li>
+<li><code>printer_style</code></li>
+<li><code>graphics_cursor_enable_mode</code></li>
+<li><code>UDK definitions (see DEC-STD-070-11, UDK Extension)</code></li>
+</ul>
+<p><em>State Affected:</em></p>
+<p>All terminal state. See subhead 3.2, Terminal State Declarations.</p>
+<p>The following code example illustrates terminal management routines.</p>
+<p><em>Algorithm:</em></p>
+<pre><code>/**************  Module terminal_management.c  *************/
+/*
+* terminal management routines
+* VT420 example
+*/<br />
+/* get access to global terminal state */
+#include "terminal_state_extern.h"
+
+<a id="4-14"></a>/* function declarations */
+void hardware_init();
+void comm_init();
+void setup_init();
+void host_state_init();
+void soft_terminal_reset();
+int send_char();
+int send_string();
+int send_int();
+int send_hex();<br />
+<br />
+void power_up_initialization()
+{
+hardware_init();     /* actual hardware as needed */
+comm_init();         /* communications layer */
+setup_init();        /* features that are not host setable */
+host_state_init();   /* all host setable state */
+}   /* end procedure power_up_initialization */<br />
+<br />
+void setup_init()
+/* initialize local features that are not host setable */
+{
+host_port_environment = EIGHT_BIT;     /* NVM */
+vt_configuration = SINGLE_SESSION;     /* NVM */
+control_representation_mode =
+INTERPRET_CONTROLS;
+printer_port_environment = EIGHT_BIT;  /* NVM */
+printer_style = NATIONAL_ONLY;         /* NVM */
+}   /* end procedure setup_init */<br />
+<br />
+void host_state_init()
+{
+line_t   x;
+column_t y;
+/*...................*/<br />
+/* do initialization */<br />
+/* Terminal Management */
+conformance_level = LEVEL_4;           /* NVM */
+transmit_rate_limit_mode = LIMITED;    /* NVM */
+power_up_detected_flag = TRUE;
+error_detected_flag = FALSE;
+vt_configuration = SINGLE_SESSION;     /* NVM */
+/* VT420 terminal unit ID example (different for each unit) */
+terminal_unit_id = 0x01000001;   /* HKO unit 1,  NVM */<br />
+/* Code Extension */
+upss = DEC_SUPPLEMENTAL_G;             /* NVM */<br />
+in_use_table.c0 = ASCII_C;
+in_use_table.gl = ASCII_G;
+in_use_table.invoked_gl = G0;<br />
+in_use_table.c1 = SUPPLEMENTAL_C;
+in_use_table.gr = upss;
+in_use_table.invoked_gr = G2;<br />
+designated_graphic_sets[0] = ASCII_G;
+designated_graphic_sets[1] = ASCII_G;
+
+<a id="4-15"></a>switch (conformance_level)
+    {
+     case LEVEL_1:
+      in_use_table.gr = ASCII_G;
+      designated_graphic_sets[2] = ASCII_G;
+      designated_graphic_sete[3] = ASCII_G;
+      c1_transmission_mode = SEVEN_BIT;
+      character_set_mode = SEVEN_BIT_NATIONAL;
+      break;
+     case LEVEL_2:
+     case LEVEL_3:
+     case LEVEL_4:
+      designated_graphic_sets[2] = upss;
+      designated_graphic_sets[3] = upss;
+      c1_transmission_mode = EIGHT_BIT;              /* NVM */
+      character_set_mode = EIGHT_BIT_MULTINATIONAL;  /* NVM */
+    };<br />
+parse_init(comm_state);  /* initialize ANSI parser */
+single_shift = NO_SINGLE_SHIFT;
+in_control_string = NOT_IN_CONTROL_STRING;<br />
+host_port_environment = EIGHT_BIT;              /* NVM */<br />
+<br />
+/* character cell display */
+for (y=1; y&lt;MAX_NUM_LINES; y++)
+    {
+    for (x=1; x&lt;MAX_NUM_COLUMNS; x++)
+     {
+     display[y][x].code = EMPTY_CHARACTER;
+     }
+    line_rendition[y] = SINGLE_WIDTH;
+    }
+column_mode = EIGHTY;                           /* NVM */
+scrolling_mode = SLOW;                          /* NVM */
+screen_mode = NORMAL_SCREEN;                    /* NVM */
+origin_mode = ABSOLUTE;
+auto_wrap_mode = WRAP_OFF;                      /* NVM */
+text_cursor_enable_mode = TEXT_CURSOR_ON;       /* NVM */
+insert_replacement_mode = REPLACE;              /* NVM */
+new_line_mode = NEW_LINE_OFF;                   /* NVM */
+active_display = MAIN_DISPLAY;
+status_display = NO_STATUS_DISPLAY;             /* NVM */
+horizontal_cursor_coupling = UNCOUPLED;         /* NVM */
+vertical_cursor_coupling = COUPLED;             /* NVM */
+page_cursor_coupling = COUPLED;                 /* NVM */
+left_right_margins_mode = FIXED;
+attribute_change_extent = STREAM;
+lines_per_page = 24;                            /* NVM */
+number_of_pages = MAX_NUM_LINES/lines_per_page;<br />
+active_position.line = 1;
+active_position.column = 1;
+active_page = 1;
+top_margin = 1;
+bottom_margin = lines_per_page;
+left_margin = 1;
+/* if Windowing Extension,
+    columns_per_page in NVM will override column_mode */
+if (column_mode == EIGHTY) columns_per_page = 80;  /* NVM */
+    else columns_per_page = 132;
+right_margin = columns_per_page;
+
+<a id="4-16"></a>current_rendition.bold       = FALSE;
+current_rendition.blink      = FALSE;
+current_rendition.underscore = FALSE;
+current_rendition.reverse    = FALSE;
+current_attribute.selective_erase = FALSE;<br />
+horizontal_tab_stops[1] = FALSE;                /* NVM */
+for (x=2; x&lt;MAX_NUM_COLUMNS; x++)
+    {
+    if (x%8 == 1) horizontal_tab_stops[x] = TRUE;
+    else horizontal_tab_stops[x] = FALSE;
+    }<br />
+save_cursor();  /* initialize cursor save buffer */
+macro_init();   /* initialize text macros (Level 4) */<br />
+<br />
+/* keyboard processing */
+keyboard_action_mode = UNLOCKED;
+auto_repeat_mode = REPEAT_ON;              /* NVM */
+cursor_key_mode = CURSOR;                  /* NVM */
+keypad_mode = NUMERIC;
+keyboard_usage_mode = TYPEWRITER;          /* NVM */
+caps_shift_lock_mode = CAPS_LOCK;          /* NVM */
+hold_screen_mode = HOLD_OFF;
+lock_mode = LOCK_OFF;
+keyclick_mode = KEYCLICK_ON;               /* NVM */
+send_receive_mode = ECHO_OFF;              /* NVM */
+backarrow_key_mode = DELETE;               /* NVM */
+compose_key_mode = LOCAL;                  /* NVM */
+alt_key_mode = REPORT;                     /* NVM */
+F1_key = LOCAL;                            /* NVM */
+F2_key = LOCAL;                            /* NVM */
+F3_key = LOCAL;                            /* NVM */
+F4_key = LOCAL;                            /* NVM */
+F5_key_mode = LOCAL_F5;                    /* NVM */
+keyboard_encoding_mode = CHARACTER;<br />
+/* printer port */
+printer_port_environment = EIGHT_BIT;      /* NVM */
+printer_controller_mode =
+      PRINTER_CONTROLLER_OFF;               /* NVM */
+auto_print_mode = AUTO_PRINT_OFF;          /* NVM */
+print_form_feed_mode = PRINT_FF_OFF;       /* NVM */
+printer_to_host_mode = NO_PRINTER_TO_HOST; /* NVM */
+print_extent_mode = PRINT_DISPLAY;         /* NVM */
+printer_assignment = SHARED;<br />
+/* initialize other extensions */
+graphics_cursor_enable_mode = GRAPHICS_CURSOR_ON; /* NVM */
+udk_init();                                /* NVM */
+drcs_init();<br />
+/* terminal management */
+device_status = READY;<br />
+};    /* end procedure host_state_init */
+</code></pre>
+</section>
+<a id="4-17"></a>
+<section id="4.5">
+<h2>5&emsp;Control Functions</h2>
+<section id="DA">
+<h4>Device Attributes <small>(Primary)</small> <span>&mdash;</span> DA</h4>
+<p><em>Levels:</em> 1x, 2, 3, 4</p>
+<p><em>Purpose:</em> Request or report the device attributes.</p>
+<div>
+<p><em>Request Format:</em></p>
+<pre><samp>CSI          Ps          c                              default Ps: 0
+9/11         Ps          6/3</samp></pre>
+<p><em>Response Format:</em></p>
+<pre><samp>CSI          ?          Ps          c
+9/11         3/15       Ps          6/3</samp></pre>
+</div>
+<p><em>Description:</em> Use the primary Device Attributes (DA) control to request or report the
+implemented architectural conformance level and extensions. An omitted parameter or
+a parameter value of zero (0) indicates a request for identification. The response to the
+primary DA request consists of request for a DA control sequence using a private parameter
+string with the introducer 3/15 (?) followed by a variable number of parameters.</p>
+<p>The first parameter in the string indicates the basic service class of the device and the
+architectural level to which the device conforms. The rest of the parameters indicate the
+architectural extensions supported at the current operating level.</p>
+<aside>
+<h4>Note</h4>
+<p>Exceptions to the architecture that are documented as appendices to these
+standards are not reported in the primary DA response.</p>
+</aside>
+<p>The value of the first parameter is encoded so that a simple range check can be performed
+to determine the basic service class and level of the device. Each service class is designated
+a range of decimal values from 1 to 9. For example, Character Cell Display devices are in
+the range 61 to 69. The architectural level to which the device conforms is indicated by the
+low order digit. Thus, a response with a first parameter of 61 indicates that the device
+conforms to Level 1 of the Character Cell Display architecture. Higher levels, by definition,
+support the functionality of lower levels of the same service class.</p>
+<p>Therefore, if a device code of 63 is returned, the device may be supported as a Level 1,
+Level 2, or Level 3 Character Cell Display device. This does not mean higher conformance
+levels are strict supersets of lower conformance levels, but that a device that supports a
+higher conformance level must support the lower levels as well (using DECSCL).</p>
+<p>In general, higher conformance levels are supersets of lower levels, but specific
+control functions can be interpreted differently to accommodate evolving requirements.
+Conforming software shall select a known conformance level to guarantee compatibility.
+See the description of Select Conformance Level (DECSCL) in this document for further
+information.</p>
+<a id="4-18"></a>
+<p>Note that the device code in the response represents the highest level that the device
+can support, and does not indicate the level at which the device is currently operating.
+For example, a Level 3 conforming device operating at Level 2, as selected by the Select
+Conformance Level control function, would still respond with a device code of 63.</p>
+<p>Table 1 lists extensions to the character cell display service class registered within Digital
+that may be transmitted by a device in response to an appropriate request. Levels 1 - 4
+(DA parameters 61 - 64) have been defined for the character cell display service class.</p>
+<a id="4-19"></a>
+<table>
+<caption>Table 1:   Registered Extensions to the Character Cell Display Service Class</caption>
+<thead>
+<tr><th>Extension
+Parameter</th><th>Levels</th><th>Extension Name</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>1 - 4</td><td><a href="EL-00070-05.html#5.4.6">132 Column Display</a></td></tr>
+<tr><td>2</td><td>1 - 4</td><td>Printer Port</td></tr>
+<tr><td>3</td><td>1 - 4</td><td>ReGIS Display</td></tr>
+<tr><td>4</td><td>1 - 4</td><td>Sixels Display</td></tr>
+<tr><td>5</td><td>1 - 3</td><td>Katakana</td></tr>
+<tr><td>6</td><td>2 - 4</td><td><a href="EL-00070-05.html#5.11.1.2">Selectively Erasable Characters</a></td></tr>
+<tr><td>7</td><td>2 - 4</td><td><a href="EL-00070-10.html">Dynamically Redefinable Character Sets</a></td></tr>
+<tr><td>8</td><td>2 - 4</td><td><a href="EL-00070-11.html">User Defined Keys</a></td></tr>
+<tr><td>9</td><td>1 - 4</td><td><a href="EL-00070-05.html#DECNRCM">National Replacement Character Sets</a></td></tr>
+<tr><td>10</td><td>1 - 3</td><td>Kanji</td></tr>
+<tr><td>11</td><td>2</td><td><a href="EL-00070-14.html">Status Display</a></td></tr>
+<tr><td>12</td><td>1 - 3</td><td>Serbo-Croation</td></tr>
+<tr><td>13</td><td>1 - 3</td><td>Block Mode</td></tr>
+<tr><td>14</td><td>2</td><td><a href="EL-00070-03.html#3.1.3">8-bit Interface Architecture</a></td></tr>
+<tr><td>15</td><td>2 - 4</td><td>Technical Character Set</td></tr>
+<tr><td>16</td><td>1 - 4</td><td>Locator Port</td></tr>
+<tr><td>17</td><td>2</td><td><a href="EL-00070-05.html#5.13.2">Terminal State Interrogation</a></td></tr>
+<tr><td>18</td><td>2 - 4</td><td><a href="EL-00070-05.html#5.5">Windowing</a></td></tr>
+<tr><td>19</td><td>2 - 4</td><td>Multiple Sessions (TD/SMP)</td></tr>
+<tr><td>20</td><td>1 - 4</td><td>APL</td></tr>
+<tr><td>21</td><td>2 - 4</td><td><a href="EL-00070-05.html#5.4.3">Horizontal Scrolling</a></td></tr>
+<tr><td>22</td><td>2 - 4</td><td><a href="EL-00070-05.html#5.6.3">Color Text</a></td></tr>
+<tr><td>23</td><td>1 - 3</td><td>Greek</td></tr>
+<tr><td>24</td><td>1 - 3</td><td>Turkish</td></tr>
+<tr><td>25</td><td>2, 3</td><td>Arabic Bilingual Mode 1</td></tr>
+<tr><td>26</td><td>2, 3</td><td>Arabic Bilingual Mode 2</td></tr>
+<tr><td>27</td><td>2, 3</td><td>Arabic Bilingual Mode 3</td></tr>
+<tr><td>28</td><td>2, 3</td><td><a href="EL-00070-05.html#5.12.1">Rectangular Editing</a></td></tr>
+<tr><td>29</td><td>2 - 4</td><td>Text Locator</td></tr>
+<tr><td>30</td><td>2, 3</td><td>Hanzi</td></tr>
+<tr><td>31</td><td></td><td></td></tr>
+<tr><td>32</td><td>2 - 4</td><td><a href="EL-00070-05.html#5.12.3">Text Macros</a></td></tr>
+<tr><td>33</td><td>2, 3</td><td>Hangul and Hanja</td></tr>
+<tr><td>34</td><td>2, 3</td><td>Icelandic</td></tr>
+<tr><td>35</td><td>2, 3</td><td>Arabic Bilingual with Text Controls</td></tr>
+<tr><td>36</td><td>2, 3</td><td>Arabic Bilingual with no Text Controls</td></tr>
+<tr><td>37</td><td>2, 3</td><td>Thai</td></tr>
+<tr><td>38</td><td>2, 3</td><td>Character Outlining</td></tr>
+</tbody>
+</table>
+<a id="4-20"></a>
+<p><em>Implicit Extensions</em></p>
+<p>Implicit Extensions are features originally defined at a higher conformance level that still
+operate when a lower conformance level is selected and are not required to be explicitly
+reported. The "8-bit Interface Architecture" extension, for example, was originally defined
+in Level 3 and as an extension to Level 2. A Level 3 device operating at Level 2 need not
+disable the 8-bit Interface Architecture Extension, nor report it explicitly as a parameter
+in the DA response. Level 3 or higher defines 8-bit Interface Architecture to be an implicit
+extension to Level 2.</p>
+<p>Each conformance level may define a set of implicit extensions at lower levels. Higher
+conformance levels must support all the implicit extensions defined by lower levels.
+Implicit extensions must only be allowed if they are fully backward compatible with the
+lower conformance level.</p>
+<p>Software can determine whether an implicit extension is present by seeing if the reported
+conformance level is greater than or equal to the conformance level at which the feature
+was originally defined.</p>
+<p>If a higher conformance level subsumes extensions previously reported at a lower level,
+these extensions shall be reported at the lower level so that existing software can determine
+if the extension is present.</p>
+<p>Defining implicit extensions allows features defined by a higher conformance level to
+operate at a lower conformance level if they are consistent with that level.</p>
+<table>
+<thead>
+<tr><th>Level Reported</th><th>Operating Level</th><th>Implicit Extension</th></tr>
+</thead>
+<tbody>
+<tr><td>2 or higher</td><td>1</td><td><a href="#DECSCL">DECSCL</a></td></tr>
+<tr><td>3 or higher</td><td>2</td><td><a href="EL-00070-14.html">11 Status Display</a></td></tr>
+<tr><td></td><td>2</td><td><a href="EL-00070-03.html#3.1.3">14 8-bit Interface Architecture</a></td></tr>
+<tr><td></td><td>2</td><td><a href="EL-00070-05.html#5.13.2">17 Terminal State Interrogation</a></td></tr>
+<tr><td>4 or higher</td><td>1-3</td><td><a href="#DECSR/DECSRC">DECSR</a></td></tr>
+</tbody>
+</table>
+<p><em>State Affected:</em> None</p>
+<a id="4-21"></a>
+<p><em>Algorithm:</em></p>
+<pre><code>void device_attributes_1()
+{
+int n;
+send_char(0x9B, host_port);
+send_string("?64", host_port);
+if (conformance_level == LEVEL_1)
+    for (n=1; n&lt;NUMBER_OF_EXTENSIONS; n++)
+     if (level_1_extensions[n] == TRUE)
+      {
+      send_char(';', host_port);
+      send_int(n, host_port);
+      };
+if (conformance_level == LEVEL_2)
+    for (n=1; n&lt;NUMBER_OF_EXTENSIONS; n++)
+     if (level_2_extensions[n] == TRUE)
+      {
+      send_char(';', host_port);
+      send_int(n, host_port);
+      };
+if (conformance_level == LEVEL_3)
+    for (n=1; n&lt;NUMBER_OF_EXTENSIONS; n++)
+     if (level_3_extensions[n] == TRUE)
+      {
+      send_char(';', host_port);
+      send_int(n, host_port);
+      };
+if (conformance_level == LEVEL_4)
+    for (n=1; n&lt;NUMBER_OF_EXTENSIONS; n++)
+     if (level_4_extensions[n] == TRUE)
+      {
+      send_char(';', host_port);
+      send_int(n, host_port);
+      };
+send_char('c', host_port);
+};
+</code></pre>
+<p><em>Known Deviations:</em></p>
+<p>Terminals designed before this architecture was developed do not conform to the above
+encoding scheme.  They will, however, respond to the Device Attributes request by
+returning a DA control with a variable length parameter string.  The first parameter of
+this parameter string is a device-specific code in the range 1 to 59.  Thus, these devices
+are easily distinguished from those that implement the architectural response, whose first
+parameter is always 60 or greater.</p>
+<p>Some terminals provide an alias ID (identification) capability, selectable under local control,
+to emulate the DA response of older terminals.  The factory default will always be to
+respond with the correct identification code for the family of devices in which the interface
+is implemented.</p>
+<p>The Greek and Turkish special versions of the VT200 and VT300 series use extension
+parameters 10 and 11 instead of the registered parameter values 23 and 24, respectively.</p>
+</section>
+<a id="4-22"></a>
+<section id="DECSCL">
+<h4>Select Conformance Level <span>&mdash;</span> DECSCL</h4>
+<p><em>Purpose:</em> Select a particular level of operation for interface compatibility.</p>
+<p><em>Levels:</em> 1x, 2, 3, 4</p>
+<div>
+<p><em>Format:</em></p>
+<pre><samp>CSI          Ps          ;          Ps          "          p
+9/11         Ps          ;          Ps          2/2        7/0</samp></pre>
+</div>
+<p><em>Description:</em> The Select Conformance Level (DECSCL) control selects a terminal
+operating mode that provides interface compatibility defined by a conformance level of the
+architecture. The operations and state information available in each level are fully defined
+in the architectural specifications. The first parameter selects the conformance level of
+operation. The optional second parameter applies only to Level 2 (it will be ignored in Level
+1 operation). The second parameter may be used to select the C1 control transmission for
+7-bit or 8-bit controls, in accordance with the following table:</p>
+<ul>
+<li><code>0 - default (8-bit C1 controls)</code></li>
+<li><code>1 - 7-bit C1 controls</code></li>
+<li><code>2 - 8-bit C1 controls</code></li>
+</ul>
+<aside>
+<h4>Notes</h4>
+<ol>
+<li><p>The DECSCL control function is required only in Level 2. However, in Level 2
+(and higher) conforming devices, the DECSCL control must also be executed
+when the device is in Level 1 operation. This is an exception to the normal
+rule that Level 2 functions only work in Level 2 operation, and is necessary to
+enable switching between levels. DECSCL is an Implicit Extension to Level 1.</p></li>
+<li><p>At the present time, four conformance levels are defined by the Terminal
+Interface Architecture (TIA):</p><ul>
+<li>61 - Level 1 Character Cell Display Terminals</li>
+<li>62 - Level 2 Character Cell Display Terminals</li>
+<li>63 - Level 3 Character Cell Display Terminals</li>
+<li>64 - Level 4 Character Cell Display Terminals</li>
+</ul>
+<p>Software should be designed to anticipate future higher-numbered levels that
+will be supersets of Level 1-4.</p></li>
+<li><p>Selecting a particular conformance level also causes a "soft reset" of the
+terminal to be performed. This automatically places the terminal into a known
+state, without affecting the data contained in the display. See Soft Terminal
+Reset, DECSTR, for more information.</p></li>
+<li><p>Attempts to select conformance levels that are unsupported by the device will
+be ignored.</p></li>
+</ol>
+</aside>
+<p><em>State Affected:</em></p>
+<ul>
+<li><code>conformance_level</code></li>
+<li><code>c1_transmission_mode</code></li>
+</ul>
+<p><em>Algorithm:</em></p>
+<a id="4-23"></a>
+<pre><code>void select_conformance_level(service_class, c1_mode)
+    int service_class;
+    int c1_mode;
+{
+switch (service_class)
+    {
+    case 61;
+     conformance_level = LEVEL_1;
+     break;
+    case 62:
+     conformance_level = LEVEL_2;
+     break;
+    case 63:
+     conformance_level = LEVEL_3;
+     break;
+    case 64:
+     conformance_level = LEVEL_4;
+     break;
+    default: return;
+    };
+soft_terminal_reset();
+switch (c1_mode)
+    {
+    case 0:
+    case 2:
+     c1_transmission_mode = EIGHT_BIT;
+     break;
+    case 1:
+     c1_transmission_mode = SEVEN_BIT;
+    };
+   };    /* end procedure select_conformance_level() */
+</code></pre>
+<p><em>Known Deviations:</em> None</p>
+</section>
+<a id="4-24"></a>
+<section id="DA2">
+<h4>Device Attributes <small>(Secondary)</small> <span>&mdash;</span> DA2</h4>
+<p><em>Levels:</em> 1X, 2, 3, 4</p>
+<p><em>Purpose:</em> Request or report the device identification.</p>
+<div>
+<p><em>Request Format:</em></p>
+<pre><samp>CSI          >          Ps          c                    Default Ps: 0
+9/11         3/14       Ps          6/3</samp></pre>
+<p><em>Response Format:</em></p>
+<pre><samp>CSI          >             Ps          c
+9/11         3/14          Ps          6/3</samp></pre>
+</div>
+<p><em>Description:</em> The DA2 control requests or reports the identification code of the specific
+product in which the interface is implemented. The request consists of a DA control
+sequence with the private parameter code 3/14 (>) and an omitted parameter or a
+parameter value of zero (0).</p>
+<p>The response to the DA2 request consists of a DA control sequence with the private
+parameter code 3/14 (>) followed by a variable number of parameters. The first parameter
+indicates the product specific identification of the device. This parameter value shall be
+registered with the architecture.</p>
+<p>The second parameter indicates the revision level of the firmware or software implementing
+the terminal management functions. Revision levels are generally noted by a real number
+with one significant decimal. This number should be (not mandatory) multiplied by 10 and
+used as the value of the second parameter.</p>
+<p>Additional parameters may be present to indicate options installed in the device. These
+options are implementation defined, and the number and meaning of the additional
+parameter values will be product dependent, however, these values shall be registered with
+the architecture.</p>
+<p><em>State Affected:</em> None</p>
+<a id="4-25"></a>
+<p><em>Algorithm:</em></p>
+<pre><code>void device_attributes_2()
+{
+int n;
+send_char(0x9B, host_port);    /* CSI */
+send_int(PRODUCT_ID, host_port);
+send_char(';', host_port);
+send_int(REVISION_LEVEL, host_port);
+/* Device IDs and options must be registered */
+/* VT420 has no options --
+for (n=1; n&lt;NUMBER_OF_OPTIONS; n++)
+    {
+    if (product_options[n] == TRUE)
+     {
+      send_char(';', host_port);
+      send_int(n, host_port);
+     }
+    };
+--*/
+send_char('c', host_port);
+};    /* end procedure device_attributes_2() */
+</code></pre>
+<p><em>Known Deviations:</em></p>
+<p>Terminals designed before the Terminal Interface Architecture (TIA) was developed do not
+implement this control. Terminals that return a first parameter value less than 60 to the
+primary Device Attributes (DA) will ignore the secondary Device Attributes (DA2) control.</p>
+</section>
+<a id="4-26"></a>
+<section id="DA3/DECRPTUI">
+<h4>Device Attributes <small>(Tertiary)</small><span>/</span>Report Terminal Unit Id <span>&mdash;</span> DA3<span>/</span>DECRPTUI</h4>
+<p><em>Level:</em> 4</p>
+<p><em>Purpose:</em> Request terminal unit identification.</p>
+<div>
+<p><em>Request Format:</em></p>
+<pre><samp>CSI           =             c
+9/11          3/13          6/3</samp></pre>
+</div>
+<p><em>Description:</em> The Tertiary Device Attributes Request (DA3) causes the terminal to report
+its unique terminal unit ID to the host using the DECRPTUI (Report Terminal Unit ID)
+sequence. The terminal unit ID consists of a string of up to 31 displayable characters that
+are factory set to a unique value for the specific product (DA2 registration) in which the
+interface is implemented.</p>
+<p>Individual products may further restrict the length or format of the terminal unit ID as
+long as the identifier continues to provide a unique ID within that specific product. The
+format of the Terminal Unit ID shall be registered with the architecture.</p>
+<div>
+<p><em>Report Terminal Unit ID
+Format:</em></p>
+<pre><samp>DCS          !          |             D. . .D          ST
+9/0          2/1        7/12          ?/?              9/12</samp></pre>
+</div>
+<aside>
+<h4>Implementation Guideline</h4>
+<p>The VT420 terminal unit ID consists of a 32-bit number reported as four hex pairs. The
+first hex pair (8 bits) contains the manufacturing site code, and the remaining three hex
+pairs (24 bits) contain a serial number for that site.  The site code and serial number
+together provide a unique ID for each VT420.  See DEC STD 138-0 for a listing of
+manufacturing site codes.</p>
+<p>The terminal unit ID is factory set and does not change unless the terminal's internal
+circuitry is repaired or replaced. In the VT420, the unit ID is maintained in Non-Volatile
+Memory (NVM) and can be rewritten in the event of NVM failure using the DECSTUI (Set
+Terminal Unit ID) sequence. This sequence is only recognized when the NVM checksum is
+invalid, or when an internal jumper on the main board is set.</p>
+</aside>
+<div>
+<p><em>Set Terminal Unit ID (DECSTUI) Format:</em></p>
+<pre><samp>DCS          !          {           D. . .D          ST
+9/0          2/1        7/11        ?/?              9/12</samp></pre>
+</div>
+<p><em>State Affected:</em> None</p>
+<a id="4-27"></a>
+<p><em>Algorithm:</em></p>
+<pre><code>void device_attributes_3()    /* VT420 example */
+{
+    int n;
+send_char(0x90, host_port);    /* DCS */
+send_string("!|", host_port);
+n = (terminal_unit_id >> 24) &amp; 0xFF;
+send_hex(n, host_port);
+n = (terminal_unit_id >> 16) &amp; 0xFF;
+send_hex(n, host_port);
+n = (terminal_unit_id >>  8) &amp; 0xFF;
+send_hex(n, host_port);
+n = terminal_unit_id &amp; 0xFF;
+send_hex(n, host_port);
+send_char(0x9C, host_port);    /* ST */
+}   /* end procedure device_attributes_3() */
+</code></pre>
+<p><em>Known Deviations:</em> None</p>
+</section>
+<a id="4-28"></a>
+<section id="DECID">
+<h4>Identify Terminal <span>&mdash;</span> DECID</h4>
+<p><em>Levels:</em> 1, 2</p>
+<p><em>Purpose:</em> Request the device identification code.</p>
+<div>
+<p><em>Format:</em></p>
+<pre><samp>ESC            Z
+1/11           5/10</samp></pre>
+</div>
+<p><em>Description:</em> The DECID control requests that the terminal report the implemented
+architectural conformance level and extensions. The device responds by transmitting an
+appropriate primary Device Attributes (DA) response.</p>
+<aside>
+<h4>Notes</h4>
+<ol type="a">
+<li><p>This control is identical to a primary DA control with an omitted parameter or
+a parameter value of zero (0). THIS CONTROL IS RESERVED FOR FUTURE
+STANDARDIZATION BY ISO AND ANSI. Conforming software shall use the
+primary Device Attributes (DA) control for purposes of device identification.</p></li>
+<li><p>DECID is not recognized at Level 3 or above.</p></li>
+<li><p>Terminals that implement the VT52 emulation hardware option respond
+differently to this control when in VT52 mode. See <cite>Video Systems Reference
+Manual - VT52 Emulation</cite> for more information.</p></li>
+</ol>
+</aside>
+<p><em>State Affected:</em> None</p>
+<p><em>Algorithm:</em></p>
+<pre><code>/*
+* DECID    ESC Z
+* Ignored above Level 2
+* execution is same as primary DA
+*/
+void id()
+{
+if ( (conformance_level == LEVEL_1) ||
+   ( (conformance_level == LEVEL_2) )
+    device_attributes_1();
+};
+</code></pre>
+<p><em>Known Deviations:</em></p>
+<p>The VT300 family and VT420 do not have a fully independent VT200 mode, and ignore
+DECID when set to conformance Level 2.</p>
+<p>See additional deviations under Device Attributes (Primary).</p>
+</section>
+<a id="4-29"></a>
+<section id="DECSR/DECSRC">
+<h4>Secure Reset<span>/</span>Secure Reset Confirmation <span>&mdash;</span> DECSR<span>/</span>DECSRC</h4>
+<p><em>Levels:</em> 4</p>
+<p><em>Purpose:</em> To ensure that the terminal is in a known state so that data sent to the terminal
+is displayed as expected, and keystrokes from the terminal transmit as expected, and to
+erase any host-writeable data in the terminal.</p>
+<div>
+<p><em>Format:</em></p>
+<pre><samp>CSI           Pn           +            P
+9/11          3/?          2/11         7/0</samp></pre>
+</div>
+<p><em>Description:</em> Secure Reset initializes the terminal to its Power-Up state and erases all
+host setable state information and data. If a non-zero numeric parameter in the range 1
+to 16383 is provided, the device responds with a Secure Reset Confirmation (DECSRC)
+control function with the same parameter upon successful completion. If Pn is omitted or
+zero, no response is generated. If Pn exceeds 16383, the entire sequence shall be ignored.</p>
+<div>
+<p><em>Secure Reset Confirmation
+Format:</em></p>
+<pre><samp>CSI           Pn           *             q
+9/11          3/?          2/10          7/1</samp></pre>
+</div>
+<aside>
+<h4>Notes</h4>
+<ol>
+<li><p>DECSR is recognized at all conformance levels (Level 1 or higher).</p></li>
+<li><p>DECSR is recognized in Control Representation Mode (Display Controls Mode,
+CRM set) and causes the device to exit this mode.  This is desirable because
+CRM is enabled under local control in video terminals and there is no other
+way to clear it from the host.  If the terminal is in Display Controls Mode,
+DECSR shall be displayed before it is executed.</p></li>
+<li><p>DECSR is not recognized in VT52 Mode (DECANM reset), or Tektronix
+4010/4014 Emulation Mode (DECTEK). Host software must explicitly exit these
+modes.  This is necessary because these modes do not use ANSI compatible
+syntaxes.</p></li>
+<li><p>DECSR is not recognized (intercepted) in Printer Controller Mode (see Media
+Copy - MC). Host software must explicitly exit this mode. Secure Reset may be
+sent to an attached printer in Printer Controller Mode.</p></li>
+<li><p>DECSR is buffered in the same way as other incoming data.</p></li>
+<li><p>In a multiple-session device, DECSR only affects the session that receives the
+control function. At the time of this update to the standard, secure connections
+are only supported in single-session devices. Reconfiguring the device from a
+single-session to multiple-sessions causes a BREAK to be generated to alert
+host software.</p><a id="4-30"></a></li>
+<li><p>Secure Reset need not erase data maintained in Non-Volatile Memory (NVM)
+as long as such data cannot be written from the host. If values for some state
+information can be stored under host control in NVM, then DECSR should
+erase this NVM (not mandatory).</p></li>
+<li><p>DECSTUI, which sets the terminal unit ID, is an exception to the previous
+note since it is only recognized if the NVM checksum is invalid, or an internal
+jumper has been installed. In normal operation, the terminal unit ID cannot
+be written from the host.</p></li>
+</ol>
+</aside>
+<p><em>State Affected:</em></p>
+<p>Secure Reset affects all host setable state similar to power-up initialization. See subhead
+4, DEVICE INITIALIZATION.</p>
+<p>The following state information is also explicitly reset:</p>
+<ul>
+<li>UDKs</li>
+<li>The UDKs are erased to be empty, or restored to the value saved in NVM if such NVM
+is present and not writable from the host. The UDK definitions are re-initialized even
+if the "UDKs Locked" state is in effect.</li>
+<li>DRCS</li>
+<li>Macro Definitions</li>
+<li>clears the keyboard input silo</li>
+<li>erases all local buffers that might contain data from host (such as paste_buffer,
+capture_buffer, etc...)</li>
+</ul>
+<p>Secure Reset does not affect host port receive buffers, nor session management state (if
+present).</p>
+<p><em>Algorithm:</em></p>
+<pre><code>void secure_reset(param)
+    int param;
+{
+if (param &lt;= 16383)    /* 0x3FFF */
+    {
+    /* exit CRM */
+    control_representation_mode = INTERPRET_CONTROLS;<br />
+    /* initialize all host setable state */
+    host_state_init();
+    clear_udk();<br />
+    /* report reset was successful if non-zero parameter */
+    if (param != 0)
+     {
+     send_char(0x9B, host_port);
+     send_int(param, host_port);
+     send_string("*q", host_port);
+     };
+    };
+};    /* end procedure secure_reset() */
+</code></pre>
+<p><em>Known Deviations:</em> None</p>
+</section>
+<a id="4-31"></a>
+<section id="DECSTR">
+<h4>Soft Terminal Reset <span>&mdash;</span> DECSTR</h4>
+<p><em>Levels:</em> 2, 3, 4</p>
+<p><em>Purpose:</em> Reset soft terminal state to the default values.</p>
+<div>
+<p><em>Format:</em></p>
+<pre><samp>CSI           !            P
+9/11          2/1          7/0</samp></pre>
+</div>
+<p><em>Description:</em> The DECSTR control sets the modes available to user application programs
+to known values.  User Preference Features are not affected.  DECSTR is intended for
+application use, whereas User Preference Feature control functions are intended for
+terminal management use.  When the DECSTR control is received, the following state
+information in the terminal shall be reset as indicated below.  This list defines the Soft
+Terminal Reset state.</p>
+<table>
+<thead>
+<tr><th>State</th><th>Default</th></tr>
+</thead>
+<tbody>
+<tr><td>Top Margin</td><td>1</td></tr>
+<tr><td>Bottom Margin</td><td>number of lines on page</td></tr>
+<tr><td>Left Margin</td><td>1</td></tr>
+<tr><td>Right Margin</td><td>80 (or 132 if column mode is set)</td></tr>
+<tr><td>Current Rendition</td><td>normal</td></tr>
+<tr><td>Current Attributes</td><td>not selective erasable</td></tr>
+<tr><td>In Use Table (gl, gr)</td><td>set to current level defaults</td></tr>
+<tr><td>Designated Sets</td><td>set to current level defaults</td></tr>
+<tr><td>Cursor Save Buffer</td><td>set to current level defaults</td></tr>
+<tr><td>Insert/Replacement Mode</td><td>reset (Replace)</td></tr>
+<tr><td>Origin Mode</td><td>reset (Absolute)</td></tr>
+<tr><td>Auto Wrap Mode</td><td>Auto Wrap Off (NVM if present)</td></tr>
+<tr><td>Character Set Mode</td><td>8-bit Multinational (ignore NVM)</td></tr>
+<tr><td>Cursor On/Off</td><td>on (ignore NVM)</td></tr>
+<tr><td>Active Display</td><td>Main Display (status display is exited)</td></tr>
+<tr><td>UPSS</td><td>DEC Supplemental (NVM if present)</td></tr>
+<tr><td>Cursor Key Mode</td><td>reset (Cursor)</td></tr>
+<tr><td>Keyboard Action Mode</td><td>reset (Unlocked)</td></tr>
+<tr><td>Keypad Mode</td><td>reset (Numeric)</td></tr>
+<tr><td>Keyboard Encoding Mode</td><td>character</td></tr>
+</tbody>
+</table>
+<p>The following User Preference Features are NOT affected by the soft reset.</p>
+<ul>
+<li>Column Mode</li>
+<li>Scroll Mode</li>
+<li>Screen Mode</li>
+<li>Auto Repeat Mode</li>
+<li>Caps/Shift Lock Mode</li>
+<li>Tab stops</li>
+<li>Key click</li>
+</ul>
+<a id="4-32"></a>
+<p>The following are also NOT affected by the soft reset.</p>
+<ul>
+<li>The data in the display</li>
+<li>New Line Mode</li>
+<li>Line Attributes</li>
+<li>Printer Controller Mode</li>
+<li>Auto Print Mode</li>
+<li>Compose Mode</li>
+<li>C1 Transmission Mode</li>
+<li>Conformance Level</li>
+<li>DRCS</li>
+<li>UDK</li>
+<li>Macro Definitions</li>
+</ul>
+<aside>
+<h4>Notes</h4>
+<ol type="a">
+<li><p>Numeric is the default state for Keypad Mode. It is the power-up default state
+for the terminal. It is preferred that operating systems perform translation
+of keypad codes for applications software at the time data is passed to
+the application. This allows applications to clear the type-ahead buffer to
+ensure synchronization when changing keypad mode. Operating systems
+implementing this strategy should set Keypad Mode to Application after
+performing the soft reset and do the required translation.</p></li>
+<li><p>The DECSTR control is ignored when operating at Level 1 and by Level 1
+devices.</p></li>
+<li><p>DECSTR has no affect on the Active Position.</p></li>
+<li><p>When the terminal is in Printer Controller Mode, the DECSTR control is not
+executed by the terminal, but is transmitted instead to the printer port. Thus,
+DECSTR does not reset the terminal state unless Printer Controller Mode is
+explicitly reset before DECSTR is transmitted.</p></li>
+<li><p>DECSTR is interpreted differently in printing devices to achieve the
+corresponding concept of resetting the device to known application state
+while preserving the data currently on the display (previously printed, or
+buffered in the printer).</p></li>
+</ol>
+</aside>
+<a id="4-33"></a>
+<p><em>State Affected:</em></p>
+<p>See subhead 4, DEVICE INITIALIZATION for type declarations.</p>
+<pre><code>/* VT420 example */
+/* code extension layer state */
+graphic_character_set_t  designated_graphic_sets[4];
+in_use_table_t           in_use_table;
+character_set_mode_t     character_set_mode;      /* NRCS */
+graphic_character_set_t  upss           /* L3 or 8-bit IA */<br />
+/* character cell display state */
+line_t                 top_margin;
+line_t                 bottom_margin;
+column_t               left_margin;   /* Horizontal Scroll */
+column_t               right_margin;  /* Horizontal Scroll */
+left_right_margins_mode_t  left_right_margins_mode; /* H Scroll */
+active_display_t       active_display;  /* L3 or status display */
+save_buffer_t          cursor_save_buffer;
+character_rendition_t  current_rendition;
+character_attribute_t  current_attribute;  /* Selective Erase */
+origin_mode_t          origin_mode;
+auto_wrap_mode_t       auto_wrap_mode;
+text_cursor_enable_mode_t  text_cursor_enable_mode;
+insert_replace_mode_t  insert_replacement_mode;
+new_line_mode_t        new_line_mode;<br />
+/* keyboard processing state */
+keyboard_action_mode_t  keyboard_action_mode;
+cursor_key_mode_t       cursor_key_mode;
+keypad_mode_t           keypad_mode;
+keyboard_encoding_mode_t keyboard_encoding_mode;  /* L4 */
+</code></pre>
+<a id="4-34"></a>
+<p><em>Algorithm:</em></p>
+<pre><code>void soft_terminal_reset()
+{
+if (conformance_level != LEVEL_1)
+    {
+    /* Code Extension */
+    upss = DEC_SUPPLEMENTAL_G;                    /* NVM */
+    in_use_table.c0 = ASCII_C;
+    in_use_table.gl = ASCII_G;
+    in_use_table.invoked_gl = G0;
+    in_use_table.c1 = SUPPLEMENTAL_C;
+    in_use_table.gr = upss;
+    in_use_table.invoked_gr = G2;
+    designated_graphic_sets[0] = ASCII_G;
+    designated_graphic_sets[1] = ASCII_G;
+    designated_graphic_sets[2] = upss;
+    designated_graphic_sets[3] = upss;
+    character_set_mode = EIGHT_BIT_MULTINATIONAL; /* NVM */<br />
+    /* character cell display */
+    origin_mode = ABSOLUTE;
+    auto_wrap_mode = WRAP_OFF;                    /* NVM */
+    text_cursor_enable_mode = TEXT_CURSOR_ON;     /* NVM */
+    insert_replacement_mode = REPLACE;            /* NVM */
+    new_line_mode = NEW_LINE_OFF;                 /* NVM */
+    active_display = MAIN_DISPLAY;
+    left_right_margins_mode = FIXED;
+    top_margin = 1;
+    bottom_margin = lines_per_page;               /* NVM */
+    left_margin = 1;
+    right_margin = columns_per_page;              /* NVM */
+    current_rendition.bold       = FALSE;
+    current_rendition.blink      = FALSE;
+    current_rendition.underscore = FALSE;
+    current_rendition.reverse    = FALSE;
+    current_attribute.selective_erase = FALSE;
+    save_cursor();  /* initialize cursor save buffer */
+    cursor_save_buffer.position.line = 1;
+    cursor_save_buffer.position.column = 1;
+    cursor_save_buffer.position.page = 1;<br />
+    /* keyboard processing */
+    keyboard_action_mode = UNLOCKED;
+    cursor_key_mode = CURSOR;                     /* NVM */
+    keypad_mode = NUMERIC;
+    keyboard_encoding_mode = CHARACTER;<br />
+    };
+};     /* end procedure soft_terminal_reset() */
+</code></pre>
+<p><em>Known Deviations:</em></p>
+<p>VT200s, VT300s, and the VT420 clear auto wrap (ignore NVM). DECterm V1 does not
+change the current setting of auto wrap. This was necessary for ULTRIX systems that
+depend on auto wrap being enabled when a new terminal is initialized.</p>
+</section>
+<a id="4-35"></a>
+<section id="DSR">
+<h4>Device Status Report <span>&mdash;</span> DSR</h4>
+<p><em>Levels:</em> 1, 2, 3, 4</p>
+<p><em>Purpose:</em>  To cause the terminal to report the current functional status.</p>
+<div>
+<p><em>Request Format:</em></p>
+<pre><samp>CSI           Ps          n
+9/11          Ps          6/14</samp></pre>
+<p><em>Report Format:</em></p>
+<pre><samp>CSI           Ps          n
+9/11          Ps          6/14</samp></pre>
+</div>
+<p><em>Description:</em> The DSR request, with selective parameter, causes the terminal to respond
+with a corresponding DSR control using a parameter from the table to indicate its current
+functional status.</p>
+<p>Levels 1 - 4</p>
+<ul>
+<li>5<span> &mdash; </span>request terminal status (command from host)</li>
+<li>0<span> &mdash; </span>device ready</li>
+<li>3<span> &mdash; </span>device not functional</li>
+</ul>
+<p>Level 4</p>
+<ul>
+<li>?75<span> &mdash; </span>report status of data integrity flag (command from host)</li>
+<li>?70<span> &mdash; </span>ok, no comm errors or power-up since last report</li>
+<li>?71<span> &mdash; </span>error, a comm error has been detected since last report</li>
+<li>?73<span> &mdash; </span>power-up. data integrity flag has not been reported since last power-up or RIS</li>
+</ul>
+<p>Multiple Sessions Extension</p>
+<ul>
+<li>?85<span> &mdash; </span>report virtual terminal configuration (command from host)</li>
+<li>?81<span> &mdash; </span>virtual terminals available through TD/SMP</li>
+<li>?83<span> &mdash; </span>not configured for virtual terminals</li>
+<li>?87<span> &mdash; </span>virtual terminals operating via physical lines</li>
+</ul>
+<aside>
+<h4>Notes</h4>
+<ol>
+<li><p>Some Device Status Reports (DSRs) are part of terminal management, while
+others pertain to presentation state or input processing. See <cite><a href="EL-00070-05.html">DEC STD 070-5
+Video Systems Reference Manual - Character Cell Display</a></cite> and <cite>DEC STD 070-7
+Video Systems Reference Manual - Printer Port Extension</cite> for additional DSRs.
+The report status of the data integrity flag DSR is intended for application use.</p></li>
+<li><p>On hardcopy devices DSR has often been processed asynchronously ahead of
+other data in the input buffer (guideline).</p><a id="4-36"></a></li>
+<li><p>TD/SMP is described in the "Terminal Device/Session Management Protocol"
+Version 1 Architecture Specification, 13-Feb-1986.</p></li>
+</ol>
+</aside>
+<p><em>State Affected:</em></p>
+<ul>
+<li><code>error_detected_flag    /* if DSR with Ps = ?75 is requested */</code></li>
+<li><code>power_up_detected_flag</code></li>
+</ul>
+<p><em>Algorithm:</em></p>
+<pre><code>void report_device_status(request, private)
+    int request;
+    boolean_t private;
+{
+switch (request)
+    {
+    case 5:
+     if (device_status == READY)
+      {
+      send_char(0x9B, host_port);
+      send_string("0n", host_port);
+      }
+     else
+      {
+      send_char(0x9B, host_port);
+      send_string("3n", host_port);
+      }
+     break;
+    case 75:
+     if (private)
+     {
+     if (!error_detected_flag &amp;&amp; !power_up_detected_flag)
+      {
+      send_char(0x9B, host_port);
+      send_string("?70n", host_port);
+      }
+     else if (power_up_detected_flag)
+      {
+      send_char(0x9B, host_port);
+      send_string("?73n", host_port);
+      power_up_detected_flag = FALSE;
+      }
+     else
+      {
+      send_char(0x9B, host_port);
+      send_string("?71n", host_port);
+      error_detected_flag = FALSE;
+      };
+     };
+    break;
+     case 85:
+ if (private)
+      {
+      send_char(0x9B, host_port);
+      if (vt_configuration == SINGLE_SESSION)
+      send_string("?83n", host_port);
+     else
+      if (vt_configuration == SESSIONS_ON_COMM)
+      send_string("?81n", host_port);
+     else
+      send_string("?87n", host_port);
+      };
+    break;
+    }
+};    /* end procedure report_device_status() */
+</code></pre>
+<a id="4-37"></a>
+<p><em>Known Deviations:</em></p>
+<p>The VT330 and VT340 terminals do not implement the Virtual Terminal Configuration
+Device Status Reports.</p>
+<p>The VT420 can report "?80 virtual terminals operating through TD/SMP", and include a
+second parameter that indicates the number of sessions available (when the first parameter
+is ?80 or ?81).  It was later agreed that protocol state information should be obtained
+through the protocol handler, so this has not been standardized.</p>
+</section>
+</section>
+<a id="4-38"></a>
+<section id="4.6">
+<h2>6&emsp;Change History</h2>
+<section id="4.6.1">
+<h3>6.1&emsp;Revision 0.0 To 0.1</h3>
+<p>The following changes were made to accommodate integration of this specification with the
+Video Systems Reference Manual:</p>
+<ol>
+<li><p>The name of this section was changed from "Terminal Management Level 1" to
+"Terminal Management".</p></li>
+<li><p>All references to Level 1 operation only were removed, and explicit references to Level
+1 and Level 2 operation were added for all functions.</p></li>
+<li><p>Some of the state names were changed to be consistent with the rest of the Video SRM.</p></li>
+<li><p>The sections on Warning Bell and Text Cursor Enable Mode were removed to the
+section "Character Cell Display".</p></li>
+<li><p>All sections on printer functions were removed to the section "Printer Port Extension".</p></li>
+<li><p>The section on Hard Copy (DECHCP) was removed to the section "Sixel Graphics
+Extension".</p></li>
+<li><p>Sections from the "Character Cell Display" section on Reset to Initial State and Device
+Status Report were added to this section.</p></li>
+<li><p>New sections on Soft Terminal Reset and Answerback were also added to this section.</p></li>
+<li><p>The algorithm for Reset to Initial State was corrected.</p></li>
+<li><p>The coding of the DECID sequence was corrected.</p></li>
+<li><p>Coding of other controls (most of which were removed to other section) were also
+corrected.</p></li>
+<li><p>The coding of the Device Not Ready status response to Device Status Report was
+corrected.</p></li>
+</ol>
+</section>
+<section id="4.6.2">
+<h3>6.2&emsp;Revision 0.1 To AX10</h3>
+<ol>
+<li><p>Removed statement that the revision level code in the secondary Device Attributes
+response would be zero for unreleased products.</p></li>
+<li><p>Removed Answerback to an appendix. Answerback messages will not be required for
+conforming hardware.</p></li>
+<li><p>Added Selectively Erasable Character extension to the primary Device Attributes
+response with parameter 6.</p></li>
+<li><p>Made code changes in the primary DA algorithm.  Fixed a bug in the Select
+Conformance Level algorithm.</p></li>
+<li><p>Added note that DRCS and UDK state is cleared on Reset to Initial State in Level 2
+terminals.</p></li>
+<li><p>Made changes in the tables of affected state in the Soft Terminal Reset function.</p></li>
+<li><p>Removed DECTST (Test) from the SRM.  It will not be a required function for
+conforming hardware. However, Device Status Report will be required.</p></li>
+<li><p>Removed Control Representation Mode from RIS.</p><a id="4-39"></a></li>
+<li><p>Clarified that the device code returned by Primary Device Attributes will not change
+when the operating level changes.</p></li>
+<li><p>Made New Line Mode unaffected by Soft Terminal Reset.</p></li>
+<li><p>Added a note to Select Conformance Level to indicate that it is a required function in
+Level 2 only, but is active in Level 1 operation of Level 2 devices. Removed deviation
+notes on VT100 family for this function.</p></li>
+<li><p>Removed Reset To Initial State as a required function, and placed it in Appendix D
+<cite>Documented Exceptions</cite>. It is not intended for use by conforming software. The RIS
+algorithm is now included in this section under the heading "Device Initialization".</p></li>
+<li><p>Made Primary Device Attributes, Select Conformance Level, and Secondary Device
+Attributes a "temporal" extension to Level 1 (required in all future Level 1
+implementations).</p></li>
+<li><p>Added initialization of the character set table of designating escape sequences to the
+Soft Terminal Reset control.</p></li>
+<li><p>Added setting of the Cursor Save Buffer values to the level defaults in Soft Terminal
+Reset.</p></li>
+</ol>
+</section>
+<section id="4.6.3">
+<h3>6.3&emsp;Rev AX10 to AX11</h3>
+<p>Added "9 - NRC" to the list of Level 2 extensions.</p>
+</section>
+<section id="4.6.4">
+<h3>6.4&emsp;Rev AX11 to AX12</h3>
+<p>General:</p>
+<ol>
+<li><p>Removed Rev AX11 change bars. Added change bars to any change that could affect
+conformance or interpretation of the document or should be brought to the attention of
+terminal implementors or software engineers.</p></li>
+<li><p>Updated Reference Standards section to include latest standards and revisions.</p></li>
+<li><p>Added paragraph to "Relationship to TIA" subsection explaining distinction between
+functions intended for either application use, terminal management use, or
+communications use. Included entity functions are intended to be used by in individual
+function descriptions.</p></li>
+<li><p>Added note to definition of Device Status Report in terminology section to distinguish
+DSRs used for Terminal Management versus others. Some Device Status Reports are
+properly part of Terminal Management, while others pertain to presentation state or
+input processing.</p></li>
+<li><p>Added definitions for "Factory Default State", "Power-Up State", and "Tertiary Device
+Attributes" in terminology section.</p></li>
+<li><p>Recoded all algorithms in VAX-11 C to match new Code Extension section.</p></li>
+<li><p>Updated algorithms and state information throughout to include Level 3 and Level 4
+Character Cell Display Service Class.</p></li>
+</ol>
+<p>State Descriptions:</p>
+<a id="4-40"></a>
+<ol start="8">
+<li><p>Added note explaining the status of the algorithms at the beginning of the State
+Descriptions subsection. Algorithms should be viewed the same as other text.</p></li>
+<li><p>Added "terminal unit ID" to device identification information available at Level 4.</p></li>
+<li><p>Updated list of extensions.</p></li>
+</ol>
+<p>Initialization:</p>
+<ol start="11">
+<li><p>Updated list of features that may be initialized from NVM to include VT300 and
+VT400 capabilities. Removed ''keypad_mode'' to reflect actual implementation in the
+VT100/VT200/VT300. Keypad mode is not stored in NVM.</p></li>
+<li><p>Combined Control String extensions as a single enumerated type since it is not possible
+to be in more than one control string at a time.</p></li>
+<li><p>Added character_set_mode for NRCS extension.</p></li>
+<li><p>Included parser initialization from Code Extension section.</p></li>
+<li><p>Added data integrity flags as defined for VT400.</p></li>
+<li><p>Added virtual terminal configuration (vt_configuration) as used in VT420 to control
+multiple sessions.</p></li>
+<li><p>Added page number, lines_per_page, columns_per_page, and cursor coupling to support
+Windowing Extension as implemented by VT330,VT340, and VT420.</p></li>
+<li><p>Added state information for horizontal scrolling: left_margin, right_margin, left_right_
+margin_mode.</p></li>
+<li><p>Added area extent mode (stream versus rectangular) for rectangular area operations.</p></li>
+<li><p>Added state for selecting status display type and active display.</p></li>
+<li><p>Expanded keyboard state to include: keyboard_usage_mode, send_receive_mode,
+backarrow_key_mode, compose_key_mode, alt_key_mode, keyboard_encoding_mode
+(character versus position), and local controls for F1-F5.</p></li>
+<li><p>Added printer_to_host per VT240, and printer_assignment for multiple sessions.</p></li>
+<li><p>Added code to initialize set-up features that are not setable from the host but that
+affect the description of other functions.</p></li>
+</ol>
+<p>Control Functions:</p>
+<ol start="24">
+<li><p>Clarified that higher conformance levels do not have to be strict supersets of lower
+levels, and that conforming software must select a known conformance level.</p></li>
+<li><p>Clarified in the text that the primary DA reports extensions supported at the current
+operating level. If higher conformance levels subsume extensions previously reported
+at lower levels, these extensions must still be reported at the lower level to ensure
+existing software can recognize them.</p></li>
+<li><p>Added concept of "Implicit Extensions" so software can recognize features defined at
+a higher conformance level which are not disabled at lower levels. Listed implicit
+extensions created by Level 2 and Level 3. Removed note that DECSCL was the only
+exception to rule that features defined at higher levels must be disabled at lower levels.
+<a id="4-41"></a>Implicit extensions ensure software can still recognize which features are present, and
+corresponds to actual VT200 and VT300 implementations.</p></li>
+<li><p>Noted that DECID (ESC Z) is not recognized at Level 3 or higher.</p></li>
+<li><p>Added description of Secure Reset function.</p></li>
+<li><p>Updated DECSTR (Soft Terminal Reset) to reflect newer implementations as follows:
+Bottom margin is set to number of lines on page; left and right margins are reset; auto
+wrap mode is recalled from NVR; current attribute is set to not selective erasable; 8-bit
+multinational characters are selected; the main display is selected (status display is
+exited); the User Preference Supplemental Set (UPSS) is recalled from NVM; keyboard
+encoding mode is reset to character (VT420); Added macro definitions to list of state
+not affected (VT420).</p></li>
+<li><p>Added Device Status Reports for data integrity and Virtual Terminal State (VT420).
+Noted that other DSRs are not part of terminal management.</p></li>
+<li><p>Added note that DSR has been processed asynchronously ahead of other data in the
+input buffer on hardcopy devices (guideline).</p></li>
+</ol>
+<a id="4-42"></a>
+</section>
+</section>
+<a id="4-43"></a>
+<section id="4.A">
+<h2>A&emsp;Referenced Documents</h2>
+<section id="4.A.1">
+<h3>A.1&emsp;EL-Class Digital Documents</h3>
+<dl>
+<dt>EL-00070-05</dt>
+<dd>DEC STD 070-5 Video Systems Reference Manual - Character Cell Display</dd>
+<dt>EL-00070-07</dt>
+<dd>DEC STD 070-7 Video Systems Reference Manual - Printer Port Extension</dd>
+<dt>EL-00070-0A</dt>
+<dd>Video Systems Reference Manual - VT52 Emulation</dd>
+<dt>EL-00070-0D</dt>
+<dd>Video Systems Reference Manual - Documented Exceptions</dd>
+<dt>EL-00138-00</dt>
+<dd>DEC STD 138-0 Registry of Control Functions for Character Imaging Devices</dd>
+</dl>
+<p>Use VTX SMC to order copies of EL-class documents from Standards and Methods Control.
+Send distribution questions to JOKUR::SMC or call DTN: 287-3724.</p>
+<a id="4-44"></a>
+</section>
+</section>
+<a id="4-45"></a>
+<section id="4.B">
+<h2>B&emsp;Related Documents</h2>
+<section id="4.B.1">
+<h3>B.1&emsp;EL-Class Digital Documents</h3>
+<dl>
+<dt>EL-00070-01</dt>
+<dd>DEC STD 070-1 Video Systems Reference Manual - Concepts and Conformance
+Criteria</dd>
+<dt>EL-00169-00</dt>
+<dd>DEC STD 169-0 DEC Standard Coded Graphic Character Sets for Hardware and
+Software</dd>
+</dl>
+<p>Use VTX SMC to order copies of EL-class documents from Standards and Methods Control.
+Send distribution questions to JOKUR::SMC or call DTN: 287-3724.</p>
+</section>
+<section id="4.B.2">
+<h3>B.2&emsp;Other Documents</h3>
+<dl>
+<dt>ANSI X3.4 - 1986</dt>
+<dd>American National Standard Code for Information Interchange (ASCII Character Set)</dd>
+<dt>ANSI X3.41 - 1974</dt>
+<dd>American National Standard Code Extension Techniques for use with the 7-Bit Coded
+Character Set of the American National Standard Code for Information Interchange</dd>
+<dt>ANSI X3.64 - 1979</dt>
+<dd>Additional Controls for use with American National Standard Code for Information
+Interchange</dd>
+<dt>DPANS X3.134.1-1985</dt>
+<dd>8-Bit ASCII Structure and Rules</dd>
+<dt>DPANS X3.134.2-1985</dt>
+<dd>7-Bit and 8-Bit ASCII Supplemental Multinational Graphic Character Set</dd>
+<dt>ISO 2022:1986</dt>
+<dd>Information Processing / ISO 7-Bit and 8-Bit Coded Character Sets - Code Extension
+Techniques</dd>
+<dt>ISO 6429:1988</dt>
+<dd>Information Processing / Additional Controls for use with Character Imaging Devices</dd>
+<dt>ISO 646</dt>
+<dd>7-Bit Coded Character Set for Information Interchange</dd>
+<dt>ISO 8859-1:1987</dt>
+<dd>Information Processing / 8-Bit Single-Byte Coded Character Sets - Part 1 : ISO Latin
+Alphabet Nr 1;</dd>
+</dl>
+</section>
+<section id="4.B.3">
+<h3>B.3&emsp;Ordering Information</h3>
+<p>Following are the sources for documents not available from Standards and Methods
+Control.</p>
+<p>ANSI, IEC, and ISO Documents<br />American National Standards Institute (ANSI),<br />1430 Broadway, New York, NY 10018<br />Telephone (212) 354-3300 x479</p>
+<a id="4-46"></a>
+</section>
+</section>
+</main>
+<footer>
+<a id="Index-1"></a>
+<section id="Index">
+<h2>Index</h2>
+<ul>
+<li>Architecture<ul>
+<li>service class, <a href="#4-3">3</a></li>
+</ul>
+</li>
+<li>Conformance Levels<ul>
+<li>definition, <a href="#4-2">2</a></li>
+</ul>
+</li>
+<li>DA, <a href="#4-17">17</a>, <a href="#4-26">26</a></li>
+<li>DECID, <a href="#4-28">28</a></li>
+<li>DECRPTUI, <a href="#4-26">26</a></li>
+<li>DECRQLP, <a href="#4-17">17</a></li>
+<li>DECSCL, <a href="#4-22">22</a></li>
+<li>DECSR, <a href="#4-29">29</a></li>
+<li>DECSRC, <a href="#4-29">29</a></li>
+<li>DECSTR, <a href="#4-31">31</a></li>
+<li>DECSTUI, <a href="#4-26">26</a></li>
+<li>Default<ul>
+<li>factory, <a href="#4-2">2</a></li>
+<li>undefined, <a href="#4-12">12</a></li>
+</ul>
+</li>
+<li>Device Attributes<ul>
+<li>control function, <a href="#4-17">17</a>, <a href="#4-26">26</a></li>
+<li>primary, <a href="#4-3">3</a>, <a href="#4-17">17</a></li>
+<li>secondary, <a href="#4-3">3</a></li>
+<li>tertiary, <a href="#4-3">3</a>, <a href="#4-26">26</a></li>
+</ul>
+</li>
+<li>Device Control, <a href="#4-22">22</a></li>
+<li>Device Identification, <a href="#4-3">3</a>, <a href="#4-17">17</a>, <a href="#4-26">26</a>, <a href="#4-28">28</a></li>
+<li>Device Status, <a href="#4-12">12</a>, <a href="#4-35">35</a></li>
+<li>Device Status Report<ul>
+<li>control function, <a href="#4-35">35</a></li>
+</ul>
+</li>
+<li>Device Test, <a href="#4-12">12</a></li>
+<li>DSR, <a href="#4-35">35</a></li>
+<li>Factory Default State<ul>
+<li>definition, <a href="#4-2">2</a></li>
+</ul>
+</li>
+<li>Identification<ul>
+<li>device, <a href="#4-3">3</a></li>
+<li>service class, <a href="#4-3">3</a></li>
+</ul>
+</li>
+<li>Identify Terminal<ul>
+<li>control function, <a href="#4-28">28</a></li>
+</ul>
+</li>
+<li>Implicit Extensions, <a href="#4-20">20</a></li>
+<li>Initialization, <a href="#4-12">12</a></li>
+<li>Initialization and Reset, <a href="#4-29">29</a>, <a href="#4-31">31</a></li>
+<li>Interface<ul>
+<li>external, <a href="#4-2">2</a></li>
+<li>internal, <a href="#4-2">2</a></li>
+</ul>
+</li>
+<li>Power-Up State<ul>
+<li>definition, <a href="#4-2">2</a></li>
+</ul>
+</li>
+<li>Primary Device Attributes<ul>
+<li>definition, <a href="#4-3">3</a></li>
+</ul>
+</li>
+<li>Report Terminal Unit ID, <a href="#4-26">26</a></li>
+<li>Request Locator Position<ul>
+<li>control function, <a href="#4-17">17</a></li>
+</ul>
+</li>
+<li>Secondary Device Attributes<ul>
+<li>definition, <a href="#4-3">3</a></li>
+</ul>
+</li>
+<li>Secure Reset<ul>
+<li>control function, <a href="#4-29">29</a></li>
+</ul>
+</li>
+<li>Secure Reset Confirmation<ul>
+<li>control function, <a href="#4-29">29</a></li>
+</ul>
+</li>
+<li>Select Conformance Level<ul>
+<li>control function, <a href="#4-22">22</a></li>
+</ul>
+</li>
+<li>Self-Test<ul>
+<li>definition, <a href="#4-2">2</a></li>
+</ul>
+</li>
+<li>Service Class<ul>
+<li>identification, <a href="#4-3">3</a></li>
+</ul>
+</li>
+<li>Set Terminal Unit ID, <a href="#4-26">26</a></li>
+<li>Soft Terminal Reset<ul>
+<li>control function, <a href="#4-31">31</a></li>
+</ul>
+</li>
+<li>Software Conformance<ul>
+<li>device identification, <a href="#4-28">28</a></li>
+</ul>
+</li>
+<li>Status Report<ul>
+<li>definition, <a href="#4-2">2</a></li>
+</ul>
+</li>
+</ul>
+<a id="Index-2"></a>
+<ul>
+<li>Terminal Interface Architecture (TIA), <a href="#4-1">1</a></li>
+<li>Terminal Management Functions, <a href="#4-1">1</a><ul>
+<li>definition, <a href="#4-3">3</a></li>
+</ul>
+</li>
+<li>Tertiary Device Attributes<ul>
+<li>definition, <a href="#4-3">3</a></li>
+</ul>
+</li>
+</ul>
+</section>
+</footer>
+</body>
+</html>
