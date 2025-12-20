@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>VSRM - Text Locator Extension</title>
+<meta charset="UTF-8" />
+<style>*{text-shadow:0.5px 0;color:#000000;padding:0;margin:0;border-collapse:collapse}body{background:#d4d4d8;>header,>main,>footer{width:721px;padding-left:95px;padding-bottom:17.25px;background:#ffffff;margin:0 auto}>footer{border-bottom:11px solid #d4d4d8}font-family:"Times New Roman";font-size:16.25px;line-height:17.25px;word-spacing:0.3px;letter-spacing:0.5px}a{text-decoration:none}a[href]:hover{color:#bb0000;>abbr{color:inherit}}abbr{text-transform:none}header>hgroup{>h1,>h2{display:inline;text-transform:none;font-size:24.5px;line-height:26.5px;letter-spacing:-0.1px}>h1{&:before{content:'DEC STD 070-13 ';font-size:25px;word-spacing:3px;letter-spacing:-0.6px}&:after{content:'\2014';margin-right:-5px}}margin-top:171px;margin-bottom:34px;width:550px}h2,h3,h4,p{white-space:pre-wrap}h1,h2,h3,h4{font-family:Arial;font-weight:bold;text-transform:uppercase}h2{font-size:16.5px;line-height:19px;letter-spacing:-0.3px}h3{font-size:14.7px;letter-spacing:0.1px}p,section{+section{margin-top:22px}}h2+*,h3+*{margin-top:9px}p+p{margin-top:8.25px}cite{font-style:italic;letter-spacing:0.2px}aside{margin-top:9px;margin-bottom:9px;margin-left:24px;font-family:Sylfaen;font-weight:bold;font-size:15px;line-height:16px;>h4{font-family:Sylfaen;margin-bottom:31px;margin-left:263px}header>&{width:428px;margin-left:99px;margin-top:40px;box-sizing:border-box;border:2px solid #000000;padding:5px 0px 5px 8px;>p{font-family:Arial;font-size:11px;line-height:12px;letter-spacing:-0.15px;word-spacing:1px;text-shadow:0.1px 0;+p{margin-top:12px}}}a[id]{transform:translateX(-24px)}}dl{>dt{float:left;font-weight:bold;&:after{content:'\2014'}}>dd{margin-bottom:9px;white-space:pre}}header>dl{font-family:Arial;font-size:15px;>dt{text-transform:uppercase;letter-spacing:-0.1px;padding-right:5px}>dt:after{content:':'}>dd{margin-bottom:35px;word-spacing:1.5px;letter-spacing:-0.2px}&:nth-of-type(n+2)>dt{font-weight:normal}&:nth-of-type(2){>dt:nth-of-type(1){display:none}>dd:nth-of-type(1){font-weight:bold;word-spacing:0.8px;letter-spacing:-0.25px;margin-bottom:9px;&:before{content:'DEC STD 070-13 '}}>*:nth-child(-n+4){letter-spacing:-0.25px}>dt:nth-of-type(3){font-size:12.5px;letter-spacing:-0.3px;padding-right:93px}>dd:nth-of-type(3){white-space:normal;margin-bottom:9.5px;td{font-size:12.5px;line-height:14.5px;width:96px}}}&:nth-of-type(3){font-size:12px;margin-bottom:9.5px;>dt,>dd{line-height:14.5px}>dt{text-transform:none;word-spacing:1px}>dd{margin-left:300px;margin-bottom:0;letter-spacing:0}}&:nth-of-type(4){>dt{letter-spacing:-0.3px}>dd{white-space:normal;word-spacing:1px;>p:nth-of-type(n+2){margin-top:71px;border-top:2px solid black;width:400px;margin-left:96px;padding-left:30px;padding-top:5.75px;word-spacing:0.5px}>p:nth-of-type(3){margin-top:56px}}}}header>p{font-family:Arial;font-size:12px;line-height:15px;letter-spacing:0.15px;&:nth-of-type(1){margin-top:35px;margin-left:93px}&:nth-of-type(2){margin-top:25px;margin-left:140px}&:nth-of-type(n+3){font-size:15px;line-height:17px;word-spacing:0.5px;letter-spacing:0}&:nth-of-type(4){margin-top:27px;margin-left:275px;word-spacing:1.1px}&:nth-of-type(5){margin-top:0;margin-left:147px;word-spacing:1.1px}&:nth-of-type(3){margin-top:170px}&:nth-of-type(6){margin-top:53px;margin-left:-12px}&:nth-of-type(7){margin-left:58px;font-size:12px;line-height:18px}&:nth-of-type(n+6){transform:rotate(0.8deg)}}ul{list-style:none;margin-top:9px;margin-bottom:9px;word-spacing:-0.5px;>li:has(>code){line-height:0}}ol{list-style-type:none;margin-top:6px;margin-bottom:12px;>li>p{margin-bottom:6.6px;margin-left:28px;+p{margin-top:-1px}&:first-child:before{content:counter(list-item,decimal) ".";display:inline-block;width:28px;margin-left:-28px}>a[id]{transform:translateX(-28px)}}}#Contents{>hgroup{>h2{font-family:"Times New Roman";font-size:16px;font-weight:normal;letter-spacing:0.2px;padding-left:269px;margin-top:-2px;margin-bottom:30px}>p{display:none}}a[href]{background:#ffffff;position:relative;z-index:1;&:nth-of-type(1):after{content:'\A0'}&:nth-of-type(2){position:absolute;right:98px;text-align:right;width:36px}}ol{margin:0;>li{padding-left:10px;line-height:18.5px;&:before{content:counters(list-item,".");display:inline-block;width:14px}>ol>li:before{width:25px}}}>ol{font-size:15px;letter-spacing:-0.1px;position:relative;>li{padding-left:28px;text-transform:uppercase;&:first-child>ol>li:nth-child(2){text-transform:none}&:not(:first-child){margin-top:7.5px}}}>ol[type=A]{margin-top:21px;>li{counter-increment:appendix;padding-left:0;text-transform:none;>a:first-of-type,&:before{font-size:16.5px;letter-spacing:0.1px}>a:first-of-type{text-transform:uppercase}&:before{content:'Appendix ' counter(appendix,upper-alpha);width:96px}li{margin-top:8px;padding-left:27px;>a:first-of-type{letter-spacing:0.1px}&:before{content:counter(appendix,upper-alpha) '.' counter(list-item);width:30px}}}}>ul{text-transform:uppercase;>li{margin-top:30px;>ol{text-transform:none;letter-spacing:0.4px;>li{position:relative;padding-left:18px;counter-increment:sub-item;font-size:15px;&:before{content:counter(sub-item);width:56px}}}}}li>span{visibility:hidden;&:after{content:'..............................................................';visibility:visible;position:absolute;right:101px;letter-spacing:4.3px}}}#Index{>h2{font-size:19px;margin-top:104px;margin-bottom:71px}>ul{column-count:2;width:706px;font-size:13.5px;>li>ul{margin:0;margin-left:17px}li,a{line-height:14.5px;word-spacing:2px;letter-spacing:0}>li{&:before{font-family:Arial;font-size:20px;font-weight:bold;line-height:27px;display:block;border-bottom:2px solid black;width:266px;margin-top:4px;margin-bottom:3px}&:nth-child(1):before{content:'D';margin-top:-10px}&:nth-child(9):before{content:'E'}&:nth-child(11):before{content:'F'}&:nth-child(13):before{content:'I'}&:nth-child(14):before{content:'L'}&:nth-child(19):before{content:'R'}&:nth-child(22):before{content:'S'}&:nth-child(24):before{content:'V'}&:nth-child(25):before{content:'W'}}}}div{margin-top:9px;>pre>samp{display:block;margin-left:28.5px;margin-top:22px;margin-bottom:8px}>pre+pre>samp{margin-top:0}}samp{font-family:"Courier New";font-weight:bold;font-size:12px;line-height:13px;word-spacing:0;letter-spacing:0;text-shadow:none}figure{margin-top:12px;>figcaption{font-family:Arial;font-weight:bold;font-size:14.5px;letter-spacing:0.2px;white-space:pre}>svg text{white-space:pre}&:nth-of-type(1)>svg{margin-left:127px;margin-top:15px;margin-bottom:13px}&:nth-of-type(2)>svg{margin-left:65px;margin-top:8px}}section:has(>h4>span){margin-top:37px;h2+&,h3+&{margin-top:16px}>h4{display:grid;grid-template-columns:518px 100px;position:relative;white-space:normal;font-size:12.5px;line-height:16.5px;letter-spacing:-0.2px;border-bottom:3px solid black;margin-bottom:12px;width:626px;>span{visibility:hidden;grid-row:3}>small{font-size:inherit;text-transform:none;position:absolute;left:154px}}>p:nth-of-type(1){word-spacing:-1px}>p:nth-of-type(-n+2)>em{padding-right:14px}>ul:has(>li>span){margin-left:40px;>li{white-space:pre;text-indent:-24px;span{text-indent:0;display:inline-block;width:15px;visibility:hidden;&:before{content:'\2014';visibility:visible}}}}>ul>li>code{font-family:"Times New Roman";font-size:16.25px;line-height:17.25px;word-spacing:2px;letter-spacing:0.1px}}section:has(>h4>span){&#DECELR{>div{margin-top:0;>p{margin-left:5px}>pre>samp{margin-top:5px;margin-bottom:27px}}>ul:nth-of-type(1){margin-top:0;margin-bottom:26px}>ul:nth-of-type(2){margin-top:0}>ul:nth-of-type(3){margin-top:17px}>aside>h4{margin-left:267px;margin-bottom:8px}}&#DECLRP{>h4{margin-bottom:3px}>div>pre>samp{margin-top:7px;margin-bottom:16px}>ul:nth-of-type(1){margin-left:17px}>ul:nth-of-type(2){margin-top:0;>li:last-child{margin-left:-9px}}>ul:nth-of-type(3){margin-top:27px}>aside{margin-bottom:13px}>p:nth-of-type(9){letter-spacing:0.2px}}&#DECRQLP{>h4{grid-template-columns:522px 100px}>div>pre>samp{margin-top:40px;margin-bottom:34px}>ul{margin-top:0}>aside{letter-spacing:0.7px;>h4{margin-left:214px;margin-bottom:8px}}}&#DECSLE{>div>pre>samp{margin-top:38px;margin-bottom:17px}>ul{margin-top:0}}&#DECEFR{>div>pre>samp{margin-top:7px;margin-bottom:25px}>aside>ol>li:nth-child(-n+2)>p:nth-child(-n+2){letter-spacing:0.7px;margin-bottom:8px}}&#DECLKD{>p:nth-of-type(2){margin-left:82px;text-indent:-82px;word-spacing:-1px}>div>pre>samp{margin-top:7px;margin-bottom:10px}>ul:nth-of-type(1){margin-left:50px;>li{text-indent:-50px;&:first-child{white-space:nowrap}>ul{margin-left:16px;margin-top:0;margin-bottom:25px;>li{text-indent:-50px;white-space:pre}}}}>ul:nth-of-type(n+2){margin-left:16px;margin-top:26px}}&#DSR{>div>pre>samp{margin-bottom:17px}>ul{margin-top:25px;>li{display:grid;grid-template-columns:61px 435px 0;>span{grid-column:3;grid-row:1;color:transparent}}&:nth-of-type(2)>li:nth-of-type(n+2){grid-template-columns:56px 435px 0}}}}em{font-size:17px;font-style:normal;font-weight:bold}#\31\33\.1{>p:first-of-type{word-spacing:-1px}>p:nth-of-type(2):first-line{word-spacing:-1.5px}}#\31\33\.1\.2>h3{text-transform:none}#\31\33\.5\.2{>p:has(>samp){margin:18px 0px 17px 28px}}#\31\33\.A>h2{margin-top:96px;margin-left:112px;font-size:19px;word-spacing:6px;&:before{content:'APPENDIX\2003'}}#\31\33\.A\.1>h3{font-size:16px;line-height:28px;text-transform:none;margin-top:31px}#\31\33\.A\.1>dl{font-family:Arial;font-size:12.5px;margin-top:0;margin-bottom:11px;border-top:3px solid black;border-bottom:3px solid black;width:628px;>dt,>dd{line-height:15px;&:first-of-type{&:before{display:block;height:21px;line-height:21px;border-bottom:3px solid black;margin-bottom:5px}}}>dt{width:165px;padding:0;letter-spacing:-0.5px;&:first-of-type:before{content:'EL-Class Number'}&:after{display:none}}>dd{margin-left:165px;margin-bottom:3px;font-style:italic;word-spacing:1.25px;letter-spacing:-0.25px;&:first-of-type:before{content:'Document Title';font-style:normal}}&+p{font-size:17px;word-spacing:-1px;letter-spacing:0.1px}}header,main,footer{counter-reset:page}a[id]{display:block;position:relative;left:-95px;padding-left:95px;width:721px;height:17.25px;margin-top:120px;margin-bottom:32px;border-top:11px solid #d4d4d8;padding-top:32px;white-space:pre;font-family:Arial;font-size:14px;font-weight:bold;word-spacing:0.8px;letter-spacing:-0.3px;text-transform:none;&:before{content:'EL-00070-13\A' '30-Sep-1991';line-height:0;position:absolute;left:649px;text-indent:-554px;padding-top:9px;font-size:12.5px;word-spacing:2.1px}&:after{--content:'Digital Internal Use Only\A';counter-increment:page;content:var(--content) counter(page);line-height:0;position:absolute;top:972px;text-indent:290px}header &:after{content:var(--content) counter(page,lower-roman)}&#\31\33-10{&:before{text-indent:-529px}}&#iii,&#\31\33-1,&#\31\33-3,&#\31\33-5,&#\31\33-7,&#\31\33-9,&#\31\33-11,&#\31\33-13,&#\31\33-15,&#\31\33-17,&#Index-1{&:after{text-indent:206px;text-align:right;direction:rtl;right:95px}}&#i:after{content:var(--content);text-indent:270px}&#ii:after{transform:rotate(0.8deg) translate(-13px,4px)}&#i,&#ii{&:before{content:'EL-00070-13                                Digital Internal Use Only\A' '30-Sep-1991'}}&#Index-1{&:before{content:'\A' 'EL-00070-13'}&:after{content:var(--content) 'Index\2013' counter(page);text-indent:224px}}}#\31\33-7{margin-top:127px}#\31\33-12{margin-top:142px}#\31\33-4{margin-top:170px}#\31\33-11{margin-top:183px}#\31\33-14{margin-top:184px}#\31\33-6{margin-top:213px}#\31\33-5{margin-top:215px}#\31\33-3{margin-top:218px}#iii{margin-top:227px}#ii{margin-top:234px}#\31\33-13{margin-top:245px}#\31\33-2{margin-top:332px}#\31\33-9{margin-top:343px}#\31\33-16{margin-top:386px}#iv{margin-top:406px}#\31\33-17{margin-top:579px}#\31\33-10{margin-top:605px}#\31\33-8{margin-top:624px}#\31\33-18{margin-top:684px}body{>header,>main,>footer{>a[id]:first-child{margin-top:0}}>header{padding-bottom:973px}>main{padding-bottom:973px}>footer{padding-bottom:346px}}</style>
+</head>
+<body>
+<header>
+<a id="i"></a>
+<hgroup>
+<h1>Video Systems Reference Manual</h1>
+<h2>Text Locator Extension</h2>
+</hgroup>
+<dl>
+<dt>Document Identifier</dt>
+<dd><p>A-DS-EL00070-13-0000 Rev A, 30-Sep-1991</p></dd>
+<dt>Abstract</dt>
+<dd><p>This specification defines support for locator input devices on ANSI text and
+graphics terminals as an extension to the Character Cell Display service class.</p></dd>
+<dt>Applicability</dt>
+<dd><p>Mandatory for engineers designing hardware for terminal products and
+software engineers designing programs using terminal interfaces. Additional requirements are
+defined in DEC STD 070-1 Video Systems Reference Manual - Concepts and Conformance
+Criteria.</p></dd>
+<dt>Status</dt>
+<dd><p>APPROVED 30-Sep-1991; use VTX SMC for current status.</p></dd>
+</dl>
+<aside>
+<p>The material contained within this document is assumed to define mandatory
+standards unless it is clearly marked as: a. not mandatory; or b. guidelines.</p>
+<p>Material that is marked as "not mandatory" is considered to be of potential
+benefit to the corporation and should be followed unless there are good
+reasons for non-compliance.  "Guidelines" define approaches and techniques
+that are considered to be good practice, but should not be considered as
+requirements.</p>
+</aside>
+<p>This document is confidential and proprietary, and is the property of Digital
+Equipment Corporation. It is an unpublished work protected under the Federal
+copyright laws.</p>
+<p>© Digital Equipment Corporation.   1991.  All rights reserved.</p>
+<a id="ii"></a>
+<dl>
+<dt>Title</dt>
+<dd>Video Systems Reference Manual&mdash;Text Locator Extension</dd>
+<dt>Document Identifier</dt>
+<dd>A-DS-EL00070-13-0000 Rev A, 30-Sep-1991</dd>
+<dt>Revision History</dt>
+<dd><table>
+<tbody>
+<tr><td>Rev A,</td><td>30-Sep-1991</td></tr>
+</tbody>
+</table>
+</dd>
+</dl>
+<dl>
+<dt>Document Management Category</dt>
+<dd>Terminal Interface Architecture (STI)</dd>
+<dt>Responsible Department</dt>
+<dd>VIPS Terminals Architecture</dd>
+<dt>Responsible Person</dt>
+<dd>Peter Sichel</dd>
+</dl>
+<dl>
+<dt>Approval</dt>
+<dd><p>This standard, prepared by the Desktop Systems Group, has been reviewed and
+recommended for approval by the General Review group for its category.</p>
+<p>Peter Sichel - VIPS Terminals Architecture</p>
+<p>Eric Williams - Standards Process Manager</p></dd>
+</dl>
+<p>Direct requests for further information to:</p>
+<p>Peter Sichel</p>
+<p>Use $ VTX ELF for the latest location information.</p>
+<p>Use VTX SMC to order copies of this document from Standards and Methods Control. Send
+distribution questions to JOKUR::SMC or call DTN: 234-4423.</p>
+<p>The following are trademarks of Digital Equipment Corporation: the Digital logo and ReGIS.
+Tektronix is a registered trademark of Tektronix, Inc.</p>
+<a id="iii"></a>
+<section id="Contents">
+<hgroup>
+<h2>Contents</h2>
+<p>Chapter 13<br />Text Locator Extension</p>
+</hgroup>
+<ol>
+<li><a href="#13.1">Introduction</a><span> … </span><a href="#13-1">1</a><ol>
+<li><a href="#13.1.1">Scope</a><span> … </span><a href="#13-1">1</a></li>
+<li><a href="#13.1.2">Relationship to TIA</a><span> … </span><a href="#13-1">1</a></li>
+</ol>
+</li>
+<li><a href="#13.2">Terminology</a><span> … </span><a href="#13-3">3</a></li>
+<li><a href="#13.3">Locator Reporting Model</a><span> … </span><a href="#13-3">3</a><ol>
+<li><a href="#13.3.1">Interaction With Sessions And Windows</a><span> … </span><a href="#13-4">4</a></li>
+</ol>
+</li>
+<li><a href="#13.4">Controlling Locator Reports</a><span> … </span><a href="#13-5">5</a></li>
+<li><a href="#13.5">Locator Support For Graphics (Locator Port Extension)</a><span> … </span><a href="#13-11">11</a><ol>
+<li><a href="#13.5.1"><abbr>ReGIS</abbr> One-Shot Graphics Input Mode</a><span> … </span><a href="#13-11">11</a></li>
+<li><a href="#13.5.2"><abbr>ReGIS</abbr> Multiple Input Mode</a><span> … </span><a href="#13-12">12</a></li>
+<li><a href="#13.5.3">Tektronix GIN Mode</a><span> … </span><a href="#13-12">12</a></li>
+<li><a href="#13.5.4">Defining Locator Keys For Graphics Input</a><span> … </span><a href="#13-13">13</a></li>
+<li><a href="#13.5.5">Combining Graphics And ANSI Locator Input</a><span> … </span><a href="#13-14">14</a></li>
+</ol>
+</li>
+<li><a href="#13.6">Locator Device Status</a><span> … </span><a href="#13-15">15</a></li>
+<li><a href="#13.7">Locator Controller Mode (Guideline&mdash;Documented Exception)</a><span> … </span><a href="#13-16">16</a></li>
+</ol>
+<ol type="A">
+<li><a href="#13.A">Referenced Documents</a><span> … </span><a href="#13-17">17</a><ol>
+<li><a href="#13.A.1">EL-Class Digital Documents</a><span> … </span><a href="#13-17">17</a></li>
+</ol>
+</li>
+</ol>
+<ul>
+<li><a href="#Index">Index</a></li>
+<li>Figures<ol>
+<li><a href="#13-2">Structuring of the Terminal Interface Architecture</a><span> … </span><a href="#13-2">2</a></li>
+<li><a href="#13-2">External and Internal Terminal Interfaces</a><span> … </span><a href="#13-2">2</a></li>
+</ol>
+</li>
+</ul>
+<a id="iv"></a>
+</section>
+</header>
+<main>
+<a id="13-1"></a>
+<section id="13.1">
+<h2>1&emsp;Introduction</h2>
+<p>This specification defines support for locator or pointing devices on ANSI text and graphic
+terminals as an extension to the Character Cell Display service class. Pointing devices are
+used for entering coordinates or selecting items on a display.</p>
+<p>A conforming device shall be supplied with a locator port used to connect an optional mouse
+or tablet. When a locator device is present and enabled, a separate input cursor appears
+that is moved by the terminal to follow the locator without host intervention. Individual
+locator events, such as locator button transitions or movements, can be programmed to
+send locator reports to the host.</p>
+<p>Once enabled, locator reports can be unsolicited (event driven) and mixed freely with
+keyboard input.</p>
+<p>Controls are provided to enable locator reporting, select which events shall generate
+reports, and interrogate the status of the locator device.</p>
+<p>This specification is primarily concerned with the Text Locator Extension, but also
+documents a simplified locator interface that forms the Locator Port Extension.
+Requirements apply to the Text Locator Extension unless explicitly indicated in the text.</p>
+<section id="13.1.1">
+<h3>1.1&emsp;Scope</h3>
+<p>This standard applies to all Digital products that implement support for a locator device
+and are intended to be certified as conforming to the Terminal Interface Architecture (TIA)
+as shown in Figure 1. It also applies to software intended to use the locator interface in a
+conforming manner.</p>
+</section>
+<section id="13.1.2">
+<h3>1.2&emsp;Relationship to TIA</h3>
+<p>The locator interface forms two extensions to the Character Cell Display service class:
+Text Locator and Locator Port. Both can be implemented at any conformance level. The
+primary Device Attributes (DA) response will report the locator extensions as parameter
+value 15 (Locator Port), and parameter value 29 (Text Locator). The Locator Port Extension
+supports DECLKD. If the device includes the ReGIS or sixel graphics extensions, additional
+interactions with these protocols are defined. The Text Locator Extension supports the
+text locator features described in this document (DECELR, DECLRP, DECRQLP, DECSLE,
+DECEFR). Both extensions allow the status of the locator port to be interrogated using a
+Device Status Report (DSR) function.</p>
+<a id="13-2"></a>
+<figure>
+<figcaption>Figure 1:   Structuring of the Terminal Interface Architecture</figcaption>
+<svg class="fig1" width="380" height="280" xmlns="http://www.w3.org/2000/svg">
+<g font-family="Arial, sans-serif" font-size="11" font-weight="bold" letter-spacing="0" white-space="pre">
+<text x="20" y="101">Terminal</text>
+<text x="20" y="137">Management</text>
+<text x="205" y="17">USER</text>
+<text x="160" y="53">Input   Processing</text>
+<text x="270" y="53">Text Locator</text>
+<text x="270" y="65">Extension</text>
+<text x="160" y="137">Presentation Service Class</text>
+<text x="158" y="221">Code Extension Layer</text>
+<text x="173" y="269" letter-spacing="0.2">APPLICATION PROCESS</text>
+</g>
+<g stroke="#000" stroke-width="1.5" fill="none" stroke-linejoin="round">
+<rect x="8" y="25" width="94" height="228" />
+<rect x="140" y="25" width="226" height="60" />
+<rect x="140" y="109" width="226" height="60" />
+<rect x="140" y="193" width="226" height="60" />
+<rect x="267" y="37" width="71" height="36" />
+</g>
+</svg>
+</figure>
+<p>The interfaces defined within this specification apply to both internal and external product
+interfaces (as shown in Figure 2). External interfaces are interfaces between a terminal,
+personal computer or workstation and a remote system. Internal interfaces are interfaces
+between a terminal subsystem and software processes running within a terminal, personal
+computer, or workstation.</p>
+<figure>
+<figcaption>Figure 2:   External and Internal Terminal Interfaces</figcaption>
+<svg class="fig2" width="500" height="300" xmlns="http://www.w3.org/2000/svg">
+<g font-family="Arial, sans-serif" font-size="11" font-weight="bold" letter-spacing="-0.1" white-space="pre">
+<text x="51" y="16">Terminal      System</text>
+<text x="394" y="16">Host     System</text>
+<text x="24" y="52">Physical</text><text x="25" y="64">Terminal</text>
+<text x="150" y="52">Virtual</text><text x="151" y="64">Terminal</text>
+<text x="406" y="52">Application</text><text x="415" y="64">Process</text>
+<text x="23" y="100">&lt;hardware&gt;</text>
+<text x="128" y="100">&lt;firmware&gt;</text>
+<text x="249" y="100">&lt;communications link&gt;</text>
+<text x="411" y="100">&lt;software&gt;</text>
+<text x="250" y="124">EXTERNAL  INTERFACE</text>
+<text x="25" y="220">Physical</text><text x="25" y="232">Terminal</text>
+<text x="151" y="220">Virtual</text><text x="151" y="232">Terminal</text>
+<text x="257" y="220">Application</text><text x="266" y="232">Process</text>
+<text x="23" y="269">&lt;hardware&gt;</text>
+<text x="128" y="269">&lt;software/</text>
+<text x="130" y="281">firmware&gt;</text>
+<text x="251" y="269">&lt;software&gt;</text>
+<text x="252" y="293">INTERNAL  INTERFACE</text>
+</g>
+<g stroke="#000" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+<polyline points="217,24 9,24 9,84 217,84 116,84 116,24" />
+<polyline points="237,49 311,49" stroke-dasharray="3.8 3" />
+<polyline points="299,61 380,61" stroke-dasharray="3.8 3" />
+<polyline points="382,24 489,24 489,84 382,84 382,24" />
+<polyline points="217,192 9,192 9,252 217,252 116,252 116,192" />
+<polyline points="242,192 343,192 343,252 242,252" />
+<polyline points="232,9 228,19.3 232,31.1 228,42.9 232,54.7 228,66.5 232,78.3 228,90.1 232,101.9 228,113.7 232,125.5" stroke-dasharray="7 5.6" style="stroke-width:1.25"/>
+<polyline points="231.5,177 228,187.3 232,199.1 228,210.9 232,222.7 228,234.5 232,246.3 228,258.1 232,269.9 228,281.7 232,293.5" stroke-dasharray="7 5.6" style="stroke-width:1.25"/>
+</g>
+</svg>
+</figure>
+</section>
+</section>
+<a id="13-3"></a>
+<section id="13.2">
+<h2>2&emsp;Terminology</h2>
+<dl>
+<dt>Filter rectangle</dt>
+<dd>A rectangular area in a video display used for selecting (filtering) which
+locator movements will be reported to the host. Moving the locator so that the input cursor
+is moved outside the filter rectangle causes a locator report to be transmitted to the host.</dd>
+<dt>Locator</dt>
+<dd>A device such as a mouse or tablet used for entering position coordinates
+(pointing) on a video display.</dd>
+<dt>Session</dt>
+<dd>A connection between a single virtual terminal and a host computer.</dd>
+<dt>Virtual terminal</dt>
+<dd>Consists of all the context (state information) of a real terminal but is
+able to share physical resources (such as the keyboard, display, and communication lines)
+with other virtual terminals. This allows a single physical device to appear as more than
+one terminal to a host computer.</dd>
+<dt>Window</dt>
+<dd>An area of the screen used to display information from a virtual terminal.</dd>
+<dt>Window manager</dt>
+<dd>Software or firmware that controls the use of windows.</dd>
+</dl>
+</section>
+<section id="13.3">
+<h2>3&emsp;Locator Reporting Model</h2>
+<p>When a locator device is present and enabled, a separate input cursor appears that is
+moved by the terminal to follow the locator without host intervention. Individual locator
+events such as locator button transitions or movement can be programmed to send locator
+reports to the host.</p>
+<p>Each locator report shall include: (1) the specific event that initiated the report; (2) the
+current state of the locator keys; and (3) the coordinates of the input cursor at the time
+of the event. The events that can initiate a locator report are a button transition (up or
+down), locator movement, or an explicit host request.</p>
+<p>Reporting both the event that triggered the report, and the current button state allows
+software to interpret locator activity without keeping track of previous events or button
+state. In a multiprocess shared locator environment, an application may not know the
+previous button state. This dual reporting also allows applications to recover from lost
+locator reports.</p>
+<p>Each locator event generates a single report. In the rare situation where two events occur
+simultaneously (within a single-sampling period), the terminal shall report this as two
+separate events. The order of reporting shall be by increasing event code number (left
+button first).</p>
+<p>Locator events are queued in the keyboard input silo just like keystrokes. Each locator
+event occupies one position in the silo (the keyboard silo currently must have at least nine
+positions). If the input silo becomes full, the locator and keyboard are locked until there
+is again room in the silo. The sequential order of keystroke and locator events shall be
+strictly maintained.</p>
+<p><em>Guideline:</em> It is the responsibility of the host to accept data fast enough to avoid locking
+the locator unintentionally. The limited buffering inside the terminal gives the host a little
+more time to process locator events smoothly.</p>
+<a id="13-4"></a>
+<p>When the locator is locked, the terminal continues to track the locator but the input cursor
+changes shape to indicate the locked condition (not mandatory). The alternate cursor shape
+indicates that locator button transitions will be ignored, but allows the user to continue
+positioning in anticipation of the locator being unlocked. The locator is automatically
+locked any time the input silo is full.</p>
+<p>Locator-ahead, analogous to keyboard type-ahead is supported by having each report
+include the locator position at the time of the event, and maintaining the sequential order
+of keystroke and locator events.</p>
+<section id="13.3.1">
+<h3>3.1&emsp;Interaction With Sessions And Windows</h3>
+<p>Since locator events are queued in the keyboard input silo along with keystrokes, locator
+and keyboard input should be associated with the same session (virtual terminal) at all
+times. The session to receive these events is sometimes called the <i>active session</i>.</p>
+<p>In a multisession windowing environment, the input cursor is allowed to roam freely over
+the entire screen in response to locator movement. The input cursor is never occluded
+when locator reporting is enabled in one or more sessions. Each session enables locator
+reporting independently. The following requirements apply to locator interaction with
+session windows and scroll regions in a multisession windowing environment.</p>
+<ol>
+<li><p>The input cursor is within the active session's window. Pressing a button on the locator
+sends a locator report when enabled.</p></li>
+<li><p>The input cursor is inside the active session's window but outside the range of defined
+coordinates for that session. Pressing a button on the locator shall generate a report
+with omitted coordinates (position undefined). For example, the input cursor is outside
+the active scrolling region, and the origin mode is set to relative.</p></li>
+<li><p>The input cursor is not contained in any virtual terminal's window. Pressing a button
+on the locator shall have no effect on any of the virtual terminals.</p></li>
+<li><p>The input cursor is within a window of a session that is not the active session. Pressing
+a button on the locator will normally make the session containing the locator cursor
+the active session, possibly changing the occlusion order of windows and the shape of
+the locator cursor (not mandatory).</p>
+<p>In this case, the <i>window manager</i> is free to define its own user interface. Two
+recommendations (not mandatory) are: (1) no locator report should be sent to the
+previous active session, because the locator is not in its window; and (2) a locator
+report should not be transmitted if locator reporting is enabled in the new session, to
+avoid application side effects when selecting another window.</p>
+<p><em>Implementation Guideline:</em> DECterm Version 1.0 followed recommendation (1)
+above, but did not follow recommendation (2). The result is that selecting a new
+DECterm window often repositions the cursor in that window. Personal computer
+windowing systems usually require the user to click once to select the window and
+click again in the window to move the active position.</p></li>
+</ol>
+</section>
+</section>
+<a id="13-5"></a>
+<section id="13.4">
+<h2>4&emsp;Controlling Locator Reports</h2>
+<section id="DECELR">
+<h4>Enable Locator Reports <span>&mdash;</span> DECELR</h4>
+<p><em>Levels:</em> 1x, 2x, 3x, 4x (Text Locator)</p>
+<p><em>Purpose:</em> To enable locator reporting</p>
+<div>
+<p><em>Format:</em></p>
+<pre><samp>CSI          Ps          ;         Pu          '           z
+9/11         3/?         3/11      3/?         2/7         7/10</samp></pre>
+</div>
+<p>The value of Ps controls locator reporting as follows:</p>
+<ul>
+<li>0<span> &mdash; </span>Locator disabled (default)</li>
+<li>1<span> &mdash; </span>Locator reports enabled</li>
+<li>2<span> &mdash; </span>One shot (allow one report, then disable)</li>
+</ul>
+<p>Pu specifies the coordinate units for locator reports:</p>
+<ul>
+<li>0<span> &mdash; </span>(or omitted) Default to character cells</li>
+<li>1<span> &mdash; </span>Device physical pixels</li>
+<li>2<span> &mdash; </span>Character cells</li>
+</ul>
+<p><em>Description:</em> When disabled (the power-up default), the locator cursor does not appear,
+and the locator buttons are inactive. When enabled, the locator cursor is visible, and the
+terminal tracks the locator locally with no host intervention. Individual locator events,
+such as locator button transitions or movements, may be programmed to send locator
+reports to the host.</p>
+<p>One shot mode is provided for applications that desire simple graphics input similar to
+Tektronix GIN mode (no unsolicited reports). If parameter value 2 is selected, the next
+trigger event that occurs generates a single locator report. No further locator reports occur
+(the locator is disabled), until another DECELR sequence is received.</p>
+<p>The coordinate units for locator position reports may be selected to either of two coordinate
+systems used by terminal software at the lowest level. Device physical pixels are useful
+when the device is capable of addressing individual dots on the display, such as with the
+sixel graphics extension. On devices that support character cell addressing only, device
+physical pixels (picture elements) may be character cells.</p>
+<aside>
+<h4>Note</h4>
+<p>Undefined values for Ps or Pu causes the entire sequence to be ignored.</p>
+</aside>
+<p><em>State Affected:</em></p>
+<ul>
+<li><code>locator_mode_t locator_mode;</code></li>
+<li><code>locator_coordinate_mode_t locator_coordinate_mode;</code></li>
+</ul>
+</section>
+<a id="13-6"></a>
+<section id="DECLRP">
+<h4>Locator Report <span>&mdash;</span> DECLRP</h4>
+<p><em>Levels:</em> 1x, 2x, 3x, 4x (Text Locator)</p>
+<p><em>Purpose:</em> To transmit locator information to the host</p>
+<div>
+<p><em>Format:</em></p>
+<pre><samp>CSI     Pe     ;     Pb     ;     Pr     ;     Pc     ;     Pp     &amp;     w
+9/11                                                               2/6   7/7</samp></pre>
+</div>
+<ul>
+<li>Pe is the event code.</li>
+<li>Pb is the button code.</li>
+<li>Pr is the row coordinate.</li>
+<li>Pc is the column coordinate.</li>
+<li>Pp is the third coordinate (page number).</li>
+</ul>
+<p><em>Description:</em> When a selected trigger event occurs, such as a button press or release, the
+terminal transmits a locator report to the host as a DECLRP sequence.</p>
+<p>Pe, the event code indicates what event caused this report to be generated. The following
+event codes are defined:</p>
+<ul>
+<li>0<span> &mdash; </span>Request; the terminal received an explicit request for a locator report, but the locator
+is unavailable (not enabled, or physically not present)</li>
+<li>1<span> &mdash; </span>Request; the terminal received an explicit request for a locator report</li>
+<li>2<span> &mdash; </span>Left button down</li>
+<li>3<span> &mdash; </span>Left button up</li>
+<li>4<span> &mdash; </span>Middle button down</li>
+<li>5<span> &mdash; </span>Middle button up</li>
+<li>6<span> &mdash; </span>Right button down</li>
+<li>7<span> &mdash; </span>Right button up</li>
+<li>8<span> &mdash; </span>Fourth button down</li>
+<li>9<span> &mdash; </span>Fourth button up</li>
+<li>10<span> &mdash; </span>Locator outside filter rectangle</li>
+</ul>
+<p>If Pe is 0 or omitted, all other parameters shall not be sent because the locator is
+unavailable. If Pe > 10, the entire sequence shall be ignored.</p>
+<p>Pb is the button code, ASCII decimal 0 - 15, indicating which, if any, of up to 4 buttons
+are down. The state of up to 4 buttons on the locator corresponds to the low 4 bits of the
+decimal value; a 1 means button is depressed.</p>
+<ul>
+<li>0<span> &mdash; </span>No buttons down</li>
+<li>1<span> &mdash; </span>Right</li>
+<li>2<span> &mdash; </span>Middle</li>
+<li>4<span> &mdash; </span>Left</li>
+<li>8<span> &mdash; </span>Fourth</li>
+</ul>
+<p>If Pb is omitted, it shall be interpreted as Pb = 0, no buttons down.</p>
+<p>Pr is the row coordinate of the locator position in the page encoded as an ASCII decimal
+value. If Pr is omitted, the locator position is undefined (outside the terminal window for
+example).</p>
+<a id="13-7"></a>
+<p>Pc is the column coordinate of the locator position in the page, encoded as an ASCII decimal
+value. If Pc is omitted, the locator position is undefined (outside the terminal window for
+example).</p>
+<p>Pp is the page coordinate of the locator position encoded as an ASCII decimal value. The
+page coordinate may be omitted if the locator is on page one (the default).</p>
+<aside>
+<h4>Notes</h4>
+<ol>
+<li><p>If locator reporting has been enabled to <i>one shot</i> mode (DECELR with Ps =
+2), a single locator report (DECLRP) shall reset locator reporting mode to
+disabled.</p></li>
+<li><p>The parameter values Pr, Pc, and Pp, are expressed in the units selected by
+the last received Enable Locator Reports (DECELR) command.</p></li>
+<li><p>The parameter values Pr and Pc shall be omitted, indicating locator position
+undefined, if a position report (DECLRP) is generated when the locator cursor
+is outside the range of defined coordinates for the reporting virtual terminal.</p></li>
+</ol>
+</aside>
+<p><em>State Affected:</em></p>
+<ul>
+<li><code>locator_reporting_mode_t locator_reporting_mode;</code></li>
+</ul>
+</section>
+<a id="13-8"></a>
+<section id="DECRQLP">
+<h4>Request Locator Position <span>&mdash;</span> DECRQLP</h4>
+<p><em>Levels:</em> 1x, 2x, 3x, 4x (Text Locator)</p>
+<p><em>Purpose:</em> Request the terminal transmit a locator position report</p>
+<div>
+<p><em>Format:</em></p>
+<pre><samp>CSI         Ps         '           |
+9/11                   2/7         7/12</samp></pre>
+</div>
+<p>The value of Ps controls the locator report sent as follows:</p>
+<ul>
+<li>0<span> &mdash; </span>(or omitted) Default to 1.</li>
+<li>1<span> &mdash; </span>Transmit a single locator report (DECLRP).</li>
+</ul>
+<p><em>Description:</em> The host may explicitly request a Locator Position Report (DECLRP) at
+any time locator reporting is enabled through Enable Locator Reporting (DECELR). Upon
+receipt of DECRQLP, the terminal shall respond with a single DECLRP with an event code
+of 1.</p>
+<p>If the session receiving the request is the active session, but the locator is not within the
+defined coordinate range for that session, the terminal shall respond with a single DECLRP
+with omitted coordinate parameter values.</p>
+<p>If the session receiving the request is not currently active (the locator is being used in
+another session), the terminal shall respond with omitted coordinates (locator position
+undefined) even if the input cursor is physically over the inactive session's window. Locator
+state from the active session shall not be made available to inactive sessions.</p>
+<p>If locator reporting is disabled, the terminal shall respond with a single DECLRP with an
+event code of 0 (indicating locator not available to avoid timing out the application).</p>
+<aside>
+<h4>Application Note</h4>
+<p>If the terminal responds that the locator position is undefined (omitted
+coordinates), the application can ask to be notified the next time that session
+is active, and the locator is within the defined coordinate range. See DECEFR
+(Enable Filter Rectangle).</p>
+</aside>
+</section>
+<a id="13-9"></a>
+<section id="DECSLE">
+<h4>Select Locator Events <span>&mdash;</span> DECSLE</h4>
+<p><em>Levels:</em> 1x, 2x, 3x, 4x (Text Locator)</p>
+<p><em>Purpose:</em> To select which locator events will generate reports</p>
+<div>
+<p><em>Format:</em></p>
+<pre><samp>CSI         Ps...Ps         '           {
+9/11                        2/7         7/11</samp></pre>
+</div>
+<p>Ps ... Ps is one or more selective parameters that may assume the following values:</p>
+<ul>
+<li>0<span> &mdash; </span>Respond only to explicit host requests (default, also cancels any pending filter
+rectangle)</li>
+<li>1<span> &mdash; </span>Report button down transitions</li>
+<li>2<span> &mdash; </span>Do not report button down transitions</li>
+<li>3<span> &mdash; </span>Report button up transitions</li>
+<li>4<span> &mdash; </span>Do not report button up transitions</li>
+</ul>
+<p><em>Description:</em> DECSLE selects which locator events shall generate unsolicited reports
+according to the parameter values.</p>
+</section>
+<a id="13-10"></a>
+<section id="DECEFR">
+<h4>Enable Filter Rectangle <span>&mdash;</span> DECEFR</h4>
+<p><em>Levels:</em> 1x, 2x, 3x, 4x (Text Locator)</p>
+<p><em>Purpose:</em> To cause locator movement to be reported to the host.</p>
+<div>
+<p><em>Format:</em></p>
+<pre><samp>CSI    Pt    ;    Pl    ;    Pb    ;    Pr    '    w
+9/11                                          2/7  7/7</samp></pre>
+</div>
+<ul>
+<li>Pt<span> &mdash; </span>Top boundary of filter rectangle</li>
+<li>Pl<span> &mdash; </span>Left boundary of filter rectangle</li>
+<li>Pb<span> &mdash; </span>Bottom boundary of filter rectangle</li>
+<li>Pr<span> &mdash; </span>Right boundary of filter rectangle</li>
+</ul>
+<p><em>Description:</em> The DECEFR control sequence defines the coordinates of a filter rectangle
+and activates it. The next time the locator is detected to be outside that filter rectangle,
+an outside rectangle event is generated and the rectangle is de-activated. Filter rectangles
+are always treated as <i>one-shot</i> events.</p>
+<p>Defining a new rectangle cancels the previous definition, if any, and activates the new filter
+rectangle.</p>
+<p>Pt, Pl, Pb, and Pr are in coordinates units specified by the last DECELR sequence. The
+filter rectangle includes the boundaries, similar to other rectangular area operations. The
+origin is coordinate pair 1:1 in the upper-left corner. If any parameters are omitted, they
+are defaulted to the current locator position. Sending DECEFR with no parameters will
+cause the application to be notified for any locator movement within the defined coordinate
+space for that virtual terminal (<i>unfiltered movement</i> event).</p>
+<p>If a rectangle that does not contain the locator is specified, and the locator is within the
+defined coordinate space for that session, the terminal will generate an outside rectangle
+report immediately and de-activate it.</p>
+<aside>
+<h4>Notes</h4>
+<ol>
+<li><p>DECELR cancels any previous filter rectangle definition. This guarantees
+that when an application enables locator reports, there will never be an
+outstanding filter rectangle.</p></li>
+<li><p>If a filter rectangle lies on the edge of the defined coordinate space for
+the active session, and the locator crosses that edge, the rectangle shall
+be triggered to send a report with omitted coordinates (locator position
+undefined).</p>
+<p>If the active session receives a filter rectangle with explicit coordinates
+while the locator is outside the defined coordinate space, the rectangle shall
+be triggered to send a report with omitted coordinates (locator position
+undefined).</p><a id="13-11"></a><p>If the active session receives a filter rectangle with omitted coordinates (that
+is, uses the current position) while the locator is outside the defined coordinate
+space (position undefined), the rectangle shall be triggered the next time the
+locator is within the defined coordinate space. This allows applications to
+be notified the next time the locator is within the defined coordinate space
+without polling repeatedly.</p></li>
+<li><p>If a session that is not the active session receives a filter rectangle with explicit
+coordinates, it shall trigger immediately with position undefined. If a session
+that is not the active session receives a rectangle with omitted coordinates, it
+shall trigger the next time the locator is within the defined coordinate space
+for that session, which cannot happen until the session becomes active.</p></li>
+<li><p>If the terminal receives a filter rectangle when locator reporting is not
+enabled, the rectangle shall be triggered to send a report indicating that the
+locator is not available. This is to avoid hanging the application while it waits
+for a locator report that will never occur.</p></li>
+</ol>
+</aside>
+</section>
+</section>
+<section id="13.5">
+<h2>5&emsp;Locator Support For Graphics (Locator Port Extension)</h2>
+<p>The locator can also be used with the ReGIS Extension, and in Tektronix GIN mode during
+Tektronix 401x emulation. See <cite>DEC STD 070-8 Video and Printer Standards Reference
+Manual - ReGIS Graphics Extension</cite> for more information on ReGIS commands.</p>
+<section id="13.5.1">
+<h3>5.1&emsp;<abbr>ReGIS</abbr> One-Shot Graphics Input Mode</h3>
+<p>ReGIS One-Shot Graphics Input Mode is selected with R(I0). Once selected, the application
+may request graphics input using the report position interactive command, R(P(I)).</p>
+<p>ReGIS One-Shot Graphics Input Mode is provided for backward compatibility with the
+VT240. When an application requests graphics input, a cross hair cursor appears which
+may be positioned using either the arrow keys (as on the VT240) or a locator device.
+Pressing any non-arrow key that is not dead on the keyboard or a button on the locator
+will cause the following actions:</p>
+<ol>
+<li><p>The ASCII code or codes for the non-arrow key that was pressed is sent to the host.
+Each locator button can be programmed to send a sequence of 0 to 6 characters. This
+allows the locator to be programmed to work with existing applications (see DECLKD,
+paragraph 5.4).</p></li>
+<li><p>The coordinates of the input cursor at the time the non-arrow key was depressed are
+sent to the host, expressed as an absolute bracketed extent in user coordinates.</p></li>
+<li><p>The graphics input cursor disappears from the screen and the terminal exits graphics
+input mode.</p></li>
+</ol>
+<p>While the terminal is in graphics input mode, no further data from the application (screen
+output) is processed until the locator input is complete and a report is generated.</p>
+<p>The mouse and arrow keys may be intermixed freely in ReGIS One-Shot Graphics
+Input Mode. Since the tablet is an absolute positioning device, use of the arrow keys in
+combination with the tablet would cause inconsistent and confusing behavior. The arrow
+keys are disabled for input cursor positioning when the tablet is in proximity because the
+tablet establishes an absolute screen position.</p>
+</section>
+<a id="13-12"></a>
+<section id="13.5.2">
+<h3>5.2&emsp;<abbr>ReGIS</abbr> Multiple Input Mode</h3>
+<p>ReGIS Multiple Input Mode is selected with R(I1). In this mode, a graphics input cursor
+is displayed continuously, and individual locator events may be programmed to send
+unsolicited position reports to the host. Characters received from the host are executed
+instead of buffered, so graphics output and graphics input may occur simultaneously. In
+Multiple Input Mode, the input cursor continues to be displayed and the mode continues
+to be in effect until explicitly exited by command R(I0). The position of the input cursor
+may be polled with R(P(I)) at any time while in this mode. If report position interactive
+is received, the report will be prefixed by the <i>null button</i> because no button transition
+initiated the report.</p>
+<p>Since host input is still being processed, it is possible to exit ReGIS (terminal receives
+String Terminator) while in Multiple Input Mode. If this happens, the ReGIS locator will
+be disabled until ReGIS is re-entered, at which time multiple input mode resumes with the
+input cursor at its last known position.</p>
+<p>In Multiple Input Mode, locator key transitions for which the key definition is not empty
+(see DECLKD) send a position report as follows:</p>
+<ol>
+<li><p>The locator key definition string for the corresponding button transition is sent.</p></li>
+<li><p>The coordinates of the input cursor at the time of the key transition are sent to the
+host expressed as an absolute bracketed extent in user coordinates.</p></li>
+<li><p>The report ends with a carriage return.</p></li>
+</ol>
+<p><em>Examples:</em></p>
+<p><samp>&lt;ESC>[241~[102.5,200]&lt;CR></samp></p>
+<p>The left mouse button was pressed. &lt;ESC>[241~ is the default sequence for left button
+down transitions. Input cursor is at 102.5,200.</p>
+<p><samp>&lt;ESC>[240~[1OO,1OO]&lt;CR></samp></p>
+<p>The terminal received R(P(I)) in multiple input mode. &lt;ESC>[240~ is the <i>null button</i>
+sequence.</p>
+</section>
+<section id="13.5.3">
+<h3>5.3&emsp;Tektronix GIN Mode</h3>
+<p>Tektronix GIN Mode is only available during Tektronix 4010/4014 emulation. GIN mode
+is similar to ReGIS One-Shot Graphics Input mode with minor exceptions. The GIN
+request and resulting report sequences are compatible with the Tektronix 4010/4014
+series terminals. Only the cross hair graphics cursor is supported. Tektronix 4010/4014
+emulation is an exception to the architecture implemented by some graphic terminals.</p>
+</section>
+<a id="13-13"></a>
+<section id="13.5.4">
+<h3>5.4&emsp;Defining Locator Keys For Graphics Input</h3>
+<section id="DECLKD">
+<h4>Locator Key Definition <span>&mdash;</span> DECLKD</h4>
+<p><em>Levels:</em> 1x, 2x, 3x, 4x (Locator Port)</p>
+<p><em>Purpose:</em> To assign character strings to the locator keys for ReGIS One-Shot or Multiple
+Graphics Input Mode</p>
+<div>
+<p><em>Format:</em></p>
+<pre><samp>DCS  Pc   $    w   Ky1 / Std1 / Stu1 ; ... ; Kyn / Stnd / Stnu  ST
+9/0       2/4  7/7                                              9/12</samp></pre>
+</div>
+<ul>
+<li>Pc<span> &mdash; </span>Clear parameter<ul>
+<li>0<span> &mdash; </span>(or omitted) Clear all LKDs before loading new values.
+All button definition strings are empty (not the default).</li>
+<li>1<span> &mdash; </span>Clear old definition only for keys that are redefined.</li>
+</ul>
+</li>
+<li>Kyn / Stnd / Stnu<span> &mdash; </span>Key selection code n, slash delimiter (2/15),
+and string parameter n for down and up key transitions.
+Kyn is a single ASCII digit, and Std/Stu is a series of
+ASCII hex pairs. If Std or Stu is omitted, the corresponding
+button string will be empty. Key definition strings are
+delimited with 3/11 (";").</li>
+</ul>
+<p><em>Description:</em> The DECLKD device control string downline loads one or more key
+definitions for use by the Locator device during ReGIS One-Shot or Multiple Graphics
+Input Modes. These definitions are called Locator Key Definitions (LKDs).</p>
+<p>There are six bytes available to each of the locator keys (up to four). A power-up restart or
+Reset to Initial State (RIS) will cause the LKDs to be set to their default value. LKDs are
+not affected by Soft Terminal Reset (DECSTR).</p>
+<p>Default Locator Key Definitions</p>
+<ul>
+<li>No button transition ESC [ 240 ~</li>
+<li>Ky1 down transition ESC [ 241 ~</li>
+<li>Ky2 down transition ESC [ 243 ~</li>
+<li>Ky3 down transition ESC [ 245 ~</li>
+<li>Ky4 down transition ESC [ 247 ~</li>
+</ul>
+<p>Where:</p>
+<ul>
+<li>Ky1 = B1 = left = barrel button</li>
+<li>Ky2 = B2 = middle = tip button</li>
+<li>Ky3 = B3 = right</li>
+<li>Ky4 = B4 (tablet cursor only)</li>
+</ul>
+<a id="13-14"></a>
+<p>Up Transitions are ignored by default. The following locator key up definitions are
+recommended:</p>
+<ul>
+<li>Ky1 up transition ESC [ 242 ~</li>
+<li>Ky2 up transition ESC [ 244 ~</li>
+<li>Ky3 up transition ESC [ 246 ~</li>
+<li>Ky4 up transition ESC [ 248 ~</li>
+</ul>
+<aside>
+<h4>Notes</h4>
+<ol>
+<li><p>DECLKD is intended for older applications that use ReGIS one-shot input
+mode with keystroke commands like A, B, C, and so forth. These commands
+can be re-bound to buttons on the mouse by sending DECLKD (possibly before
+running the application).</p></li>
+<li><p>A locator transition for which the key definition is empty will not terminate
+ReGIS One-Shot Graphics Input Mode.</p></li>
+</ol>
+</aside>
+</section>
+</section>
+<section id="13.5.5">
+<h3>5.5&emsp;Combining Graphics And ANSI Locator Input</h3>
+<p>Support for graphics input in ReGIS is extended by allowing ANSI locator input (Text
+Locator Extension) to operate normally regardless of whether the host output stream is
+being interpreted as ANSI or ReGIS. If ANSI locator reporting is enabled, keystrokes and
+locator position reports can be generated without being solicited from the host. Characters
+received from the host are executed instead of buffered so graphics output and graphics
+input can occur simultaneously.</p>
+<p>If One-Shot Graphics Input Mode is entered (ReGIS report position interactive) while
+ANSI locator reporting is enabled, the locator cursor should change to a cross hair (not
+mandatory). Pressing a non-arrow key on the keyboard shall send the character for that
+key followed by the ReGIS user coordinates as a bracketed extent. If a locator button had
+been pressed instead, the characters for the locator button (if any) would be sent followed
+by the ReGIS position report, and finally the ANSI locator report (DECLRP) if enabled.
+Upon sending the ReGIS position report, the terminal shall exit One-Shot Graphics Input
+Mode, and the input cursor shall return to its previous state.</p>
+<p>The ANSI locator report is sent in the above situation (if enabled) to keep the two modes
+independent. This allows filter rectangles to continue operating, and also keeps the ANSI
+state (last DECLRP seen) consistent with the last button transition. The order of reports
+is chosen to allow a subroutine to send R(P(I)) and read the ReGIS response that follows
+without regard to whether ANSI locator reports are enabled.</p>
+<p>Since the ANSI locator report is in the form of a control sequence, it should not interfere
+with ReGIS reports. No special procedure is used to indicate ReGIS data from the terminal.
+This is backward compatible with the VT240 since ANSI locator reports can only occur if
+ANSI locator reporting is enabled.</p>
+<p>The suspension of graphics output during ReGIS One-Shot Graphics Input Mode remains
+the same. This is necessary to support rubber band cursors. Rubber band cursors use the
+ReGIS output position as one reference point, and the locator input position as the other.
+Rubber band cursors are specified as an option on the ReGIS report position interactive
+command.</p>
+</section>
+</section>
+<a id="13-15"></a>
+<section id="13.6">
+<h2>6&emsp;Locator Device Status</h2>
+<section id="DSR">
+<h4>Device Status Report <small>(Locator Status)</small> <span>&mdash;</span> DSR</h4>
+<p><em>Levels:</em> 1x, 2x, 3x, 4x (Locator Port or Text Locator)</p>
+<p><em>Purpose:</em> Cause the terminal to return the current functional status of the Locator</p>
+<div>
+<p><em>Format:</em></p>
+<pre><samp>CSI          ?            Ps         n
+9/11         3/15         Ps         6/14</samp></pre>
+</div>
+<p><em>Description:</em> The DSR request with private selective parameter 55 or 56 causes the
+terminal to respond with a similar DSR control function, using a parameter from the list
+below to indicate its current functional status.</p>
+<ul>
+<li>?55<span> &mdash; </span>Request locator status (command from host)</li>
+<li>?53<span> &mdash; </span>No locator</li>
+<li>?50<span> &mdash; </span>Locator ready</li>
+<li>?58<span> &mdash; </span>Locator busy</li>
+</ul>
+<ul>
+<li>?56<span> &mdash; </span>Host requests identity of device on locator port</li>
+<li>?57;0<span> &mdash; </span>"Unknown Locator" response</li>
+<li>?57;1<span> &mdash; </span>Device is Digital Corporate Mouse</li>
+<li>?57;2<span> &mdash; </span>Device is Digital Corporate Tablet</li>
+</ul>
+<p>The <i>no locator</i> response indicates no locator is currently plugged in, or the last device
+plugged in could not be initialized or has not transmitted a successful self-test message.</p>
+<p>The <i>locator ready</i> response indicates a locator device is plugged in and has transmitted a
+successful self-test message.</p>
+<p>The locator busy response can occur when an alternate session has selected locator
+controller mode (see following).</p>
+</section>
+</section>
+<a id="13-16"></a>
+<section id="13.7">
+<h2>7&emsp;Locator Controller Mode (Guideline&mdash;Documented Exception)</h2>
+<p>Locator Controller Mode allows the host to communicate directly with the locator device
+without terminal intervention (similar to printer controller mode). When locator controller
+mode is set, all data received at the host port is transferred directly to the locator port
+without interpretation by the display terminal. The only exceptions are the communications
+control characters XON/XOFF (if enabled), and the control sequence to disabled locator
+controller mode. All characters received at locator port are transferred to the host port
+without interpretation. The host assumes full responsibility for the locator device.</p>
+<p>Locator controller mode is desirable for two reasons:</p>
+<ol>
+<li><p>It allows the host to explicitly initialize or configure locator devices. A foreign locator
+device might not wake up in Digital format, for example.</p></li>
+<li><p>It allows the locator port to be used for other auxiliary input devices.</p></li>
+</ol>
+<p>Locator controller mode uses the Media Copy control sequence for a secondary auxiliary
+device:</p>
+<div>
+<p><em>Format:</em></p>
+<pre><samp>CSI       6        i         (Turn off locator controller mode)
+9/11      3/6      6/9</samp></pre>
+<pre><samp>CSI       7        i         (Turn on locator controller mode)
+9/11      3/7      6/9</samp></pre>
+</div>
+</section>
+<a id="13-17"></a>
+<section id="13.A">
+<h2>A&emsp;Referenced Documents</h2>
+<section id="13.A.1">
+<h3>A.1&emsp;EL-Class Digital Documents</h3>
+<dl>
+<dt>EL-00070-01</dt>
+<dd>DEC STD 070-1 Video Systems Reference Manual - Concepts and Conformance
+Criteria</dd>
+<dt>EL-00070-08</dt>
+<dd>DEC STD 070-8 Video and Printer Standards Reference Manual - ReGIS Graphics
+Extension</dd>
+</dl>
+<p>Use VTX SMC to order copies of EL-class documents from Standards and Methods Control.
+Send distribution questions to JOKUR::SMC or call DTN: 234-4423.</p>
+<a id="13-18"></a>
+</section>
+</section>
+</main>
+<footer>
+<a id="Index-1"></a>
+<section id="Index">
+<h2>Index</h2>
+<ul>
+<li>DECEFR, <a href="#13-10">10</a></li>
+<li>DECELR, <a href="#13-5">5</a></li>
+<li>DECLKD, <a href="#13-13">13</a></li>
+<li>DECLRP, <a href="#13-6">6</a></li>
+<li>DECRQLP, <a href="#13-8">8</a></li>
+<li>DECSLE, <a href="#13-9">9</a></li>
+<li>Device Status Report<ul>
+<li>control function, <a href="#13-15">15</a></li>
+</ul>
+</li>
+<li>DSR, <a href="#13-15">15</a></li>
+<li>Enable Filter Rectangle<ul>
+<li>control function, <a href="#13-10">10</a></li>
+</ul>
+</li>
+<li>Enable Locator Reports<ul>
+<li>control function, <a href="#13-5">5</a></li>
+</ul>
+</li>
+<li>Filter rectangle<ul>
+<li>definition, <a href="#13-3">3</a></li>
+</ul>
+</li>
+<li>Filter Rectangle, <a href="#13-10">10</a></li>
+<li>Interfaces<ul>
+<li>external, <a href="#13-2">2</a></li>
+<li>internal, <a href="#13-2">2</a></li>
+</ul>
+</li>
+<li>Locator<ul>
+<li>definition, <a href="#13-3">3</a></li>
+</ul>
+</li>
+<li>Locator Device Status, <a href="#13-15">15</a></li>
+<li>Locator Key Definition<ul>
+<li>control function, <a href="#13-13">13</a></li>
+</ul>
+</li>
+<li>Locator Movement, <a href="#13-10">10</a></li>
+<li>Locator Report<ul>
+<li>control function, <a href="#13-6">6</a></li>
+</ul>
+</li>
+<li>ReGIS Multiple Input Mode, <a href="#13-12">12</a></li>
+<li>ReGIS One-Shot Graphics Input Mode, <a href="#13-13">13</a></li>
+<li>Request Locator Position<ul>
+<li>control function, <a href="#13-8">8</a></li>
+</ul>
+</li>
+<li>Select Locator Events<ul>
+<li>control function, <a href="#13-9">9</a></li>
+</ul>
+</li>
+<li>Session<ul>
+<li>definition, <a href="#13-3">3</a></li>
+</ul>
+</li>
+<li>Virtual terminal<ul>
+<li>definition, <a href="#13-3">3</a></li>
+</ul>
+</li>
+<li>Window<ul>
+<li>definition, <a href="#13-3">3</a></li>
+</ul>
+</li>
+<li>Window manager<ul>
+<li>definition, <a href="#13-3">3</a></li>
+</ul>
+</li>
+</ul>
+</section>
+</footer>
+</body>
+</html>
