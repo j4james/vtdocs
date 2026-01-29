@@ -1,0 +1,1634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>VSRM - Sixel Graphics Extension</title>
+<meta charset="UTF-8" />
+<style>*{text-shadow:0.5px 0;color:#000000;padding:0;margin:0;border-collapse:collapse}body{background:#d4d4d8;>header,>main,>footer{width:709px;padding-left:107px;padding-bottom:16.75px;background:#ffffff;margin:0 auto}>footer{border-bottom:11px solid #d4d4d8}font-family:"Times New Roman";font-size:15.5px;line-height:16.75px;word-spacing:1px;letter-spacing:0.35px}a{text-decoration:none}a[href]:hover{color:#bb0000}header>hgroup{>h1,>h2{display:inline;font-size:24px;line-height:25.8px;letter-spacing:-0.3px}>h1{&:before{content:'DEC STD 070-9 ';font-size:24px;word-spacing:4px;letter-spacing:-0.6px}&:after{content:' - '}}margin-top:168px;margin-bottom:33px;width:500px}h2,h3,h4,p{white-space:pre-wrap}h1,h2,h3,h4{font-family:Arial;font-weight:bold;text-transform:uppercase}h2{font-size:16px;letter-spacing:-0.3px}h3{font-size:14px;letter-spacing:0.1px}h4{font-size:14px;letter-spacing:0.1px;text-transform:none}p,ol,section{+section{margin-top:21.5px;&:has(>h4){margin-top:19.5px}}}h2+*{margin-top:9px}h3+*{margin-top:9px}h4+*{margin-top:6px}p+p{margin-top:8.25px}aside{margin-top:7px;margin-left:22px;margin-bottom:-1px;font-family:Sylfaen;font-size:14px;line-height:15.4px;word-spacing:-1px;letter-spacing:1.1px;>h4{font-family:Sylfaen;font-weight:normal;font-size:15px;letter-spacing:0.5px;margin-bottom:8px;margin-left:234px;text-transform:uppercase}>h4,>p{text-shadow:0.5px 0,-0.5px 0}}dl{>dt{float:left;padding-right:4px;font-size:16px;font-weight:bold;letter-spacing:0.5px;&:after{content:'-';padding-left:4px}}>dd{margin-bottom:8.75px;white-space:pre;>br{content:'';display:block;margin-bottom:9px;+br{display:none}}}}header>dl{font-family:Arial;font-size:14.4px;>dt{text-transform:uppercase;font-size:inherit;letter-spacing:-0.1px;&:after{content:':';padding-left:0;padding-right:2px}}>dd{margin-bottom:34px;word-spacing:1.5px;letter-spacing:-0.2px}&:nth-of-type(2){>dt:nth-of-type(1){display:none}>dd:nth-of-type(1){font-weight:bold;word-spacing:1.4px;margin-bottom:9px;&:before{content:'DEC STD 070-9 '}}>dt:nth-of-type(2){letter-spacing:-0.1px}>dd:nth-of-type(2){letter-spacing:-0.15px}>dt:nth-of-type(3){font-size:12px;line-height:14.5px;word-spacing:0;padding-right:89px}>dd:nth-of-type(3){white-space:normal;margin-bottom:9.5px;td{font-size:11.5px;line-height:14.5px;letter-spacing:0;width:142px;&:first-child{width:95px}}}}&:nth-of-type(3){font-size:11.5px;margin-bottom:9.5px;>dt,>dd{line-height:13.5px}>dt{text-transform:none;letter-spacing:-0.3px}>dd{margin-left:296px;margin-bottom:0;letter-spacing:0}}&:nth-of-type(4){>dt{letter-spacing:-0.3px}>dd{white-space:normal;word-spacing:1.1px;>p:nth-of-type(n+2){margin-top:63px;border-top:2px solid black;width:392px;margin-left:91px;padding-left:29px;padding-top:5px;font-size:14.5px;word-spacing:1.5px}>p:nth-of-type(3){margin-top:53px}}}}header>p{font-family:Arial;font-size:11.5px;line-height:14px;word-spacing:0.5px;letter-spacing:0.15px;&:nth-of-type(1){margin-top:82px;margin-left:90px}&:nth-of-type(2){margin-top:26px;margin-left:137px}&:nth-of-type(n+3){font-size:14.5px;line-height:17px;letter-spacing:0}&:nth-of-type(4){margin-top:25px;margin-left:265px;word-spacing:1.5px}&:nth-of-type(5){margin-top:0;margin-left:141px;word-spacing:1.2px}&:nth-of-type(3){margin-top:147px}&:nth-of-type(6){margin-top:74px}}ul{list-style:none;font-family:"Courier New";font-weight:bold;font-size:12px;line-height:12.8px;margin-bottom:28px;word-spacing:0;letter-spacing:-0.25px;>li:has(>span),>li>p:has(>span){display:grid;>span{visibility:hidden;height:0}}}ol{list-style-type:none;margin-top:6px;margin-bottom:12px;>li>p{margin-bottom:6.5px;margin-left:27px;&:first-child:before{content:counter(list-item,decimal) ".";display:inline-block;width:27px;margin-left:-27px}+p{margin-top:-1px}}h2+&{margin-top:16px}}#Contents{>hgroup{>h2{font-family:"Times New Roman";font-size:15px;font-weight:normal;letter-spacing:0.3px;padding-left:261px;margin-bottom:30px}>p{display:none}}a[href]{background:#ffffff;position:relative;z-index:1;&:nth-of-type(1):after{content:'\A0'}&:nth-of-type(2){position:absolute;right:107px;text-align:right;width:36px}}ol{margin:0;>li{padding-left:9px;line-height:18px;&:before{content:counters(list-item,".");display:inline-block;width:14px;letter-spacing:-0.1px}>ol>li:before{width:25px}>ol>li>ol>li:before{width:35px}}}>ol{font-size:14.5px;letter-spacing:-0.1px;word-spacing:0.5px;position:relative;>li{padding-left:27px;text-transform:uppercase;li li{text-transform:none;letter-spacing:0.25px}&:not(:first-child){margin-top:7.2px}&:nth-child(n+10){&:before{width:21px}>ol>li:before{width:32px}>ol>li>ol>li:before{width:42px}}>a[id]{transform:translateX(-27px)}}}>ul{text-transform:uppercase;font-family:"Times New Roman";font-size:16.2px;font-weight:normal;letter-spacing:-0.1px;margin-top:28px}li>span{visibility:hidden;&:after{content:'..............................................................';visibility:visible;position:absolute;right:110px;letter-spacing:4.1px}}}#Index{>h2{font-size:19px;margin-top:104px;margin-bottom:71px}>ul{column-count:2;width:678px;>li>ul{margin:0;margin-left:15px}li,a{font-family:"Times New Roman";font-weight:normal;font-size:12.2px;line-height:14px;word-spacing:1px;letter-spacing:0.4px}a{padding-left:3px}>li{&:before{font-family:Arial;font-size:18px;font-weight:bold;line-height:25px;display:block;border-bottom:2px solid black;width:255px;margin-top:6px;margin-bottom:2px}&:nth-child(1):before{content:'C';margin-top:-8px}&:nth-child(2):before{content:'D'}&:nth-child(3):before{content:'G'}&:nth-child(7):before{content:'O'}&:nth-child(8):before{content:'P'}&:nth-child(11):before{content:'R'}&:nth-child(14):before{content:'S'}&:nth-child(18):before{content:'T'}&:last-child{margin-bottom:422px}}}}table{white-space:pre;main &,& samp{font-family:"Courier New";font-weight:bold;font-size:12px;line-height:12.8px;word-spacing:0;letter-spacing:-0.25px}th,td{text-align:left;vertical-align:top}}div{margin-top:25px;>pre>samp{display:block;margin-left:54px;margin-top:6px;margin-bottom:4px;font-family:"Courier New";font-weight:bold;font-size:12px;line-height:12.8px;word-spacing:0;letter-spacing:-0.25px;>br{content:'';display:block;margin-bottom:-5px}}}p:has(>samp){margin-left:75px;margin-top:25px;margin-bottom:22px;>samp{font-family:"Courier New";font-weight:bold;font-size:12px;word-spacing:0;letter-spacing:-0.25px}}figure>pre{font-family:"Courier New";font-style:normal;font-weight:bold;font-size:12px;line-height:12.8px;word-spacing:0;letter-spacing:-0.25px;margin-top:29.5px;margin-bottom:24px;>br{content:'';display:block;margin-bottom:-5px}}figure:nth-of-type(1){margin-left:75px}figure:nth-of-type(2){margin-left:55px}em{font-family:"Courier New";font-style:normal;font-weight:bold;font-size:12px;letter-spacing:-0.25px;margin-left:26px}#\39\.1\.1>ol{margin-bottom:10px}#\39\.3>dl>dd:nth-of-type(8n+2){margin-bottom:24px}#\39\.6\.1\.1{>div{margin-top:45px;>pre>samp{margin-left:41px}+p>em{margin-left:41px}}>ul{margin-left:54px;margin-top:-2px;>li{>p{display:block;margin-top:7.75px;margin-left:6ch;text-indent:-42px}&:nth-child(4),&:nth-child(5){span:before{content:'  '}}}}}#\39\.7\.1>table{margin-top:34px;margin-bottom:17px;margin-left:62px;tr:first-child>td{padding-top:7px}th:nth-child(1){min-width:125px}th:nth-child(2){min-width:90px}td{padding-left:34px}td:nth-child(2){padding-left:20px;tr:nth-child(n+8)>&{padding-left:13px}}}#\39\.7\.2>ul{margin-left:40px;margin-top:30px;margin-bottom:36px;>li>p{grid-template-columns:21px 0 auto;margin-top:7px}}#\39\.8\.1{>table{margin-top:22px;margin-left:47px;th:first-child{padding-left:7px}td:first-child{max-width:76px}tr:nth-child(n+2)>td{padding-top:7.5px}tr:nth-child(2) li{padding-left:111px;text-indent:-111px}tr:last-child>td:nth-child(2){padding-left:134px}ul{white-space:normal;margin:0;margin-left:14px;>li{white-space:pre}}}>section>ul{margin-left:54px;margin-top:5px;margin-bottom:16px;>li{grid-template-columns:35px 0 auto;white-space:pre}}>#\39\.8\.1\.1>ul{margin-bottom:26px}>#\39\.8\.1\.3>ul{>li{grid-template-columns:28px 0 auto}&:nth-of-type(2){margin-top:28px;margin-bottom:2px;margin-left:81px;>li:nth-child(2){padding-top:8px}ul{white-space:normal;margin-left:57px;margin-bottom:-5px}table{margin-left:57px;th:nth-child(1){min-width:55px}th:nth-child(2){min-width:111px;padding-left:56px}th:nth-child(3){padding-left:21px}}}}}#\39\.8\.1\.4>div{margin-bottom:27px}#\39\.8\.1\.5>div{margin-bottom:28px}#\39\.8\.2\.1>table{margin-top:28px;margin-bottom:62px;margin-left:26px;letter-spacing:-0.2px;>thead>tr{>th:first-child:after{content:'       '}>th:nth-child(n+2)>samp{&:before{content:'  '}&:after{content:' '}}}>tbody{>tr:first-child>td{position:relative;&:before,&:last-child:after{content:'|\A|\A|\A \A|\A|\A|\A|\A|\A|';position:absolute;left:0}&:last-child:after{left:auto;right:-6px}}>tr:nth-child(-n+3){>th{padding-left:14px}>td{text-align:right}}>tr:last-child{>th:first-child{padding-bottom:76.8px}>td:before{content:'  ';float:left;padding-bottom:64px}}}td{vertical-align:top}tr:nth-child(3),tr:last-child{>th:first-child{padding-bottom:12.8px;position:relative;&:before{content:'-------------------------------------------------';position:absolute;left:0;bottom:0;text-shadow:0 -1px}}}&:nth-of-type(n+6){margin-top:34.5px}&:last-of-type{margin-bottom:28px}}#\39\.9\.1>ol{letter-spacing:0.2px}#\39\.9\.2>ul{margin-left:54px;margin-top:29px;>li{grid-template-columns:132px 0 auto}}#\39\.10>ul{margin-left:95px;margin-top:29px;margin-bottom:24px;>li>p{grid-template-columns:152px 0 auto;margin-bottom:7.5px;text-indent:-13px}}#\39\.12{>aside{margin-top:9px;margin-bottom:10px;>h4{margin-left:236px}}>table{>caption{padding-bottom:20px;width:fit-content;&:after{content:'---------------------';display:block;position:absolute;text-shadow:0 -1px}}>thead th{padding-bottom:8px}&:nth-of-type(1){margin-top:47px;margin-left:62px;>caption{margin-left:104px}>thead{th:nth-child(1){min-width:91px}th:nth-child(2){min-width:152px}}>tbody{th{padding-top:15px;padding-bottom:8px}>tr:nth-child(-n+2),>tr:nth-child(8){>td:first-child{padding-left:7px}}>tr:nth-child(-n+6)>td:nth-child(2){padding-left:28px}>tr:nth-child(n+8){transform:translateX(-7px)}}>tfoot>tr>td{padding-top:8px}}&:nth-of-type(2){margin-top:34px;margin-bottom:37px;margin-left:47px;th:nth-child(-n+3){min-width:62.5px}th:nth-child(4){max-width:90px;white-space:normal}>caption{margin-left:125px}tr:first-child{>th:last-child{padding-left:14px}tbody &>td:last-child{word-spacing:-7px}}>tfoot td{white-space:normal;>p:first-child{margin-top:15px;padding-left:27.5px}>p:last-child{margin:0}}}}}#\39\.12\.1{ol{margin-top:12px}>section+section:has(>h4){margin-top:20px;&:nth-of-type(2){margin-top:16.5px}}}#\39\.12\.2\.1{>h4{margin-bottom:12px}>p{font-size:16px;font-weight:bold;letter-spacing:0.5px;padding-left:27px}>ol{margin-bottom:-1px}}header,main,footer{counter-reset:page}a[id]{display:block;position:relative;left:-107px;padding-left:107px;width:709px;height:16.75px;margin-top:163px;margin-bottom:32px;border-top:11px solid #d4d4d8;padding-top:57px;white-space:pre;font-family:Arial;font-size:14px;font-weight:bold;word-spacing:0.8px;letter-spacing:-0.3px;text-transform:none;&:before{content:'EL-00070-09\A' '03-Aug-1990';line-height:0;position:absolute;left:640px;text-indent:-533px;padding-top:9px;font-size:12.2px;word-spacing:1.5px}&:after{--content:'Digital Internal Use Only\A';counter-increment:page;content:var(--content) counter(page);line-height:0;position:absolute;top:971px;text-indent:279px;letter-spacing:-0.5px}header &:after{content:var(--content) counter(page,lower-roman)}&#iii,&#\39-1,&#\39-3,&#\39-5,&#\39-7,&#\39-9,&#\39-11,&#\39-13,&#\39-15,&#\39-17,&#\39-19,&#\39-21,&#Index-1{&:after{text-indent:199px;text-align:right;direction:rtl;right:107px}}&#i:after{content:var(--content);text-indent:260px}&#ii:before{left:645px;text-indent:-538px}&#i,&#ii{&:before{content:'EL-00070-09                                    Digital Internal Use Only\A' '03-Aug-1990'}}&#iii,&#\39-1,&#\39-3,&#\39-5,&#\39-7,&#\39-9{&:after{text-indent:194px}}&#Index-1,&#Index-2{&:after{content:var(--content) 'Index-' counter(page)}}&#Index-1{&:before{content:'\A' 'EL-00070-09'}&:after{text-indent:215px}}}#\39-22{margin-top:116px}#\39-15{margin-top:118px}#\39-21{margin-top:120px}#iv{margin-top:128px}#\39-10{margin-top:138px}#\39-3{margin-top:146px}#\39-2{margin-top:152px}#\39-16{margin-top:156px}#\39-4{margin-top:170px}#\39-8{margin-top:182px}#\39-18{margin-top:187px}#\39-7{margin-top:194px}#\39-12{margin-top:220px}#\39-17{margin-top:227px}#\39-13{margin-top:234px}#\39-5{margin-top:237px}#iii{margin-top:239px}#\39-19{margin-top:248px}#\39-6{margin-top:277px}#ii{margin-top:302px}#\39-14{margin-top:325px}#\39-9{margin-top:369px}body{>header,>main,>footer{>a[id]:first-child{margin-top:0}}>header{padding-bottom:735px}>main{padding-bottom:800px}>footer{padding-bottom:108px}}</style>
+</head>
+<body>
+<header>
+<a id="i"></a>
+<hgroup>
+<h1>Video and Printer Systems Reference Manual</h1>
+<h2>Sixel Graphics Extension</h2>
+</hgroup>
+<dl>
+<dt>Document Identifier</dt>
+<dd><p>A-DS-EL00070-09-0000 Rev A1, 03-Aug-1990</p></dd>
+<dt>Abstract</dt>
+<dd><p>This section describes the Sixel Graphics Protocol, which forms an extension to
+the Level 1, Level 2, and Level 3 Character Cell Display service class. Sixel Graphics provide
+a means of encoding and displaying raster binary data on raster devices of various capabilities.</p></dd>
+<dt>Applicability</dt>
+<dd><p>SARA Formal Cross-Component Standard.  Mandatory for Engineers
+designing hardware for terminal products and Software Engineers designing programs using
+terminal interfaces.</p></dd>
+<dt>Status</dt>
+<dd><p>APPROVED 03-Aug-1990; use VTX SMC for current status.</p></dd>
+</dl>
+<p>This document is confidential and proprietary, and is the property of Digital
+Equipment Corporation. It is an unpublished work protected under the Federal
+copyright laws.</p>
+<p>©Digital Equipment Corporation.   1990.  All rights reserved.</p>
+<a id="ii"></a>
+<dl>
+<dt>Title</dt>
+<dd>Video and Printer Systems Reference Manual - Sixel Graphics Extension</dd>
+<dt>Document Identifier</dt>
+<dd>A-DS-EL00070-09-0000 Rev A1, 03-Aug-1990</dd>
+<dt>Revision History</dt>
+<dd><table>
+<tbody>
+<tr><td>Rev A,</td><td>24-Nov-1987</td><td></td></tr>
+<tr><td>Rev A1,</td><td>03-Aug-1990</td><td>ECO Number CTS01</td></tr>
+</tbody>
+</table>
+</dd>
+</dl>
+<dl>
+<dt>Document Management Category</dt>
+<dd>Terminal Interface Architecture (STI)</dd>
+<dt>Responsible Department</dt>
+<dd>VIPS Architecture Group</dd>
+<dt>Responsible Person</dt>
+<dd>Peter Sichel</dd>
+</dl>
+<dl>
+<dt>Approval</dt>
+<dd><p>This document, maintained by the VIPS Architecture Group, has been reviewed
+and recommended for approval by the General Review group for its category for use throughout
+Digital.</p>
+<p>Peter Sichel - VIPS Architecture Group</p>
+<p>Eric Williams - Standards Process Manager</p></dd>
+</dl>
+<p>Direct requests for further information to:</p>
+<p>Peter Sichel</p>
+<p>Use $ VTX ELF for the latest location information.</p>
+<p>Use VTX SMC to order copies of this document from Standards and Methods Control.  Send
+distribution questions to JOKUR::SMC or call DTN: 287-3724.</p>
+<a id="iii"></a>
+<section id="Contents">
+<hgroup>
+<h2>Contents</h2>
+<p>Chapter 9<br />Sixel Graphics Extension</p>
+</hgroup>
+<ol>
+<li><a href="#9.1">Introduction</a><span> … </span><a href="#9-1">1</a><ol>
+<li><a href="#9.1.1">Overview</a><span> … </span><a href="#9-1">1</a></li>
+</ol>
+</li>
+<li><a href="#9.2">Goals Of The Sixel Protocol</a><span> … </span><a href="#9-2">2</a></li>
+<li><a href="#9.3">Terminology</a><span> … </span><a href="#9-2">2</a></li>
+<li><a href="#9.4">Levels And Extensions</a><span> … </span><a href="#9-3">3</a><ol>
+<li><a href="#9.4.1">Level 1</a><span> … </span><a href="#9-4">4</a></li>
+<li><a href="#9.4.2">Level 2</a><span> … </span><a href="#9-4">4</a></li>
+<li><a href="#9.4.3">Extension - Color</a><span> … </span><a href="#9-4">4</a></li>
+</ol>
+</li>
+<li><a href="#9.5">Sixel Printing</a><span> … </span><a href="#9-4">4</a></li>
+<li><a href="#9.6">Protocol Structure</a><span> … </span><a href="#9-5">5</a><ol>
+<li><a href="#9.6.1">Sixel Control String</a><span> … </span><a href="#9-5">5</a><ol>
+<li><a href="#9.6.1.1">Example Sixel Control String</a><span> … </span><a href="#9-6">6</a></li>
+</ol>
+</li>
+</ol>
+</li>
+<li><a href="#9.7">Formating Information</a><span> … </span><a href="#9-6">6</a><ol>
+<li><a href="#9.7.1">Macro Parameter</a><span> … </span><a href="#9-6">6</a></li>
+<li><a href="#9.7.2">Background Select</a><span> … </span><a href="#9-7">7</a></li>
+<li><a href="#9.7.3">Horizontal Grid Size</a><span> … </span><a href="#9-7">7</a></li>
+</ol>
+</li>
+<li><a href="#9.8">Picture Definition</a><span> … </span><a href="#9-7">7</a><ol>
+<li><a href="#9.8.1">Sixel Commands</a><span> … </span><a href="#9-8">8</a><ol>
+<li><a href="#9.8.1.1">Repeat Introducer</a><span> … </span><a href="#9-9">9</a></li>
+<li><a href="#9.8.1.2">Set Raster Attributes</a><span> … </span><a href="#9-9">9</a></li>
+<li><a href="#9.8.1.3">Color Introducer</a><span> … </span><a href="#9-10">10</a></li>
+<li><a href="#9.8.1.4">Graphics Carriage Return</a><span> … </span><a href="#9-11">11</a></li>
+<li><a href="#9.8.1.5">Graphics Next Line</a><span> … </span><a href="#9-11">11</a></li>
+</ol>
+</li>
+<li><a href="#9.8.2">Sixel Data</a><span> … </span><a href="#9-11">11</a><ol>
+<li><a href="#9.8.2.1">Sixel Column Codes</a><span> … </span><a href="#9-12">12</a></li>
+</ol>
+</li>
+</ol>
+</li>
+<li><a href="#9.9">Coding Issues</a><span> … </span><a href="#9-14">14</a><ol>
+<li><a href="#9.9.1">C0 Codes</a><span> … </span><a href="#9-14">14</a></li>
+<li><a href="#9.9.2">GL Codes</a><span> … </span><a href="#9-15">15</a></li>
+<li><a href="#9.9.3">C1 Codes</a><span> … </span><a href="#9-15">15</a></li>
+<li><a href="#9.9.4">GR Codes</a><span> … </span><a href="#9-15">15</a></li>
+</ol>
+</li>
+<li><a href="#9.10">Initial States</a><span> … </span><a href="#9-15">15</a></li>
+<li><a href="#9.11">ANSI Text Interactions</a><span> … </span><a href="#9-16">16</a><ol>
+<li><a href="#9.11.1">Entering Sixel Mode</a><span> … </span><a href="#9-16">16</a></li>
+<li><a href="#9.11.2">While In Sixel Mode</a><span> … </span><a href="#9-16">16</a><ol>
+<li><a href="#9.11.2.1">Printing at The Active Position</a><span> … </span><a href="#9-16">16</a></li>
+<li><a href="#9.11.2.2">Right Margin</a><span> … </span><a href="#9-16">16</a></li>
+<li><a href="#9.11.2.3">Top Margin</a><span> … </span><a href="#9-16">16</a></li>
+<li><a href="#9.11.2.4">Bottom Margin</a><span> … </span><a href="#9-17">17</a></li>
+</ol>
+</li>
+<li><a href="#9.11.3">Exiting Sixel Mode</a><span> … </span><a href="#9-17">17</a></li>
+</ol>
+<a id="iv"></a></li>
+<li><a href="#9.12">Fallback</a><span> … </span><a href="#9-17">17</a><ol>
+<li><a href="#9.12.1">Deviations</a><span> … </span><a href="#9-19">19</a><ol>
+<li><a href="#9.12.1.1">VT125</a><span> … </span><a href="#9-19">19</a></li>
+<li><a href="#9.12.1.2">VT240</a><span> … </span><a href="#9-19">19</a></li>
+<li><a href="#9.12.1.3">LA50</a><span> … </span><a href="#9-20">20</a></li>
+<li><a href="#9.12.1.4">LA100 and LA210</a><span> … </span><a href="#9-20">20</a></li>
+</ol>
+</li>
+<li><a href="#9.12.2">Change History</a><span> … </span><a href="#9-20">20</a><ol>
+<li><a href="#9.12.2.1">Revision AX11 to AX12</a><span> … </span><a href="#9-20">20</a></li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<ul>
+<li><a href="#Index">Index</a></li>
+</ul>
+</section>
+</header>
+<main>
+<a id="9-1"></a>
+<section id="9.1">
+<h2>1&emsp;Introduction</h2>
+<p>This document defines a method of defining and transmitting encoded bit map data over
+a communication line known as the Sixel protocol. All or portions of this protocol may be
+stored in files. This protocol is to be used in display devices (video and hardcopy) of various
+imaging (drawing) capabilities.</p>
+<p>In addition, it defines the relationship of this protocol to the ANSI Text presentation
+protocol. While the Sixel protocol is not intended to be a part of the ANSI text protocol,
+there are certain interdependencies.</p>
+<p>This document regroups several extensions made to the "Sixel Protocol", the original 7-bit
+black and white protocol (LA34/VK100), the 8-bit extension (LA100-V2), the variable aspect
+ratio extension (LA100-V2), the color extension (VT240), and finally a limited support for
+software-handled viewporting.</p>
+<section id="9.1.1">
+<h3>1.1&emsp;Overview</h3>
+<p>The transmission of bit map data is one way of transferring visual information.  It is
+required for natural images (pictures usually generated by scanning an original), or as a
+low level protocol for interfacing devices supporting different protocols, or when composition
+time is long compared to transmission time.</p>
+<p>The Sixel protocol allows devices to receive and print black and white or color bitmap data
+at various sizes over a stream-oriented communications line. Six bits of each 7-bit or 8-bit
+character code are used to represent bit map data, allowing the remaining values to be
+used to control the context of the communications line and to fit within the ANSI text
+syntax.</p>
+<p>The areas of interest when considering this protocol are:</p>
+<ol>
+<li><p>Defining the data, at a given quality level, with all attributes.  Ensuring that an
+imaging device having the same capabilities as the generating device will produce an
+identical picture.</p></li>
+<li><p>Positioning the data</p></li>
+<li><p>Defaulting mechanisms when some data cannot be exactly reproduced, or some
+command cannot be executed.</p></li>
+</ol>
+<p>The structure of the protocol is intended to support a layered system approach, where
+there are several independent processes that define or interpret portions of the total data.
+For example, this allows the size of an image to be defined independent of the actual
+image definition. This implied scaling of bit map data is difficult to implement exactly and
+realizations will vary from device to device.</p>
+<p>The Sixel protocol allows considerable freedom in specifying the value and size of the
+bit data to be displayed.  It is expected that most imaging devices implementing this
+protocol will not be able to image the bit map data exactly as specified for all possible
+parameter values.  This limitation is usually due to device imaging resolutions, dot sizes
+and computational limitations. The common fallback will be for devices to image at integer
+multiples of the device resolution, but this standard does not prohibit more creative
+solutions. See the section on <a href="#9.12">imaging fallbacks</a> for the definition of proper fallbacks.</p>
+</section>
+</section>
+<a id="9-2"></a>
+<section id="9.2">
+<h2>2&emsp;Goals Of The Sixel Protocol</h2>
+<ol>
+<li><p>Provide a general purpose image data input for display devices.</p></li>
+<li><p>Be syntactically compatible with ISO 2022 code definition, and further to be compatible
+with ANSI X3.64 and ISO 6429.  This supports the requirement that the protocol
+be transmittable on 7-bit stream-oriented serial lines, including control code (X-ON,
+X-OFF) flow control.</p></li>
+<li><p>Support screen size images from VT125, VT24X terminals. This size is 768 pixels
+by 240 pixels for the VT125 and 800 pixels by 240 pixels for the VT24X series. Both
+printed at a 2:1 pixel aspect ratio.</p>
+<p>It is a goal that any pixel value combination for rasters of this size be printable by
+conforming devices. In other words, 'picture too complex' for the above raster sizes is
+not permitted.</p>
+<p>The protocol should support any size rasters, although not all devices will be capable
+of displaying them.</p></li>
+<li><p>It is a goal that it be possible to relate the size and placement of the raster to the
+ANSI text coordinate space, but not that the individual pixels relate to the ANSI text
+coordinate system or characters. It is not a goal to allow modification to the rendition
+of characters imaged via ANSI text with pixels imaged via the Sixel protocol.</p></li>
+<li><p>It is a goal to allow independent control over the pixel definitions (shape and value of
+pixels) and the imaged size of the pixels.</p></li>
+<li><p>It is a goal to be compatible with previous devices supporting limited Sixel printing -
+LA34, LA12, LA100, VT125, VT240.</p></li>
+</ol>
+</section>
+<section id="9.3">
+<h2>3&emsp;Terminology</h2>
+<dl>
+<dt>Dot</dt>
+<dd>The smallest displayable unit; a light dot on a screen, an ink dot on the paper. Dots
+can be round, oval, square, rectangular, small or big.</dd>
+<dt>Pixel</dt>
+<dd>The logical rectangular image area defined by each bit of Sixel data as intended by
+the generation software. The shape of a pixel is defined by an aspect ratio, and has no size.</dd>
+<dt>Pixel Aspect Ratio</dt>
+<dd>Defines the shape of the pixel as a ratio of the vertical side of the
+rectangle and the horizontal side. For example, a square pixel has an aspect ratio of 1 to 1
+(or 10 to 10) and a pixel twice as high as wide has an aspect ratio of 2 to 1 (or 20 to 10).</dd>
+<dt>Pixel-Spot</dt>
+<dd>The area that is actually imaged (printed) for each pixel.  It has a shape
+(Round, oval, square..) and a size. The shape and size are totally device dependent, and
+may or may not be related to the grid size.</dd>
+<dt>Grid</dt>
+<dd>The positions on the display, where pixel-spots may be placed.  These positions
+are dimensionless points, even though the pixel spots do have some size which may even
+exceed the grid size. The horizontal distance between the two positions is defined by the
+horizontal grid size parameter. The vertical distance between two positions is defined by
+the horizontal grid size parameter and the aspect ratio parameter.<br /><br />
+<a id="9-3"></a>The distance between two positions can be bigger or smaller than the pixel-spot size. This
+relation is totally defined by the device, and may vary from device to device, and vary on
+the same device from one set of parameters to another.<br /><br />The actual grid sizes available on the device may not match the exact grid size specification.
+In this case, the device will select a grid which best represents the specified grid.  This
+'best fit' grid is often called the 'actual grid' or 'actual grid size'.  Note that most imaging
+operations deal with the actual grid and not the exact specified grid.</dd>
+<dt>Grid Size</dt>
+<dd>The distance between two adjacent grid points. The grid size may be different
+in the horizontal and vertical directions.</dd>
+<dt>Dot/Pixel/Pixel-Spot Relationship</dt>
+<dd>An imaging device may use several dots to represent
+a single pixel via a pixel-spot. Multiple dots can be used to cover an area larger than a dot
+size, or to produce some level of darkness, or to obtain some level of scaling.</dd>
+<dt>Raster</dt>
+<dd>All of the pixels used to define a single image. For purposes of this document, all
+of the pixels defined in a single Sixel control string.</dd>
+<dt>Raster Size</dt>
+<dd>The resultant size of the raster after it has been printed based on the actual
+grid size.  When used in the context of pixels not yet printed, it is just the number of
+horizontal and vertical pixels of the raster.</dd>
+<dt>Overlap</dt>
+<dd>The percentage of the pixel-spot that is larger than the grid size. Overlap may
+be visually pleasing to smooth certain images, or may be used to cover device registration
+errors, or may be due to the device having a pixel-spot size more limited than the grid size.</dd>
+<dt>Sixel Active Position</dt>
+<dd>The Sixel active position is that position to which the next Sixel is
+to be printed. The actual Sixel is printed with a vertical offset to the Sixel active position
+so that machines which use the baseline of a character for positioning in ANSI text mode
+will be compatible with devices that position based on the ascender height of the character.
+This offset is in the vertical direction, the amount of 70 decipoints (.0972 inch). (See section
+- <a href="#9.11.2">ANSI Text Interactions, While In Sixel Mode</a>).</dd>
+<dt>Picture Definition</dt>
+<dd>This is all the data needed to describe the image, including colors,
+size, pixel aspect ratio, and encoded rasters (Sixel Data and Sixel Commands). It does not
+include formatting information such as position or actual presentation size.</dd>
+<dt>Sixel</dt>
+<dd>A Sixel is a group of 6 vertical pixels represented by 6 bits within a character code.</dd>
+<dt>Sixel Data</dt>
+<dd>This term includes only the encoded raster portion of the picture definitions.</dd>
+<dt>Sixel Commands</dt>
+<dd>These are commands included in the picture definition which provide
+additional information beyond the encoded raster, such as color, line breaking, etc.</dd>
+</dl>
+</section>
+<section id="9.4">
+<h2>4&emsp;Levels And Extensions</h2>
+<p>While the Sixel protocol specification allows more device variations than the majority of the
+other SRM specifications, there are still several specific function sets that must be followed
+for compatibility. There are two levels and one extension defined for conforming devices.
+The levels are for variable grid size, while the extension is for color.</p>
+<a id="9-4"></a>
+<section id="9.4.1">
+<h3>4.1&emsp;Level 1</h3>
+<p>Level 1 devices do not support the Set Raster Attribute command, Background Select,
+Horizontal Grid Size or Macro Parameter commands.  Level 1 devices will parse these
+commands, but only print in one grid size. The level 1 grid size is that defined for Macro
+Parameter 1.</p>
+</section>
+<section id="9.4.2">
+<h3>4.2&emsp;Level 2</h3>
+<p>Level 2 devices support everything a Level 1 device supports, plus the Set Raster Attribute
+command, Background Select, Horizontal Grid Size and Macro Parameter commands.</p>
+</section>
+<section id="9.4.3">
+<h3>4.3&emsp;Extension - Color</h3>
+<p>Color is an extension to either level 1 or level 2 devices.</p>
+</section>
+</section>
+<section id="9.5">
+<h2>5&emsp;Sixel Printing</h2>
+<p>Sixel printing consists of setting context and attributes for the pixels and then printing
+each Sixel in received order.</p>
+<p>A Sixel is a group of 6 vertical pixels represented by 6 bits within a character code. A one
+value for a bit indicates that a pixel-spot will be placed at the corresponding grid position,
+a zero will cause the corresponding grid position to be unchanged (not written).</p>
+<p>Upon entering Sixel mode, the current Sixel position is determined from the ANSI text
+position and is called the graphic left margin.</p>
+<p>The Sixel active position is advanced to the next horizontal grid position as each Sixel is
+printed. Also, there are a few line control commands that modify the Sixel active position.
+Positioning is always relative to the Sixel active position, and can not go backwards except
+for returning to the graphic left margin via the graphic carriage return and next line
+commands.</p>
+<p>The color of a pixel-spot is determined by the currently selected color in the color map,
+as specified with a color specifier control code. The color map is defined by optional
+parameters of the color specifier. Note that all 1 bits of a Sixel are imaged in the selected
+color. Therefore, if the image is to have pixels of different color that fall within a single
+Sixel, only those pixels of the current color should be set to a 1, and the line of Sixel data
+sent again with a new color selector and the appropriate 1 bits set for this color. A line of
+sixels must be sent (with a graphic carriage return between them), for each color that falls
+in the Sixel line.</p>
+<p>Horizontal and vertical direction follow the ANSI text horizontal and vertical axes at the
+time Sixel mode was entered, with Sixel drawing always proceeding from left to right, top
+to bottom.</p>
+</section>
+<a id="9-5"></a>
+<section id="9.6">
+<h2>6&emsp;Protocol Structure</h2>
+<p>The data and commands of the Sixel Graphics protocol can be conceptually separated into
+three primary fields:</p>
+<ol>
+<li><p>Picture Definition - the body of the Sixel protocol which contains all the information
+needed to reproduce the image, regardless of size. The Picture Definition includes Sixel
+data and Sixel command codes. The Sixel data is the encoded image raster while the
+Sixel command codes control how the raster will be interpreted.</p>
+<p>The picture definition is used by creation software, editing software, and imaging
+devices. It is intended that picture generating software will be able to create a file that
+contains the image definition independent of formatting information.</p></li>
+<li><p>Formatting information - This data is added to the picture definition by the page
+composition software, defining the size of the picture data. The size is included in the
+Protocol Selector (see the <a href="#9.6.1.1">example</a> below) so that the parameters may be added without
+affecting the picture definition data.</p>
+<p>In general, composition software need not interpret the picture definition data,
+although in certain cases it may need to determine the number of pixels in the picture
+definition by looking at the pixel extent parameters.</p></li>
+<li><p>Positioning data - used by page composition software. The first pixel position is defined
+by the ANSI text active position at the time that the Sixel mode is entered. All other
+pixel positions are relative to the first based on the actual grid size and aspect ratio.</p></li>
+</ol>
+<section id="9.6.1">
+<h3>6.1&emsp;Sixel Control String</h3>
+<p>The formatting and picture definition for a Sixel graphic is contained in a Device Control
+String (DCS) envelope as defined in the "Code Extension" section of this standard, <a href="EL-00070-03.html">DEC
+STD 070-3</a>.</p>
+<p><samp>DCS   Formatting Information   Picture Definition   ST</samp></p>
+<p>DCS (9/0) is the ANSI C1 control that begins a Device Control String (may also be coded
+as ESC P (1/11, 5/0) in 7-bits). The Formatting Information is represented by one or more
+Device Control String parameters separated by semicolons ";" (3/11) as defined by the
+code extension layer. The final character of the DCS Sequence is q (7/1) which identifies
+the Control String as containing Sixel data.  The DCS parameters and final character
+together are called the Protocol Selector. The Picture Definition consists of Sixel data and
+commands as described in this standard. ST (9/12) is the ANSI C1 control that terminates
+a Device Control String (may also be coded as ESC \ (1/11, 5/12) in 7-bits).</p>
+<a id="9-6"></a>
+<section id="9.6.1.1">
+<h4>6.1.1&emsp;Example Sixel Control String</h4>
+<div>
+<pre><samp>ESC P  Ps1 ; Ps2 ; Pn3 q  " Pn4 ; Pn5 ; Pn6 ; Pn7 @@@@@@  ESC \<br />
+\___/  \_______________/  \_____________________/ \____/  \___/
+ DCS   Protocol Selector     Raster Attributes    Picture  ST
+                              command              data
+       \_____________/    \____________________________/
+         Formatting          Picture Definition
+         Information</samp></pre>
+</div>
+<p><em>Where:</em></p>
+<ul>
+<li><p>Ps1<span> &mdash; </span><a href="#9.7.1">Macro Parameter</a><br />Selects from a list of fixed combinations for other
+parameters.  Included for backward compatibility.
+New software should always specify this by 0 (zero).</p></li>
+<li><p>Ps2<span> &mdash; </span><a href="#9.7.2">Background Select</a><br />0  device default action<br />1  no action (don't change zero value pixels)<br />2  set zero value pixels to background color</p></li>
+<li><p>Pn3<span> &mdash; </span><a href="#9.7.3">Horizontal Grid Size</a><br />Given in units specified by ANSI SSU
+(default is decipoints, 1/720 inch).</p></li>
+<li><p>q<span> &mdash; </span>Final Character of DCS Introducer Sequence</p></li>
+<li><p>"<span> &mdash; </span>Sixel Control Code for <a href="#9.8.1.2">Raster Attributes</a> Command</p></li>
+<li><p>Pn4<span> &mdash; </span>Pixel aspect ratio numerator<br />(first parameter of Raster Attributes Command)</p></li>
+<li><p>Pn5<span> &mdash; </span>Pixel aspect ratio denominator</p></li>
+<li><p>Pn6<span> &mdash; </span>Horizontal Extent<br />Number of pixels in image horizontally</p></li>
+<li><p>Pn7<span> &mdash; </span>Vertical extent<br />Number of pixels in image vertically
+(last parameter of Raster Attributes Command)</p></li>
+</ul>
+</section>
+</section>
+</section>
+<section id="9.7">
+<h2>7&emsp;Formating Information</h2>
+<p>The formatting information currently consists of up to three parameters included in the
+Sixel DCS Introducer Sequence (Sixel Protocol Selector) by the page composition software.
+The following sections define each parameter of formatting information.</p>
+<section id="9.7.1">
+<h3>7.1&emsp;Macro Parameter</h3>
+<p>The first parameter (Macro parameter) selects from a list of fixed combinations of values
+for other parameters in the Sixel data.  This parameter exists for compatibility reasons
+and is to be set to zero in new software.  New software is expected to define the three
+parameters explicitly.  Explicit parameter definitions over-ride the macro settings.  The
+following table defines the intent of the macro value:</p>
+<a id="9-7"></a>
+<table>
+<thead>
+<tr><th>Macro value</th><th>Horizontal<br />Grid Size<br />(X .001")</th><th>Pixel Aspect Ratio<br /><br />Vert pix : Horz pix</th></tr>
+</thead>
+<tbody>
+<tr><td>0 (default)</td><td>7.5</td><td>200 : 100</td></tr>
+<tr><td>1</td><td>7.5</td><td>200 : 100</td></tr>
+<tr><td>2</td><td>3</td><td>450 : 100</td></tr>
+<tr><td>3</td><td>4.5</td><td>300 : 100</td></tr>
+<tr><td>4</td><td>6</td><td>250 : 100</td></tr>
+<tr><td>5</td><td>7.5</td><td>200 : 100</td></tr>
+<tr><td>6</td><td>9</td><td>150 : 100</td></tr>
+<tr><td>7</td><td>10.5</td><td>130 : 100</td></tr>
+<tr><td>8</td><td>12.0</td><td>112 : 100</td></tr>
+<tr><td>9</td><td>13.5</td><td>100 : 100</td></tr>
+</tbody>
+</table>
+<p>The intended vertical grid size implied by the macro value is always 1/72 of an inch.</p>
+</section>
+<section id="9.7.2">
+<h3>7.2&emsp;Background Select</h3>
+<p>The second parameter (Background Select) specifies what is to be printed in grid positions
+not explicitly set to a one in the Sixel data.  It is device dependent if the grid positions
+include all possible printable grid positions of the device, or only those grid positions
+within the horizontal and vertical extent parameters of the Set Raster Attribute command.
+Hardcopy devices will process this parameter as no action (as if parameter = 1).</p>
+<p>The possible values for this parameter are:</p>
+<ul>
+<li><p>0<span> &mdash; </span>device default action</p></li>
+<li><p>1<span> &mdash; </span>no action (no change to zero bit value grid positions)</p></li>
+<li><p>2<span> &mdash; </span>set to background color - zero bit value grid positions
+are set to the background color.  The background color
+is device dependent.</p></li>
+</ul>
+</section>
+<section id="9.7.3">
+<h3>7.3&emsp;Horizontal Grid Size</h3>
+<p>The third parameter (Horizontal Grid Size) defines the horizontal grid size in units selected
+by the ANSI text Set Size Unit (SSU) command. This parameter, in conjunction with the
+pixel aspect ratio, defines the grid size.</p>
+<p>If this parameter is zero or not present, the horizontal grid size is given by the macro
+parameter, otherwise, the horizontal grid size parameter overrides the macro parameter.</p>
+<p>If the device does not implement the SSU command, the units will be the default value for
+the SSU command which is Decipoints (1/720 inch).</p>
+</section>
+</section>
+<section id="9.8">
+<h2>8&emsp;Picture Definition</h2>
+<p>The Picture Definition consists of Sixel commands and Sixel data which describe a raster
+image. Sixel commands are coded as graphic characters in the range 2/1 to 3/14. Sixel data
+is coded as graphic characters in the range 3/15 to 7/14.</p>
+<a id="9-8"></a>
+<section id="9.8.1">
+<h3>8.1&emsp;Sixel Commands</h3>
+<p>Sixel commands are used to control how the image raster is interpreted, and may be
+embedded anywhere in the picture definition.</p>
+<p>A Sixel Command consists of a code in the range 2/1 through 3/14 (except parameters and
+parameter separators) which identifies the command, followed by zero or more parameters
+separated by parameter separators.  Each parameter is formed by one or more consecutive
+decimal digits 0 through 9 (3/0 through 3/9). Commands having more than one parameter
+must use the parameter separator ; (3/11) between parameters.  A Sixel command is
+terminated by any non parameter code, that is, any code other than 3/0 through 3/9
+(parameter digits 0-9) or 3/11 (parameter separator ;). Note Format Effectors (0/8 to 0/13)
+and SPACE (2/0) are ignored within sixel control strings (see <a href="#9.9">coding</a> section).</p>
+<p>The following list summarizes the currently defined Sixel Commands and their coding.
+Sixel Commands that are not recognized by the device must be parsed and ignored.</p>
+<table>
+<thead>
+<tr><th>Code</th><th>Command</th></tr>
+</thead>
+<tbody>
+<tr><td>! (2/1)</td><td><a href="#9.8.1.1">Repeat Introducer</a><ul>
+<li>1st parameter - repeat count</li>
+</ul></td></tr>
+<tr><td>" (2/2)</td><td><a href="#9.8.1.2">Set Raster Attributes</a><ul>
+<li>1st parameter - Pixel aspect ratio numerator
+(relative height)</li>
+<li>2nd parameter - Pixel aspect ratio denominator
+(relative width)</li>
+<li>3rd parameter - Horizontal Extent</li>
+<li>4th parameter - Vertical Extent</li>
+</ul></td></tr>
+<tr><td># (2/3)</td><td><a href="#9.8.1.3">Color Introducer</a><ul>
+<li>1st parameter - color number
+(others optional)</li>
+<li>2nd parameter - color coordinate system</li>
+<li>3rd parameter - Hue angle,  0-360   Red,   0-100</li>
+<li>4th parameter -         Lightness,  0-100   Green, 0-100</li>
+<li>5th parameter - Saturation, 0-100   Blue,  0-100</li>
+</ul></td></tr>
+<tr><td>$ (2/4)</td><td><a href="#9.8.1.4">Graphics Carriage Return</a></td></tr>
+<tr><td>- (2/13)</td><td><a href="#9.8.1.5">Graphics Next Line</a></td></tr>
+<tr><td>; (3/11)</td><td>Parameter Separator</td></tr>
+<tr><td>0 through 9 (3/0 through 3/9)</td><td>Parameter digits</td></tr>
+</tbody>
+</table>
+<a id="9-9"></a>
+<section id="9.8.1.1">
+<h4>8.1.1&emsp;Repeat Introducer</h4>
+<p>The Repeat Introducer command allows sixels to be run-length encoded by specifying a
+repeat count before a sixel. The repeat introducer is followed by a numeric value which
+indicates the number of times the next sixel is to be repeated.  A repeat count of zero
+implies a repeat count of 1. The maximum value for the repeat count is 32767. If no sixel
+data character follows the repeat count (before the STRING TERMINATOR or another
+Sixel Command), the repeat count is ignored.  The start of another Sixel Command will
+cancel a pending repeat count.</p>
+<div>
+<p><em>Format:</em></p>
+<pre><samp>!     Pn1   &lt;sixel-column-code-to-be-repeated>
+2/1         (3/15 - 7/14)</samp></pre>
+</div>
+<p><em>Where:</em></p>
+<ul>
+<li>Pn1<span> &mdash; </span>repeat count</li>
+</ul>
+</section>
+<section id="9.8.1.2">
+<h4>8.1.2&emsp;Set Raster Attributes</h4>
+<p>The Set Raster Attributes command defines raster attributes for all of the following data
+within a sixel string. This command must precede any Sixel, or any sixel positioning
+command within a single sixel control string or the command will be ignored.</p>
+<div>
+<p><em>Format:</em></p>
+<pre><samp>"    Pn1 ; Pn2 ; Pn3 ; Pn4
+2/2</samp></pre>
+</div>
+<p><em>Where:</em></p>
+<ul>
+<li>Pn1<span> &mdash; </span>Pixel aspect ratio numerator</li>
+<li>Pn2<span> &mdash; </span>Pixel aspect ratio denominator</li>
+<li>Pn3<span> &mdash; </span>Horizontal Extent</li>
+<li>Pn4<span> &mdash; </span>Vertical Extent</li>
+</ul>
+<p>The first two parameters of the Set Raster Attributes command (Pn1 and Pn2) specify the
+Pixel Aspect Ratio. This ratio defines the shape of the pixel needed to reproduce the picture
+without distortion. The ratio is defined by two numbers, a numerator and a denominator,
+and is the ratio of the vertical to the horizontal shape of the pixel.</p>
+<p>For example, if a pixel were to be half as wide as tall, the pixel aspect ratio would be 2:1, or
+200:100. The Pixel Aspect Ratio times the horizontal grid size yields the vertical grid size.</p>
+<p>The third parameter of the Set Raster Attributes command (Pn3) specifies the Horizontal
+Extent, the horizontal size in pixels of the intended image defined by the picture data.</p>
+<p>This parameter allows trailing background Sixel data to be omitted from the picture
+definition and still allow for color background, and to provide a summary to avoid a
+complete scanning of the data for the horizontal limits.</p>
+<p>This parameter does not limit the number of pixels a device may image. In the case of
+receiving more pixels than the extent defines, they will be imaged normally. Thus, the
+receiving device will NOT clip the image to the horizontal extent. Conforming software
+will not transmit Sixel data which extends beyond the specified horizontal extent.</p>
+<a id="9-10"></a>
+<p>The fourth parameter of the Set Raster Attributes command (Pn4) specifies the Vertical
+Extent, the vertical size in pixels of the intended image defined by the picture data. This
+parameter has the same functionality vertically as the horizontal extent has horizontally.
+The receiving device will NOT clip the image to the vertical extent. Conforming software
+will not transmit Sixel data which extends beyond the specified vertical extent.</p>
+<p>Conforming software shall specify all parameters explicitly. Guideline: omitted parameters
+for Pn1 and Pn2 may be interpreted as '0' (zero) and default to '1' (one). ";0 may be
+interpreted as "1;1 for example.</p>
+</section>
+<section id="9.8.1.3">
+<h4>8.1.3&emsp;Color Introducer</h4>
+<p>The Color Introducer Command starts a color selection sequence. It is followed by a color
+number and optional additional parameters.  The color number always specifies the color
+number with which following Sixel data will be presented.</p>
+<div>
+<p><em>Format:</em></p>
+<pre><samp>#    Pc ; Pu ; Px ; Py ; Pz
+2/3     \_________________/
+         optional parameters</samp></pre>
+</div>
+<p><em>Where:</em></p>
+<ul>
+<li>Pc<span> &mdash; </span>color number</li>
+<li>Pu<span> &mdash; </span>color coordinate system</li>
+<li>Px<span> &mdash; </span>Hue angle,  or Red RGB coordinate</li>
+<li>Py<span> &mdash; </span>Lightness,  or Green RGB coordinate</li>
+<li>Pz<span> &mdash; </span>Saturation, or Blue RGB coordinate</li>
+</ul>
+<p>If a color identifier appears in the data stream with no additional parameters, it merely
+selects the color for following Sixel data. If followed by additional parameters, the color
+specifier represents a new definition for the color number. The parameters select a color in
+a universal color coordinate system as follows:</p>
+<ul>
+<li>Pc  is the color number, 0 to 255 (or larger device limit).</li>
+<li>Pu  is the universal coordinate system:<ul>
+<li>0 - illegal</li>
+<li>1 - HLS (hue/lightness/saturation)</li>
+<li>2 - RGB (red/green/blue)</li>
+</ul>
+</li>
+<li>Px, Py, Pz are the color coordinates in the specified system:<table>
+<thead>
+<tr><th></th><th>HLS</th><th>RGB</th></tr>
+</thead>
+<tbody>
+<tr><td>Px</td><td>Hue angle, 0-360.</td><td>Red, 0-100.</td></tr>
+<tr><td>Py</td><td>Lightness, 0-100.</td><td>Green, 0-100</td></tr>
+<tr><td>Pz</td><td>Saturation, 0-100.</td><td>Blue, 0-100.</td></tr>
+</tbody>
+</table>
+</li>
+</ul>
+<p>Values for Pu, Px, Py, and Pz other than those specified above cause the entire color
+specifier command to be ignored, including the color select parameter, Pc. Conforming
+software shall specify all parameters to be interpreted explicitly. If optional parameters are
+included to define a new color, they should all be specified. Guideline: omitted parameters
+for Px, Py, and Pz may be interpreted as '0' (zero); parameter value '0' (zero) for Pu will
+cause the entire command to be ignored.</p>
+<a id="9-11"></a>
+<p>Devices must implement color numbers 0 to 255. Devices may implement color numbers
+larger than 255.  Conforming software will use only numbers less than 255, and will use
+color numbers in sequence starting from 0.  In the case of an index which exceeds the
+bounds of the device, the unimplemented index must be mapped back into the supported
+range.</p>
+<p>Note this command may load or change the device's color table.</p>
+</section>
+<section id="9.8.1.4">
+<h4>8.1.4&emsp;Graphics Carriage Return</h4>
+<p>The Graphics Carriage Return command causes the Sixel active position to move to the
+graphic left margin. This Sixel control code is the only code which allows rewriting of a
+Sixel position and thus is required for writing more than a single color into a Sixel position.</p>
+<div>
+<p><em>Format:</em></p>
+<pre><samp>$
+2/4<br />
+(Graphics Carriage Return does not accept any parameters)</samp></pre>
+</div>
+</section>
+<section id="9.8.1.5">
+<h4>8.1.5&emsp;Graphics Next Line</h4>
+<p>The Graphics Next Line command causes the Sixel active position to move to the graphic
+left margin and down one row of sixels (six actual grid units).</p>
+<div>
+<p><em>Format:</em></p>
+<pre><samp>-
+2/13<br />
+(Graphics Next Line does not accept any parameters)</samp></pre>
+</div>
+</section>
+</section>
+<section id="9.8.2">
+<h3>8.2&emsp;Sixel Data</h3>
+<p>Sixel Data is used to represent the pixels of the raster image in columns of six pixels per
+character.</p>
+<p>Sixel data is coded as graphic characters in the range 3/15 to 7/14. The six pixels to image
+are derived by subtracting the offset (63 decimal) from the code and assigning each of the
+low order 6 bits to a grid position. The six pixels are arranged vertically as follows:</p>
+<figure>
+<pre>Top pixel      Bit 0 (LSB)
+               Bit 1
+               Bit 2
+               Bit 3
+               Bit 4
+Bottom pixel   Bit 5 (MSB)</pre>
+</figure>
+<a id="9-12"></a>
+<p>For example, if the character code 4/1 (ASCII A) is received, the offset value (63 decimal)
+is subtracted from the code value (65 decimal). The resulting value of 2 is mapped into the
+horizontal scan as follows:</p>
+<figure>
+<pre>Data Bits:    5  4  3  2  1  0<br />
+    2 =       0  0  0  0  1  0<br />
+Scan:  (top)  1  o
+              2  x
+              3  o
+              4  o
+              5  o
+    (bottom)  6  o</pre>
+</figure>
+<p>where "o" indicates the the pixel spot is not printed and "x" indicates that the pixel spot is
+printed.</p>
+<section id="9.8.2.1">
+<h4>8.2.1&emsp;Sixel Column Codes</h4>
+<table>
+<thead>
+<tr><th>Character</th><th><samp>?</samp></th><th><samp>@</samp></th><th><samp>A</samp></th><th><samp>B</samp></th><th><samp>C</samp></th><th><samp>D</samp></th><th><samp>E</samp></th><th><samp>F</samp></th></tr>
+</thead>
+<tbody>
+<tr><th>Octal</th><td>077</td><td>100</td><td>101</td><td>102</td><td>103</td><td>104</td><td>105</td><td>106</td></tr>
+<tr><th>Decimal</th><td>63</td><td>64</td><td>65</td><td>66</td><td>67</td><td>68</td><td>69</td><td>70</td></tr>
+<tr><th>Hexadecimal</th><td>3F</td><td>40</td><td>41</td><td>42</td><td>43</td><td>44</td><td>45</td><td>46</td></tr>
+<tr><th>Dot Pattern</th><td><pre>o
+o
+o
+o
+o
+o</pre>
+</td><td><pre>x
+o
+o
+o
+o
+o</pre>
+</td><td><pre>o
+x
+o
+o
+o
+o</pre>
+</td><td><pre>x
+x
+o
+o
+o
+o</pre>
+</td><td><pre>o
+o
+x
+o
+o
+o</pre>
+</td><td><pre>x
+o
+x
+o
+o
+o</pre>
+</td><td><pre>o
+x
+x
+o
+o
+o</pre>
+</td><td><pre>x
+x
+x
+o
+o
+o</pre>
+</td></tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr><th>Character</th><th><samp>G</samp></th><th><samp>H</samp></th><th><samp>I</samp></th><th><samp>J</samp></th><th><samp>K</samp></th><th><samp>L</samp></th><th><samp>M</samp></th><th><samp>N</samp></th></tr>
+</thead>
+<tbody>
+<tr><th>Octal</th><td>107</td><td>110</td><td>111</td><td>112</td><td>113</td><td>114</td><td>115</td><td>116</td></tr>
+<tr><th>Decimal</th><td>71</td><td>72</td><td>73</td><td>74</td><td>75</td><td>76</td><td>77</td><td>78</td></tr>
+<tr><th>Hexadecimal</th><td>47</td><td>48</td><td>49</td><td>4A</td><td>4B</td><td>4C</td><td>4D</td><td>4E</td></tr>
+<tr><th>Dot Pattern</th><td><pre>o
+o
+o
+x
+o
+o</pre>
+</td><td><pre>x
+o
+o
+x
+o
+o</pre>
+</td><td><pre>o
+x
+o
+x
+o
+o</pre>
+</td><td><pre>x
+x
+o
+x
+o
+o</pre>
+</td><td><pre>o
+o
+x
+x
+o
+o</pre>
+</td><td><pre>x
+o
+x
+x
+o
+o</pre>
+</td><td><pre>o
+x
+x
+x
+o
+o</pre>
+</td><td><pre>x
+x
+x
+x
+o
+o</pre>
+</td></tr>
+</tbody>
+</table>
+<a id="9-13"></a>
+<table>
+<thead>
+<tr><th>Character</th><th><samp>O</samp></th><th><samp>P</samp></th><th><samp>Q</samp></th><th><samp>R</samp></th><th><samp>S</samp></th><th><samp>T</samp></th><th><samp>U</samp></th><th><samp>V</samp></th></tr>
+</thead>
+<tbody>
+<tr><th>Octal</th><td>117</td><td>120</td><td>121</td><td>122</td><td>123</td><td>124</td><td>125</td><td>126</td></tr>
+<tr><th>Decimal</th><td>79</td><td>80</td><td>81</td><td>82</td><td>83</td><td>84</td><td>85</td><td>86</td></tr>
+<tr><th>Hexadecimal</th><td>4F</td><td>51</td><td>51</td><td>52</td><td>53</td><td>54</td><td>55</td><td>56</td></tr>
+<tr><th>Dot Pattern</th><td><pre>o
+o
+o
+o
+x
+o</pre>
+</td><td><pre>x
+o
+o
+o
+x
+o</pre>
+</td><td><pre>o
+x
+o
+o
+x
+o</pre>
+</td><td><pre>x
+x
+o
+o
+x
+o</pre>
+</td><td><pre>o
+o
+x
+o
+x
+o</pre>
+</td><td><pre>x
+o
+x
+o
+x
+o</pre>
+</td><td><pre>o
+x
+x
+o
+x
+o</pre>
+</td><td><pre>x
+x
+x
+o
+x
+o</pre>
+</td></tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr><th>Character</th><th><samp>W</samp></th><th><samp>X</samp></th><th><samp>Y</samp></th><th><samp>Z</samp></th><th><samp>[</samp></th><th><samp>\</samp></th><th><samp>]</samp></th><th><samp>^</samp></th></tr>
+</thead>
+<tbody>
+<tr><th>Octal</th><td>127</td><td>130</td><td>131</td><td>132</td><td>133</td><td>134</td><td>135</td><td>136</td></tr>
+<tr><th>Decimal</th><td>87</td><td>88</td><td>89</td><td>90</td><td>91</td><td>92</td><td>93</td><td>94</td></tr>
+<tr><th>Hexadecimal</th><td>57</td><td>58</td><td>59</td><td>5A</td><td>5B</td><td>5C</td><td>5D</td><td>5E</td></tr>
+<tr><th>Dot Pattern</th><td><pre>o
+o
+o
+x
+x
+o</pre>
+</td><td><pre>x
+o
+o
+x
+x
+o</pre>
+</td><td><pre>o
+x
+o
+x
+x
+o</pre>
+</td><td><pre>x
+x
+o
+x
+x
+o</pre>
+</td><td><pre>o
+o
+x
+x
+x
+o</pre>
+</td><td><pre>x
+o
+x
+x
+x
+o</pre>
+</td><td><pre>o
+x
+x
+x
+x
+o</pre>
+</td><td><pre>x
+x
+x
+x
+x
+o</pre>
+</td></tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr><th>Character</th><th><samp>_</samp></th><th><samp>`</samp></th><th><samp>a</samp></th><th><samp>b</samp></th><th><samp>c</samp></th><th><samp>d</samp></th><th><samp>e</samp></th><th><samp>f</samp></th></tr>
+</thead>
+<tbody>
+<tr><th>Octal</th><td>137</td><td>140</td><td>141</td><td>142</td><td>143</td><td>144</td><td>145</td><td>146</td></tr>
+<tr><th>Decimal</th><td>95</td><td>96</td><td>97</td><td>98</td><td>99</td><td>100</td><td>101</td><td>102</td></tr>
+<tr><th>Hexadecimal</th><td>5F</td><td>60</td><td>61</td><td>62</td><td>63</td><td>64</td><td>65</td><td>66</td></tr>
+<tr><th>Dot Pattern</th><td><pre>o
+o
+o
+o
+o
+x</pre>
+</td><td><pre>x
+o
+o
+o
+o
+x</pre>
+</td><td><pre>o
+x
+o
+o
+o
+x</pre>
+</td><td><pre>x
+x
+o
+o
+o
+x</pre>
+</td><td><pre>o
+o
+x
+o
+o
+x</pre>
+</td><td><pre>x
+o
+x
+o
+o
+x</pre>
+</td><td><pre>o
+x
+x
+o
+o
+x</pre>
+</td><td><pre>x
+x
+x
+o
+o
+x</pre>
+</td></tr>
+</tbody>
+</table>
+<a id="9-14"></a>
+<table>
+<thead>
+<tr><th>Character</th><th><samp>g</samp></th><th><samp>h</samp></th><th><samp>i</samp></th><th><samp>j</samp></th><th><samp>k</samp></th><th><samp>l</samp></th><th><samp>m</samp></th><th><samp>n</samp></th></tr>
+</thead>
+<tbody>
+<tr><th>Octal</th><td>147</td><td>150</td><td>151</td><td>152</td><td>153</td><td>154</td><td>155</td><td>156</td></tr>
+<tr><th>Decimal</th><td>103</td><td>104</td><td>105</td><td>106</td><td>107</td><td>108</td><td>109</td><td>110</td></tr>
+<tr><th>Hexadecimal</th><td>67</td><td>68</td><td>69</td><td>6A</td><td>6B</td><td>6C</td><td>6D</td><td>6E</td></tr>
+<tr><th>Dot Pattern</th><td><pre>o
+o
+o
+x
+o
+x</pre>
+</td><td><pre>x
+o
+o
+x
+o
+x</pre>
+</td><td><pre>o
+x
+o
+x
+o
+x</pre>
+</td><td><pre>x
+x
+o
+x
+o
+x</pre>
+</td><td><pre>o
+o
+x
+x
+o
+x</pre>
+</td><td><pre>x
+o
+x
+x
+o
+x</pre>
+</td><td><pre>o
+x
+x
+x
+o
+x</pre>
+</td><td><pre>x
+x
+x
+x
+o
+x</pre>
+</td></tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr><th>Character</th><th><samp>o</samp></th><th><samp>p</samp></th><th><samp>q</samp></th><th><samp>r</samp></th><th><samp>s</samp></th><th><samp>t</samp></th><th><samp>u</samp></th><th><samp>v</samp></th></tr>
+</thead>
+<tbody>
+<tr><th>Octal</th><td>157</td><td>160</td><td>161</td><td>162</td><td>163</td><td>164</td><td>165</td><td>166</td></tr>
+<tr><th>Decimal</th><td>111</td><td>112</td><td>113</td><td>114</td><td>115</td><td>116</td><td>117</td><td>118</td></tr>
+<tr><th>Hexadecimal</th><td>6F</td><td>70</td><td>71</td><td>72</td><td>73</td><td>74</td><td>75</td><td>76</td></tr>
+<tr><th>Dot Pattern</th><td><pre>o
+o
+o
+o
+x
+x</pre>
+</td><td><pre>x
+o
+o
+o
+x
+x</pre>
+</td><td><pre>o
+x
+o
+o
+x
+x</pre>
+</td><td><pre>x
+x
+o
+o
+x
+x</pre>
+</td><td><pre>o
+o
+x
+o
+x
+x</pre>
+</td><td><pre>x
+o
+x
+o
+x
+x</pre>
+</td><td><pre>o
+x
+x
+o
+x
+x</pre>
+</td><td><pre>x
+x
+x
+o
+x
+x</pre>
+</td></tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr><th>Character</th><th><samp>w</samp></th><th><samp>x</samp></th><th><samp>y</samp></th><th><samp>z</samp></th><th><samp>{</samp></th><th><samp>|</samp></th><th><samp>}</samp></th><th><samp>~</samp></th></tr>
+</thead>
+<tbody>
+<tr><th>Octal</th><td>167</td><td>170</td><td>171</td><td>172</td><td>173</td><td>174</td><td>175</td><td>176</td></tr>
+<tr><th>Decimal</th><td>119</td><td>120</td><td>121</td><td>122</td><td>123</td><td>124</td><td>125</td><td>126</td></tr>
+<tr><th>Hexadecimal</th><td>77</td><td>78</td><td>79</td><td>7A</td><td>7B</td><td>7C</td><td>7D</td><td>7E</td></tr>
+<tr><th>Dot Pattern</th><td><pre>o
+o
+o
+x
+x
+x</pre>
+</td><td><pre>x
+o
+o
+x
+x
+x</pre>
+</td><td><pre>o
+x
+o
+x
+x
+x</pre>
+</td><td><pre>x
+x
+o
+x
+x
+x</pre>
+</td><td><pre>o
+o
+x
+x
+x
+x</pre>
+</td><td><pre>x
+o
+x
+x
+x
+x</pre>
+</td><td><pre>o
+x
+x
+x
+x
+x</pre>
+</td><td><pre>x
+x
+x
+x
+x
+x</pre>
+</td></tr>
+</tbody>
+</table>
+</section>
+</section>
+</section>
+<section id="9.9">
+<h2>9&emsp;Coding Issues</h2>
+<section id="9.9.1">
+<h3>9.1&emsp;C0 Codes</h3>
+<p>The inclusion of C0 Controls 0/8 to 0/13 in control string data is intended for convenience
+in formatting and storing control strings.  These codes shall have no effect on the
+interpretation of Sixel Control strings.</p>
+<p>Codes in the range 0/0 through 0/7 and 0/14 through 1/15 are considered errors.  The
+communications control characters, XON (DC1) and XOFF (DC3) are handled at a different
+level. Cancel (CAN), Substitute (SUB), Escape (ESC), Bell (BEL), and Enquire (ENQ) are
+treated as follows:</p>
+<a id="9-15"></a>
+<ol>
+<li><p>CAN - exit DCS mode processing, exit Sixel mode.</p></li>
+<li><p>SUB - process as if a 3/15 code (blank Sixel) was received - this is to limit the affect of
+some communication line errors.</p></li>
+<li><p>ESC - exit DCS mode processing, exit Sixel mode, begin processing escape sequence.</p></li>
+<li><p>BEL - same action as in text mode.</p></li>
+<li><p>ENQ - same action as in text mode.</p></li>
+</ol>
+<p>All other C0 Codes are ignored.</p>
+</section>
+<section id="9.9.2">
+<h3>9.2&emsp;GL Codes</h3>
+<p>Codes in the range 2/0 through 7/15 are treated as follows:</p>
+<ul>
+<li>2/0 (SPACE)<span> &mdash; </span>Ignored</li>
+<li>2/1 - 3/14<span> &mdash; </span>Sixel Commands</li>
+<li>3/15 - 7/14<span> &mdash; </span>Sixel Data</li>
+<li>7/15 (DELETE)<span> &mdash; </span>Ignored</li>
+</ul>
+</section>
+<section id="9.9.3">
+<h3>9.3&emsp;C1 Codes</h3>
+<p>Codes in the range 8/0 through 9/15 exit DCS mode processing, exit Sixel mode, and the
+C1 control code is processed outside of the Sixel mode.</p>
+</section>
+<section id="9.9.4">
+<h3>9.4&emsp;GR Codes</h3>
+<p>Codes in range 10/0 through 15/15 are errors.  The 8th bit is set to zero and the code is
+then processed as a GL code. Conforming software shall not transmit GR codes.</p>
+</section>
+</section>
+<section id="9.10">
+<h2>10&emsp;Initial States</h2>
+<p>No Sixel state is preserved from one entering of Sixel mode to the next. All Sixel state is
+reset when the Sixel mode is entered.</p>
+<p>The following states are initialized when Sixel mode is entered:</p>
+<ul>
+<li><p>Background color:<span>&emsp;</span>Device default background.</p></li>
+<li><p>Sixel color:<span>&emsp;</span>Contrasting to background.</p></li>
+<li><p>Color numbers:<span>&emsp;</span>All unspecified color numbers image as
+the default Sixel color.</p></li>
+<li><p>Horizontal extent:<span>&emsp;</span>Distance from current ANSI text position
+to current ANSI right margin.</p></li>
+<li><p>Vertical extent:<span>&emsp;</span>Distance from current ANSI text position
+to current ANSI bottom margin.</p></li>
+</ul>
+<p>Note that the raster attributes (horizontal grid size, pixel aspect ratio) are initialized by
+the Macro Parameter, even if unspecified and defaulted to zero.</p>
+<a id="9-16"></a>
+<p>Conforming software will always initialize the horizontal and vertical extent. Conforming
+software will also initialize any color numbers used in the picture definition.</p>
+</section>
+<section id="9.11">
+<h2>11&emsp;ANSI Text Interactions</h2>
+<p>The Sixel protocol has certain interactions with the ANSI text portion of the device.
+Portions of the ANSI text state affect Sixel printing when Sixel mode is entered, and the
+results of Sixel printing affect portions of the ANSI text state when Sixel mode is exited.
+The majority of interaction is in the area of active position, although margins are also
+involved.</p>
+<section id="9.11.1">
+<h3>11.1&emsp;Entering Sixel Mode</h3>
+<p>The Sixel active position is set equal to the ANSI text active position when Sixel mode
+is entered.  The center of the top dot is printed 70 decipoints (.0972 inch) above the
+character baseline for compatibility with devices which use cell positioning. (Explanatory
+note: 70 decipoints is consistent with the standard spacing of multi-wire print heads.)
+The horizontal and vertical axes are established as the same as the ANSI horizontal and
+vertical axes. No other information is carried from the ANSI text state; in particular, the
+ANSI SGR (Select Graphic Rendition) selections DO NOT affect sixels.</p>
+</section>
+<section id="9.11.2">
+<h3>11.2&emsp;While In Sixel Mode</h3>
+<section id="9.11.2.1">
+<h4>11.2.1&emsp;Printing at The Active Position</h4>
+<p>Sixels are printed relative to the active position such that the top pixel of the Sixel is
+placed at the current horizontal position and seven actual grid vertical sizes above the
+current vertical position.</p>
+<aside>
+<h4>Guideline:</h4>
+<p>On devices with significantly higher resolution than the vertical grid size, sixels
+should be processed the same as a font with an above baseline of 70 decipoints, and
+a below baseline of 6*(vertical grid) - 70 decipoints. If the first character flag is set
+when printing sixels, the Active Position will first be moved down by 70 decipoints
+(the above baseline amount). If the Active Position is closer to the Bottom Margin
+than the below baseline value, a wrap condition will occur. Graphic new line will
+act like a LF of 6*(vertical grid), and wrap at the page end position.</p>
+</aside>
+</section>
+<section id="9.11.2.2">
+<h4>11.2.2&emsp;Right Margin</h4>
+<p>Sixels defined to be printed past the right margin are not printed.</p>
+</section>
+<section id="9.11.2.3">
+<h4>11.2.3&emsp;Top Margin</h4>
+<p>If the Sixel active position is such that printing would occur above the top margin, then
+that part of Sixel will image above the top margin.</p>
+</section>
+<a id="9-17"></a>
+<section id="9.11.2.4">
+<h4>11.2.4&emsp;Bottom Margin</h4>
+<p>Advancing the Sixel active position past the bottom margin has an effect similar to that
+of ANSI text. In video devices, advancing past the bottom margin will cause scrolling to
+occur (if text drawn into this region would have scrolled). In printers, the action will also
+be similar to that of text causing the active position to advance to the next page consistent
+with the setting of Form Mode and other parameters (normal Sixel row vertical spacing
+can be maintained on continuous form machines).</p>
+</section>
+</section>
+<section id="9.11.3">
+<h3>11.3&emsp;Exiting Sixel Mode</h3>
+<p>The Horizontal Active position of the ANSI text is not affected by Sixel mode and set
+exactly to what is was when Sixel mode was entered.</p>
+<p>The vertical active position of the ANSI text is affected by Sixel mode. The ANSI text
+vertical position is updated to reflect the vertical motion commands executed in the Sixel
+printing. Note that on line oriented devices, this may leave the ANSI text active position
+with a non integer line value, only getting back on line boundaries after an absolute
+vertical position command. Also, the vertical positioning commands of Sixel mode use the
+ACTUAL grid size, which may be different than the specified grid size. Therefore, software
+doing pagination should issue an absolute position command before placing characters to
+insure placement as expected.</p>
+<p>Some devices may require re-alignment to a grid established for ANSI text after leaving
+Sixel mode.  In this case, an adjustment less than one character height may occur in a
+downward direction.  Conforming software will not assume any exact alignment of the
+ANSI text vertical position following a Sixel image.</p>
+</section>
+</section>
+<section id="9.12">
+<h2>12&emsp;Fallback</h2>
+<p>As noted in the introduction, this protocol is quite flexible in the range of imaging formats
+provided. It is recognized that few (if any) devices will be able to faithfully image all of the
+rasters defined by the protocol. The purpose of this section is to specify fallback and best
+fit algorithms and techniques.</p>
+<p>The commands allowing fallback are the interpretation of Pixel aspect ratio, Horizontal
+grid size, and color selection.</p>
+<p>A device may require that the grid size used for imaging the raster be different than that
+specified by the Pixel aspect ratio and horizontal grid size. In such a case, the grid size
+used for imaging the raster is called the "actual grid size". Note that several commands
+use this actual grid size specifically, not the ideal grid size specified. Conforming devices
+must clearly state in their product documentation how grid sizes fall back.</p>
+<p>The general rule for grid size fall back is that a device selects an actual grid size that will
+come closest to but does not exceed the specified grid size, but never less than the smallest
+imageable unit of the device. (That is, if the smallest size that a device can print is larger
+than the specified grid size, the device prints it anyway, using the smallest unit as the
+actual grid).</p>
+<a id="9-18"></a>
+<p>Since some devices may have high frequency grid size errors that do not accumulate,
+the average grid size over not more than 30 pixels is used to determine the actual grid
+size. These non-accumulative errors may be due to devices mechanics (two different
+resolution mechanism working together like a print head and a paper motor), or due to
+implementation of a scaling algorithm that combines a non-integer number of pixels into
+an integer number of device print units.</p>
+<p>The pixel aspect ratio should be preserved if possible.</p>
+<aside>
+<h4>Guideline:</h4>
+<p>Many common grid size specifications were intended for devices with coordinate
+units based on 1/72" (equal to 1 point or 10 decipoints). When converting to
+150/300/600 dpi devices, the proper fallback is to use 1/75" for each decipoint
+instead of 1/72". This results in a slightly smaller image (4%), but avoids pixel
+interference patterns from attempting to scale to a non integral number of device
+pixels.</p>
+</aside>
+<p>There are two classes of color fallback - black and white (monochrome), and limited true
+color.</p>
+<p>For monochrome devices, there are several levels of fallback that are device dependent.
+The most common and the least that conforming devices must do is to write all the one bits
+in the only color available and not write the 0 bits. Another fallback would be to texture or
+halftone each pixel, or even texture or halftone an area of pixels.</p>
+<p>For color devices that can not image all the colors possible, mapping of the color definitions
+to the device set is acceptable. The following eight-color mapping shall be used for eight
+color devices using a subtractive color process.</p>
+<table>
+<caption>HLS Coordinate System</caption>
+<thead>
+<tr><th>Hue Angle</th><th>Intended HLS Color</th><th>Fallback Color</th></tr>
+</thead>
+<tbody>
+<tr><td>31 - 90</td><td>Magenta</td><td>Magenta</td></tr>
+<tr><td>91 - 150</td><td>Red</td><td>Red (Yellow + Magenta)</td></tr>
+<tr><td>151 - 210</td><td>Yellow</td><td>Yellow</td></tr>
+<tr><td>211 - 270</td><td>Green</td><td>Green (Yellow + Cyan)</td></tr>
+<tr><td>271 - 330</td><td>Cyan</td><td>Cyan</td></tr>
+<tr><td>331 - 30</td><td>Blue</td><td>Blue (Magenta + Cyan)</td></tr>
+<tr><th colspan="3">Lightness</th></tr>
+<tr><td>0% - 14%</td><td colspan="2">Disregard hue angle, print black</td></tr>
+<tr><td>15% - 85%</td><td colspan="2">Print based on hue angle</td></tr>
+<tr><td>86% - 100%</td><td colspan="2">Disable Printing (White)</td></tr>
+</tbody>
+<tfoot>
+<tr><td colspan="3">Saturation is ignored, assumed to be 100%</td></tr>
+</tfoot>
+</table>
+<a id="9-19"></a>
+<table>
+<caption>RGB Coordinate System</caption>
+<thead>
+<tr><th>Red</th><th>Green</th><th>Blue</th><th>Intended Color</th><th>Fallback Colors</th></tr>
+</thead>
+<tbody>
+<tr><td>0</td><td>0</td><td>0</td><td>Black</td><td>Black (Yellow + Magenta + Cyan)</td></tr>
+<tr><td>1-100</td><td>0</td><td>0</td><td>Red</td><td>Red (Yellow + Magenta)</td></tr>
+<tr><td>0</td><td>1-100</td><td>0</td><td>Green</td><td>Green (Yellow + Cyan)</td></tr>
+<tr><td>1-100</td><td>1-100</td><td>0</td><td>Yellow</td><td>Yellow</td></tr>
+<tr><td>0</td><td>0</td><td>1-100</td><td>Blue</td><td>Blue (Magenta + Cyan)</td></tr>
+<tr><td>1-100</td><td>0</td><td>1-100</td><td>Magenta</td><td>Magenta</td></tr>
+<tr><td>0</td><td>1-100</td><td>1-100</td><td>Cyan</td><td>Cyan</td></tr>
+<tr><td>1-100</td><td>1-100</td><td>1-100</td><td>White</td><td>(None)</td></tr>
+</tbody>
+<tfoot>
+<tr><td colspan="5"><p>0 = selected color is not used</p>
+<p>1-100 = selected color is used</p></td></tr>
+</tfoot>
+</table>
+<section id="9.12.1">
+<h3>12.1&emsp;Deviations</h3>
+<section id="9.12.1.1">
+<h4>12.1.1&emsp;VT125</h4>
+<ol>
+<li><p>Initialization - The VT125 does not reset the Sixel writing color to contrast to the
+background.</p></li>
+<li><p>Relation to ANSI text position - The VT125 does not start the Sixel position at the
+ANSI text position but rather at the upper left corner of the display. It does not update
+the ANSI text vertical position at the termination of a Sixel image.</p></li>
+<li><p>Color numbers - The VT125 accepts color numbers 0, 1, 2, 3 but does not allow color
+specifiers.</p></li>
+<li><p>Background select - The VT125 does not accept this parameter.  It always uses the
+background color for unwritten sixels by erasing the screen to background (i.e. extent
+is the entire screen).</p></li>
+<li><p>Scrolling - The VT125 does not scroll when the bottom margin is reached.</p></li>
+<li><p>Raster attributes - The only raster attributes accepted by the VT125 is defined by
+Macro Parameter value of 1. Thus all other combinations of raster attributes fall back
+to this selection.</p></li>
+</ol>
+</section>
+<section id="9.12.1.2">
+<h4>12.1.2&emsp;VT240</h4>
+<ol>
+<li><p>Initialization - The VT240 does not reset the Sixel writing color to contrast to the
+background. It retains the colors from the previous Sixel transmission.</p></li>
+<li><p>Relation to ANSI text position - The VT240 does not start the Sixel position at the
+ANSI text position but rather at the upper left corner of the display. It does not update
+the ANSI text vertical position at the termination of a Sixel image.</p></li>
+<li><p>Horizontal and Vertical Extent - The VT240 assumes that the extent of the image is
+the entire screen when Background Select is specified to fill in the background; thus
+the VT240 erases the screen to background in this case.</p></li>
+<li><p>Scrolling - The VT240 does not scroll when the bottom margin is reached.</p><a id="9-20"></a></li>
+<li><p>Raster attributes - The only raster attributes accepted by the VT240 is defined by
+Macro Parameter value of 1. Thus all other combinations of raster attributes fall back
+to this selection.</p></li>
+<li><p>Horizontal Grid Size parameter - The VT240 interprets this parameter as a different
+function. The effect of specifying this parameter has very limited effects.</p></li>
+</ol>
+</section>
+<section id="9.12.1.3">
+<h4>12.1.3&emsp;LA50</h4>
+<ol>
+<li><p>The LA50 has a hardware switch to select between 2:1 and 2.5:1 pixel aspect ratios.
+2:1 is required for Level 1 conformance.</p></li>
+</ol>
+</section>
+<section id="9.12.1.4">
+<h4>12.1.4&emsp;LA100 and LA210</h4>
+<ol>
+<li><p>The LA100 and LA210 are Level 2 devices (recognize the Macro Parameter), but do not
+recognize the set raster attributes command.</p>
+<p>Guideline: Software that wishes to support these devices explicitly may set the Macro
+parameter for the desired characteristics, but should also specify the horizontal grid
+size (Pn3) and raster attributes to over-ride the Macro parameter for use on other
+Level 2 devices.</p></li>
+</ol>
+</section>
+</section>
+<section id="9.12.2">
+<h3>12.2&emsp;Change History</h3>
+<section id="9.12.2.1">
+<h4>12.2.1&emsp;Revision AX11 to AX12</h4>
+<p>General</p>
+<ol>
+<li><p>Removed Revision AX11 change bars. Added change bars to any change that could
+affect conformance or interpretation of the document or should be brought to the
+attention of terminal implementors or software engineers.</p></li>
+<li><p>Re-organized main body of the standard to combine syntax and semantic information,
+making it easier for implementors to follow.</p></li>
+</ol>
+<p>Terminology Section</p>
+<ol start="3">
+<li><p>Removed definition of "Raster Aspect Ratio" since the term is not used anywhere in the
+chapter.</p></li>
+<li><p>Clarified "Picture Definition" by indicating it consists of Sixel Data and Sixel
+Commands.</p></li>
+<li><p>Added definition of Grid Size; the distance between two adjacent grid points.</p></li>
+<li><p>Added definition of SIXEL.</p></li>
+</ol>
+<p>Macro Parameter</p>
+<ol start="7">
+<li><p>Added sentence: The intended vertical grid size implied by the macro value is always
+1/72 of an inch.</p></li>
+<li><p>Changed the pixel aspect ratio for macro value 5 from 183:100 to 200:100. Macro value
+5 is intended to give a 200:100 pixel aspect ratio (as on the LN03).  183:100 is the
+fallback on the LA12/34/100/210.</p></li>
+</ol>
+<p>Sixel Commands</p>
+<ol start="9">
+<li><p>Added format descriptions to each Sixel command.</p><a id="9-21"></a></li>
+<li><p>Clarified meaning of "ignoring" unrecognized sixel commands to indicate command and
+parameters must be parsed and ignored.</p></li>
+<li><p>Clarified behavior of Repeat Introducer when sixel column code does not follow
+immediately. Starting another sixel command will cancel a pending repeat count.</p></li>
+<li><p>Added material on Set Raster Attributes Command:</p>
+<p>"Conforming software shall specify all parameters explicitly.  Guideline: omitted
+parameters for Pn1 and Pn2 may be interpreted as '0' (zero) and default to '1' (one)."</p>
+<p>Clarified that the Set Raster Attributes command must precede any sixel, or any sixel
+positioning command within a single sixel string or the command will be ignored.</p></li>
+<li><p>Added material on Color Introducer command:</p>
+<p>"Conforming software shall specify all parameters to be interpreted explicitly.  If
+optional parameters are included to define a new color, they should all be specified.
+Guideline: omitted parameters for Px, Py, and Pz may be interpreted as '0' (zero);
+parameter value '0' (zero) for Pu will cause the entire command to be ignored.</p>
+<p>"In the case of an index which exceeds the bounds of the device, the unimplemented
+index must be mapped back into the supported range."</p>
+<p>"Note this command may load or change a device's color table."</p></li>
+</ol>
+<p>ANSI Text Interactions</p>
+<ol start="14">
+<li><p>Clarified that the ANSI text active position is not changed when Sixel mode is
+entered. The center of the top dot is printed 70 decipoints above the active position.
+(Explanatory note: 70 decipoints is consistent with the standard spacing of multi-wire
+print heads.)</p></li>
+<li><p>Added guideline on printing at the active position for devices with significantly higher
+resolution than the vertical grid size.</p></li>
+<li><p>Simplified section on Bottom Margin by emphasizing that sixels should be treated the
+same as text, and removing duplicate material from the PSRM positioning controls
+chapter.</p></li>
+</ol>
+<p>Other</p>
+<ol start="17">
+<li><p>Added an example of a complete Sixel Control String.</p></li>
+<li><p>Corrected list item numbers (1-3) which were confused with Background Select
+parameter values (0-2).</p></li>
+<li><p>Removed SPACE (2/0) from the set of sixel control codes. Added statement SPACE
+shall be ignored in sixel control strings.</p></li>
+<li><p>Added paragraph stating that format effectors (0/8 - 0/13) shall not effect the
+interpretation of sixel control strings.</p></li>
+<li><p>Added paragraph to Coding section describing how GL codes are handled to make it
+inclusive of all 8-bit codes. SPACE (2/0) and DELETE (7/15) shall be ignored.</p></li>
+<li><p>Added statement that: Conforming software shall not transmit GR codes.</p></li>
+<li><p>Added table of Sixel column codes.</p></li>
+<li><p>Clarified software conformance requirement for initialization. Conforming software
+will always initialize the horizontal and vertical extent (not just if used in the picture
+definition as stated for color numbers).</p><a id="9-22"></a></li>
+<li><p>Added statement to fallback section that: Conforming devices must clearly state in
+their product documentation how grid sizes fall back.</p></li>
+<li><p>Added guideline on fallback for 150/300/600 dpi devices.</p></li>
+<li><p>Fixed legend on RGB fallback table to indicate '0' means selected color is NOT used.</p></li>
+<li><p>Added LA50 to deviations section.</p></li>
+<li><p>Added LA100 and LA210 to deviations section. Included guideline on use of the Macro
+parameter.</p></li>
+</ol>
+</section>
+</section>
+</section>
+</main>
+<footer>
+<a id="Index-1"></a>
+<section id="Index">
+<h2>Index</h2>
+<ul>
+<li>Color Introducer, <a href="#9-10">10</a></li>
+<li>Dot<ul>
+<li>terminology, <a href="#9-2">2</a></li>
+</ul>
+</li>
+<li>Graphics Carriage Return, <a href="#9-11">11</a></li>
+<li>Graphics Next Line, <a href="#9-11">11</a></li>
+<li>Grid<ul>
+<li>terminology, <a href="#9-3">3</a></li>
+</ul>
+</li>
+<li>Grid Size<ul>
+<li>terminology, <a href="#9-3">3</a></li>
+</ul>
+</li>
+<li>Overlap<ul>
+<li>terminology, <a href="#9-3">3</a></li>
+</ul>
+</li>
+<li>Pixel<ul>
+<li>terminology, <a href="#9-2">2</a></li>
+</ul>
+</li>
+<li>Pixel Aspect Ratio<ul>
+<li>terminology, <a href="#9-2">2</a></li>
+</ul>
+</li>
+<li>Pixel-Spot<ul>
+<li>terminology, <a href="#9-2">2</a></li>
+</ul>
+</li>
+<li>Raster<ul>
+<li>terminology, <a href="#9-3">3</a></li>
+</ul>
+</li>
+<li>Raster Size<ul>
+<li>terminology, <a href="#9-3">3</a></li>
+</ul>
+</li>
+<li>Repeat Introducer, <a href="#9-9">9</a></li>
+<li>Set Raster Attributes, <a href="#9-9">9</a><ul>
+<li>Horizontal Extent, <a href="#9-9">9</a></li>
+<li>Pixel Aspect Ratio, <a href="#9-9">9</a></li>
+<li>Vertical Extent, <a href="#9-10">10</a></li>
+</ul>
+</li>
+<li>Sixel<ul>
+<li>terminology, <a href="#9-3">3</a></li>
+</ul>
+</li>
+<li>Sixel Active Position<ul>
+<li>terminology, <a href="#9-3">3</a></li>
+</ul>
+</li>
+<li>Sixel Command<ul>
+<li>Format, <a href="#9-8">8</a></li>
+</ul>
+</li>
+<li>Terminology<ul>
+<li>Dot, <a href="#9-2">2</a></li>
+<li>Grid, <a href="#9-3">3</a></li>
+<li>Grid Size, <a href="#9-3">3</a></li>
+<li>Overlap, <a href="#9-3">3</a></li>
+<li>Pixel, <a href="#9-2">2</a></li>
+<li>Pixel Aspect Ratio, <a href="#9-2">2</a></li>
+<li>Pixel-Spot, <a href="#9-2">2</a></li>
+<li>Raster, <a href="#9-3">3</a></li>
+<li>Raster Size, <a href="#9-3">3</a></li>
+<li>Sixel, <a href="#9-3">3</a></li>
+<li>Sixel Active Position, <a href="#9-3">3</a></li>
+</ul>
+</li>
+</ul>
+</section>
+</footer>
+</body>
+</html>
