@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>VSRM - Terminal Synchronization</title>
+<meta charset="UTF-8" />
+<style>*{text-shadow:0.5px 0;color:#000000;padding:0;margin:0;border-collapse:collapse}body{background:#d4d4d8;>header,>main,>footer{width:709px;padding-left:107px;padding-bottom:16.75px;background:#ffffff;margin:0 auto}>footer{border-bottom:11px solid #d4d4d8}font-family:"Times New Roman";font-size:15.5px;line-height:16.75px;word-spacing:0.3px;letter-spacing:0.5px}a{text-decoration:none}a[href]:hover{color:#bb0000}header>hgroup{>h1,>h2{display:inline;font-size:24px;line-height:26px;letter-spacing:-0.5px;word-spacing:3.5px}>h1{&:before{content:'DEC STD 070-12 '}&:after{content:' - '}}margin-top:167px;margin-bottom:32px;width:500px}p{white-space:pre-wrap}h1,h2,h3,h4{font-family:Arial;font-weight:bold;text-transform:uppercase}h2{font-size:16px;letter-spacing:-0.3px}h3,h4{font-size:14px;letter-spacing:0.1px}h4{text-transform:none}p,section{+section{margin-top:21.5px;&:has(>h4){margin-top:19px}}}h2+*{margin-top:10px}h3+*{margin-top:8.5px}h4+*{margin-top:6px}h2+section{margin-top:9px}h3+section{margin-top:9px}p+p{margin-top:8.25px}aside{margin-left:24px;font-family:Sylfaen;font-size:14px;line-height:15.4px;word-spacing:-1px;letter-spacing:1.1px;>h4{font-family:Sylfaen;font-weight:normal;font-size:15px;margin-top:9px;margin-bottom:7px;margin-left:237px;text-transform:uppercase}>h4,>p{text-shadow:0.5px 0,-0.5px 0}>p:has(>code){margin-left:52px;margin-top:11px;margin-bottom:-1px}}#\31\32\.2\.4\.1,#\31\32\.2\.10{>aside>h4{margin-left:212px}}#\31\32\.2\.5,#\31\32\.3\.1\.1{>aside>h4{margin-bottom:7px}}dl>dt{float:left;padding-right:3px;font-weight:bold}header>dl{font-family:Arial;font-size:14.25px;line-height:16.5px;>dt{text-transform:uppercase;letter-spacing:0}>dt:after{content:':';padding-right:3px}>dd{margin-bottom:35px;word-spacing:1.5px;letter-spacing:-0.1px}&:nth-of-type(2){>dd{margin-bottom:34px}>dt:nth-of-type(1){display:none}>dd:nth-of-type(1){font-weight:bold;margin-bottom:9px;&:before{content:'DEC STD 070-12 '}}>dt:nth-of-type(3){font-size:12px;line-height:14.5px;letter-spacing:-0.1px;padding-right:87px}>dd:nth-of-type(3){margin-bottom:9px;td{font-size:11.5px;line-height:14.5px;width:142px;&:first-child{width:96px}}}}&:nth-of-type(3){font-size:11.5px;margin-bottom:9.5px;>dt,>dd{line-height:14px}>dt{text-transform:none;word-spacing:1px;letter-spacing:-0.3px}>dd{margin-left:296px;margin-bottom:0;letter-spacing:0}}&:nth-of-type(4){>dt{letter-spacing:-0.3px}>dd{word-spacing:2px;>p:nth-of-type(n+2){margin-top:63px;border-top:2px solid black;width:391px;margin-left:91px;padding-left:29px;padding-top:6px;font-size:14px;word-spacing:1.8px}>p:nth-of-type(3){margin-top:53px}}}}header>p{font-family:Arial;font-size:11px;line-height:14px;letter-spacing:0.4px;&:nth-of-type(1){margin-top:82px;margin-left:90px}&:nth-of-type(2){margin-top:25px;margin-left:138px}&:nth-of-type(n+3){font-size:14.5px;line-height:16px;word-spacing:1.1px;letter-spacing:0}&:nth-of-type(3){margin-top:146px;word-spacing:0.1px}&:nth-of-type(4){margin-top:27px;margin-left:264px}&:nth-of-type(5){margin-top:0;margin-left:140px}&:nth-of-type(6){margin-top:76px;word-spacing:0.5px}}ul{list-style:none;margin-top:7px;margin-bottom:22px;&:has(code){font-family:"Courier New";font-weight:bold;font-size:12px;line-height:12.8px;word-spacing:0;letter-spacing:-0.2px;margin-left:55px;margin-top:6px;margin-bottom:9px;>li{white-space:pre}}&:has(p)>li{margin-top:6px;margin-left:26px;position:relative;>p:before{content:'\2022';font-size:20px;position:absolute;left:-26px}}}ol{list-style-type:none;margin-top:6px;margin-bottom:10.5px;>li>p{margin-bottom:6.6px;margin-left:28px;&:before{content:counter(list-item,decimal) ".";display:inline-block;width:28px;margin-left:-28px}}}#Contents{>hgroup{>h2{font-family:"Times New Roman";font-weight:normal;letter-spacing:-0.1px;padding-left:259px;margin-bottom:29px}>p{display:none}}a[href]{background:#ffffff;position:relative;z-index:1;&:nth-of-type(1):after{content:'\A0\A0'}&:nth-of-type(2){position:absolute;right:107px}}ol{margin:0;>li{padding-left:9px;line-height:18px;&:before{content:counters(list-item,".");display:inline-block;width:14px}>ol>li:before{width:24px}>ol>li>ol>li:before{width:36px}}}>ol{font-size:15px;letter-spacing:-0.5px;position:relative;>li{padding-left:25px;text-transform:uppercase;li li{text-transform:none;letter-spacing:-0.1px}&:not(:first-child){margin-top:7px}}li:nth-child(n+10):before{width:32px}}>ol[type=A]{margin-top:18px;li{padding-left:25px;text-transform:none;>a:first-of-type,&:before{font-size:15.5px;letter-spacing:-0.3px}&:before{content:'A.' counter(list-item);width:28px}}>li{padding-left:0;li{margin-top:8px}>a:first-of-type{text-transform:uppercase;letter-spacing:0.2px}&:before{content:'Appendix A';width:92px;letter-spacing:0px}}}>ul{text-transform:uppercase;margin-top:28px}li>span{visibility:hidden;&:after{content:'.............................................................';visibility:visible;position:absolute;right:142px;letter-spacing:4px}}}#Index{>h2{font-size:18.5px;margin-top:104px;margin-bottom:56px}>ul{column-count:2;width:678px;font-size:12.5px;>li>ul{margin:0;margin-left:17px}li,a{line-height:14px;word-spacing:1px;letter-spacing:0.3px}a{padding-left:1px}>li{&:before{font-family:Arial;font-size:18px;font-weight:bold;line-height:25px;display:block;border-bottom:2px solid black;width:255px;margin-top:6px;margin-bottom:2px}&:nth-child(1):before{content:'B'}&:nth-child(5):before{content:'C'}&:nth-child(9):before{content:'D'}&:nth-child(11):before{content:'E'}&:nth-child(12):before{content:'H'}&:nth-child(13):before{content:'I'}&:nth-child(15):before{content:'K'}&:nth-child(16):before{content:'M';padding-top:19px}&:nth-child(17):before{content:'N'}&:nth-child(18):before{content:'R'}&:nth-child(22):before{content:'S'}&:nth-child(26):before{content:'T'}&:nth-child(27):before{content:'X'}&:last-child{padding-bottom:24px}}}}code{font-family:"Courier New";font-weight:bold;font-size:12px;line-height:12.8px;word-spacing:0;letter-spacing:-0.2px;text-shadow:none;white-space:pre;pre>&{display:block;padding-top:10px;padding-left:55px}}#\31\32\.2\.4\.1,#\31\32\.2\.4\.2{>pre{margin-top:30px;margin-bottom:4px}}#\31\32\.2\.4\.3>pre{margin-top:4px;margin-bottom:8px;margin-left:35px;&:nth-of-type(2){margin-top:30px}}figure{>svg text{text-shadow:none;white-space:pre}&:nth-of-type(1)>svg{margin-top:32px;margin-bottom:20px}&:nth-of-type(2)>svg{margin-top:29px;margin-bottom:20px;margin-left:134px}}em{font-family:"Courier New";font-style:normal;font-weight:bold;font-size:12px;letter-spacing:-0.2px;margin-left:27px}#\31\32\.A>h2{margin-top:96px;margin-left:108px;font-size:18px;word-spacing:4px;letter-spacing:-0.1px;&:before{content:'APPENDIX\2003'}}#\31\32\.A\.1>h3{font-size:15.5px;line-height:27px;letter-spacing:0;text-transform:none;margin-top:31px}#\31\32\.A\.1>dl{font-family:Arial;font-size:12px;margin-top:0;margin-bottom:11px;border-top:3px solid black;border-bottom:3px solid black;width:601px;>dt,>dd{line-height:14px;letter-spacing:-0.25px;&:first-of-type{&:before{display:block;height:20.5px;line-height:22px;border-bottom:3px solid black;margin-bottom:6px;font-weight:bold;font-style:normal;letter-spacing:-0.6px}}}>dt{width:158px;padding:0;font-weight:normal;&:first-of-type:before{content:'EL-Class Number'}}>dd{margin-left:158px;margin-bottom:3.5px;font-style:italic;word-spacing:1.25px;&:first-of-type:before{content:'Document Title'}}&+p{word-spacing:-1.4px}}header,main{counter-reset:page}a[id]{display:block;position:relative;left:-107px;padding-left:107px;width:709px;height:16.75px;margin-top:142px;margin-bottom:32px;border-top:11px solid #d4d4d8;padding-top:57px;white-space:pre;font-family:Arial;font-size:14px;font-weight:bold;word-spacing:0.8px;letter-spacing:-0.3px;&:before{content:'EL-00070-12\A' '26-Jul-1990';line-height:0;position:absolute;left:646px;text-indent:-539px;padding-top:9px;font-size:12px;word-spacing:1.5px}&:after{--content:'Digital Internal Use Only\A';counter-increment:page;content:var(--content) counter(page);line-height:0;letter-spacing:-0.5px;position:absolute;top:969px;text-indent:276px}header &:after{content:var(--content) counter(page,lower-roman)}&#iii,&#\31\32-1,&#\31\32-3,&#\31\32-5,&#\31\32-7,&#\31\32-9,&#\31\32-11,&#Index-1{&:after{text-indent:195px;text-align:right;direction:rtl;right:107px}}&#i:after{content:var(--content);text-indent:260px}&#i,&#ii{&:before{content:'EL-00070-12                                     Digital Internal Use Only\A' '26-Jul-1990'}}&#Index-1{&:before{content:'\A' 'EL-00070-12';left:642px}&:after{content:var(--content) 'Index-1';text-indent:215px}}&#\31\32-6:before{text-indent:-515px}}#\31\32-2{margin-top:120px}#\31\32-7{margin-top:159px}#\31\32-10{margin-top:160px}#\31\32-9{margin-top:183px}#\31\32-8{margin-top:224px}#iii{margin-top:239px}#ii{margin-top:270px}#\31\32-5{margin-top:274px}#iv{margin-top:278px}#\31\32-6{margin-top:321px}#\31\32-11{margin-top:567px}#\31\32-12{margin-top:653px}body{>header,>main,>footer{>a[id]:first-child{margin-top:0}}>header{padding-bottom:948px}>main{padding-bottom:948px}>footer{padding-bottom:185px}}</style>
+</head>
+<body>
+<header>
+<a id="i"></a>
+<hgroup>
+<h1>Video Systems Reference Manual</h1>
+<h2>Terminal Synchronization</h2>
+</hgroup>
+<dl>
+<dt>Document Identifier</dt>
+<dd><p>A-DS-EL00070-12-0000 Rev A1, 26-Jul-1990</p></dd>
+<dt>Abstract</dt>
+<dd><p>This standard applies to serial asynchronous communications which use
+XON/XOFF flow control or Break for synchronization. It describes the XON/XOFF flow control
+protocol including response time and input buffer requirements. It also specifies requirements
+for implementing the Break function in terminals. This standard supersedes DEC STD 111-0
+Terminal Synchronization.</p></dd>
+<dt>Applicability</dt>
+<dd><p>Mandatory for Engineers designing hardware for terminal products and
+Software Engineers designing programs using terminal interfaces. Additional requirements are
+defined in DEC STD 070-1 Concepts and Conformance Criteria.</p></dd>
+<dt>Status</dt>
+<dd><p>APPROVED 26-Jul-1990; use VTX SMC for current status.</p></dd>
+</dl>
+<p>This document is confidential and proprietary, and is the property of Digital
+Equipment Corporation. It is an unpublished work protected under the Federal
+copyright laws.</p>
+<p>©Digital Equipment Corporation.   1990. All rights reserved.</p>
+<a id="ii"></a>
+<dl>
+<dt>Title</dt>
+<dd>Video Systems Reference Manual - Terminal Synchronization</dd>
+<dt>Document Identifier</dt>
+<dd>A-DS-EL00070-12-0000 Rev A1, 26-Jul-1990</dd>
+<dt>Revision History</dt>
+<dd><table>
+<tbody>
+<tr><td>Rev A,</td><td>24-Nov-1987</td><td></td></tr>
+<tr><td>Rev A1,</td><td>27-Jul-1990</td><td>ECO Number CTS01</td></tr>
+</tbody>
+</table>
+</dd>
+</dl>
+<dl>
+<dt>Document Management Category</dt>
+<dd>Terminal Interface Architecture (STI)</dd>
+<dt>Responsible Department</dt>
+<dd>VIPS Architecture Group</dd>
+<dt>Responsible Person</dt>
+<dd>Peter Sichel</dd>
+</dl>
+<dl>
+<dt>Approval</dt>
+<dd><p>This document, prepared by the VIPS Architecture Group, has been recommended
+for approval by the general review group for its category for use throughout Digital. Rev A1
+incorporates clerical changes only.</p>
+<p>Peter Sichel - VIPS Architecture Group</p>
+<p>Eric Williams - Standards Process Manager</p></dd>
+</dl>
+<p>Direct requests for further information to:</p>
+<p>Peter Sichel</p>
+<p>Use $ VTX ELF for the latest location information.</p>
+<p>Use VTX SMC to order copies of this document from Standards and Methods Control. Send
+distribution questions to JOKUR::SMC or call DTN: 287-3724.</p>
+<a id="iii"></a>
+<section id="Contents">
+<hgroup>
+<h2>Contents</h2>
+<p>Chapter 12<br />Terminal Synchronization</p>
+</hgroup>
+<ol>
+<li><a href="#12.1">Introduction</a><span> … </span><a href="#12-1">1</a><ol>
+<li><a href="#12.1.1">Scope</a><span> … </span><a href="#12-1">1</a></li>
+<li><a href="#12.1.2">Relationship To TIA</a><span> … </span><a href="#12-1">1</a></li>
+</ol>
+</li>
+<li><a href="#12.2">XON/XOFF Flow Control</a><span> … </span><a href="#12-1">1</a><ol>
+<li><a href="#12.2.1">Protocol</a><span> … </span><a href="#12-1">1</a></li>
+<li><a href="#12.2.2">XON And XOFF Points</a><span> … </span><a href="#12-3">3</a><ol>
+<li><a href="#12.2.2.1">Requirements</a><span> … </span><a href="#12-3">3</a></li>
+<li><a href="#12.2.2.2">Guidelines and Examples</a><span> … </span><a href="#12-3">3</a></li>
+</ol>
+</li>
+<li><a href="#12.2.3">Receive Buffer Size</a><span> … </span><a href="#12-4">4</a></li>
+<li><a href="#12.2.4">Buffer Overflow Prevention</a><span> … </span><a href="#12-4">4</a><ol>
+<li><a href="#12.2.4.1">Number of Characters to Buffer Overflow</a><span> … </span><a href="#12-5">5</a></li>
+<li><a href="#12.2.4.2">Response Time to XOFF</a><span> … </span><a href="#12-6">6</a></li>
+<li><a href="#12.2.4.3">Response Time Example</a><span> … </span><a href="#12-6">6</a></li>
+</ol>
+</li>
+<li><a href="#12.2.5">Initialization</a><span> … </span><a href="#12-6">6</a></li>
+<li><a href="#12.2.6">Other Events That Affect XON/XOFF State</a><span> … </span><a href="#12-7">7</a><ol>
+<li><a href="#12.2.6.1">Special Characters</a><span> … </span><a href="#12-7">7</a></li>
+<li><a href="#12.2.6.2">Local Events (Guidelines)</a><span> … </span><a href="#12-7">7</a></li>
+</ol>
+</li>
+<li><a href="#12.2.7">Reserved Characters</a><span> … </span><a href="#12-7">7</a></li>
+<li><a href="#12.2.8">Terminal Keyboard Synchronization</a><span> … </span><a href="#12-8">8</a></li>
+<li><a href="#12.2.9">Terminal Screen Synchronization (Hold Screen)</a><span> … </span><a href="#12-8">8</a></li>
+<li><a href="#12.2.10">Emergency Messages</a><span> … </span><a href="#12-8">8</a></li>
+<li><a href="#12.2.11">Implied XOFF Rule</a><span> … </span><a href="#12-9">9</a></li>
+</ol>
+</li>
+<li><a href="#12.3">Break</a><span> … </span><a href="#12-9">9</a><ol>
+<li><a href="#12.3.1">The Break Signal</a><span> … </span><a href="#12-9">9</a><ol>
+<li><a href="#12.3.1.1">Long Break Disconnect</a><span> … </span><a href="#12-9">9</a></li>
+</ol>
+</li>
+<li><a href="#12.3.2">When Break May Be Transmitted</a><span> … </span><a href="#12-9">9</a></li>
+<li><a href="#12.3.3">Operation Of The Break Key</a><span> … </span><a href="#12-10">10</a></li>
+<li><a href="#12.3.4">Receipt Of Break</a><span> … </span><a href="#12-10">10</a></li>
+</ol>
+</li>
+</ol>
+<ol type="A">
+<li><a href="#12.A">Referenced Documents</a><span> … </span><a href="#12-11">11</a><ol>
+<li><a href="#12.A.1">EL-Class Digital Documents</a><span> … </span><a href="#12-11">11</a></li>
+</ol>
+</li>
+</ol>
+<ul>
+<li><a href="#Index">Index</a></li>
+</ul>
+<a id="iv"></a>
+</section>
+</header>
+<main>
+<a id="12-1"></a>
+<section id="12.1">
+<h2>1&emsp;Introduction</h2>
+<p>This document describes synchronization mechanisms for software which interfaces
+computers to terminal devices. These mechanisms are used for flow control to prevent
+devices from losing data received faster than it can be processed; to synchronize keyboard
+and display processing in terminals with software running on remote hosts; and to reset
+or initialize the communications context. Currently these mechanisms are defined for use
+over serial asynchronous communications lines, and include XON/XOFF flow control and
+Break.</p>
+<p>XON/XOFF flow control is a means of using control characters DC1 (XON) and DC3
+(XOFF) to alternately suspend and resume the flow of characters over serial asynchronous
+communication lines.</p>
+<p>Break is an out of band signal frequently used to reset the communications environment or
+data interchange context over serial asynchronous lines. The Break condition is defined as
+a continuous space (transmission line held in its zero state) for longer than one character
+time. Although there is no standard use for Break, Digital terminals allow the Break
+signal to be generated under user control.</p>
+<section id="12.1.1">
+<h3>1.1&emsp;Scope</h3>
+<p>This standard applies to all Digital products which implement XON/XOFF flow control,
+all products which are intended to be certified as conforming to the Terminal Interface
+Architecture, and software which is intended to use terminal interfaces in a conforming
+manner.</p>
+</section>
+<section id="12.1.2">
+<h3>1.2&emsp;Relationship To TIA</h3>
+<p>XON/XOFF flow control and break are part of the external communications interface that
+lies below the code extension layer. Flow control and break are management functions
+that control the communications link. No conforming applications should depend on the
+presence of, or performance characteristics of terminal synchronization.</p>
+</section>
+</section>
+<section id="12.2">
+<h2>2&emsp;XON/XOFF Flow Control</h2>
+<section id="12.2.1">
+<h3>2.1&emsp;Protocol</h3>
+<p>XON/XOFF flow control is a means of using C0 control characters DC1 (1/11) (XON) and
+DC3 (1/3) (XOFF) to alternately suspend and resume the flow of characters over serial
+asynchronous point to point communication lines. Flow control is used to avoid losing
+data when a sending device is capable of transmitting data faster than the corresponding
+receiving device can process or use it.</p>
+<p>XON/XOFF flow control is only applicable to full duplex communication lines with a
+specified minimum amount of receive data buffering. The exact buffer requirements depend
+on the maximum transmission rate and response time of the sender and receiver.</p>
+<p>XON/XOFF flow control is a symmetric protocol and may be used independently in either
+or both directions. Only one direction is described below for simplicity. Most systems will
+conform as both a sending device and a receiving device. Product documentation should
+state clearly if an implementation intends to only conform as a sending device or receiving
+device.</p>
+<a id="12-2"></a>
+<figure>
+<svg width="556" height="144" xmlns="http://www.w3.org/2000/svg">
+<g stroke="#000" stroke-width="2" fill="none" stroke-linejoin="round">
+<rect x="2" y="43" width="160" height="95" /><rect x="392" y="43" width="160" height="95" />
+<line x1="162" y1="75" x2="392" y2="75" /><line x1="162" y1="106" x2="389" y2="106" />
+<g stroke-width="1" fill="#000"><path d="M392 75l-13 8 2-8-3-11z" /><path d="M162 106l 15-12-3 12 3 10z" /></g>
+</g>
+<g font-family="Arial, sans-serif" font-size="15.75" font-weight="bold" letter-spacing="-0.9" white-space="pre">
+<text x="36" y="16">Sending</text><text x="36" y="32">Device   (SD)</text>
+<text x="428" y="16">Receiving</text><text x="428" y="32">Device   (RD)</text>
+<text x="82" y="63">SDTX</text><text x="225" y="65">flow controlled</text><text x="428" y="62">RDRX</text>
+<text x="82" y="129">SDRX</text><text x="230" y="125" letter-spacing="0">(XON/XOFF)</text><text x="430" y="129">RDTX</text>
+</g>
+</svg>
+</figure>
+<p>When XON/XOFF flow control is enabled between a sending device and a receiving device,
+XON and XOFF characters received at the sending device (SDRX) are interpreted as flow
+control and are not stored in the sending device's input buffer. Because they are used for
+flow control, characters XON and XOFF may not be passed as part of the normal data
+interchange from the receiving device to the sending device.</p>
+<p>The sending device recognizes XOFF (1/3) as a request from the receiving device to
+suspend the transmission of characters. When this character is received by the sending
+device, transmission of all characters (other than XON or XOFF) to the receiving device is
+suspended. When the sending device's communication port is in this state, it is said to be
+in the XOFF state. If the device is already in the XOFF state when an XOFF character is
+received, this character is ignored.</p>
+<p>The sending device recognizes XON (1/1) as permission from the receiving device to resume
+the transmission of characters, if any. When this character is received by the sending
+device, the XOFF state of the device's communication port is cleared and transmission
+of characters in the communication port output buffer is resumed. If the device was not
+XOFF-ed, this character is ignored.</p>
+<figure>
+<svg width="325" height="170" xmlns="http://www.w3.org/2000/svg">
+<g stroke="#000" stroke-width="2" fill="none" stroke-linejoin="round">
+<rect x="2" y="28" width="290" height="46" /><line x1="117" y1="34" x2="117" y2="69" />
+<line x1="6" y1="52" x2="20" y2="52" /><line x1="88" y1="52" x2="101" y2="52" />
+<line x1="74" y1="126" x2="74" y2="95" /><line x1="147" y1="126" x2="147" y2="95" />
+<line x1="220" y1="126" x2="220" y2="95" /><line x1="292" y1="126" x2="292" y2="95" />
+<g stroke-width="1" fill="#000">
+<path d="M114 52l-13 5 3-4 0-3-2-4z" />
+<path d="M74 82l5 18-5-6-4 7z" /><path d="M147 82l5 18-5-6-4 7z" />
+<path d="M220 82l5 18-5-6-4 7z" /><path d="M292 82l5 18-5-6-4 7z" />
+</g>
+</g>
+<g font-family="Arial, sans-serif" font-size="15.75" font-weight="bold" letter-spacing="-0.7" white-space="pre">
+<text x="23" y="17">Receiving Device Input Buffer (FIFO)</text>
+<text x="24" y="56">rx&#8201;-&#8201;data</text>
+<text x="61" y="145">XON</text><text x="60" y="161">point</text>
+<text x="135" y="144">first</text><text x="135" y="160">XOFF</text>
+<text x="203" y="143">second</text><text x="203" y="159">XOFF</text>
+<text x="279" y="143">buffer</text><text x="279" y="159">full</text>
+</g>
+</svg>
+</figure>
+<p>The receiving device transmits XOFF to the sending device if a character other than XON
+or XOFF that would be stored in the input buffer is received from that device, and (1) the
+number of characters in the input buffer reaches the first XOFF point for the first time
+since the last XON was sent; (2) the number of characters in the input buffer reaches the
+second XOFF point for the first time since the last XON was sent; or (3) the input buffer
+is full. If the input buffer is full, the received character is discarded. An error indication
+<a id="12-3"></a>should be made in the receiving device if characters are discarded (not mandatory). A
+terminal might display the error character for example.</p>
+<p>If the sending device can respond to XOFF fast enough to avoid buffer overflow from
+the second XOFF point, reliability is improved on systems where the first XOFF might
+be lost during transmission. Support for the second XOFF point is not mandatory, but
+recommended for use over noisy communication channels.</p>
+<p>The reason to send an XOFF for each character that arrives while the input buffer is full
+is to insure that the sending device will receive an XOFF even if it is reset (clearing the
+XOFF state) after the input buffer was filled. Transmission of XOFF for each character
+received while the input buffer is full is not mandatory.</p>
+<p>The receiving device transmits an XON to the sending device when the receiving device's
+input buffer empties to the XON point, and the last flow control sent by the receiving device
+was XOFF. This XON must not be blocked by any data being held in the receiving device's
+transmit queue. If both devices had transmit queues and did not allow XON characters to
+bypass them, they could become locked in a "deadly embrace". Special provision shall be
+made to send XON promptly regardless of the XON/XOFF state of the receiving device.</p>
+</section>
+<section id="12.2.2">
+<h3>2.2&emsp;XON And XOFF Points</h3>
+<section id="12.2.2.1">
+<h4>2.2.1&emsp;Requirements</h4>
+<p>The choice of XON and XOFF points will depend on the receive buffer size and the
+performance characteristics desired. The following requirements apply to the selection of
+XON and XOFF points. In all cases, the first XOFF point must be higher (closer to buffer
+full) than the XON point.</p>
+<p>Terminals shall provide at least 32 characters of receive buffer space beyond each XOFF
+point supported (the buffer full condition is not considered an XOFF point).</p>
+<p>When an XOFF point is reached, the receiving device should transmit XOFF as soon as
+possible to maximize the response time available to the sender. It is anticipated that some
+hardware devices will employ a transmit output buffer and will not be able to insert XOFF
+into the output stream immediately. In the worst case, XOFF shall be transmitted within
+five character times from when the XOFF point was reached.</p>
+<p>Some implementations allow the first XOFF point to be selected under local control to
+limit the number of characters ahead of the screen the host can transmit. For interactive
+terminals with large input buffers, it shall be possible to set the first XOFF point to 64
+characters or less (in the receive input buffer).</p>
+</section>
+<section id="12.2.2.2">
+<h4>2.2.2&emsp;Guidelines and Examples</h4>
+<p>The choice of XON and XOFF points is complicated because there are several competing
+objectives that can be optimized. XON and XOFF points should be chosen to provide a
+reasonable compromise between these objectives for the intended use of the device. For
+some devices it may be desirable to make the XON and XOFF points user configurable.</p>
+<p>To increase the amount of response time available to accomodate end to end signaling
+delays (satellite relay of telephone signals can take hundreds of milliseconds for example),
+it is desirable to provide lots of receive buffer space after the first XOFF point.</p>
+<a id="12-4"></a>
+<p>To allow a sender to finish a printing task as early as possible, it is desirable to make the
+XON point high (closer to buffer full).</p>
+<p>To reduce the amount of XON/XOFF traffic and/or the number of data transfers, it is
+desirable to have the XON and (first) XOFF point far apart.</p>
+<p>To maximize throughput, it is desirable to balance the XON response time (before the
+receive input buffer empties) with the XOFF response time so the receiver does not sit idle
+waiting for the sender to respond to XON.</p>
+<p>For interactive video terminals that provide 32 characters of input buffer space beyond the
+last XOFF point, the XON point will normally be at 32 characters, or at half the number of
+characters to the first XOFF point, whichever is less.</p>
+<aside>
+<h4>Examples</h4>
+<p>The VT100 provides a 64-character receive input buffer with the first XOFF point
+at 32 characters, no second XOFF point, and XON point at 16 characters.</p>
+<p>The VT220 provides a 254-character receive input buffer with the first XOFF point
+selectable to 64 or 128 characters. The second XOFF point is 220 characters. The
+XON point is 32 characters.</p>
+<p>The VT100 and VT220 are designed to provide 32 characters of input buffer space
+to respond to XOFF (from the XOFF point to buffer full on the VT100, and from the
+second XOFF point to buffer full on the VT220).</p>
+</aside>
+</section>
+</section>
+<section id="12.2.3">
+<h3>2.3&emsp;Receive Buffer Size</h3>
+<p>Terminals shall provide at least 64 characters of receive input buffer space, with at least
+32 characters of input buffer space beyond each XOFF point supported.</p>
+<p>Although existing Digital Terminals respond to XOFF within two character times, other
+receiving devices (including host computers) should provide at least 32 characters of input
+buffer space beyond the XOFF point to be symmetric with the VT100 and VT200 terminal
+families (not mandatory). This is desirable to support PCs and Workstations running
+terminal emulator software.</p>
+<p>In all cases, the receive input buffer size and XOFF point must be sufficient to prevent
+buffer overflow under the intended operating conditions.</p>
+</section>
+<section id="12.2.4">
+<h3>2.4&emsp;Buffer Overflow Prevention</h3>
+<p>In order to prevent buffer overflow, the sending device must respond to an XOFF within
+some maximum amount of time which depends on the size of the receiver's input buffer, its
+XOFF point, and the transmission rate.</p>
+<a id="12-5"></a>
+<section id="12.2.4.1">
+<h4>2.4.1&emsp;Number of Characters to Buffer Overflow</h4>
+<p>When the sending and receiving transmission rate are the same, the maximum guaranteed
+number of characters before buffer overflow assuming immediate response is:</p>
+<pre><code>OVFL = (MXBF - XOFF) - 3
+</code></pre>
+<p><em>Where:</em></p>
+<ul>
+<li><code>OVFL</code> = the number of characters before overflow</li>
+<li><code>MXBF</code> = the receive buffer size</li>
+<li><code>XOFF</code> = the XOFF point</li>
+</ul>
+<p>The constant '3' derives from the following possible character delays: (1) When the receive
+buffer reaches the XOFF point, the receiving device may be in the middle of sending a
+character and unable to send XOFF until the character finishes; (2) It takes one character
+time to transmit the XOFF; (3) Assuming the transmitting device can respond immediately
+to the XOFF, it must still finish the character it is currently sending (if any).</p>
+<p>Situations that may reduce the number of characters before buffer overflow include:</p>
+<ol>
+<li><p>Systems that support different transmit and receive speeds (the slower channel cannot
+send or receive the XOFF as fast OVFL = (MXBF-XOFF) - [3(RCDR/XMDR)]).</p></li>
+<li><p>Systems that utilize transmit output buffers and cannot insert XOFF into the output
+stream immediately.</p></li>
+<li><p>Systems that employ "transmit rate limiting" to limit the number of characters per
+second below the maximum allowed by the baud rate.</p></li>
+</ol>
+<aside>
+<h4>Deviation Note</h4>
+<p>The number of characters before buffer overflow on the VT220, and VT300 family
+is calculated differently because received characters are only handled during V
+Blank time. The actual formula is:</p>
+<p><code>OVFL = (MXBF-XOFF)-[3(RCDR/XMDR)]-(RCDR/600)</code></p>
+<p>The last term takes into account the worst case for when the received character
+would get serviced.</p>
+<p>The VT220 and VT300 series will not consistently transmit XOFF within five
+character times of reaching an XOFF point (but they still provide more than 32
+characters of buffer space from when the first XOFF is sent). This delay until V
+Blank time should be discouraged in future devices.</p>
+</aside>
+</section>
+<a id="12-6"></a>
+<section id="12.2.4.2">
+<h4>2.4.2&emsp;Response Time to XOFF</h4>
+<p>The maximum response time available to the sending device to stop sending (in order to
+guarantee that the buffer will not overflow) is the time it takes to transmit the number of
+characters until buffer overflow (OVFL).</p>
+<pre><code>MRST = OVFL x [(DATA + STOP + PRTY + 1)/XMDR]
+</code></pre>
+<p><em>where:</em></p>
+<ul>
+<li><code>MRST</code> = maximum response time</li>
+<li><code>OVFL</code> = the number of characters before overflow</li>
+<li><code>DATA</code> = the number of data bits per character</li>
+<li><code>STOP</code> = the number of stop bits per character</li>
+<li><code>PRTY</code> = the number of parity bits per character</li>
+<li><code>'1'</code>  = the start bit</li>
+<li><code>XMDR</code> = the transmit data rate (bits per second)</li>
+</ul>
+<p>It is recommended (but not mandatory) that the sending device stop transmitting
+immediately upon receipt of an XOFF (after the current character).</p>
+<p>XON/XOFF flow control is intended for use over point to point full duplex links. The time
+available to respond to XOFF will be reduced by any end to end signaling delays.</p>
+</section>
+<section id="12.2.4.3">
+<h4>2.4.3&emsp;Response Time Example</h4>
+<p>If the sending device is a host computer intended to work with a VT100 at 9600 bits per
+second, the maximum response time can be computed as follows:</p>
+<pre><code>OVFL = (MXBF - XOFF) - 3
+     = (64   - 32)   - 3
+     = 29 characters until overflow
+</code></pre>
+<p>Assuming 8-bit characters with no parity and one stop bit:</p>
+<pre><code>MRST = OVFL x [(DATA + STOP + PRTY + 1)/XMDR]
+     = 29   x [(8    + 1    + 0    + 1)/9600]
+     = 0.030 seconds
+</code></pre>
+<p>For this example, the sending device including transmission delays in either direction must
+respond to XOFF within 30 milliseconds to avoid buffer overflow.</p>
+</section>
+</section>
+<section id="12.2.5">
+<h3>2.5&emsp;Initialization</h3>
+<p>When a device first powers on, it has no way of knowing the XON/XOFF state of a
+communication link. Devices shall send a single XON at power-up when they are ready to
+receive data, and assume their transmitter is in the XON state.</p>
+<p>Devices that can be locally controlled (that is, have some form of keyboard or local control
+panel) shall provide a means for the operator to re-initialize the XON/XOFF state. This
+"Clear Communications" function will include the following actions: (1) clear the device's
+transmit queue; (2) clear the XOFF state of the device's communication port; (3) transmit a
+single XON to the remote device.</p>
+<a id="12-7"></a>
+<aside>
+<h4>Guideline</h4>
+<p>The VT100 sends XON at power-up, and allows the XON/XOFF state to be
+re-initialized by entering and exiting Set-Up.</p>
+<p>The VT220 sends XON at power-up. A "Clear Comm" function is provided in Set-Up
+to re-initialize the XON/XOFF state.</p>
+</aside>
+</section>
+<section id="12.2.6">
+<h3>2.6&emsp;Other Events That Affect XON/XOFF State</h3>
+<section id="12.2.6.1">
+<h4>2.6.1&emsp;Special Characters</h4>
+<p>Some devices interpret other characters besides XON to mean "okay to resume
+transmission". These characters are not synonymous with XON and shall be treated as
+special conditions that re-initialize the XON/XOFF state. It is up to the device receiving
+data to decide what, if any, special characters will clear its XOFF state. A device sending
+data shall not assume any characters other than XON will clear the XOFF state of the
+receiving device.</p>
+<aside>
+<h4>Guideline</h4>
+<p>Some operating systems have interpreted CTRL/Y and CTRL/C as events that
+re-initialize the XON/XOFF state. Upon receipt of CTRL/Y (when CTRL/Y handling
+is enabled), VMS clears the communication port's output queue, clears the XOFF
+state of the communication port, and transmits an XON to the terminal. Terminals
+should not assume, however, that sending CTRL/Y will clear the XOFF state of
+the remote device, and should not re-initialize their own XON/XOFF state upon
+sending CTRL/Y.</p>
+</aside>
+</section>
+<section id="12.2.6.2">
+<h4>2.6.2&emsp;Local Events (Guidelines)</h4>
+<p>Some devices generate XON or XOFF flow control as a result of local events which affect
+the processing of incoming data.</p>
+<p>The VT100 sends XOFF when entering Set-Up, and sends XON upon exit from Set-Up.
+The VT220 enters the hold screen state (if not already held) when entering Set-Up, and
+leaves the hold screen state if not previously held upon exiting Set-Up.</p>
+<p>The LN03 sends XOFF when the paper cover is lifted and sends XON when the paper
+cover is replaced. It is suggested that printers send XOFF when they are unable to process
+incoming data (including going off-line), and send XON when they are again ready to
+process incoming data (including going on-line).</p>
+</section>
+</section>
+<section id="12.2.7">
+<h3>2.7&emsp;Reserved Characters</h3>
+<p>DC1 (1/1) (XON) and DC3 (1/3) (XOFF) are to be used for synchronization in the manner
+described in this standard. DC2 (1/2) and DC4 (1/4) are reserved for future use, likely for
+synchronization. These characters should not be used to convey meaning to application
+software.</p>
+</section>
+<a id="12-8"></a>
+<section id="12.2.8">
+<h3>2.8&emsp;Terminal Keyboard Synchronization</h3>
+<p>When XON/XOFF flow control is enabled, terminals may be XOFF-ed to suspend
+transmission of characters to the host. Terminals will maintain a silo for keyboard output.
+In the event that the keyboard produces characters faster than they can be sent, the silo
+will buffer at least nine keystrokes. For the purpose of buffering, a compose sequence or
+function key counts as one keystroke. If the silo becomes full, keystrokes may be discarded.
+Terminals shall provide some indication that the silo is full and/or keystrokes are being
+discarded.</p>
+<aside>
+<h4>Guideline</h4>
+<p>In the VT200 family, the Wait LED comes on when the keyboard silo is full, and
+the keyboard stops clicking (if keyclick was enabled) when keystrokes are being
+ignored.</p>
+</aside>
+</section>
+<section id="12.2.9">
+<h3>2.9&emsp;Terminal Screen Synchronization (Hold Screen)</h3>
+<p>When XON/XOFF flow control is enabled, terminals shall allow the data on the screen to
+be held for easy reading (stop scrolling) even though data is still being received from the
+host computer. The "Hold Screen" function is a toggle that switches the terminal screen
+between the HELD and NOT_HELD states. The Hold Screen function does not transmit
+XON or XOFF, but may cause the terminal's input buffer to fill when the screen is in the
+HELD state, and empty again when the screen is returned to the NOT_HELD state.</p>
+<p>When XON/XOFF flow control is enabled, typing CTRL/S (XOFF) or CTRL/Q (XON) at
+the keyboard will not transmit codes to the host computer. Instead, these keystrokes will
+toggle the hold screen state between HELD and NOT_HELD respectively.</p>
+<p>When XON/XOFF flow control is disabled, the Hold Screen function does not operate and
+typing CTRL/S (XOFF) or CTRL/Q (XON) at the keyboard will transmit the corresponding
+codes to the host computer.</p>
+</section>
+<section id="12.2.10">
+<h3>2.10&emsp;Emergency Messages</h3>
+<p>At times, one device may need to send another a high-priority or emergency message. If
+the intended receiver has sent an XOFF however, it has indicated that it is not ready to
+receive more data. This may be because the receiver is literally unable to receive or process
+a message (a printing terminal with a blown fuse, for example), or it may just be that the
+operator has activated the Hold Screen function.</p>
+<p>At the time of this update to the standard, there is no clear consensus on how to handle
+emergency messages.</p>
+<aside>
+<h4>Deviation Note</h4>
+<p>Some printers respond to device status inquiries immediately even when they are
+in the XOFF state (using the XOFF state as a control channel). This mechanism
+should be used only by explicit, device dependent agreement between the printer
+and supporting host. It is not part of the XON/XOFF protocol, and may not be
+supported in future devices.</p>
+</aside>
+</section>
+<a id="12-9"></a>
+<section id="12.2.11">
+<h3>2.11&emsp;Implied XOFF Rule</h3>
+<p>Certain terminal functions during which the terminal is unable to respond to host data use
+an implied XOFF rule. The implied XOFF rule allows the host to suspend transmission
+until the terminal is again able to respond. When a host computer invokes one of these
+functions, it is to enter the XOFF state as if an XOFF had been received from the terminal
+(implied XOFF). Upon completing the requested function, the terminal must send an XON
+to re-enable host transmission.</p>
+<p>Currently, only <a href="EL-00070-0D.html#RIS">RIS</a> (Reset to Initial State) and <a href="EL-00070-0D.html#DECTST">DECTST</a> (DEC Test) use the implied XOFF
+rule. These functions are intended for diagnostics and shall not be used by conforming
+application software. Under normal operation, terminal devices should not stop monitoring
+the communication line, or should send XOFF before going "off line".</p>
+</section>
+</section>
+<section id="12.3">
+<h2>3&emsp;Break</h2>
+<p>Break is an out of band signal frequently used to reset the communications environment or
+data interchange context over serial asynchronous lines. The Break condition is defined as
+a continuous space (transmission line held in its zero state) for longer than one character
+time. See DEC STD 52 for additional information on physical generation of the break
+signal. Although there is no standard use for Break, Digital terminals allow the Break
+signal to be generated under user control.</p>
+<p>The remainder of this section describes how the Break signal is transmitted, when it may
+be transmitted, and operation of the break key.</p>
+<section id="12.3.1">
+<h3>3.1&emsp;The Break Signal</h3>
+<p>Although Break is defined as a continuous space exceeding one character time, the duration
+of the Break signal generated by Digital terminals has been standardized for reliability.
+The Break signal will hold the transmission line to its zero state for 275 milliseconds (plus
+or minus 25 ms).</p>
+<section id="12.3.1.1">
+<h4>3.1.1&emsp;Long Break Disconnect</h4>
+<p>Some modems use a longer Break of 3.5 seconds to signal a remote data set to disconnect
+from the communications line. When used, this signal is generated by the modem.
+Terminals indicate disconnect to a modem using the DTR modem control signal. There is
+no known reason for a terminal to generate the 3.5 second long Break.</p>
+<aside>
+<h4>Guideline</h4>
+<p>The VT220 and newer terminals do not generate the long break signal. On
+the VT100, pressing SHIFT/BREAK would generate a long break in addition to
+dropping DTR.</p>
+</aside>
+</section>
+</section>
+<section id="12.3.2">
+<h3>3.2&emsp;When Break May Be Transmitted</h3>
+<p>A Break signal may be transmitted by terminals only upon activation of the break key.
+Break shall never be transmitted during power-up, power-down, self-test, or terminal reset
+operations.</p>
+<a id="12-10"></a>
+<p>Previous terminals (VT100, VT220) have transmitted Break during power-up, and self-test.
+This use of Break should be eliminated for the following reasons:</p>
+<ul>
+<li><p>It does not conform to DEC STD 052-1 which requires TXD (transmit data) be held in
+the mark state during power-up.</p></li>
+<li><p>Break is used by some Digital systems to halt the console CPU. Transmitting Break at
+power-up is inappropriate for these systems.</p></li>
+<li><p>Sending Break during self-test precludes the use of remote diagnostics. If a host
+requests a terminal self-test, the resulting Break may cause a disconnect.</p></li>
+</ul>
+</section>
+<section id="12.3.3">
+<h3>3.3&emsp;Operation Of The Break Key</h3>
+<p>When the break key is activated, special provision shall be made to transmit a Break
+signal immediately regardless of keyboard locking (<a href="EL-00070-06.html#KAM">KAM</a>), XON/XOFF flow control, or the
+state of the keyboard input silo. If a character is currently being transmitted, the Break
+signal will begin as soon as the stop bit of the current character has completed to avoid
+loss of data. Activating the break key does not clear the keyboard input silo, reset <a href="EL-00070-06.html#KAM">KAM</a>,
+or change the XON/XOFF flow control state.</p>
+</section>
+<section id="12.3.4">
+<h3>3.4&emsp;Receipt Of Break</h3>
+<p>Terminals shall detect break explicitly and do nothing at all when break is received at the
+host communication port.</p>
+</section>
+</section>
+<a id="12-11"></a>
+<section id="12.A">
+<h2>A&emsp;Referenced Documents</h2>
+<section id="12.A.1">
+<h3>A.1&emsp;EL-Class Digital Documents</h3>
+<dl>
+<dt>EL-00052-00</dt>
+<dd>DEC STD 052-0 Operational Requirements for Serial Terminals and Computer
+Interfaces Operating as DTEs Connected to EIA RS-232-C or CCITT V.28 Modems</dd>
+<dt>EL-00052-01</dt>
+<dd>DEC STD 052-1 Operational Requirements for Serial Data Terminal Equipment and
+Serial System Interfaces Operating as DTEs Connected to EIA RS-232-C or CCITT
+V.28 Point-To-Point Modems or Data Service Units</dd>
+</dl>
+<p>Use VTX SMC to order copies of EL-class documents from Standards and Methods Control.
+Send distribution questions to JOKUR::SMC or call DTN: 287-3724.</p>
+<a id="12-12"></a>
+</section>
+</section>
+</main>
+<footer>
+<a id="Index-1"></a>
+<section id="Index">
+<h2>Index</h2>
+<ul>
+<li>Break, <a href="#12-9">9</a><ul>
+<li>definition, <a href="#12-9">9</a></li>
+<li>Long Break, <a href="#12-9">9</a></li>
+<li>when it may be transmitted, <a href="#12-9">9</a></li>
+</ul>
+</li>
+<li>Break Key, <a href="#12-10">10</a></li>
+<li>Breakthrough, <a href="#12-8">8</a></li>
+<li>Buffer<ul>
+<li>overflow prevention, <a href="#12-4">4</a></li>
+<li>requirements, <a href="#12-1">1</a></li>
+<li>size, <a href="#12-4">4</a></li>
+</ul>
+</li>
+<li>Clear Communications, <a href="#12-6">6</a></li>
+<li>CTRL/Q<ul>
+<li>from the keyboard, <a href="#12-8">8</a></li>
+</ul>
+</li>
+<li>CTRL/S<ul>
+<li>from the keyboard, <a href="#12-8">8</a></li>
+</ul>
+</li>
+<li>CTRL/Y, <a href="#12-7">7</a></li>
+<li>DECTST<ul>
+<li>Implied XOFF Rule, <a href="#12-9">9</a></li>
+</ul>
+</li>
+<li>Disconnect<ul>
+<li>Long Break, <a href="#12-9">9</a></li>
+</ul>
+</li>
+<li>Emergency Messages, <a href="#12-8">8</a></li>
+<li>Hold Screen, <a href="#12-8">8</a></li>
+<li>Implied XOFF Rule, <a href="#12-9">9</a></li>
+<li>Initialization, <a href="#12-6">6</a></li>
+<li>Keyboard Locking, <a href="#12-10">10</a></li>
+<li>Modem Control, <a href="#12-9">9</a></li>
+<li>Number of Characters to Overflow, <a href="#12-5">5</a>, <a href="#12-6">6</a></li>
+<li>Reserved Characters, <a href="#12-7">7</a></li>
+<li>Reset, <a href="#12-9">9</a></li>
+<li>Response Time<ul>
+<li>to XOFF, <a href="#12-6">6</a></li>
+</ul>
+</li>
+<li>RIS<ul>
+<li>Implied XOFF Rule, <a href="#12-9">9</a></li>
+</ul>
+</li>
+<li>Self-Test, <a href="#12-9">9</a>, <a href="#12-10">10</a></li>
+<li>special characters, <a href="#12-7">7</a></li>
+<li>Special Characters, <a href="#12-7">7</a></li>
+<li>Synchronization<ul>
+<li>keyboard, <a href="#12-8">8</a></li>
+<li>screen, <a href="#12-8">8</a></li>
+</ul>
+</li>
+<li>Transmit Data Rate, <a href="#12-6">6</a></li>
+<li>XOFF<ul>
+<li>Implied, <a href="#12-9">9</a></li>
+</ul>
+</li>
+<li>XOFF point, <a href="#12-2">2</a>, <a href="#12-3">3</a><ul>
+<li>second XOFF point, <a href="#12-2">2</a>, <a href="#12-3">3</a></li>
+<li>VT100, <a href="#12-4">4</a></li>
+<li>VT220, <a href="#12-4">4</a></li>
+</ul>
+</li>
+<li>XOFF state, <a href="#12-2">2</a></li>
+<li>XON point, <a href="#12-3">3</a><ul>
+<li>VT100, <a href="#12-4">4</a></li>
+<li>VT220, <a href="#12-4">4</a></li>
+</ul>
+</li>
+</ul>
+</section>
+</footer>
+</body>
+</html>
