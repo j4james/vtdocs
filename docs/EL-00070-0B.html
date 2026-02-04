@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>VSRM - Programmer's Guide</title>
+<meta charset="UTF-8" />
+<style>*{font-family:"Courier New";font-weight:bold;font-size:15.55px;line-height:16.2px;padding:0;margin:0;border-collapse:collapse}body{color:#000000;background:#d4d4d8;>header,>main,>footer{width:66.001ch;padding-left:99px;padding-right:calc(717px - 66ch);padding-bottom:16.2px;background:#ffffff;margin:0 auto}>footer{border-bottom:11px solid #d4d4d8}}a{color:#000000;text-decoration:none}a[href]:hover{color:#bb0000}header>hgroup{>h1{text-transform:uppercase}>h1,>h2{text-align:center;margin-bottom:16.2px}margin-bottom:32.4px}h2,h3,h4,p,pre{margin-bottom:16.2px;white-space:pre-wrap}section{>h2,>h3,>h4{&:first-child:before{content:'B.'}}&#Index>h2:first-child:before{content:none}>h2,>h3{text-transform:uppercase;>abbr{text-transform:none}}}aside{margin:32.4px auto;header>&{position:relative;overflow:hidden;white-space:nowrap;&:before{content:'+----------------------------------------------------------------------------\A|\A|\A|\A|\A|\A|\A|\A|\A|\A|\A|\A|';white-space:pre;position:absolute;top:0;left:0;pointer-events:none}&:after{content:'+----------------------------------------------------------------------------'}>*{padding:0 2ch;&:first-child{padding-top:16.2px;&:before{content:'+\A|\A|\A|\A|\A|\A|\A|\A|\A|\A|\A|\A|';white-space:pre;position:absolute;top:0;right:0;background:#ffffff}}&:last-child{margin:0;&:after{content:'+';position:absolute;bottom:0;right:0;background:#ffffff}}}&:nth-of-type(2){width:40ch;>p{text-align:center;padding-top:32.4px;padding-bottom:16.2px}}}}dl>dt{float:left;padding-right:0.999ch}header>dl{>dt{text-transform:uppercase}>dt:after{content:':'}>dd{margin-bottom:32.4px}&:nth-of-type(1){>dt{padding-right:1.999ch}>dt:first-child{padding-left:2ch;padding-right:1ch;text-transform:none;+dd{margin-bottom:48.6px}}}&:nth-of-type(2)>dd{td{min-width:22ch}&:nth-of-type(2){white-space:pre}&:nth-of-type(3) tr:first-child>td:last-child{transform:translateX(-7ch)}&:last-of-type tr:first-child>td{padding-bottom:16.2px}}&:nth-of-type(3){margin-bottom:48.6px;>dt{text-transform:none}>dd{margin-bottom:0}}&:nth-of-type(4)>dt{padding-right:1.999ch}}header>p:last-of-type{text-align:center;padding-right:1ch}ul{list-style:none;margin-bottom:16.2px;margin-left:17ch}ol{list-style-type:none;margin-bottom:32.4px;>li{position:relative;padding-left:9ch;&:before{content:counter(list-item,decimal) ".";position:absolute;width:3ch;left:4ch;text-align:right}}}#Contents{>hgroup{text-transform:uppercase;margin-bottom:32.4px;>h2{margin-bottom:48.6px;padding-left:33ch}>p{padding-left:16ch;text-indent:-16ch;>br{margin-top:-16.2px;display:block;content:' '}}}a[href]{background:#ffffff;position:relative;z-index:1;text-indent:0;&:nth-of-type(1):after{content:'\A0'}&:nth-of-type(2){position:absolute;right:4ch;&:before{content:'\A0' 'B-'}}}ol{margin:0;>li{padding:0;&:before{content:"B." counters(list-item,".");padding-left:4ch;padding-right:5ch;position:static}&:nth-of-type(n+10){&,& li{&:before{padding-right:4ch}}}&:has(>a>br){padding-left:16ch;text-indent:-16ch}ol ol ol>li:has(>a>br){padding-left:18ch;text-indent:-18ch}}}>ol>li{margin-top:16.2px;&,&>ol>li{>a:first-child{text-transform:uppercase;>abbr{text-transform:none}}}}li>span{color:transparent;&:after{content:'. . . . . . . . . . . . . . . . . . . . .';color:#000000;position:absolute;right:4ch}}}#Index{>h2{text-align:center;text-transform:none;margin-bottom:64.8px;&:after{content:' \A------------- '}}ul{margin-left:0}>ul{>li{position:relative;>ul{margin-bottom:0;li{padding-left:2ch}}&:nth-child(12)>a[href]{position:static;&:first-child{padding-left:46ch}}&:nth-child(42)>a[href]{position:static;&:first-child{padding-left:28ch}}&:nth-child(1):before{content:'-A-'}&:nth-child(3):before{content:'-C-'}&:nth-child(6):before{content:'-D-'}&:nth-child(20):before{content:'-E-'}&:nth-child(21):before{content:'-G-'}&:nth-child(23):before{content:'-I-'}&:nth-child(25):before{content:'-L-';padding-top:0}&:nth-child(29):before{content:'-M-'}&:nth-child(31):before{content:'-P-'}&:nth-child(34):before{content:'-R-'}&:nth-child(37):before{content:'-S-'}&:nth-child(46):before{content:'-T-';padding-top:0}&:nth-child(52):before{content:'-X-'}&:before{display:block;padding:16.2px 16ch}}a[href]{position:absolute;left:53ch;&:before{content:'B-'}}}}tr>*:not(:last-child){padding-right:0.999ch}td{box-sizing:border-box}pre:has(>code){text-align:center;padding-right:1ch}#B\.8\.1\.3>pre:nth-of-type(n+3),#B\.8\.7>pre,#B\.8\.8\.1>pre:nth-of-type(-n+2),#B\.8\.8\.3>pre:first-of-type,#B\.8\.8\.4>pre:nth-of-type(n+2){padding-right:0}#B\.8\.9\.2\.2{>p:nth-of-type(3){margin-top:97.2px}>p:nth-of-type(5){margin-top:64.8px}}#B\.8\.9\.3>p:nth-of-type(3){margin-top:129.6px}#B\.8\.11{>pre{margin-left:9ch}>p:last-of-type{text-align:center;display:block;margin-top:356.4px}}header{counter-reset:page}a[id]{display:block;position:relative;left:-99px;padding-left:99px;padding-right:calc(717px - 66ch);width:66ch;height:32.4px;margin-top:71px;margin-bottom:32.4px;border-top:11px solid #d4d4d8;padding-top:60px;white-space:pre;&:before{content:'VSRM - Programmer\'s Guide  EL-00070-0B\A' '*** COMPANY CONF - DEC Internal Use Only  15-May-1983'}&:after{counter-increment:page;content:'Page B-' counter(page);position:absolute;top:60px;right:calc(717px - 66ch)}}#B-40,#B-44{margin-top:103px}#B-34{margin-top:119px}#B-10,#B-22,#B-23,#B-39,#B-45{margin-top:135px}#B-33{margin-top:152px}#B-14{margin-top:168px}#B-2,#B-9,#B-17{margin-top:184px}#B-7,#B-38{margin-top:200px}#B-28{margin-top:216px}#B-27,#B-35{margin-top:249px}#B-31{margin-top:265px}#B-3{margin-top:297px}#B-41{margin-top:314px}#B-26,#B-32{margin-top:330px}#B-13{margin-top:395px}#B-21{margin-top:427px}#B-16{margin-top:459px}#B-25{margin-top:476px}#B-6{margin-top:508px}#B-8{margin-top:621px}#B-42{margin-top:686px}#B-30{margin-top:719px}#B-24,#B-37{margin-top:783px}body{>header,>main,>footer{>a[id]:first-child{margin-top:0}}>header{padding-bottom:184px}>main{padding-bottom:573px}>footer{padding-bottom:719px}}</style>
+</head>
+<body>
+<header>
+<a id="B-1"></a>
+<hgroup>
+<h1>Video Systems Reference Manual</h1>
+<h2>Programmer's Guide</h2>
+</hgroup>
+<dl>
+<dt>Document Identifier</dt>
+<dd><p>A-DS-EL00070-0B-0  Rev. AX10, 15-May-1983</p></dd>
+<dt>Abstract</dt>
+<dd><p>This appendix contains information of general interest to software engineers designing software interfacing with products designed in in conformance with the Video Systems Reference Manual.</p></dd>
+<dt>Applicability</dt>
+<dd><p>SARA Formal Cross-Component Standard.  Mandatory for Engineers designing hardware for terminal products and Software Engineers designing programs using terminal interfaces. Additional requirements are defined in the section on "Concepts and Conformance Criteria".</p></dd>
+<dt>Status</dt>
+<dd><p>FOR REVIEW ONLY</p></dd>
+</dl>
+<aside>
+<p>  This document has been placed in the SARA "Formal Cross-&NoBreak;Component Standard" category. The material contained within this document is assumed to define mandatory standards unless it is clearly marked as (a) not mandatory or (b)&nbsp;guidelines. Material which is marked as "not mandatory" is considered to be of potential benefit to the corporation and should be followed unless there are good reasons for non-&NoBreak;compliance. "Guidelines" define approaches and techniques which are considered to be good practice, but should not be considered as requirements. The procedures for modifying or evolving this standard are contained within the contents of this document.</p>
+</aside>
+<aside>
+<p>FOR INTERNAL USE ONLY&nbsp;</p>
+</aside>
+<a id="B-2"></a>
+<dl>
+<dt>Title</dt>
+<dd>VIDEO SYSTEMS - Programmer's Reference</dd>
+<dt>Document Identifier</dt>
+<dd>A-DS-EL00070-0B-0  Rev. AX10, 15-April-1983</dd>
+<dt>Revision History</dt>
+<dd><table>
+<tbody>
+<tr><td>Original Draft</td><td>25-Dec-82</td></tr>
+<tr><td>Revision 0.1</td><td>12-Jan-83</td></tr>
+<tr><td>Revision AX01</td><td>28-Feb-83</td></tr>
+</tbody>
+</table>
+</dd>
+<dt>Files</dt>
+<dd><table>
+<tbody>
+<tr><td>User Documentation</td><td>EL070SB.mem</td></tr>
+<tr><td>Internal Documentation</td><td>EL070SB.rno</td></tr>
+<tr><td></td><td>EL070SB.rnt</td></tr>
+<tr><td></td><td>EL070SB.rnx</td></tr>
+</tbody>
+</table>
+</dd>
+</dl>
+<dl>
+<dt>Document Management Group</dt>
+<dd>Terminal Interface Architecture</dd>
+<dt>Responsible Department</dt>
+<dd>Video Architecture Group</dd>
+<dt>Responsible Individual</dt>
+<dd>Peter Sichel</dd>
+</dl>
+<dl>
+<dt>Acceptance</dt>
+<dd><p>This document has been approved by the Manager of the Video Architecture Group based on a comprehensive review of its individual sections by the members of the SARA component groups working Terminal Interface Architecture issues.  The list of individuals on the review and approval list are on file in Standards and Methods Control.</p></dd>
+</dl>
+<p>Direct requests for further information to Peter Sichel, PKO3-&NoBreak;1/10C, DTN 223-5162, RANI::VIDARCH</p>
+<p>Copies of this document can be ordered from:</p>
+<p>Standards and Methods Control<br />APO1/F7, DTN 289-1414, JOKUR::SIMONETTI</p>
+<a id="B-3"></a>
+<section id="Contents">
+<hgroup>
+<h2>Contents</h2>
+<p>Appendix B<br />Programmer'S Guide</p>
+</hgroup>
+<ol>
+<li><a href="#B.1">Introduction </a><span> … </span><a href="#B-5">5</a><ol>
+<li><a href="#B.1.1">Scope</a><span> … </span><a href="#B-5">5</a></li>
+</ol>
+</li>
+<li><a href="#B.2">General Programming Guidelines</a><span> … </span><a href="#B-6">6</a><ol>
+<li><a href="#B.2.1">Levels Of Abstraction</a><span> … </span><a href="#B-6">6</a><ol>
+<li><a href="#B.2.1.1">Application Programs </a><span> … </span><a href="#B-6">6</a></li>
+<li><a href="#B.2.1.2">Routine Libraries</a><span> … </span><a href="#B-6">6</a></li>
+</ol>
+</li>
+</ol>
+</li>
+<li><a href="#B.3">Communication Controls </a><span> … </span><a href="#B-8">8</a><ol>
+<li><a href="#B.3.1">Text Attributes</a><span> … </span><a href="#B-8">8</a></li>
+</ol>
+</li>
+<li><a href="#B.4">Control Code Extension Techniques</a><span> … </span><a href="#B-9">9</a><ol>
+<li><a href="#B.4.1">Designing Control Sequences</a><span> … </span><a href="#B-9">9</a><ol>
+<li><a href="#B.4.1.1">Syntax of Parameters </a><span> … </span><a href="#B-9">9</a></li>
+<li><a href="#B.4.1.2">Size of Parameters </a><span> … </span><a href="#B-9">9</a></li>
+</ol>
+</li>
+<li><a href="#B.4.2">Terminal Initialization</a><span> … </span><a href="#B-10">10</a><ol>
+<li><a href="#B.4.2.1">XON Resynchronization</a><span> … </span><a href="#B-10">10</a></li>
+<li><a href="#B.4.2.2">Control String Terminator</a><span> … </span><a href="#B-10">10</a><ol>
+<li><a href="#B.4.2.2.1">Printer Controller Mode</a><span> … </span><a href="#B-10">10</a></li>
+<li><a href="#B.4.2.2.2">Selecting Conformance Levels </a><span> … </span><a href="#B-11">11</a></li>
+</ol>
+</li>
+<li><a href="#B.4.2.3">Full Initialization Sequence</a><span> … </span><a href="#B-11">11</a></li>
+<li><a href="#B.4.2.4">Device Control Strings </a><span> … </span><a href="#B-11">11</a></li>
+<li><a href="#B.4.2.5">Select 7-bit and 8-bit C1 Transmission<br />Modes</a><span> … </span><a href="#B-12">12</a></li>
+</ol>
+</li>
+</ol>
+</li>
+<li><a href="#B.5">Terminal Management</a><span> … </span><a href="#B-13">13</a><ol>
+<li><a href="#B.5.1">Device Identification</a><span> … </span><a href="#B-13">13</a></li>
+<li><a href="#B.5.2">Device Control </a><span> … </span><a href="#B-13">13</a><ol>
+<li><a href="#B.5.2.1">Primary Device Attributes</a><span> … </span><a href="#B-13">13</a></li>
+<li><a href="#B.5.2.2">Secondary Device Attributes Control</a><span> … </span><a href="#B-14">14</a></li>
+<li><a href="#B.5.2.3">Identify Terminal Control</a><span> … </span><a href="#B-14">14</a></li>
+<li><a href="#B.5.2.4">Select Conformance Level Control </a><span> … </span><a href="#B-14">14</a></li>
+</ol>
+</li>
+<li><a href="#B.5.3">Device Status And Test </a><span> … </span><a href="#B-15">15</a></li>
+<li><a href="#B.5.4">Text Cursor Enable Modes</a><span> … </span><a href="#B-15">15</a></li>
+</ol>
+</li>
+<li><a href="#B.6">Local Functions</a><span> … </span><a href="#B-16">16</a></li>
+<li><a href="#B.7">Synchronizing The Application And Terminal </a><span> … </span><a href="#B-16">16</a><ol>
+<li><a href="#B.7.1">Auto Repeat</a><span> … </span><a href="#B-16">16</a></li>
+<li><a href="#B.7.2">Typing Ahead </a><span> … </span><a href="#B-16">16</a></li>
+</ol>
+</li>
+<li><a href="#B.8"><abbr>ReGIS</abbr> Graphics Programming</a><span> … </span><a href="#B-17">17</a><ol>
+<li><a href="#B.8.1">Syntax</a><span> … </span><a href="#B-17">17</a><ol>
+<li><a href="#B.8.1.1">Elements of Syntax</a><span> … </span><a href="#B-17">17</a></li>
+<li><a href="#B.8.1.2"><abbr>ReGIS</abbr> Flow of Execution</a><span> … </span><a href="#B-17">17</a></li>
+<li><a href="#B.8.1.3">Synchronization Procedures </a><span> … </span><a href="#B-18">18</a><a id="B-4"></a><ol>
+<li><a href="#B.8.1.3.1">Parser Level Synchronization</a><span> … </span><a href="#B-19">19</a><ol>
+<li><a href="#B.8.1.3.1.1">The Semicolon</a><span> … </span><a href="#B-19">19</a></li>
+</ol>
+</li>
+<li><a href="#B.8.1.3.2">Activation Synchronization</a><span> … </span><a href="#B-19">19</a></li>
+<li><a href="#B.8.1.3.3">State Initialization</a><span> … </span><a href="#B-20">20</a></li>
+</ol>
+</li>
+</ol>
+</li>
+<li><a href="#B.8.2">The Writing Command</a><span> … </span><a href="#B-21">21</a><ol>
+<li><a href="#B.8.2.1">Writing Modes. </a><span> … </span><a href="#B-21">21</a><ol>
+<li><a href="#B.8.2.1.1">Overlay mode - W(V)</a><span> … </span><a href="#B-21">21</a></li>
+<li><a href="#B.8.2.1.2">Replace Mode - W(R)</a><span> … </span><a href="#B-21">21</a></li>
+<li><a href="#B.8.2.1.3">Complement Mode - W(C) </a><span> … </span><a href="#B-22">22</a></li>
+<li><a href="#B.8.2.1.4">Erase Mode - W(E)</a><span> … </span><a href="#B-22">22</a></li>
+<li><a href="#B.8.2.1.5">Negate Mode - W(N)</a><span> … </span><a href="#B-24">24</a></li>
+</ol>
+</li>
+<li><a href="#B.8.2.2">Write Command Extensions</a><span> … </span><a href="#B-24">24</a><ol>
+<li><a href="#B.8.2.2.1">Raster Extensions</a><span> … </span><a href="#B-24">24</a></li>
+<li><a href="#B.8.2.2.2">Open Extensions</a><span> … </span><a href="#B-24">24</a></li>
+</ol>
+</li>
+</ol>
+</li>
+<li><a href="#B.8.3">Screen Instruction</a><span> … </span><a href="#B-25">25</a><ol>
+<li><a href="#B.8.3.1">Hard Copy Commands</a><span> … </span><a href="#B-25">25</a></li>
+<li><a href="#B.8.3.2">Address Space</a><span> … </span><a href="#B-25">25</a></li>
+</ol>
+</li>
+<li><a href="#B.8.4">Macrographs</a><span> … </span><a href="#B-26">26</a></li>
+<li><a href="#B.8.5">Macrograph Constructs</a><span> … </span><a href="#B-26">26</a></li>
+<li><a href="#B.8.6">Macrograph Invocation</a><span> … </span><a href="#B-27">27</a><ol>
+<li><a href="#B.8.6.1">Macrographs Invoking Others</a><span> … </span><a href="#B-27">27</a></li>
+<li><a href="#B.8.6.2">Macrograph Invoking Itself</a><span> … </span><a href="#B-27">27</a></li>
+</ol>
+</li>
+<li><a href="#B.8.7">Macrograph Storage </a><span> … </span><a href="#B-27">27</a></li>
+<li><a href="#B.8.8">Macrograph Utility</a><span> … </span><a href="#B-28">28</a><ol>
+<li><a href="#B.8.8.1">Specifications </a><span> … </span><a href="#B-28">28</a></li>
+<li><a href="#B.8.8.2">Polygons</a><span> … </span><a href="#B-30">30</a></li>
+<li><a href="#B.8.8.3">Icons</a><span> … </span><a href="#B-30">30</a></li>
+<li><a href="#B.8.8.4">Coordinate Lists</a><span> … </span><a href="#B-31">31</a></li>
+<li><a href="#B.8.8.5">Write Maps</a><span> … </span><a href="#B-32">32</a></li>
+<li><a href="#B.8.8.6">Text</a><span> … </span><a href="#B-32">32</a><ol>
+<li><a href="#B.8.8.6.1">Quoted Strings</a><span> … </span><a href="#B-33">33</a></li>
+</ol>
+</li>
+<li><a href="#B.8.8.7">Display Segments </a><span> … </span><a href="#B-33">33</a></li>
+</ol>
+</li>
+<li><a href="#B.8.9">The Text Command </a><span> … </span><a href="#B-34">34</a><ol>
+<li><a href="#B.8.9.1">Sizing Text - the S Option </a><span> … </span><a href="#B-34">34</a></li>
+<li><a href="#B.8.9.2">The S Option Coupled With Other Options</a><span> … </span><a href="#B-35">35</a><ol>
+<li><a href="#B.8.9.2.1">Specifying Screen Area - The S, M and U<br />Options</a><span> … </span><a href="#B-35">35</a></li>
+<li><a href="#B.8.9.2.2">Character Orientation - The S and D<br />Option</a><span> … </span><a href="#B-35">35</a></li>
+<li><a href="#B.8.9.2.3">Text Bracketed Options - Space Setting</a><span> … </span><a href="#B-36">36</a></li>
+</ol>
+</li>
+<li><a href="#B.8.9.3">Text Control Characters</a><span> … </span><a href="#B-37">37</a><ol>
+<li><a href="#B.8.9.3.1">Pixel Vector Specifiers</a><span> … </span><a href="#B-38">38</a></li>
+</ol>
+</li>
+<li><a href="#B.8.9.4">Scrolling and Wrap </a><span> … </span><a href="#B-38">38</a></li>
+</ol>
+</li>
+<li><a href="#B.8.10">Color Mapping</a><span> … </span><a href="#B-39">39</a><ol>
+<li><a href="#B.8.10.1">Color and Gray Scale.</a><span> … </span><a href="#B-39">39</a></li>
+</ol>
+</li>
+<li><a href="#B.8.11">Integration Of Graphics And Text</a><span> … </span><a href="#B-40">40</a></li>
+</ol>
+</li>
+</ol>
+</section>
+</header>
+<main>
+<a id="B-5"></a>
+<section id="B.1">
+<h2>1  Introduction</h2>
+<p>This document is designed as a supporting reference to the Video Systems Reference Manual (Video SRM) supplied by the Terminals Interface Architecture (TIA) group.  It covers only selected SRM topics, and is not intended as a comprehensive treatment of them.</p>
+<p>The purpose of providing a Programmer's Guide to the SRM is that it is probably unreasonable to expect the average programmer to read through the entire document and understand it thoroughly.  Programmers are going to use the SRM for what it is - a reference manual.  They will consult it when they need to do something, but they are not expected to thoroughly understand the operation of terminal products (as opposed to terminal implementors, who presumably will read the SRM in detail before their implementation and become thoroughly acquainted with it).  The Programmer's Guide, therefore, is intended to provide some general context of what programming a terminal is all about, and to accentuate important points that are documented elsewhere in the SRM.</p>
+<section id="B.1.1">
+<h3>1.1  Scope</h3>
+<p>The Programmer's Guide applies to all DEC products which are intended to be certified as conforming to the Video Systems Reference Manual.  It also applies to software which intends to use DEC products in a conforming manner.</p>
+</section>
+</section>
+<a id="B-6"></a>
+<section id="B.2">
+<h2>2  General Programming Guidelines</h2>
+<p>The Video Systems Reference Manual contains performance requirements for conforming equipment, as well as for conforming software.  A primary consideration for defining conformance requirements for software is to maximize its independence from the device.</p>
+<section id="B.2.1">
+<h3>2.1  Levels Of Abstraction</h3>
+<p>An effective approach for terminals application programming is to partition the effort into distinct levels of abstraction.  The approach is effective for one person writing one program, or several people writing several programs.  The levels of abstraction are the application program, the routine library, and the operating system.  The routine library can be subdivided into two parts:  a logical layer and a back end layer that deals with the specific characteristics of the terminal being used.</p>
+<section id="B.2.1.1">
+<h4>2.1.1  Application Programs</h4>
+<p>The principal guideline for application programs is to avoid the use of escape sequences and control sequences directly.  Applications should make calls to subroutines to perform the required functions, including those at a higher level, such as drawing a square or deleting a paragraph, or those higher than the individual functions outlined in the TIA specifications.  A library of such routines should be developed and maintained by DEC for its customers.</p>
+</section>
+<section id="B.2.1.2">
+<h4>2.1.2  Routine Libraries</h4>
+<p>Library routines can be effectively divided into two sections.  One part of the routine can be totally independent of the data syntax and/or protocols being used on the device.  The other part, the "back end" of the routines can take the features/&NoBreak;idiosyncracies of the specific device into account.  For example, a library routine could implement the Insert Character function, but the VT100 will not implement that in hardware.  Therefore, the routine could perform several operations at the back end to perform the Insert Character function.  That technique would allow the application program to be written as though the Insert Character were available on any device, thus allowing the customer to interface his software application to a wide variety of terminals and manufacturers.</p>
+<a id="B-7"></a>
+<p>DEC's VMS Run-Time Library keeps the call interface to the application independent of the device by utilizing several back ends, which allows it to interface to various types of terminals, and permits the customer to add foreign terminal support.</p>
+<p>This guide is directed more to programming the back end processor for the routine library, than to programming the applications.  Ideally speaking, only the library routines should receive the call interfaces.  When it is necessary for the application to receive them, or where an application requires its own library, the guidelines outlined in this manual should be observed.</p>
+<p>In general, DEC systems software allows whatever functionality is allowed by the hardware.  There may be a need at times for an application program to perform functions not provided by the library, but that are within the capability of the terminal.  Where such functionality is added to the library, the device dependent features should be at the device-dependent back end as much as possible.</p>
+</section>
+</section>
+</section>
+<a id="B-8"></a>
+<section id="B.3">
+<h2>3  Communication Controls</h2>
+<p>It is necessary to clarify the TIA interface for switching a G-set into the left half (GL) or the right half (GR).  Such switching requires the use of modes, which are problematic to handle in software.  The software works far more efficiently if the data it is operating on is independent of a mode context.  The reason is that a string passed from one procedure to another encounters a procedure barrier, making the switch a cumbersome one.  If the interpretation of that data is subject to a mode, the mode must be passed explicitly as another parameter or embedded in the string somehow.  It is far simpler to pass the string and have its meaning unambiguously understood.</p>
+<p>For the DEC Standard 169 the left half (GL) of the 8-bit code is assumed to be the ASCII graphic set, and the right half (GR) is assumed to be the DEC Supplemental (Multinational) graphics.  That assumption should be adhered to by all conforming software unless some very explicit, well-documented additional mechanisms are used.  Exceptions to the norm such as code extension controls, locking shifts, etc.  exist for the exceptional case, or for use by a library routine, but not by the application program.</p>
+<p>As covered in the previous section, library routines should perform all mode switching, leaving the applications as device-&NoBreak;independent as possible.  For instance, if a Multinational application wanted to use the DEC line-drawing set, it could simply request to draw a box from character cell position MN to IJ.  The library routine would then perform the necessary switching, using the code extension, to access the line drawing set; when finished, it would switch back to DEC Supplemental.  The application program would simply treat all the data that it deals with as ASCII on the left and DEC Supplemental on the right.</p>
+<section id="B.3.1">
+<h3>3.1  Text Attributes</h3>
+<p>For text applications involving attributes such as underlining, bolding, etc., an effective technique is to store both the character code and the attributes associated with it as a single storage entity.  This could include attributes such as character set, height, width, rendition, etc.  An analogy to storing characters in this way is found in applications using integers.  where more complex, higher precision methods for accommodating numeric calculations are required, double-precision integers are stored with their unique attributes; they constitute a completely different data type than single-precision integers.</p>
+</section>
+</section>
+<a id="B-9"></a>
+<section id="B.4">
+<h2>4  Control Code Extension Techniques</h2>
+<section id="B.4.1">
+<h3>4.1  Designing Control Sequences</h3>
+<p>The design of control sequences is more complex than escape sequences, due to the presence of private parameters and intermediate characters.  Recommended procedure is to make the syntax of the control codes as consistent as possible, and as independent as possible from the application program.  All control code extensions should be used by the library routines rather than the applications as much as possible.</p>
+<section id="B.4.1.1">
+<h4>4.1.1  Syntax of Parameters</h4>
+<p>A parameter syntax option for control strings is to use leading zeros.  Doing so can facilitate ease of programming; however, unless the leading zeroes are stripped off, they will be transmitted with the strings, slowing transmission time.  A tradeoff decision, therefore, between ease of programming and transmission time is necessary.</p>
+<p>The same tradeoff is necessary when using omitted parameters.  Compacting the strings makes the most efficient use of the line.  For ease of programming, however, the program could be set up to transmit a string of parameters, leaving spaces for omitted parameters by inserting semicolons - which would transmit on the line and slow transmission time.  The optimum method for handling omitted parameters is to program using the straightforward approach (compacting strings) and put the parameter defaults at the back end of the library routine.  The routine could compact strings and omit parameter values that were equal to the default values, along with trailing parameters, etc.  In that way, efficiency considerations would be at a lower level of abstraction than the actual logic in the library routine.  Such a separation would provide the benefits of both line efficiency and ease of programming.</p>
+</section>
+<section id="B.4.1.2">
+<h4>4.1.2  Size of Parameters</h4>
+<p>Although the architecture does not limit sizes of parameter values, they are usually constrained by the implementation; not all value sizes will be recognized by all terminals.  The SRM states that 255 decimal will be recognized by any implementation as a maximum value; values greater than that may not be recognized by some devices.  The SRM also states that 16 parameters is the recommended maximum number for an implementation to allow in a string.  Though some implementations may allow more than that, it is not safe to exceed that number; more than one string may be required.</p>
+</section>
+</section>
+<a id="B-10"></a>
+<section id="B.4.2">
+<h3>4.2  Terminal Initialization</h3>
+<p>It is stated in the SRM that there is a definite technique which can be employed for initializing the communications line that should work under all states of the communications interchange.  Examples of communications line initialization are:  (1) the operating system broadcasting a message on a terminal while the application is running, (2) the application returning control to the operating system, and (3) the application programmer encountering a breakpoint during execution and entering the debugger.</p>
+<p>Generally, when the communications line is initialized, the line is in an unknown state when the new program takes control.  The program may be in the middle of a control sequence, device control string or escape sequence.  It could be in an XOFF state, with the terminal not accepting data, or could have switched in new graphics (such as the line-drawing set) on top of the DEC supplemental set.</p>
+<section id="B.4.2.1">
+<h4>4.2.1  XON Resynchronization</h4>
+<p>A specific sequence of instructions is required to put the terminal into a known state.  First, communication (terminal synchronization) should be restored with the <a href="EL-00070-12.html#12.2">XON</a> control character.  It will be accepted whether the terminal is in an XON or XOFF state.  The control is ignored if the terminal is in an XON state.  If it is in an XOFF state, the XON control will restore line synchronization and allow the terminal to accept data.</p>
+</section>
+<section id="B.4.2.2">
+<h4>4.2.2  Control String Terminator</h4>
+<p>The second instruction required is a <a href="EL-00070-03.html#3.5.1.2.5">String Terminator</a> control character encoded as a 7-bit Escape Fe sequence.  If the terminal is in the middle of an escape sequence, control sequence, or device control string, the String Terminator character terminates it and causes subsequent characters associated with it to be ignored.  The sequence is printed on the terminal, and the terminal restored to a state in which it can accept new control or graphic characters.  If the terminal is in none of those states, the string terminator character is ignored.</p>
+<section id="B.4.2.2.1">
+<h4>4.2.2.1  Printer Controller Mode</h4>
+<p>Printer Controller Mode (MC) is a higher level management function than other modes.  It is possible to log onto the system with the terminal in Printer Controller Mode, print out everything being executed by the applications and switch back to the operating system.  As long as the terminal is in Printer Controller Mode, it will communicate to the printer, but not to the terminal.  Therefore, if an application turns on Printer Controller Mode during execution, and does not turn it off, commands will not echo <a id="B-11"></a>on the terminal display when control is returned to the operating system.  An explicit reset of Printer Controller Mode is therefore necessary to clear the communications line.</p>
+</section>
+<section id="B.4.2.2.2">
+<h4>4.2.2.2  Selecting Conformance Levels</h4>
+<p>To put the internal state of the terminal into a known condition, the software must send the equivalent of a 'soft reset' which selects the terminal's conformance level.  The Select Conformance Level control sequence, or <a href="EL-00070-04.html#DECSCL">DECSCL</a>, puts the terminal into a known state; that state can be predicted according to values outlined in the SRM.</p>
+<p>Two conformance levels exist, Level 1 and Level 2.  Application software should select the appropriate conformance level for the type of operation it intends to perform.  Level 1 is defined strictly to provide compatibility to existing programs.  Level 2 is the preferred mode for character cell displays and for new software; new software using this synchronization technique should be able to accept and operate at Level 2.</p>
+</section>
+</section>
+<section id="B.4.2.3">
+<h4>4.2.3  Full Initialization Sequence</h4>
+<p>The following reset sequence should be used by all operating systems and applications to initialize the terminal when taking control:  the <a href="EL-00070-03.html#3.5.1.2.5">Control String Terminator</a> (ST), followed by Reset Printer Controller Mode (ESC [ 4 i), and concluded by a <a href="EL-00070-04.html#DECSCL">Select Conformance Level</a> control (ESC [ 62 " p, for Level 2 operation ).  To insure that it works on all devices, all control codes should be transmitted as 7-bit ESC Fe sequences.</p>
+<p>The entire initialization sequence is thus:</p>
+<pre><samp>ESC   \     ESC   [     4     i    ESC   [     62      "     p
+1/11  5/12  1/11  5/11  3/4   6/9  1/11  5/11  3/6 3/2 2/2   7/0
+</samp></pre>
+</section>
+<section id="B.4.2.4">
+<h4>4.2.4  Device Control Strings</h4>
+<p>The bit combinations 08 through 13 (decimal) are provided for purposes of formatting the control string, but have no additional significance to its interpretation.  The interpreter normally ignores the Backspace, Carriage Return, and Line Feed characters in a control string.  Using an editor, however, it is possible to put those characters into a long control string in order to break and edit the string without effecting its interpretation.  Backspace, Carriage Return, and Line Feed are recognized and interpreted in a control string within the context of the ReGIS T (Text) command, since it also functions as an editor.</p>
+<p>In summary, control characters such as Backspace, Carriage Return, and Line Feed are permissible in control strings syntactically, but are ignored functionally, except when occurring in the ReGIS Text Command.  In some implementations, certain control characters <a id="B-12"></a>will also not be permissible syntactically, since their semantics is defined by the control string internal format of the particular device.</p>
+<p>It must be noted that control strings other than Device Control Strings (DCS), such as Application Program Commands (APC), Operating System Commands (OSC) and Privacy Messages (PM) are not currently implemented by DEC products and should not be used by component software.</p>
+</section>
+<section id="B.4.2.5">
+<h4>4.2.5  Select 7-bit and 8-bit C1 Transmission Modes</h4>
+<p>The Select <a href="EL-00070-03.html#S7C1T">7-bit</a> and <a href="EL-00070-03.html#S8C1T">8-bit</a> C1 Transmission Mode control functions are described in the chapter "<a href="EL-00070-03.html">Code Extension Layer</a>".  Since these modes are set by the Select Conformance Level control, it should not be necessary for conforming software to use them.  Setting them via the DECSCL control allows them to be changed from the default values; also, it is consistent with the goal of keeping application software independent from terminal modes.</p>
+<p>The 7-bit C1 Transmission Mode causes the terminal to send C1 controls to the host coded as 2-character Escape Fe sequences instead of symbolized 8-bit controls.  This mode permits existing software running at Level 1 conformance - in which C1 controls are coded only as 7-bit - to accept 2-character Escape Fe sequences without changes.  New software, however, should be designed to accept either the 7-bit or 8-bit form, in order to give the software independence from the terminal's mode setting.</p>
+<p>Note that the terminal will accept data in any format from the host, including 7-bit and 8-bit coding characters and 7-bit and 8-&NoBreak;bit C1 controls, regardless of the mode, since the modes effect transmission of data from the terminal to the host only.</p>
+</section>
+</section>
+</section>
+<a id="B-13"></a>
+<section id="B.5">
+<h2>5  Terminal Management</h2>
+<section id="B.5.1">
+<h3>5.1  Device Identification</h3>
+<p>Conforming software should use none of the device identification functions; terminal identification should be performed by the operating system.  When the terminal is logged on, the operating system should request the terminal's functional (and/or product specific) characteristics, and once they are recognized, identify them to conforming applications.  Application software can obtain the device characteristics from the operating system.</p>
+</section>
+<section id="B.5.2">
+<h3>5.2  Device Control</h3>
+<p>Controls that change the transmission modes from the host to the terminal should be performed by the operating system rather than by applications and library routines.  Library routines should call the operating system to change those states.  In that way, the operating system will know and control the state with no necessity to monitor the output stream.  Different applications will be able to operate the terminal in a state always known by the operating system.</p>
+<section id="B.5.2.1">
+<h4>5.2.1  Primary Device Attributes</h4>
+<p>The chapter "<a href="EL-00070-04.html">Terminal Management</a>" describes the Primary Device Attributes (<a href="EL-00070-04.html#DA">DA1</a>) control.  The first terminal function to be performed by the operating system is the Primary Device Attributes request, in order to determine the functional characteristics of the terminal.  It should not be used by conforming applications software.  This control is designed to replace the existing Device Attributes control used by operating systems.  It allows the device to identify itself to the operating system by functional characteristics rather than by specific product characteristics.  It does so by identifying a specific class of operations.  There are additionally levels of operation within each class; each higher level is a super set of the lower levels that precede it.  At each level, there are a number of extensions which are identified in response to a request.  The extensions describe the functional capabilities, which are essentially options at each level of the architecture; they may or may not be implemented in a given product, and/or may change from time to time.</p>
+<p>The benefit of the Primary Device Attributes control is that because devices are identified to the operating system according to functional, rather than product, characteristics, new devices can be added to the system without changing existing software.</p>
+</section>
+<a id="B-14"></a>
+<section id="B.5.2.2">
+<h4>5.2.2  Secondary Device Attributes Control</h4>
+<p>The Secondary Device Attributes (<a href="EL-00070-04.html#DA2">DA2</a>) control provides for device specific identification of terminals to the operating system.  It causes the explicit product identification and revision level of the device to be returned.  This control allows for backwards compatibility with previous devices and software that must know the product characteristics of a device that's being used.  Conforming software should not use this control, but it is a good practice for operating systems to store the product specific information.</p>
+</section>
+<section id="B.5.2.3">
+<h4>5.2.3  Identify Terminal Control</h4>
+<p>The Identify Terminal (<a href="EL-00070-04.html#DECID">DECID</a>) control is provided for purposes of backwards compatibility with existing terminals.  It causes the functional characteristics to be returned - the same response as the Primary Device Attributes - when the terminal is in Level 1 or Level 2 Character Cell mode of operation.  It should not be used by conforming software, because it uses an encoded representation that is reserved for standardization by the ANSI and ISO standards.  Should DEC implement these control standards in the future, any DECID sequences in use would be incompatible with the newly defined function.</p>
+</section>
+<section id="B.5.2.4">
+<h4>5.2.4  Select Conformance Level Control</h4>
+<p>The Select Conformance Level (<a href="EL-00070-04.html#DECSCL">DECSCL</a>) control allows the application software to set the device to a specific level of operation for interface compatibility.  The purpose of the DECSCL control is to provide backward compatibility; it may be desirable for some implementations to operate the device at a lower level of conformance.  The principal guideline in use of DECSCL is that the operating system should always operate the device at its highest level of conformance; it can be certain of this by selecting the highest conformance level (the level reported by the device) whenever the operating system takes control from an application.  This technique helps to keep the software independent of terminal modes.</p>
+<p>When a level change is called for by an application subroutine, operating systems with the capability of doing so should keep the terminal in the higher-level mode and perform a translation for the application.  For example, software not designed to accept 8-&NoBreak;bit characters would require the terminal to be in Level 1 mode, since Level 1 Character Cell Display does not transmit 8-bit characters.  The operating system could leave the terminal at Level 2 Character Cell Display and filter the 8-bit characters, issuing a warning (bell, etc.) if one was received.  Thus, the state of the device would neither fluctuate nor have any dependence on the software.  Implementing the DECSCL function via the operating system is more difficult and requires more functions, but eliminates terminal user confusion about the state <a id="B-15"></a>of the terminal.</p>
+<p>Another advantage of this approach becomes apparent when the user wishes to type information ahead to a subsequent application.  For instance, if application A accepted only 7-bit characters and application B only 8-bit characters, the user could type to application A and, during its execution, type 8-bit characters ahead to application B.  When application B executes, the operating system will begin to accept the 8-bit characters and pass them on.  The application interprets the correct terminal mode at the point it actually calls the operating system for characters.</p>
+</section>
+</section>
+<section id="B.5.3">
+<h3>5.3  Device Status And Test</h3>
+<p>The Test Control (<a href="EL-00070-0D.html#DECTST">DECTST</a>) is meant strictly for hardware diagnostic purposes and should not be used for application or library software.</p>
+</section>
+<section id="B.5.4">
+<h3>5.4  Text Cursor Enable Modes</h3>
+<p>Text Cursor Enable Mode (<a href="EL-00070-05.html#DECTCEM">DECTCEM</a>) allows the cursor symbol to be turned on and off.  This mode can be used to eliminate cursor flickering or bouncing while the display is reformatting by turning the cursor off, reformatting the display, restoring the cursor to its position, and turning it back on.  To avoid user confusion, the cursor should only be turned off for very short periods of time, and turned back on when the reformatting operation is finished.</p>
+</section>
+</section>
+<a id="B-16"></a>
+<section id="B.6">
+<h2>6  Local Functions</h2>
+<p>Certain keys on the keyboard have been reserved for local functions.  They are used in products which implement functions not accessible remotely.  Some local functions will not be available in all product implementations; they will need to be performed by host software.  The sequences for the function keys are well defined; general applications and library software should not use them, and should ignore their codes if they are received.  Ideally, the operating system should recognize the codes and perform the function locally, without passing them on.</p>
+<p>DEC assigns and maintains a designated, registered sequence for each function key on the keyboard.  Conforming implementations should become familiar with this registry and use the keys only as designated.</p>
+</section>
+<section id="B.7">
+<h2>7  Synchronizing The Application And Terminal</h2>
+<section id="B.7.1">
+<h3>7.1  Auto Repeat</h3>
+<p>DEC operating systems are designed such that an application, such as an editor, which uses the cursor keys to update a text image can get control frequently enough to insure that the user will not get too far ahead of the application, even when using <a href="EL-00070-06.html#6.6.3">Auto Repeat</a>.  The application program should assume responsibility for that synchronization, rather than attempting to do so by turning off Auto Repeat, locking the keyboard, etc.</p>
+</section>
+<section id="B.7.2">
+<h3>7.2  Typing Ahead</h3>
+<p>Applications should allow the terminal user to make the decision whether to type ahead or not; the application program should not make it.  Problems can develop when the application program detects an error in the instructions that have been typed ahead.  If a sequence is determined to be erroneous, it may not be executed; subsequent instructions could then produce erroneous, possibly disastrous, results.  Therefore, it is recommended that applications clear type ahead only when an error has been detected.  The application should call the operator's library routine, which should call the operating system to clear type ahead.  An application program should not clear type ahead when starting up; it should assume that the option to type ahead exists, and that the operator has decided to do so.</p>
+</section>
+</section>
+<section id="B.8">
+<h2>8  <abbr>ReGIS</abbr> Graphics Programming</h2>
+<a id="B-17"></a>
+<section id="B.8.1">
+<h3>8.1  Syntax</h3>
+<section id="B.8.1.1">
+<h4>8.1.1  Elements of Syntax</h4>
+<p>The ReGIS syntax has five elements, the command keyletters and four argument types.  The four types are:</p>
+<ol>
+<li><p>Numbers - which have various semantic meaning.</p></li>
+<li><p>Bracketed extents.</p></li>
+<li><p>Parenthesized extents (options).</p></li>
+<li><p>Quoted strings (used or text arguments or character indices).</p></li>
+</ol>
+</section>
+<section id="B.8.1.2">
+<h4>8.1.2  <abbr>ReGIS</abbr> Flow of Execution</h4>
+<p>The entire flow of ReGIS execution is serial.  The user begins with a selected element which sets the state so the following elements are executed as they are encountered.  An important aspect of the execution is that ReGIS doesn't require that more arguments be received in order to take action on a given argument.  Generally speaking, an action can take place from within the context of any of the argument types.</p>
+<p>ReGIS actions can be visible or non-visible.  An example of a visible action is the receipt of a position specifier while in a "V" (vector) state.  The device would have enough information with that datum (and the stored state of the machine) to draw a vector in the appropriate line, color, pattern, etc.</p>
+<p>Non-visible actions are those those which change state.  For example, if the device were working in a "W" command and received an option to change color, an element of state would be changed in the machine that would lend its attributes to all subsequent applicable visible actions.</p>
+<p>The instruction process has a well-defined hierarchical flow that is not too deep or extensive.  The user works from the context of a specified command state, or at command level - outside the command state context.  If, for instance, ReGIS is synchronized by some means (see next section), the system is at command level; subsequent arguments will be recognized but will cause no action to be taken, there being no command context to interpret them against.  ReGIS arguments are self-delimiting; depending on the current command context, ReGIS requires proper character types to start and end instructions.  Numbers are looked for in digit mode, quoted strings must always start and end with quotes, parenthesized extents start and end with parentheses, etc.  Should the ReGIS interpreter be put in a non-command state at some point, arguments received after that will be parsed and recognized, but <a id="B-18"></a>no action will occur.  It is possible to parse through a series of instructions that was sent to find out what has happened, however.</p>
+<p>Since ReGIS allows a good deal of flexibility in including non-&NoBreak;instructions with instructions, a good procedure to follow at points where state changes could cause problems or confusion is to include a statement within the instruction flow about it such as:</p>
+<pre><code>;"this is a comment. State has changed here."
+</code></pre>
+</section>
+<section id="B.8.1.3">
+<h4>8.1.3  Synchronization Procedures</h4>
+<p>It is possible to put ReGIS out of synchronization with erroneous syntax.  For example, ReGIS option specifiers are nested at different levels, with each level using the same syntax as the entire instruction set.  If a leading or trailing (left or right) parenthesis were omitted in any of the option sets, ReGIS would be out of synchronization.  To write in the color red, for instance, the instruction:</p>
+<pre><code>W(I(R))
+</code></pre>
+<p>would be required.  I (Intensity) is a parenthesized option and R (red) is the parenthesized extent containing the color specifier.  If the second left-hand parenthesis had been omitted, resulting in the instruction:</p>
+<pre><code>W(IR)
+</code></pre>
+<p>being issued, R would not be interpreted as a subargument to the Intensity option, but as another option to the W command since it's at the same parsing level as the I.  It happens that R has semantic meaning to the W command; it instructs to 'Write in Replace mode'.  Therefore a well-structured ReGIS command was sent - and interpreted at the wrong level.  If one of the right-hand parentheses had been omitted in the above command, resulting in the command:</p>
+<pre><code>W(I(R)
+</code></pre>
+<p>all instructions received after that command would be interpreted as options to the W command.  Some of the instructions would be recognized by ReGIS in the W context, some would not, but none of the instructions would do what the user intended.</p>
+<p>Quoted string commands also can easily put the system out of synchronization.  If the Text command</p>
+<pre><code>;"this is a comment. State has changed here.
+</code></pre>
+<p>were sent with the end quote mistakenly omitted, all subsequent instructions would be interpreted literally and displayed on the screen as text.  Upon encountering another double quote, (intended <a id="B-19"></a>to be the beginning of another text string), the system would be back at command level interpreting characters as ReGIS instructions.</p>
+<p>It is important for the implementer to arrive at an instruction, or sequence of instructions, for synchronizing the system and setting it to a known state, preferably at the command level.</p>
+<section id="B.8.1.3.1">
+<h4>8.1.3.1  Parser Level Synchronization</h4>
+<section id="B.8.1.3.1.1">
+<h4>8.1.3.1.1  The Semicolon</h4>
+<p>The semicolon acts to synchronize the system from within any ReGIS command context - except that of quoted strings (as indicated earlier, command syntax is interpreted as literal text characters within quoted strings).  The semicolon overrides the nesting level of options, and provides a recovery mechanism for line errors, programming errors and other conditions that put the system out of synchronization.</p>
+<p>The semicolon is the simplest, most straightforward method of synchronizing ReGIS.  For instance, if a semicolon were to be sent before each command, it would return the interpreter to command level, irrespective of present command context, thus assuring the system is always synchronized.</p>
+</section>
+</section>
+<section id="B.8.1.3.2">
+<h4>8.1.3.2  Activation Synchronization</h4>
+<p>Activation synchronization is not a ReGIS feature as the semicolon is, but is a required capability for conforming ReGIS implementations.  The ReGIS Extension states that the mechanism (escape sequence, etc.) used to activate ReGIS in the product must contain a means of forcing the ReGIS interpreter to the command level.  This means of synchronization is at the discretion of the programmer, and is implementation dependent.  In some implementations activation synchronization has meant that the state of the ReGIS interpreter is preserved across changes of mode; in other implementations it has not.  For example, the VT125 implementation allows transition from ReGIS to text mode and back to ReGIS; ReGIS processing will pick up in the mode it was in before the transition.  The GIGI implementation, on the other hand, does not retain the command context across a change of mode; the command must be reissued when returning to ReGIS.</p>
+<p>The optimum goal for an implementation is to allow the user to exit and reenter modes without restating the existing command context; it is recognized, however, that this goal will be beyond the capabilities of some products.  Also, in some implementations it is possible that other state settings, such as color specifiers, etc.  will not remain stable across transitions of mode; an example of this is when hardware is shared among various protocols.  It is important that the implementer be aware of all such changes of state and take them into account.</p>
+</section>
+<a id="B-20"></a>
+<section id="B.8.1.3.3">
+<h4>8.1.3.3  State Initialization</h4>
+<p>State initialization as a synchronization method is based on the Screen Erase function.  It is based on the following two requirements as stated in the ReGIS Extension:</p>
+<ol>
+<li><p>Devices which implement ReGIS extensions are required to implement default values for all such semantic features which effect the visible display.</p></li>
+<li><p>For devices which have ReGIS extensions, all parameters and attributes - except possibly for screen attributes themselves - should take on their default values upon the execution of a Screen Erase function.</p></li>
+</ol>
+<p>State initialization as a synchronization method requires that whenever a Screen Erase function is performed, all optional settings (extensions to the ReGIS base logical device) must reset to their default values.  A list of the options and their recommended settings is as follows:</p>
+<ol>
+<li><p>The line pattern setting should be returned to one.</p></li>
+<li><p>(Possibly) reset the loadable character set selector to the default character set.  There are two schools of thought on this, however; the other one says to keep the last character set that was loaded.</p></li>
+<li><p>(Possibly) return the intensity selector to a default value upon a screen erase.</p></li>
+</ol>
+</section>
+</section>
+</section>
+<a id="B-21"></a>
+<section id="B.8.2">
+<h3>8.2  The Writing Command</h3>
+<section id="B.8.2.1">
+<h4>8.2.1  Writing Modes.</h4>
+<p>A predicate of ReGIS is the pattern register, which is a binary pattern of 1's and 0's used to select between the foreground intensity and background intensity (also called the secondary foreground intensity).  The W(I) command is used to write to the the foreground specifier, and is indicated by the 1's in the pattern register.</p>
+<p>The treatment of the 0's in the pattern register differentiate the writing modes.  They are Overlay, Complement, Replace and Erase.  A fifth mode, Negate, may be used to cancel/modify any of the other four.</p>
+<section id="B.8.2.1.1">
+<h4>8.2.1.1  Overlay mode - W(V)</h4>
+<p>Overlay mode is the base ReGIS device drawing mode.  It is generally used as the default mode, since it is the most straightforward and simplest to program and execute.  In Overlay mode, all 1's in the pattern register are executed into the display, while zeroes are not.  In other words, the current register setting is executed into the display.</p>
+<p>Overlay mode is analogous to a pen plotter that moves the pen along while lifting it up and down.  The pen 'down' state - when it draws on paper - corresponds to the 1's state.  The pen 'up' state - when it moves without drawing - corresponds to the 0's state.</p>
+</section>
+<section id="B.8.2.1.2">
+<h4>8.2.1.2  Replace Mode - W(R)</h4>
+<p>Like the Overlay mode, Replace mode executes the 1's in the pattern register (the foreground intensity) into the display.  For the 0's, however, it executes the background intensity (secondary foreground color).  For instance, if the background specifier is red, and the foreground specifier is white, the result will be alternating red and white dashes, irrespective of the current background color.</p>
+<p>After a Screen Erase, the behavior between Replace and Overlay modes is identical except at dashed line intersections, which disappear in Replace mode.  This similarity holds true until a background color is set.  If a red background were set, Overlay mode would cause a dotted white line over the background to be drawn, where Replace mode would cause a line with alternating white and red dashes to be drawn.  Replace mode writing activity is implementation dependent.</p>
+</section>
+<a id="B-22"></a>
+<section id="B.8.2.1.3">
+<h4>8.2.1.3  Complement Mode - W(C)</h4>
+<p>Complement mode causes the 1's in the pattern register to complement and 0's to not modify the display.  Complement mode is also implementation dependent.  For example, in the VK100 (GIGI) Complement mode complements the display plane (which is just one plane deep), but does not modify the intensity attributes for that location.  The VT125 display plane is two planes deep, and the intensity setting 'travels with' the drawing action, so to speak, and nothing is left over.  After a Screen Erase, no locations have hidden attributes to be recovered by a Complement operation, so all of the bits at a given pixel location are complemented.</p>
+<p>Possibly the best use for Complement mode in an implementation is for putting the display back to its original state; this action occurs if the same sequence of instructions is executed twice in Complement mode.  The results of one execution of Complement mode are essentially undefined or product dependent, but two executions reverts the display to its original state; this is true of all products.  In this way, a cursor could be drawn, because it (the cursor) could be executed, and then re-executed in Complement (so it goes away), producing a 'blinking effect' that the user could predict and have temporal control over.  Another possible use for Complement mode is to highlight a field while in Shading block mode.  Then with a re-execution of the Complement operation, the display would revert to its previous state - un-highlighted and otherwise un-modified.</p>
+<p>Complement Mode should be implemented only where the programmer has complete control over the display medium.  In more sophisticated systems where the programmer may not have complete, direct knowledge of how the screen refreshes, it should be viewed as a limited utility.  A device's refresh method could produce unpredictable results with regard to Complemented locations (pixels).  Particular caution is recommended in using it for systems that have layering between the users' perceived execution and the actual physical representation.  It does not work well as a virtual tool, except for returning things to their original state as mentioned above.  Even to accomplish that, intervening actions must be precluded from interfering.</p>
+</section>
+<section id="B.8.2.1.4">
+<h4>8.2.1.4  Erase Mode - W(E)</h4>
+<p>Erase mode ignores the pattern register entirely.  Its primary use is to clear areas and return them to the background state, particularly when used with shading or filling operations.  A viewport system implementation, for example, could use it in a shaded area to clear a rectangle to the background state.  Other uses of Erase Mode are:</p>
+<a id="B-23"></a>
+<ol>
+<li><p>To erase line patterns before executing other lines.</p></li>
+<li><p>To erase individual constructs on a feature-by-feature basis, though this use can leave background 'holes' in certain cases, such as at line intersection points, etc.</p></li>
+<li><p>To delete text, in some cases, though it is not designed for that use and is probably the least efficient way of doing it.</p></li>
+</ol>
+</section>
+<a id="B-24"></a>
+<section id="B.8.2.1.5">
+<h4>8.2.1.5  Negate Mode - W(N)</h4>
+<p>Negate Mode can work in conjunction with all the other writing modes.  Basically speaking, it inverts the current state of the pattern register; the 1's become 0's and the 0's become 1's.  Negate/Replace mode, for instance, could be used to produce text in reverse video, provided its setting in the character cell is normal.  Negate used with Complement, Erase, and Overlay do not have any apparent utility at this point; it would be more efficient to invert the pattern register manually.</p>
+</section>
+</section>
+<section id="B.8.2.2">
+<h4>8.2.2  Write Command Extensions</h4>
+<section id="B.8.2.2.1">
+<h4>8.2.2.1  Raster Extensions</h4>
+<p>The V,R,E,N and C options to the W command are implementation dependent raster extensions.  They are the standard, compact writing modes which are transportable among all (and only) raster devices.</p>
+</section>
+<section id="B.8.2.2.2">
+<h4>8.2.2.2  Open Extensions</h4>
+<p>The F and W options to the W command are bit plane (state machine) controls for extremely explicit descriptions of the writing modes.</p>
+<p>These options are ReGIS open extensions, since they are transportable to a wide range of devices, but their cost/&NoBreak;performance utility is highly implementation dependent.</p>
+</section>
+</section>
+</section>
+<a id="B-25"></a>
+<section id="B.8.3">
+<h3>8.3  Screen Instruction</h3>
+<section id="B.8.3.1">
+<h4>8.3.1  Hard Copy Commands</h4>
+<p>The ReGIS Extension states that the S(H) command is used to retransmit the visible image on the display surface to a second device which may be a hard copy device.  As an example, the syntax S(H[x,y][x,y]) is proper for the VT125.  The H option to the S command is classified as a ReGIS open extension, since it isn't possible to predict the ability of various devices to re-dump.  For example, a laser printer is a good device to accept ReGIS, even in raster format, but it isn't clear that it could retransmit to the raster image.</p>
+</section>
+<section id="B.8.3.2">
+<h4>8.3.2  Address Space</h4>
+<p>One of the key portability constructs of ReGIS is the ability to impose an address space.  If the Screen Addressing (S(A...)) construct at the beginning of the session is not used, the application will be programmed for that particular device and will not transport to other devices.  A good approach to this would be to decouple physical and logical addressing at the default level.  For example, although the actual physical measure of DEC's CT device is 960 x 240, the screen default was set at 767 x 479, equivalent to the VT125.  In a VT125 emulation, therefore, the emulation and square pixel conversion has already been accounted for.</p>
+<p>It is recommended that implementations always use the S(A) command, even if it means re-instituting the expected device defaults every time.  It will then be certain that defaults are instituted in devices being transported to and the full screen used rather than having the viewing area shrink into a corner on a large screen, or overshooting on a small screen.  It provides reasonable certainty that some sort of reasonable screen results will be obtained.  The use of the S(A) command is covered very thoroughly in the chapter "ReGIS Graphics Extension".</p>
+</section>
+</section>
+<a id="B-26"></a>
+<section id="B.8.4">
+<h3>8.4  Macrographs</h3>
+<p>The macrograph construct is derived from the macro instruction construct used in assembly language programming.  It is included in ReGIS to provide local storage of graphic commands for frequent reuse throughout an application.  The macro concept is actually at a higher level than ReGIS, and could be utilized above combinations of protocols.  ReGIS and NAPLPS, for example, are text stream encoded protocols which, if the proper superior encoding existed, could be included in a 'super parser' which would accept both streams of text.  Each could then be invoked from within individual parsers to pull out its stream; this is possible even though the NAPLPS macro structure is not compatible with that of ReGIS.</p>
+</section>
+<section id="B.8.5">
+<h3>8.5  Macrograph Constructs</h3>
+<p>The three constructs of primary concern to the programmer are:  the definition of an individual macrograph, the execution of an individual macrograph, and the clearing of the macrograph state.</p>
+<p>Any combination of individual macrographs may be used and/or repeated in a given ReGIS command.  ReGIS has a protocol-specific macro encoding built around a particular character, in this case the 'at' sign character (@).  This specified character never goes into the ReGIS parser, regardless of context or current state of interpretation, because it indicates there is a macro level operation taking place above the parsing level.</p>
+<p>The free-form structure of ReGIS allows the user to enter any combination of characters into macrographs; they can be entire commands, portions of them, or some mixture of each.  When the macrograph invocation character is recognized at the pre-parser level, the macrograph data base is interrogated and the substitute character string read out.  That character string is applied in the existing context of the ReGIS interpreter.  For example, if ReGIS were at command level and encountered a macrograph the contents of which began with a "V", the ReGIS context would be changed to the Vector interpretation state and the remainder of the macrograph read within that context.  Each character contained in the macrograph would be interpreted by the parser as though it had appeared individually along the communications line.</p>
+</section>
+<a id="B-27"></a>
+<section id="B.8.6">
+<h3>8.6  Macrograph Invocation</h3>
+<section id="B.8.6.1">
+<h4>8.6.1  Macrographs Invoking Others</h4>
+<p>Macrographs may invoke other macrographs; ReGIS recognition of macrographs is recursive.  It should not be assumed that the entire contents of one macrograph will fall directly into the ReGIS state.  One or more of the commands may be invoking other macrographs.</p>
+</section>
+<section id="B.8.6.2">
+<h4>8.6.2  Macrograph Invoking Itself</h4>
+<p>A macrograph cannot invoke itself.  Invocation of macrographs is entirely deterministic and non-conditional, since there are no conditionals in ReGIS.  Therefore, it would not be possible to recognize an 'exit' condition in a macrograph that invoked itself.</p>
+<p>For example, a path from macrograph D through other macrographs that further invoked macrograph D would repeat that same path predictably and exactly, resulting in an unbounded recursion requiring error recovery.  In ReGIS devices, unbounded recursions are usually implemented so that the recursion stack overflows, creating an error condition which purges everything back to command level.  It is entirely illegal to use any sort of recursive macrograph invocation, direct or indirect.  Implementations may insert a flag that signals as each macrograph is accessed.  For instance, it would signal when macrograph D were being accessed.  If macrograph D invoked macrograph L, macrograph L would be flagged as accessed, if L invoked X, X would be so flagged.  If X then invoked D, L or X, the flag would recognize an unbounded recursion state and terminate.  Recovery mechanism and recovery recognition scheme is the responsibility of the implementation; the ReGIS Extension does not impose one.</p>
+</section>
+</section>
+<section id="B.8.7">
+<h3>8.7  Macrograph Storage</h3>
+<p>ReGIS provides for exactly 26 separate macrographs, irrespective of implementation.  While the ReGIS Extension calls for a minimum of 4000 characters macrograph storage, this may be an implementation dependent value due to device limitations.  Should a user need to know the amount of available macrograph storage space, a ReGIS inquiry function exists which allows the user to interrogate the system.  Otherwise, a 4000 character storage space should be assumed.</p>
+<a id="B-28"></a>
+<p>There are 'hooks' at certain points within ReGIS into the macrograph storage.  The Report command, for example, can send back details of space, usage, or individual macrograph contents.  So macrographs do enter the parser, even though they are superior to it conceptually.</p>
+<p>While a macrograph can define the invocation of another macrograph, it cannot define its storage because macrograph definitions cannot be nested.  The macrograph initiator and terminator are specific constructs.  The macrograph initiator is:</p>
+<ul>
+<li>'at' sign (@)</li>
+<li>colon</li>
+<li>letter (macrograph name)</li>
+</ul>
+<p>The macrograph terminator is:</p>
+<ul>
+<li>'at' sign (@)</li>
+<li>semicolon.</li>
+</ul>
+<p>The macrograph initiator immediately turns off all ReGIS and nearly all macrograph parsing.  At that point, the only construct which will not be stored in a macrograph is the terminator.  It is, therefore, impossible to nest macrograph definitions.  The following sample instructions illustrate an attempt to nest definitions in macrographs A and B:</p>
+<pre><code>@:A  @:B(contents of B)  @;  (remaining contents of A)@;
+</code></pre>
+<p>These commands would not be interpreted as expected because the second instruction (@:B) would not be recognized at the macrograph storage level; it would be stored literally in the macrograph.  Also, the first (@;) (third instruction) would be recognized as the termination of the entire macrograph extent.  The last instruction, intended to invoke the remaining contents of macrograph A would be passed along to the parser, since all the macrograph storage constraints would have been satisfied; the final (@;) would simply act as a spurious terminator.</p>
+</section>
+<section id="B.8.8">
+<h3>8.8  Macrograph Utility</h3>
+<section id="B.8.8.1">
+<h4>8.8.1  Specifications</h4>
+<p>Macrographs have been used effectively for storing combinations of specifications.  Although ReGIS technically does not have the capability for named variable storage, macrographs can provide the capability to a limited degree.  The following example macrograph (R) stores the HLS specification for the color red (hue 120, lightness 50 and saturation 100).</p>
+<pre><code>@:R H120 L50 S100 @;
+</code></pre>
+<p>This specification could be invoked within the context of a Write <a id="B-29"></a>mode instruction, as a suboption to the I command as follows:</p>
+<pre><code>W(I(@R))
+</code></pre>
+<p>or as a screen mapping command:</p>
+<pre><code>S(M 3 (@R))
+</code></pre>
+<p>Though the context varies, the same macrograph is used.  The macrograph character stream is a literal stream; it could be invoked as two characters at the device, rather than the specification being retransmitted as several characters from the source.</p>
+</section>
+<a id="B-30"></a>
+<section id="B.8.8.2">
+<h4>8.8.2  Polygons</h4>
+<p>Macrographs can be used to define polygons.  To accomplish this, the macrograph can be stored and executed twice, and the Write modes changed outside the macrograph.  For example, Shading mode could be turned on, and the macrograph invoked; this would draw a shaded area in the shape of a polygon.  Shading could then be turned off, the macrograph invoked again, the color changed and the border drawn around the polygon.  Thus, the description of the polygon would be stored in the macrograph, and could be drawn shaded with a highlighted border.</p>
+</section>
+<section id="B.8.8.3">
+<h4>8.8.3  Icons</h4>
+<p>Macrographs can be used effectively for drawing icons.  The user may want to draw an icon that can be stored away for repetitive use, such as a Stop sign, for example, to be displayed at different places on the screen at different times.  A line drawing of the picture could then be plotted out using only relative coordinate specifiers within vector imposition commands as the following example which draws a star:</p>
+<pre><code>@:I V[+20,-50][+20,+50][-50,-30][+60,][-50,+30] @;
+</code></pre>
+<p>From command level, the cursor could then be positioned at a desired point and the macrograph invoked to display the icon:</p>
+<pre><code>P[x,y] @I
+</code></pre>
+<p>Once the icon were positioned, other drawing operations could be performed on the picture, changing writing modes as necessary.  If writing in Complement mode, the icon could be cleared out, if desired, by invoking the macrograph again in Complement mode at the same point.</p>
+<p>This technique provides a cursor support capability.  For example, if an interactive application required the tracking of an input device and the particular ReGIS device did not support Locator mode report, a cursor icon could be programmed to write, move, erase itself as necessary, or perhaps just display itself repeatedly - such as for graphing structures.</p>
+</section>
+<a id="B-31"></a>
+<section id="B.8.8.4">
+<h4>8.8.4  Coordinate Lists</h4>
+<p>Macrographs provide the capability of storing a coordinate list.  Two examples show how data compression can be used in macrographs to do a variable presentation of a picture by storing away entire command lists.  The following example shows a set of bracketed extents within a macrograph used in a Vector construct to draw a Begin and End block around the outside, creating a closed polygon:</p>
+<pre><code>@:C [ ][ ][ ]@; V@C V(B)@C(E) V(B)@C(E)
+</code></pre>
+<p>The same structure could then be invoked as a closed curve construct.  Macrographs can be used in this way to demonstrate how the closed curve command works in ReGIS; a specified sequence of points are first connected with vectors and then with curves.</p>
+<p>Another use for this type of curve construct is to invoke a different macrograph inside the command in order to apply markers at each point along the coordinate list extent.  The following example has a coordinate list contained in macrograph C:</p>
+<pre><code>@:C @M[ ] @M[ ] @M[ ] @M[ ] @M[ ] @;
+</code></pre>
+<p>Between each specified coordinate, another macrograph (M) has been invoked which could be an icon such as a small square.  If these instructions were executed as a polygon or an open vector set extent, they could send nested calls to a different macrograph to generate a graph, for instance, and draw the icon (small square) marker at each coordinate space to mark the position on the curve extent:</p>
+<pre><code>@:M P[+10,-10]V[+20][,+20][-20][,-20]P[-10,+10] @;
+</code></pre>
+<p>If it were necessary to streamline the execution and not display the icon, the definition of macrograph M could be nulled; it would be invoked as an empty extent between every coordinate point and execute directly, causing no extra overhead in the display.</p>
+</section>
+<a id="B-32"></a>
+<section id="B.8.8.5">
+<h4>8.8.5  Write Maps</h4>
+<p>The macrograph structure has been used as a surrogate Write map by DEC's Datatrieve system.  Datatrieve allows the user to change the Write map settings in order to present a graph in different colors, changing the shades as desired.  However, Datatrieve requires the default Write map to suppress the display while entering an expanded text menu.  Datatrieve protects the default Write map settings from destruction by the user's Write map settings by loading the user Write map settings into a macrograph.</p>
+<p>Datatrieve is then able to clear the user Write map away while performing its expanded text menu operations, invoking the macrograph to restore the user Write map settings again.  The following shows a macrograph (Z) structure containing the user Write map settings.</p>
+<pre><code>@:Z S(Mn( )n( )) @;
+</code></pre>
+<p>The code that interrogates the user for color settings, etc.  actually modifies the macrograph and invokes it.  Datatrieve can then perform other operations, changing the Write map if necessary, restoring the user settings with the macrograph afterwards.</p>
+<p>State features such as the Write map are not accessible to the Report command of ReGIS; in a system application such as Datatrieve, the system and the application both have access to that feature of the machine.  Macrographs are used in this case to prevent the competing entities from writing to the same extent (without making private copies of that extent), so it can be restored later in an unambiguous fashion.</p>
+</section>
+<section id="B.8.8.6">
+<h4>8.8.6  Text</h4>
+<p>Macrographs have limited application for standard cell text; most individual sections of text do not warrant the overhead of storing and recovering things by name.  However, for situations where short and medium length words such as "the" and "first" are used frequently, macrographs can be used to refer to them by abbreviations.  This would be keeping with coding efficiency principles that advocate using the least number of characters as possible.</p>
+<p>Storing text in macrographs also presents the possibility of creating menus; it is a combination between display lists and local buffering of intelligence at the ReGIS device.  Macrographs provide another tool for that type of system.</p>
+<a id="B-33"></a>
+<section id="B.8.8.6.1">
+<h4>8.8.6.1  Quoted Strings</h4>
+<p>A caution in using macrographs for text is that they are not recognized or interpreted within quoted text strings.  Therefore, it is not possible to use a Text command to invoke a macrograph contained within quoted strings, because the contents of quoted strings will be interpreted literally.</p>
+<p>Conversely, it is possible to put all or part of a quoted string within a macrograph.  However, the use of unmatched quotes in macrographs will produce erroneous results.  The following sample instructions invoke macrograph X containing a Text command, quote character and the first part of a quoted string, followed by macrograph Y containing the remainder of the string and a closing quote character.</p>
+<pre><code>@:X T'(text) @;  @:Y (remainder of text)' @; @X@Y
+</code></pre>
+<p>The first instruction invokes macrograph X which sends the Text command to the parser.  The next command is supposed to invoke macrograph Y, but the ReGIS parser has been instructed to execute quoted text (by the open quote in macrograph X) and has received no instruction to do otherwise.  The result will be:</p>
+<pre><code>T, '(text) @Y
+</code></pre>
+<p>with no closing quote.  This would will display as:</p>
+<pre><samp>(text)@Y
+</samp></pre>
+<p>and leave ReGIS out of synchronization.  This result is obviously much different than what the user wanted or expected.</p>
+</section>
+</section>
+<section id="B.8.8.7">
+<h4>8.8.7  Display Segments</h4>
+<p>The ReGIS Extension states that macrographs are not intended for use as display segments.  In most instances, the complexity required to support segmented displays is beyond the scope that can be offered by macrographs.  As indicated earlier, just 26 macrographs are allowed, and a relatively small amount of storage (4000 character minimum) usually allotted.  Most implementations will have storage in that range; a powerful implementation would likely have no more than twice that amount.  A complex display file structure would be difficult, though not impossible, within those limitations.  Pieces of pictures, each treated as a segment, could be stored away in macrographs and executed in turn.  Proper Write modes could then be chosen outside the macrograph level, turned on and off non-destructively, opaqued with others, etc.  Therefore, this application of macrographs does exist, but on a limited basis.</p>
+</section>
+</section>
+<a id="B-34"></a>
+<section id="B.8.9">
+<h3>8.9  The Text Command</h3>
+<section id="B.8.9.1">
+<h4>8.9.1  Sizing Text - the S Option</h4>
+<p>The best method for sizing text is the T(S) command with an integer argument.  ReGIS will scale the character by the integer factor in horizontal and vertical extent, and set a default spacing into character escapement for character strings, until the S option changes again.  For single-size characters, the instruction is T(S1).  For double-size characters, the instruction is T(S2).</p>
+<p>Another text sizing method is to use the S and H options with integer arguments.  The H effects the height of the character only; it allows further changes to be made to the aspect ratio of the character extent and whatever changes required in text spacing to make that fit.  To obtain standard-width characters at twice the height, for instance, the instruction would be T(S1, H2).  The H option will work only after the S option, since only the height can be altered after the size has been set.  The instruction T(H2, S3), for example, will produce characters three times as wide and three times as high because S sets both height and width, overriding any previous settings.</p>
+<p>A default character cell size called a 'unit size' has been implemented in the newer versions.  Basically, it amounts to the fact that the character definition as loaded into the program ROM, or down loaded in the Load Character extent, is treated as a logical display (that is, a selectable number of current coordinate units is used for each parameter of the character's height and width).  The window for that character has the entire extent of the logical display for that character and can be viewported into a unit size on the screen.</p>
+<p>The T(S) command fulfills most text sizing requirements, but doesn't provide for a way to know the actual size of the characters, or how many of them will fit across the display.  For instance, if the unit size is unknown and a "standard size one" character is asked for, the actual size of the characters, plus how many will fit across a screen will be unknown.  The T(S) command will give some relative size scaling, but the results will be trial and error without knowing the unit size.</p>
+</section>
+<a id="B-35"></a>
+<section id="B.8.9.2">
+<h4>8.9.2  The S Option Coupled With Other Options</h4>
+<section id="B.8.9.2.1">
+<h4>8.9.2.1  Specifying Screen Area - The S, M and U Options</h4>
+<p>When coupled with the M option, the S option can be used to specify the amount of screen area the character will take up.  When coupled with the U option, the use of the S option is more complicated, but also provides another means of predicting the amount of screen area the character will take up.  The U option should be understood in order to figure out how to get transportability across various text resolution displays.  When used with the S option, it becomes possible to size text without knowing the unit sizes, but the actual results will be implementation dependent.  Most implementors program their devices at maximum resolution, making detailed text representation a necessity; the handling of detailed text in ReGIS is complex and highly device dependent.</p>
+</section>
+<section id="B.8.9.2.2">
+<h4>8.9.2.2  Character Orientation - The S and D Option</h4>
+<p>The relationship between the size (S) and direction (D) options is a complicated one.  The D option controls the orientation of the character cell.  When used in conjunction with the S command in the same option set, it has the side effect of changing not only the cell orientation, but the intercharacter movement.  If the S option is used with the D option, it couples the direction specifier to the character baseline.  For instance, if the string,</p>
+<pre><code>T(D90 S1)"ABCD"
+</code></pre>
+<p>is sent, the characters will be oriented to each other as follows:</p>
+<p>This technique can provide a way of labelling the Y axis of graphs, or can be used in other applications as well.</p>
+<p>A D90 instruction without the (S) specifier simply rotates the characters 90 degrees clockwise (an angular orientation, not a pixel orientation) so the characters will display as follows:</p>
+<p>The S and D options work for whatever character angles the implementation can support.  The simplest and most portable character orientation is in 90 degree increments, though 45 degree increments will usually also work.  ReGIS allows arbitrary character orientation, but product limitations usually prohibit it and round to the nearest 45 or 90 degree increment.</p>
+</section>
+<a id="B-36"></a>
+<section id="B.8.9.2.3">
+<h4>8.9.2.3  Text Bracketed Options - Space Setting</h4>
+<p>The T(S)[] command may be used to provide certain specific controls.  Using a bracketed argument with the T command, for example, forces an intercharacter space setting that overrides any space defaults set by the character size.  This can be used to change the perceived orientation of the lines of the character, the character path.  An example of a character path altered in this manner can be found in Figure 8-6 of the ReGIS Extension.</p>
+</section>
+</section>
+<a id="B-37"></a>
+<section id="B.8.9.3">
+<h4>8.9.3  Text Control Characters</h4>
+<p>ReGIS has three basic text control features:  backspace, carriage return and line feed.  Implementing them is straightforward in the base logical device, since text re-orientation (see above) is not possible in the base logical device.  Carriage return returns to the start position of the text string being worked in.  A line feed moves down one line vertically, without changing its horizontal position.  Consecutive line feeds move along vertically, but the X position never changes because with no reorientation, the text runs horizontally from left to right.  Since there is no vertical component to a Carriage Return, text following a Carriage Return goes to the left hand position; this is true with every text command and argument.  Backspace moves back one position and overstrikes the character.  It is possible with the backspace to go beyond the carriage return position.</p>
+<p>In most implementations, Backspace, Carriage Return and Line Feed will work with rotated text.  Carriage Return moves along the baseline orientation to either the position at the beginning of the T command, the beginning of the last quoted extent, or to the point at which the last Line Feed was encountered.  Using CR and LF control characters, it should be possible to do a rotated block of text as follows:</p>
+<p>To summarize, it may be stated that the control characters operate in a way that preserves the logical functions of Backspace, Carriage Return and Line Feed, irrespective of character orientation.  These three controls also provide a shorthand method of putting the drawing point at a predictable location; alternative methods of accomplishing this are either to use the pixel vector specifiers or to leave the text command and send a relative position argument each time the drawing position changes.</p>
+<p>Other text control characters, such as horizontal and vertical tab, are not covered in the ReGIS Extension, because they lose their meaning when the baseline is neither horizontal or vertical, or when character sizes and aspect ratios change.</p>
+<a id="B-38"></a>
+<section id="B.8.9.3.1">
+<h4>8.9.3.1  Pixel Vector Specifiers</h4>
+<p>The text control characters described above provide a means of moving the drawing position in relation to the text characters.  Another means of moving it is to use pixel vector specifiers as an argument within a text command.  These may be included between quoted string arguments (though not within the quoted string).  The way to write a superscript 12 to the ABCD text, for instance, is with the following command:</p>
+<pre><code>T"ABCD"2"12"6
+</code></pre>
+<p>which is the text, the pixel vector specifier to move the position up, the superscript characters, and the pixel vector specifier to move the position back to baseline.  The pixel vector specifiers 2 and 6 move the drawing position up and down, respectively.  Pixel vector specifiers used in this manner move the drawing location for the next character cell one-half character size.  Pixel vector 2 would move the drawing position up one half the character height, while 22 would move it up a full character height.  Text pixel vectors are measured differently from standard pixel vectors.  Text pixel vector 0 is always in the direction of the text string, 2 is always up from the character baseline and 6 returns to the baseline.  Standard pixel vector 0 is to the right, 2 is vertically up, 4 is to the left, and 6 is vertically down.  Therefore, text can be superscripted/subscripted with the same pixel vectors whether or not the string is rotated.  Pixel vector specifiers are covered in various places in the ReGIS Extension, since they are included in the base logical device as well as the raster and open extensions.</p>
+</section>
+</section>
+<section id="B.8.9.4">
+<h4>8.9.4  Scrolling and Wrap</h4>
+<p>ReGIS has no provision for scrolling or wrapping text, making it a very limited tool for general text purposes.  Since there is no screen margin for text, the system keeps incrementing its X and Y pointers and goes beyond the margins and bottom of the screen.  The user may be able to effect a "manual wrap" if the extents of the screen, the size of the character, the number of characters across, etc., are known.  However, the system would still be without a general-purpose scrolling function that could satisfy text requirements.</p>
+<p>The type of scrolling offered by ReGIS is graphics-oriented and highly device dependent.  In the open extensions section of the ReGIS Extension, two scrolling methods, or models, of moving data in a graphics display are described.  One model "shifts the data through the space" while the other "moves the viewpoint around within the data address space".</p>
+</section>
+</section>
+<a id="B-39"></a>
+<section id="B.8.10">
+<h3>8.10  Color Mapping</h3>
+<p>Color mapping is parameterized in ReGIS through the HLS reference model.  The RGB model essentially duplicates the HLS model and is not fully parameterized in ReGIS.  For instance, it is not possible to color a figure 20% red, 40% green, and 8% blue.  The only ReGIS possibility with the RGB alphabet is to specify the distinct colors red, blue, yellow, cyan, magenta, black or white, which are all fully saturated colors at their maximum intensity.  HLS provides the easier model with which to understand colors from a human point of view, since it is based on a perceptual model.  It identifies a set of dimensions for color specifications that is based on what people perceive the three elements of color to be.  The hue specifier, for instance, indicates the tint, which is the major determinant of the color.  The hue specifier is based upon an angular specification that runs from 0 to 360, with blue at 0, red at 120 and green at 240.  To change color to a hue between blue and red, the angular parameter between blue and red is adjusted.</p>
+<p>The L parameter adjusts color lightness to specify how bright or dim the color is.  The S parameter indicates how pastel the shade is - how much that color varies between a gray and a pure presentation at the specified hue and lightness.  Color mapping requires a 3-dimensional specification; all three are needed to produce the precise representation of the color.  The HLS model has well-defined end points and, while it is not linear along any of the axes, it can be interpreted as linear for the rough scale of models that we have.</p>
+<section id="B.8.10.1">
+<h4>8.10.1  Color and Gray Scale.</h4>
+<p>In theory, programs written for color will produce a corresponding visual effect on a non-color device that supports only gray scale.  In practice, however, it will not transport perfectly because the ReGIS color model and gray scale is "grainy".  Having just four, eight or sixteen individual colors visible at any given time or on a given gray scale limits the ability to shade a particular color to a particular shade of gray.  A two-dimensional extent is being imposed into a one-dimensional extent, and some information loss is inevitable.  If two colors that map very closely on the gray scale are used (such as bright blue and dim green in television) they could 'collide', or map to the same shade on the ReGIS gray scale.  It is actually largely determined by the product's hardware.  In most cases, if standard colors are used, or a widely varied set of colors, the chances of gray scales colliding with map from the colors is probably not too great.  It is recommended to not use non-standard color gradations to present information.  Standard, bright colors such as red, green etc.  with the same whiteness saturation and only varying hues will produce discernible gray scales.</p>
+</section>
+</section>
+<a id="B-40"></a>
+<section id="B.8.11">
+<h3>8.11  Integration Of Graphics And Text</h3>
+<p>ReGIS provides very limited control over registration between text and graphics, particularly across devices, or when the text is created with other than the ReGIS Text command.  For example, an attempt to use VT100 text as captions for VT125 figures would be severely hampered by insufficient control over scrolling in the VT100.  Also, column modes (widths) between the two devices would be difficult to synchronize, since it would not be known whether the user wanted the VT100 column mode set to 132 or 80 columns, or whether the device had an advance video option with only 14 lines in 132-column mode.</p>
+<p>Another integrating situation that would encounter problems would be to attempt to integrate text that was created in the Text mode of the VT240 instead of with the ReGIS Text command.</p>
+<p>The real utility of integrating editable text with graphics is that while composing, the user views the work outside of the context of the terminal being used, the graphics and text are viewed in a unified text environment.  This requires the ability to address the application of various protocols to obtain predictable, integrated results, and is not currently feasible with the various text and graphics protocols used by DEC.  To avoid incompatibilities with future products, application software should not depend on interactions between graphics and text.  Some examples of interactions to avoid follow:</p>
+<ol>
+<li><p>Using the graphics erasing command S(E) to erase text.</p></li>
+<li><p>Using (non-ReGIS) text erasing commands to erase all or part of the graphics image.</p></li>
+<li><p>Using graphics scrolling to scroll text.</p></li>
+<li><p>Using text scrolling to scroll graphics.</p></li>
+<li><p>Mixing text and graphics in the same screen area.</p></li>
+</ol>
+<a id="B-41"></a>
+<p>Applications which need to label graphs, charts, etc., or which need to perform advanced text functions such as proportional spacing, italics, colors, etc.  should use the ReGIS T command exclusively, and not mix graphics text with text mode text.</p>
+<pre><samp>A
+B
+C
+D
+
+ABCD
+
+ABCDEFGHIJ
+KLMNOPQRST
+UVWXYZABDE
+</samp></pre>
+<a id="B-42"></a>
+<p hidden>This page deliberately left blank.</p>
+</section>
+</section>
+</main>
+<footer>
+<a id="B-43"></a>
+<section id="Index">
+<h2>Section Index</h2>
+<ul>
+<li>Application Programs <a href="#B-6">6</a></li>
+<li>Auto Repeat <a href="#B-16">16</a></li>
+<li>Color Map <a href="#B-39">39</a></li>
+<li>Conformance Levels <a href="#B-11">11</a></li>
+<li>Control Sequence<ul>
+<li>use by application programs <a href="#B-6">6</a></li>
+<li>use by applications programs <a href="#B-9">9</a></li>
+</ul>
+</li>
+<li>DA1 <a href="#B-13">13</a></li>
+<li>DA2 <a href="#B-14">14</a></li>
+<li>DEC STD 169 <a href="#B-8">8</a></li>
+<li>DEC Supplemental Graphics <a href="#B-8">8</a></li>
+<li>DECARM <a href="#B-16">16</a></li>
+<li>DECID <a href="#B-14">14</a></li>
+<li>DECSCL <a href="#B-11">11</a>, <a href="#B-14">14</a></li>
+<li>DECTCEM <a href="#B-15">15</a></li>
+<li>DECTST <a href="#B-15">15</a></li>
+<li>Device Attributes (Primary) <a href="#B-13">13</a></li>
+<li>Device Attributes (Secondary) <a href="#B-14">14</a></li>
+<li>Device Control String <a href="#B-11">11</a></li>
+<li>Device Identification <a href="#B-13">13</a></li>
+<li>Device Test <a href="#B-15">15</a></li>
+<li>Escape Sequence<ul>
+<li>use by application programs <a href="#B-6">6</a></li>
+</ul>
+</li>
+<li>GL <a href="#B-8">8</a></li>
+<li>GR <a href="#B-8">8</a></li>
+<li>Identify Terminal <a href="#B-14">14</a></li>
+<li>Integration of Text and Graphics <a href="#B-40">40</a><a id="B-44"></a></li>
+<li>Level 1 <a href="#B-11">11</a></li>
+<li>Level 2 <a href="#B-11">11</a></li>
+<li>Levels of Abstraction <a href="#B-6">6</a></li>
+<li>Local Function Keys <a href="#B-16">16</a></li>
+<li>Macrograph <a href="#B-26">26</a></li>
+<li>Mode Switching <a href="#B-8">8</a></li>
+<li>Primary Device Attributes <a href="#B-13">13</a></li>
+<li>Printer Controller Mode <a href="#B-10">10</a></li>
+<li>Programmer's Guide <a href="#B-5">5</a></li>
+<li>ReGIS<ul>
+<li>address space <a href="#B-25">25</a></li>
+<li>character orientation <a href="#B-35">35</a></li>
+<li>color map <a href="#B-39">39</a></li>
+<li>extensions <a href="#B-24">24</a></li>
+<li>hard copy <a href="#B-25">25</a></li>
+<li>initialization <a href="#B-20">20</a></li>
+<li>macrograph <a href="#B-26">26</a></li>
+<li>pixel vector specifiers <a href="#B-38">38</a></li>
+<li>screen area <a href="#B-35">35</a></li>
+<li>scrolling <a href="#B-38">38</a></li>
+<li>text command <a href="#B-34">34</a></li>
+<li>wrap <a href="#B-38">38</a></li>
+<li>writing modes <a href="#B-21">21</a></li>
+</ul>
+</li>
+<li>Regis<ul>
+<li>synchronization <a href="#B-18">18</a></li>
+</ul>
+</li>
+<li>ReGIS Syntax <a href="#B-17">17</a></li>
+<li>S7C1T <a href="#B-12">12</a></li>
+<li>S8C1T <a href="#B-12">12</a></li>
+<li>Secondary Device Attributes <a href="#B-14">14</a></li>
+<li>Select 7-Bit C1 Transmission <a href="#B-12">12</a></li>
+<li>Select 8-Bit C1 Trasnmission <a href="#B-12">12</a></li>
+<li>Select Conformance Level <a href="#B-11">11</a>, <a href="#B-14">14</a></li>
+<li>Software Conformance <a href="#B-6">6</a></li>
+<li>String Terminator <a href="#B-10">10</a></li>
+<li>Subroutine Library <a href="#B-6">6</a><a id="B-45"></a></li>
+<li>Terminal Initialization <a href="#B-10">10</a></li>
+<li>Terminal Interface Architecture <a href="#B-5">5</a></li>
+<li>Text Attributes <a href="#B-8">8</a></li>
+<li>Text Cursor Enable Mode <a href="#B-15">15</a></li>
+<li>TIA <a href="#B-5">5</a></li>
+<li>Type Ahead <a href="#B-16">16</a></li>
+<li>XON/XOFF <a href="#B-10">10</a></li>
+</ul>
+</section>
+</footer>
+</body>
+</html>
