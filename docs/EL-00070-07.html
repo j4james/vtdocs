@@ -1,0 +1,2556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>VSRM - Printer Port Extension</title>
+<meta charset="UTF-8" />
+<style>*{font-family:"Courier New";font-weight:bold;font-size:15.2px;line-height:14.9px;color:#000000;padding:0;margin:0;border-collapse:collapse}body{background:#d4d4d8;>header,>main,>footer{width:66.01ch;padding-left:107px;padding-right:calc(709px - 66.01ch);padding-bottom:14.9px;background:#ffffff;margin:0 auto}>footer{border-bottom:11px solid #d4d4d8}}a{text-decoration:none}a[href]:hover{color:#bb0000}header>hgroup{>h1,>h2{text-align:center;margin-bottom:14.9px}>h1{text-transform:uppercase}margin-bottom:29.8px}h2,h3,h4,p{margin-bottom:14.9px;white-space:pre-wrap}section{>h2,>h3,>h4{&:first-child:before{content:'7.'}}>h4:has(>span){&:first-child:before{content:none}}&:has(>h2),&:has(>h3),&:has(>h4){margin-top:29.8px}a[id]+&{margin-top:0}h2+&,h3+&{margin-top:14.9px}ol+&,aside+&{margin-top:44.7px}ul+&{margin-top:29.8px}>h2{text-transform:uppercase}>h4{padding-left:9ch;text-indent:-9ch}&#\37\.8\.2\.4 section>h4{&:before{content:none}&:after{content:' -'}}}#\37\.1,#\37\.2,#\37\.4{>h2{margin-bottom:29.8px}}#\37\.9 ol{margin-bottom:74.5px}aside{margin:14.9px auto;width:50ch;>h4{text-align:center}a[id]{transform:translateX(-8ch)}&+p{margin-top:29.8px}&:last-child{margin-bottom:44.7px}header>&{position:relative;overflow:hidden;white-space:nowrap;&:before{content:'+----------------------------------------------------------------------------\A|\A|\A|\A|\A|\A|\A|\A|';white-space:pre;position:absolute;top:0;left:0;pointer-events:none}&:after{content:'+----------------------------------------------------------------------------'}&:nth-of-type(2):after{content:'+________________________________________';position:absolute;background:#ffffff}>*{padding:0 2ch;&:first-child{padding-top:14.9px;&:before{content:'+\A|\A|\A|\A|\A|\A|\A|\A|';white-space:pre;position:absolute;top:0;right:0;background:#ffffff}}&:last-child{margin:0;&:after{content:'+';position:absolute;bottom:0;right:0;background:#ffffff}}}&:nth-of-type(1){width:66ch}&:nth-of-type(2){width:42ch;height:90.4px;left:2ch}}}#\37\.3\.6>aside:last-of-type>h4{padding-right:1ch}#\37\.4\.0\.3,#\37\.4\.0\.4{>p:nth-of-type(n+3):not(:nth-of-type(n+6)){margin-left:4ch;width:58ch}>p:nth-of-type(6){margin-top:29.8px}>aside{margin-top:29.8px}}#\37\.5,#\37\.5\.5{>aside>h4{text-transform:uppercase}}dl{>dt{float:left;padding-right:0.999ch;&:after{content:' -'}}>dd{margin-bottom:14.9px;white-space:pre-wrap;&:has(>table),&:has(>p){white-space:normal}}}header>dl{>dt{text-transform:uppercase}>dt:after{content:':'}>dd{margin-bottom:29.8px}&:nth-of-type(1){>dt{padding-right:2ch}>dt:first-child{padding-left:3ch;padding-right:1ch;text-transform:none;+dd{margin-bottom:44.7px}}}&:nth-of-type(2)>dd{td{min-width:22ch;padding-right:1ch}}&:nth-of-type(3){margin-bottom:29.8px;>dt{text-transform:none}>dd{margin-bottom:0}>dt:last-of-type{margin-left:18ch;margin-right:1ch}}&:nth-of-type(4)>dd>p{margin-left:10ch;margin-bottom:0;width:50ch;&:nth-of-type(2n-1){margin-bottom:29.8px}&:nth-of-type(2n+3){width:40ch;&:before{content:'________________________________________\A'}}}}ul{list-style:none;margin-bottom:14.9px;li>&{margin-bottom:0}>li{padding-left:8ch;a[id]{transform:translateX(-8ch)}}>li:has(>code){padding-left:8ch;max-width:55ch;white-space:pre}section>&>li:has(>span){>span{display:inline-block;visibility:hidden;width:5ch;white-space:pre}}}ol{list-style-type:none;>li{position:relative;padding-left:9ch;a[id]{transform:translateX(-9ch)}&:before{content:counter(list-item,decimal) ".";position:absolute;width:3ch;left:4ch;text-align:right}}h3+&{margin-top:29.8px}#\37\.3\.5 &{margin-bottom:29.8px}#DSR &{margin-top:44.7px}}#Contents{>hgroup{text-transform:uppercase;margin-bottom:29.8px;>h2{margin-bottom:44.7px;padding-left:33ch}>p{padding-left:16ch;text-indent:-16ch;>br{margin-top:-14.9px;display:block;content:' '}}}a[href]{background:#ffffff;position:relative;z-index:1;text-indent:0;&:nth-of-type(1):after{content:'\A0'}&:nth-of-type(2){position:absolute;right:0ch;&:before{content:'\A0' '7-'}}}ul>li{padding-left:22ch;>ul>li{padding-left:2ch}&:first-child>ul>li:last-child{padding-left:0}}ol{>li{padding:0;>a[id]{transform:none}&:before{content:"7." counters(list-item,".");padding-left:8ch;padding-right:5ch;position:static}&:has(>a>br){ol>li &{padding-left:18ch;text-indent:-18ch}ol>li>ol>li &{padding-left:20ch;text-indent:-20ch}}}}>ol>li>a:first-child{text-transform:uppercase}ol>li:nth-of-type(n+10):before{padding-right:4ch}ol[start]>li:first-child:before{display:none}li>span{color:transparent;&:after{content:'. . . . . . . . . . . . . . . . . . . . .';color:#000000;position:absolute;right:0ch}}}#Index{>h2{text-align:center;text-transform:none;padding-right:1ch;&:before{content:none}&:after{content:'\A-------------'}}>ul{column-count:2;column-gap:1ch;width:71ch;height:774.8px;a[href]{white-space:pre}a[href]:before{content:'7-'}>li{padding-left:4ch;text-indent:-4ch;>ul>li{padding-left:2ch}}li:not(:has(>ul)){white-space:pre}&:nth-of-type(1)>li{&:nth-child(2),&:nth-child(3),&:nth-child(9),&:nth-child(10),&:nth-child(12),&:nth-child(13),&:nth-child(14),&:nth-child(17),&:nth-child(20),&:nth-child(21),&:nth-child(34){margin-top:14.9px}}&:nth-of-type(2)>li{&:nth-child(4),&:nth-child(6){margin-top:14.9px}}}}table{margin-bottom:29.8px}th,td{box-sizing:border-box;white-space:pre-wrap}th{vertical-align:bottom;text-align:left;tr:last-child>&{padding-bottom:14.9px}}td{vertical-align:top;&:has(>a[id]){max-width:0}}#\37\.4\.1>table{th:last-child{min-width:22ch;transform:translateX(-7ch)}td:nth-child(1){min-width:20ch}td:nth-child(2){min-width:33ch}td:nth-child(3){width:3ch}tr:last-child>td:last-child{padding-left:2ch}tr:last-child>*:first-child{position:relative;&:after{content:'--------------------------------------------------------------------';position:absolute;left:0;top:14.9px;white-space:pre}}}#\37\.5{table{th:last-child{position:absolute;transform:translateX(-16ch)}td:nth-child(1){min-width:8ch}td:nth-child(2){min-width:44ch}}>section:nth-of-type(n+4)>table{td:nth-child(2){min-width:42ch}}}#\37\.5\.1 table{margin-left:2ch;td:nth-child(1){min-width:10ch}td:nth-child(2){min-width:39ch}}#\37\.5\.3>table{th:last-child{transform:translateX(-17ch)}}#\37\.5\.4>table{th:last-child{transform:translateX(-13ch)}}#\37\.5\.5>table{margin-top:29.8px;th:last-child{transform:translateX(-7ch)}tr:nth-child(6),tr:nth-child(57){position:relative;>td:first-child{padding-bottom:14.9px}>td:last-child{position:absolute;left:0;text-indent:50ch}}}#\37\.5\.8>table{margin-top:29.8px;th:last-child{transform:translateX(-6ch)}}#DSR>table{th{padding-bottom:29.8px}th:first-child{position:relative;&:after{content:'=======================================================';position:absolute;left:0;top:29.8px;white-space:pre}}th:last-child{padding-left:8ch}td{padding-bottom:14.9px}td:nth-child(1){min-width:16ch}td:nth-child(2){min-width:54ch}margin-bottom:0}pre{>code{display:block;margin-left:7ch;#\37\.3\.1\.1 &{margin-left:2ch;padding-bottom:14.9px}#\37\.3\.2 &{margin-left:4ch}#\37\.3\.4 &,#\37\.3\.5 &{margin-left:4ch;padding-bottom:14.9px}#\37\.3\.11 &{margin-left:2ch}}>samp{display:block;margin-left:8ch;#\37\.8\.2 &{margin-left:3ch;padding-bottom:14.9px}#\37\.8\.2\.4 &{margin-left:4ch}#\37\.8\.2\.4\.2 &{margin-left:2ch;padding-bottom:0}}+p{margin-top:14.9px}}div{margin:14.9px 0;>p{float:left}>pre>samp{display:block;margin-left:16ch}>pre ~ *{margin-top:14.9px}}#MC0>div>pre>samp{margin-left:17ch}figure{margin-bottom:14.9px;margin-left:11ch}section:has(>h4>span){>h4{display:grid;grid-template-columns:57ch 10ch;margin-bottom:0;white-space:normal;text-transform:uppercase;text-indent:0;padding:0;&:after{content:'-------------------------------------------------------------------------';position:absolute;transform:translateY(14.9px);width:70ch;overflow:hidden;white-space:pre}>span{color:transparent;grid-row:2;grid-column:1}}>pre>code{margin-left:0;margin-bottom:14.9px}>div+p>em{min-width:14ch}&#DSR{>h4{grid-template-columns:59ch 10ch;&:after{width:73ch}}>p:first-of-type>em{min-width:8ch}>p:nth-of-type(3){width:64ch}}&#MC5\/MC4{>h4{grid-template-columns:55ch 10ch;&:after{width:66ch}}}&#MC\?5\/MC\?4{>h4{margin-top:44.7px}>div+p>em{min-width:13ch}>p:nth-of-type(4){margin-bottom:0}}&#MC\?9\/MC\?8{>h4{margin-top:44.7px}>p:first-of-type>em{margin:14.9px 0}>div+p>em{min-width:11ch}>ol{margin-bottom:29.8px;transform:translateX(-1ch);>li{width:56ch}}>ul>li{padding-left:4ch}}&#DECPFF{>h4{margin-top:44.7px;grid-template-columns:60ch 10ch;&:after{width:72ch}}}&#DECPEX{>h4{grid-template-columns:62ch 10ch;&:after{width:72ch}}>p:first-of-type{margin-top:14.9px}}&#MC0{>h4{grid-template-columns:60ch 10ch}>p:first-of-type>em{min-width:8ch}>p:nth-of-type(2)>em{min-width:9ch}>div+p>em{min-width:11ch}}&#MC\?1{>h4{grid-template-columns:58ch 10ch;&:after{width:68ch}}>div+p>em{min-width:11ch}>p:nth-of-type(3){display:inline}>p:nth-of-type(4){display:inline;&:before{content:' b2 '}}>p:nth-of-type(5){margin-top:29.8px}>pre{margin-bottom:29.8px}#\37-53,#\37-55{margin-bottom:44.7px}}}em{font-style:normal;display:inline-block;padding-right:0.999ch;min-width:7ch}#\37\.4{em{text-transform:uppercase}h4+p:has(>em){margin-top:29.8px}}#\37\.8\.2\.4 em{text-transform:uppercase}#\37\.3\.10>h3{margin-bottom:29.8px}#\37\.4\.0\.2>ul>li{padding-left:21ch;text-indent:-13ch;&:last-child>span{width:9ch}}#\37\.4\.0\.3>ul,#\37\.4\.0\.4>ul{>li:nth-child(5)>span{width:12ch}>li:nth-child(6)>span{width:11ch}}#\37\.4\.2>ul{&:first-of-type>li{padding-left:13ch;>span{&:before{content:'\A0-';visibility:visible}width:14ch}&:nth-child(3)>span{width:7ch}&:nth-child(4)>span{width:4ch;margin-bottom:14.9px}}&:last-of-type{>li{padding-left:8ch}+p{width:60ch}}}#\37\.5\.3,#\37\.5\.4,#\37\.5\.5{margin-top:44.7px}#\37\.8\.2\.4\.1>section{margin-bottom:44.7px}#\37\.8\.2\.4\.1\.1>p:last-child{margin-left:4ch;width:60ch}#\37\.8\.2\.4\.1\.2>figure{margin-top:29.8px}#\37\.8\.2\.4\.1\.3>figure{margin-left:4ch;&:first-of-type{margin-left:8ch;margin-top:44.7px}}#\37\.8\.2\.4\.2{>p:has(+ul){margin-left:2ch;margin-bottom:0}>ul{>li{padding-left:10ch;text-indent:-6ch;white-space:pre-wrap;max-width:50ch;>ul{white-space:collapse;margin-bottom:-14.9px;>li{padding-left:6ch;white-space:pre-wrap}}&:has(>pre){min-width:55ch;white-space:pre-wrap}>pre{text-indent:0;margin-top:14.9px}}}}header{counter-reset:page}a[id]{display:block;position:relative;left:-107px;padding-left:107px;padding-right:calc(709px - 66.01ch);width:66.01ch;height:29.8px;margin-top:165px;margin-bottom:29.8px;border-top:11px solid #d4d4d8;padding-top:70px;white-space:pre;pointer-events:none;&:before{--content:'VSRM - Printer Port Extension  EL-00070-07\A' '*** COMPANY CONF - DEC Internal Use Only  28-Apr-1987';content:var(--content)}&:after{counter-increment:page;content:'Page 7-' counter(page);position:absolute;top:63px;right:calc(709px - 66.01ch);line-height:29.8px;text-align:right;direction:rtl}&#\37-68:after{right:calc(709px - 70.01ch)}}#\37-68{margin-top:135px}#\37-53,#\37-55{margin-top:150px}#\37-8,#\37-12,#\37-30,#\37-66{margin-top:180px}#\37-3,#\37-28,#\37-48,#\37-64{margin-top:195px}#\37-21,#\37-36{margin-top:209px}#\37-62{margin-top:224px}#\37-37,#\37-60{margin-top:239px}#\37-9,#\37-19,#\37-31{margin-top:254px}#\37-2{margin-top:268px}#\37-59{margin-top:269px}#\37-35,#\37-63{margin-top:284px}#\37-22{margin-top:299px}#\37-24,#\37-39{margin-top:344px}#\37-61{margin-top:388px}#\37-38{margin-top:418px}#\37-34{margin-top:642px}#\37-58{margin-top:671px}#\37-32{margin-top:835px}#\37-65{margin-top:850px}#\37-49{margin-top:925px}body{>header,>main,>footer{>a[id]:first-child{margin-top:0}}>header{padding-bottom:597px}>main{padding-bottom:90px}>footer{padding-bottom:180px}}</style>
+</head>
+<body>
+<header>
+<a id="7-1"></a>
+<hgroup>
+<h1>Video Systems Reference Manual</h1>
+<h2>Printer Port Extension</h2>
+</hgroup>
+<dl>
+<dt>Document Identifier</dt>
+<dd><p>A-DS-EL00070-07-0 Rev AX12, 28-Apr-1987</p></dd>
+<dt>Abstract</dt>
+<dd><p>This  section  describes  the  characteristics  of  the Printer  Port  extension to the Level 2 and Level 3 Character Cell Display service class.  It includes  both  the  control  functions required  to  cause transmission from the terminal to the printer, and the syntax of the  coded  interchange  at  the  printer  port. Note:  The Level 1 Printer Port Extension consists of a sub-set of the functions described in this standard.   At  the  present  time there  is  no  separate  specification  of  the  Level  1 required functions.</p></dd>
+<dt>Applicability</dt>
+<dd><p>Mandatory for  Engineers  designing  hardware  for terminal  products and Software Engineers designing programs using terminal interfaces.  Additional requirements are defined  in  the section on "Concepts and Conformance Criteria" (EL00070-01).</p></dd>
+<dt>Status</dt>
+<dd><p>FOR REVIEW ONLY</p></dd>
+</dl>
+<aside>
+<p>The material contained within this document is assumed to define mandatory standards unless it is clearly marked as:  (a) not mandatory; or (b) guidelines.  Material which is marked as "not mandatory" is considered to be of potential benefit to the corporation and should be followed unless there are good reasons for non-compliance. "Guidelines" define approaches and techniques which are considered to be good practice, but should not be considered as requirements.</p>
+</aside>
+<aside>
+<p>The information in this publication is for INTERNAL DIGITAL USE ONLY;  do not distribute this information  to anyone who is not an employee of Digital.</p>
+</aside>
+<a id="7-2"></a>
+<dl>
+<dt>Title</dt>
+<dd>VIDEO SYSTEMS - Printer Port Extension</dd>
+<dt>Document Identifier</dt>
+<dd>A-DS-EL00070-07-0 Rev. AX12, 28-Apr-1987</dd>
+<dt>Revision History</dt>
+<dd><table>
+<tbody>
+<tr><td>Revision AX11</td><td>18-Mar-1985</td></tr>
+<tr><td>Revision AX12</td><td>28-Apr-1987</td></tr>
+</tbody>
+</table>
+</dd>
+<dt>Files</dt>
+<dd><table>
+<tbody>
+<tr><td>User Documentation</td><td>EL070S7.mem</td></tr>
+<tr><td>Internal Documentation</td><td>EL070S7.rno</td></tr>
+<tr><td></td><td>EL070S7.rnt</td></tr>
+<tr><td></td><td>EL070S7.rnx</td></tr>
+<tr><td></td><td>ZZFALLBACK_DEC_CRM.rno</td></tr>
+<tr><td></td><td>ZZFALLBACK_DEC_SPECIAL.rno</td></tr>
+<tr><td></td><td>ZZFALLBACK_DEC_SUPPLEMENTAL.rno</td></tr>
+<tr><td></td><td>ZZFALLBACK_DEC_TECHNICAL.rno</td></tr>
+<tr><td></td><td>ZZFALLBACK_ISO_SUPPLEMENTAL.rno</td></tr>
+</tbody>
+</table>
+</dd>
+</dl>
+<dl>
+<dt>Document Management Group</dt>
+<dd>Terminal Interface Architecture</dd>
+<dt>Responsible Department</dt>
+<dd>Video Architecture Group</dd>
+<dt>Responsible Individual</dt>
+<dd>Peter Sichel</dd>
+<dt>                  Authors</dt>
+<dd>PAS</dd>
+</dl>
+<dl>
+<dt>Approval</dt>
+<dd><p>This document prepared by the TBU Architecture Group has been reviewed and approved by the TIA Review Board for use throughout Digital.</p>
+<p>******* STATUS: For Review Only ********</p>
+<p>Peter Conklin, Technical Director, Terminals Business Unit</p>
+<p>******* STATUS: For Review Only ********</p>
+<p>Eric Williams, Standards Process Manager</p></dd>
+</dl>
+<p>Direct  requests  for  further  information   to   Peter   Sichel, PKO3-1/10C, DTN 223-5162, VIDEO::TERMARCH</p>
+<p>Copies of this document can be ordered from Standards and  Methods Control, LJO1/I2, DTN 226-2484, JOKUR::SMC</p>
+<p>Please provide your name, badge number, cost center, mailstop, and ENET node.</p>
+<a id="7-3"></a>
+<section id="Contents">
+<hgroup>
+<h2>Contents</h2>
+<p>Chapter 7<br />Printer Port Extension</p>
+</hgroup>
+<ol>
+<li><a href="#7.1">Introduction</a><span> … </span><a href="#7-5">4</a></li>
+<li><a href="#7.2">Terminology</a><span> … </span><a href="#7-5">4</a></li>
+<li><a href="#7.3">State Descriptions</a><span> … </span><a href="#7-6">5</a><ol>
+<li><a href="#7.3.1">Printer Port Flow Control</a><span> … </span><a href="#7-6">5</a><ol>
+<li><a href="#7.3.1.1">XON/XOFF</a><span> … </span><a href="#7-6">5</a></li>
+<li><a href="#7.3.1.2">Data Set Ready (DSR)</a><span> … </span><a href="#7-7">6</a></li>
+<li><a href="#7.3.1.3">Data Terminal Ready (DTR)</a><span> … </span><a href="#7-7">6</a></li>
+</ol>
+</li>
+<li><a href="#7.3.2">Printer Port Status</a><span> … </span><a href="#7-8">7</a></li>
+<li><a href="#7.3.3">Printer Port Status On Virtual Terminals</a><span> … </span><a href="#7-9">8</a></li>
+<li><a href="#7.3.4">Printer Port Communications Environment</a><span> … </span><a href="#7-9">8</a></li>
+<li><a href="#7.3.5">Printer To Host Communications</a><span> … </span><a href="#7-9">8</a></li>
+<li><a href="#7.3.6">Printer Controller Mode</a><span> … </span><a href="#7-10">9</a><ol>
+<li><a href="#7.3.6.1">Printer Controller Mode On Virtual<br />Terminals (guideline)</a><span> … </span><a href="#7-11">10</a></li>
+</ol>
+</li>
+<li><a href="#7.3.7">Auto Print Mode</a><span> … </span><a href="#7-11">10</a><ol>
+<li><a href="#7.3.7.1">Auto Print Mode On Virtual Terminals<br />(guideline)</a><span> … </span><a href="#7-12">11</a></li>
+</ol>
+</li>
+<li><a href="#7.3.8">Print Form Feed Mode</a><span> … </span><a href="#7-12">11</a></li>
+<li><a href="#7.3.9">Print Extent Mode</a><span> … </span><a href="#7-12">11</a></li>
+<li><a href="#7.3.10">Local Controller Mode (not Mandatory)</a><span> … </span><a href="#7-12">11</a></li>
+<li><a href="#7.3.11">Printer Style</a><span> … </span><a href="#7-13">12</a></li>
+</ol>
+</li>
+<li><a href="#7.4">Transmitting Print Data</a><span> … </span><a href="#7-13">12</a><ol start="0">
+<li><ol>
+<li><a href="#7.4.0.1">Print National Only (7-bit Or 8-bit<br />Printer Port Environment)</a><span> … </span><a href="#7-13">12</a></li>
+<li><a href="#7.4.0.2">Print National + Line Drawing (7-bit Or<br />8-bit Printer Port Environment)</a><span> … </span><a href="#7-14">13</a></li>
+<li><a href="#7.4.0.3">Print All Characters (7-bit Printer Port<br />Environment)</a><span> … </span><a href="#7-15">14</a></li>
+<li><a href="#7.4.0.4">Print All Characters (8-bit Printer Port<br />Environment)</a><span> … </span><a href="#7-16">15</a></li>
+</ol>
+</li>
+<li><a href="#7.4.1">National Replacement Character Sets</a><span> … </span><a href="#7-18">17</a></li>
+<li><a href="#7.4.2">Display Attributes</a><span> … </span><a href="#7-19">18</a></li>
+<li><a href="#7.4.3">Trailing Spaces</a><span> … </span><a href="#7-19">18</a></li>
+</ol>
+</li>
+<li><a href="#7.5">Fallback Presentation Of Graphic Characters</a><span> … </span><a href="#7-20">19</a><ol>
+<li><a href="#7.5.1">NRC Fallbacks</a><span> … </span><a href="#7-20">19</a></li>
+<li><a href="#7.5.2">DEC Special Graphics Fallbacks</a><span> … </span><a href="#7-20">19</a></li>
+<li><a href="#7.5.3">DEC Supplemental Fallbacks</a><span> … </span><a href="#7-21">20</a></li>
+<li><a href="#7.5.4">ISO Latin-1 Supplemental Fallbacks</a><span> … </span><a href="#7-23">22</a></li>
+<li><a href="#7.5.5">DEC Technical Character Set Fallbacks</a><span> … </span><a href="#7-25">24</a></li>
+<li><a href="#7.5.6">DRCS Fallbacks</a><span> … </span><a href="#7-28">27</a></li>
+<li><a href="#7.5.7">User Preference Supplemental Set Fallbacks</a><span> … </span><a href="#7-28">27</a></li>
+<li><a href="#7.5.8">Control Representation Mode Fallbacks (not<br />Mandatory)</a><span> … </span><a href="#7-28">27</a></li>
+</ol>
+</li>
+<li><a href="#7.6">Print Operations</a><span> … </span><a href="#7-30">29</a><ol>
+<li><a href="#7.6.1">Print Page Or Scrolling Region</a><span> … </span><a href="#7-30">29</a></li>
+<li><a href="#7.6.2">Print Screen (not Mandatory)</a><span> … </span><a href="#7-30">29</a><a id="7-4"></a></li>
+<li><a href="#7.6.3">Print All Pages (guideline)</a><span> … </span><a href="#7-30">29</a></li>
+<li><a href="#7.6.4">Print Line </a><span> … </span><a href="#7-31">30</a></li>
+</ol>
+</li>
+<li><a href="#7.7">Control Functions</a><span> … </span><a href="#7-32">31</a></li>
+<li><a href="#7.8">Graphics Printing</a><span> … </span><a href="#7-58">57</a><ol>
+<li><a href="#7.8.1">Graphics Print Operations</a><span> … </span><a href="#7-58">57</a><ol>
+<li><a href="#7.8.1.1">Graphics Print Screen</a><span> … </span><a href="#7-58">57</a></li>
+<li><a href="#7.8.1.2">Graphics Print Region</a><span> … </span><a href="#7-58">57</a></li>
+</ol>
+</li>
+<li><a href="#7.8.2">Sixel Printing</a><span> … </span><a href="#7-58">57</a><ol>
+<li><a href="#7.8.2.1">Color And Monochrome Sixels</a><span> … </span><a href="#7-59">58</a></li>
+<li><a href="#7.8.2.2">Expanded Print</a><span> … </span><a href="#7-59">58</a></li>
+<li><a href="#7.8.2.3">Rotated Print</a><span> … </span><a href="#7-59">58</a></li>
+<li><a href="#7.8.2.4">Sixel Graphics Level (Guideline)</a><span> … </span><a href="#7-60">59</a><ul>
+<li><a href="#7.8.2.4.1">Level 1 Sixel Devices</a><span> … </span><a href="#7-60">59</a><ul>
+<li><a href="#7.8.2.4.1.1">COMPRESSED Sixel Print Option</a><span> … </span><a href="#7-60">59</a></li>
+<li><a href="#7.8.2.4.1.2">EXPANDED Sixel Print Option</a><span> … </span><a href="#7-61">60</a></li>
+<li><a href="#7.8.2.4.1.3">ROTATED Sixel Print Option</a><span> … </span><a href="#7-61">60</a></li>
+</ul>
+</li>
+<li><a href="#7.8.2.4.2">Level 2 Sixel Devices</a><span> … </span><a href="#7-62">61</a><ul>
+<li><a href="#7.8.2.4.2.1">COMPRESSED Sixel Print Option</a><span> … </span><a href="#7-63">62</a></li>
+<li><a href="#7.8.2.4.2.2">EXPANDED Sixel Print Option</a><span> … </span><a href="#7-63">62</a></li>
+<li><a href="#7.8.2.4.2.3">ROTATED Sixel Print Option</a><span> … </span><a href="#7-64">63</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><a href="#7.9">Change History</a><span> … </span><a href="#7-65">64</a><ol>
+<li><a href="#7.9.1">Revision 0.0 To AX10</a><span> … </span><a href="#7-65">64</a></li>
+<li><a href="#7.9.2">Rev AX10 To AX11</a><span> … </span><a href="#7-65">64</a></li>
+<li><a href="#7.9.3">Rev AX11 To AX12</a><span> … </span><a href="#7-65">64</a></li>
+</ol>
+</li>
+</ol>
+</section>
+</header>
+<main>
+<a id="7-5"></a>
+<section id="7.1">
+<h2>1  Introduction</h2>
+<p>The use of a Printer Port forms an extension to the Level 1, Level 2,  and  Level  3  Character  Cell  Display  service  classes.   A conforming device may provide  an  auxiliary  communications  port which  can be used to support a printing device.  A means shall be provided to transfer data from the display to the printer port, as well  as  to  relay data received at the host port directly to the printer port.  The device must transfer  data  from  the  display, including the character codes, character renditions, and character sets,  on  a  per-line,  per-scrolling  region,  per-screen,   and per-page basis.</p>
+<p>The Printer Port  uses  serial  asynchronous  communications  with independently  setable communication parameters.  Level 3 requires a fully bi-directional printer  port  to  allow  printer  to  host communication  in  addition  to  local printing (not mandatory for Level 1 or Level 2).</p>
+</section>
+<section id="7.2">
+<h2>2  Terminology</h2>
+<dl>
+<dt>Auto Print Mode</dt>
+<dd>A printer port control which, when  set,  causes the  contents  of the Active Line to be transmitted to the printer port whenever the Active Position is moved off the Active Line  as a  result  of  a  Line Feed, Form Feed or Vertical Tab command, or autowrap.</dd>
+<dt>Fallback Transmission</dt>
+<dd>A  substitute  transmission  used  when  a character   cannot  be  transmitted  in  a  particular  mode;  for instance, when in NATIONAL and LINE DRAWING mode and  a  character from the DEC Supplemental set is encountered.</dd>
+<dt>Printer Controller Mode</dt>
+<dd>A printer port control that  causes  all data  received  at the host port to be transferred directly to the printer port without interpretation by the display terminal.</dd>
+<dt>Printer To Host Mode</dt>
+<dd>A printer port control that causes all data received at the printer port (other than XON/XOFF flow control) to be relayed to the host.</dd>
+<dt>Print Extent Mode</dt>
+<dd>A printer port control used to select the area of  the display to be transmitted to the printer port when a Print Page operation is performed.</dd>
+<dt>Print Form Feed Mode</dt>
+<dd>A printer port  control  which,  when  set, transmits a Form Feed (FF) control character to the printer at the conclusion of each Print Page or Print Screen operation.</dd>
+<dt>Printer Port</dt>
+<dd>An auxiliary communication  port  that  supports  a printing device.<a id="7-6"></a></dd>
+<dt>Print Line</dt>
+<dd>A printer control that causes the line containing the Active  Position  to  be  transmitted  to the printer port and the print function to be executed.</dd>
+<dt>Print Page</dt>
+<dd>A printer control that causes the page containing the Active  Position  to  be  transmitted  to the printer port and the print function to be executed.  The extent of the area which is to be  transmitted is determined by the setting of Print Extent Mode. "Print Page" was previously called "Print Screen" in Level  1  and Level  2.  Page refers to the logical display as seen by the host, and may be larger or smaller than the physical screen.</dd>
+<dt>Print Screen</dt>
+<dd>A printer control that causes  the  visible  screen image to be transmitted to the printer port and the print function to be executed.</dd>
+<dt>Virtual Terminal</dt>
+<dd>Consists of all the context (state information) of  a  real terminal but is able to share physical resources (such as the keyboard, display,  and  comm  lines)  with  other  virtual terminals.  This allows a single physical device to appear as more than one terminal to a host computer.</dd>
+<dt>Session</dt>
+<dd>A connection between a single  virtual  terminal  and  a host computer.</dd>
+</dl>
+</section>
+<section id="7.3">
+<h2>3  State Descriptions</h2>
+<section id="7.3.1">
+<h3>3.1  Printer Port Flow Control</h3>
+<p>The Printer Port uses two flow control mechanisms:</p>
+<ol>
+<li><p>XON/XOFF</p></li>
+<li><p>Data Set Ready (DSR)</p></li>
+</ol>
+<section id="7.3.1.1">
+<h4>3.1.1  XON/XOFF</h4>
+<p>When  XON/XOFF  flow  control  is  enabled,  XON  and   XOFF   are interpreted as flow control characters and are not buffered in the printer port input buffer or transmitted to the host.</p>
+<p>The terminal recognizes XOFF (1/3) as a request from  the  printer device  to  suspend  the  transmission  of  characters.  When this character  is  received  by  the  terminal,  transmission  of  all characters  (other  than XON or XOFF) to the printer is suspended.  When the printer port is in this state, it is said to  be  in  the XOFF state.</p>
+<p>The terminal recognizes XON (1/1) as a request  from  the  printer device  to  resume  the  transmission of characters, if any.  When <a id="7-7"></a>this character is received by the terminal, the XOFF state of  the printer  is  cleared and transmission of characters in the printer port output buffer is resumed.  If the line was not XOFF-ed,  this character is ignored.</p>
+<p>When Printer  To  Host  Communication  is  enabled  (bidirectional printer  port only), the terminal transmits an XOFF to the printer device if a character other than XON or XOFF is received from that device,  and  (1)  the  number  of  characters in the input buffer reaches the first XOFF point for the first time since the last XON was sent; (2) the number of characters in the input buffer reaches the second XOFF point for the first time since the  last  XON  was sent;  or  (3)  the  input buffer is full.  If the input buffer is full, the received character is discarded.</p>
+<p>The terminal transmits an XON  to  the  printer  device  when  the printer  port  input buffer empties to the XON point, and the last flow control sent was XOFF.</p>
+<p>When XON/XOFF flow control is disabled at both  the  printer  port and  the  host  port,  characters  XON and XOFF may be sent to the printer  in  Printer  Controller  mode,  and  are   buffered   and transmitted  to  the  host  when  Printer To Host communication is enabled.</p>
+<pre><code>PRINTER_PORT_FLOW_CONTROL: (XOFF, NO_XOFF);
+</code></pre>
+</section>
+<section id="7.3.1.2">
+<h4>3.1.2  Data Set Ready (DSR)</h4>
+<p>The terminal polls DSR on the  printer  port  before  transmitting each  character.   If  DSR  is  not  being asserted by the printer device, transmission of the character is suspended  until  DSR  is asserted  by  the  printer  device.  DSR takes precedence over the XON/XOFF state.</p>
+<p>All print commands will be ignored unless the  terminal  has  seen Data  Set Ready (DSR) since the last power-up, or Reset to Initial State (<a href="EL-00070-0D.html#RIS">RIS</a>).  If at any time the printer sets DSR low (for example to  indicate paper out), printing is suspended.  When DSR is again set high, printing can resume.</p>
+</section>
+<section id="7.3.1.3">
+<h4>3.1.3  Data Terminal Ready (DTR)</h4>
+<p>If DTR is not being used for hardware flow control,  the  terminal asserts DTR on the printer port whenever the terminal is turned on and not in self-test.</p>
+<p>Conforming Devices may support  the  use  DTR  for  hardware  flow control.  The following description is intended as a guideline.</p>
+<a id="7-8"></a>
+<p>When hardware flow control is selected, DTR is asserted  any  time the  terminal is not in self-test, and the terminal's printer port input buffer is below the first XOFF point.   DTR  is  de-asserted when  the  printer port input buffer is filled up to or beyond the first  XOFF  point.   If  the  input  buffer  is  full,   received characters  are  discarded  until there is again room in the input buffer.</p>
+<p>When hardware flow control is  used,  only  a  few  characters  of buffer space are required to prevent loss of data.  The first XOFF point is suggested as the flow control  threshold  because  it  is often  adjustable  allowing  the  user  to  tailor the buffer size depending the interaction requirements.</p>
+</section>
+</section>
+<section id="7.3.2">
+<h3>3.2  Printer Port Status</h3>
+<p>The printer port can be  in  one  of  three  states  depending  on whether  the  terminal  believes there is a printer available, and whether the printer is ready to accept  data.   The  printer  port status  may  be  determined  from  the  host using a <a href="#DSR">Device Status Report</a> control sequence.</p>
+<p>If DSR (Data Set Ready) has not been asserted on the printer  port since  the  last  power-up  or  Reset  to Initial State (<a href="EL-00070-0D.html#RIS">RIS</a>), the terminal assumes there is no printer.  The  device  status  report (response  from  terminal  to  host)  will  indicate  "Printer not available".  In this state, all print commands which  require  the printer port are ignored.</p>
+<p>If the printer port has seen DSR since  power-up,  but  it  is  no longer asserted on the printer port, the device status report will indicate "Printer not ready".  In  this  state,  print  operations shall be queued.  Updates that would affect the data to be printed are suspended until the data has been transferred to  the  printer port.   If  the terminal's host port input buffer fills, XOFF will be sent to the host (if enabled).</p>
+<p>If the printer port  sees  DSR,  the  device  status  report  will indicate  "Printer  ready".   In  this state, print operations can proceed immediately.  Note updates that would affect the  data  to be printed are still suspended until the data has been transferred to the printer port.  The  printer  port  may  provide  an  output buffer to minimize interruption of display updates.</p>
+<pre><code>PRINTER_STATUS:
+    (PRINTER_READY, PRINTER_NOT_READY, PRINTER_NOT_AVAILABLE);
+</code></pre>
+</section>
+<a id="7-9"></a>
+<section id="7.3.3">
+<h3>3.3  Printer Port Status On Virtual Terminals</h3>
+<p>When  Virtual  Terminals   are   supported   (Session   Management Extension),  the  terminal will report two additional printer port states to indicate the printer port is in use by another session.</p>
+<p>If the Data Set Ready signal at the printer port is asserted,  but an  alternate  session  is  currently  sending  information to the printer, the device status report will  indicate  "Printer  Busy." This  is  functionally  equivalent  to  the  "Printer  Not  Ready" condition above.</p>
+<p>If the printer port is explicitly assigned to another  session  so that  the  current  session  may  not access the printer port, the device status report will indicate "Printer Not Assigned." This is functionally  equivalent  to the "Printer Not Available" condition above.</p>
+</section>
+<section id="7.3.4">
+<h3>3.4  Printer Port Communications Environment</h3>
+<p>The printer  port  can  be  set  for  either  an  8-bit  or  7-bit communications  line  environment  independently of the Host Port.  In the 7-bit environment, all data will be  transmitted  as  7-bit characters.   In  the  8-bit  environment,  each character will be transmitted as an 8-bit character.  If the host  port  is  set  to 8-bits  and  the  printer  port  is  set  to  7-bits,  C1  control characters will be converted to ESC Fe sequences  at  the  printer port, and GR characters will have their eighth bit stripped.</p>
+<pre><code>PRINTER_PORT_ENVIRONMENT: (EIGHT_BIT, SEVEN_BIT);
+</code></pre>
+</section>
+<section id="7.3.5">
+<h3>3.5  Printer To Host Communications</h3>
+<p>Printer To Host Mode relays all input from the printer port  other than  XON/XOFF  flow  control back to the host (enabling session).  Printer To Host mode may be selected from the host using the Media Copy (<a href="#MC?9/MC?8">MC</a>) control function.</p>
+<p>Character input from the printer port is  interleaved  with  input from the keyboard as it is received.  Arbitration between keyboard and  auxiliary  device  input  is  the   responsibility   of   the application   program   and  user.   The  terminal  only  provides arbitration to  the  keystroke,  control  function,  or  character level.</p>
+<p>Characters associated with a single keystroke, or control function are sent as contiguous bytes.  When the terminal sees an ESC, CSI, DCS, OSC, PM, or  APC  character,  the  escape  sequence,  control sequence,  or  control string, will be buffered until a terminator is received for the sequence, or until the input buffer is full.</p>
+<a id="7-10"></a>
+<p><em>Notes:</em></p>
+<ol>
+<li><p>Printer To Host Mode functions in Printer Controller Mode as well as other print modes.</p></li>
+<li><p>When  available,  Printer  To  Host  Mode  works  at  all operating  levels (level 1, level 2, and level 3).  8-bit graphic characters may be relayed from the  printer  port even when the conformance level is set to Level 1.</p></li>
+<li><p>If the host port is set to 7-bits, C1 control  characters will  be  converted  to ESC Fe sequences at the host port before re-transmission to the  host,  and  GR  characters will have their eighth bit stripped.</p></li>
+</ol>
+<pre><code>PRINTER_TO_HOST_MODE: (PRINTER_TO_HOST, NO_PRINTER_TO_HOST);
+</code></pre>
+</section>
+<section id="7.3.6">
+<h3>3.6  Printer Controller Mode</h3>
+<p>When Printer Controller Mode is set, all data received at the host port   is   transferred  directly  to  the  printer  port  without interpretation by the display terminal.  The  only  exceptions  to this  rule  are the communications control characters XON and XOFF (DC1 and DC3), NUL, and the  control  sequences  which  cause  the terminal to enter and exit this mode.</p>
+<p>XON and XOFF are used by  the  communications  software  for  flow control  on  the  line  between  the  terminal  and  the host, and independently for flow control on the line  between  the  terminal and  the  printer.   The  terminal  must  intercept the Media Copy control sequences from the host which turn Printer Controller Mode on  and  off,  and  must  execute the sequence which turns Printer Controller Mode off.  These control sequences are  not  passed  to the printer.</p>
+<p>Characters from the keyboard continue to be sent to the host.  The video  display is not updated.  When in Printer Controller Mode no local printer functions will work.  For example:  Print Page  does not work.</p>
+<p>In going from an 8-bit host port  to  a  7-bit  printer  port,  C1 control  characters will be translated to ESC Fe sequences, and GR characters will have the eighth bit stripped  (i.e.,  no  fallback translation  will  be  performed  for  8-bit graphic characters in Printer Controller Mode).</p>
+<aside>
+<h4>Deviation Note</h4>
+<p>On VT220, VT240, and VT241, when the host port was configured   for  a  7-bit  environment,  and  the <a id="7-11"></a>printer  port  was  configured  for  8-bits,   the terminal  would  translate  7-bit  C1  controls to their 8-bit equivalents.  New terminals shall  NOT perform this translation.</p>
+</aside>
+<p>Printer Controller mode can be selected from the  host  using  the Media Copy (<a href="#MC5/MC4">MC</a>) control function.</p>
+<p>When  Control  Representation  Mode  (<a href="EL-00070-0D.html#D.7">CRM</a>)  is  selected,  Printer Controller Mode is temporarily disabled.</p>
+<p>Upon exiting from Printer Controller mode, the state of Auto Print mode  is  UNDEFINED.   That  is,  when  Printer Controller mode is exited, Auto Print Mode may not be in the same state it  was  when Printer Controller Mode was entered.</p>
+<pre><code>PRINTER_CONTROLLER_MODE: (PRINTER_CONTROLLER_OFF,
+                          PRINTER_CONTROLLER_ON);
+</code></pre>
+<aside>
+<h4>Guideline</h4>
+<p>The VT220 sets Auto Print mode off  (normal  print mode) upon exit from Printer Controller mode.</p>
+</aside>
+<section id="7.3.6.1">
+<h4>3.6.1  Printer Controller Mode On Virtual Terminals (guideline)</h4>
+<p>If  the  Printer  is  "assigned"  to  another   session   (virtual terminal),  attempts  to  invoke  Printer  Controller Mode will be ignored.  This is equivalent to the "Printer not available" state, but the Device Status Report will indicate "printer not assigned".</p>
+<p>When the printer assignment is "shared" and the printer is in  use by  another  session,  this  is  equivalent  to  the "printer busy state".  The next action which would cause data to be  transferred to  the  printer will cause this session to wait until the printer is available.  If the input buffer for this  session  fills  while waiting,  the  terminal  will send XOFF (or other flow control) to the host.  Entering Printer Controller Mode forces the printer  to appear busy to other sessions.</p>
+</section>
+</section>
+<section id="7.3.7">
+<h3>3.7  Auto Print Mode</h3>
+<p>When Auto Print Mode is set, any  Line  Feed  (<a href="EL-00070-05.html#LF">LF</a>),  Vertical  Tab (<a href="EL-00070-05.html#VT">VT</a>),  Form  Feed  (<a href="EL-00070-05.html#FF">FF</a>)  control, or the execution of <a href="EL-00070-0D.html#D.6">Auto Wrap</a> if this mode is enabled, will cause the active line to be transferred from the display to the printer port.  The line will be terminated by a Carriage Return (<a href="EL-00070-05.html#CR">CR</a>), followed by  the  same  character  that initiated the print operation (LF, VT, FF, or LF if Auto Wrap).</p>
+<a id="7-12"></a>
+<p>Auto Print mode can be set or cleared by the host using the  Media Copy (<a href="#MC?5/MC?4">MC</a>) control function.</p>
+<pre><code>AUTO_PRINT_MODE: (AUTO_PRINT_OFF,AUTO_PRINT_ON);
+</code></pre>
+<section id="7.3.7.1">
+<h4>3.7.1  Auto Print Mode On Virtual Terminals (guideline)</h4>
+<p>If the Printer is "assigned" to another session, attempts  to  set Auto  Print  mode  will  be ignored.  If the printer assignment is "shared", and the printer is in use by another session (busy), the next  action  which  would  cause  data  to  be transferred to the printer will cause this session  to  wait  until  the  printer  is available.   Entering Auto Print Mode forces the printer to appear busy to other sessions.</p>
+<p>Although Auto Print Mode can keep the printer "busy" indefinitely, it is not "assigned" to the session which invokes Auto Print Mode.  This is to avoid a race condition in  which  the  host  could  not predict whether a print operation will be queued or ignored.</p>
+</section>
+</section>
+<section id="7.3.8">
+<h3>3.8  Print Form Feed Mode</h3>
+<p>Print Form Feed Mode is used to determine whether a Form Feed (<a href="EL-00070-05.html#FF">FF</a>) control  character  shall  be  transmitted  to  the printer at the conclusion of each Print Page or Print Screen operation.   In  the set  state  (Print_FF)  a  Form  Feed shall be sent.  In the reset state (No_Print_FF) no Form Feed is sent.</p>
+<pre><code>PRINT_FORM_FEED_MODE: (PRINT_FF_OFF,PRINT_FF_ON);
+</code></pre>
+</section>
+<section id="7.3.9">
+<h3>3.9  Print Extent Mode</h3>
+<p>Print Extent Mode is used to determine the area of the page to  be transmitted  to  the  printer  when  a  Print  Page  operation  is performed.  In the set state (Complete_Page) the  entire  contents of   the   current  page  is  transmitted.   In  the  reset  state (Scrolling_Region) only the area  of  the  page  between  the  Top Margin and Bottom Margin of the scrolling region (inclusive of the margins) is transmitted.</p>
+<pre><code>PRINT_EXTENT_MODE: (PRINT_SCROLLING_REGION,PRINT_DISPLAY);
+</code></pre>
+</section>
+<section id="7.3.10">
+<h3>3.10  Local Controller Mode (not Mandatory)</h3>
+<p>When both  Local  Mode  and  Controller  Mode  are  selected,  the terminal  is  in  "Local  Controller  Mode"  (Local  Mode  is only selectable by the user under local control).  In Local  Controller Mode,  keyboard  characters are sent directly to the printer port.</p>
+<a id="7-13"></a>
+<p>Note that in regular Local mode  the  keyboard  is  aimed  at  the screen,  while in regular Controller mode the keyboard is aimed at the host.  When "Local  Controller  Mode"  is  exited  to  Printer Controller  Mode,  the  characters accumulated in the receive silo are transmitted to the printer.  When "Local Controller  Mode"  is exited  to  Local  Mode,  the terminal just redirects the keyboard from the printer port to the screen (and parser).  Local  echo  is disabled  while  in  Local  Controller Mode.  <a href="EL-00070-0D.html#D.7">CRM</a> mode is disabled when in local controller mode.</p>
+<p>Local Controller mode is  used  to  allow  keyboard  output  to  a printer.  In local controller mode, the setting of printer to host mode is ignored and  characters  received  from  the  printer  are ignored (except XON and XOFF if XOFF support is enabled).</p>
+</section>
+<section id="7.3.11">
+<h3>3.11  Printer Style</h3>
+<p>Three Printer Style modes are available  to  match  the  range  of character  sets  the printer is capable of supporting.  These are: National Only; National + Line Drawing; and All Characters.  These modes  are  described  in  the  next section on TRANSMITTING PRINT DATA.</p>
+<pre><code>PRINTER_STYLE:
+    (NATIONAL_ONLY, NATIONAL_PLUS_LINE_DRAWING, ALL_CHARACTERS);
+</code></pre>
+</section>
+</section>
+<section id="7.4">
+<h2>4  Transmitting Print Data</h2>
+<p>Each time a print  of  screen  data  is  requested,  three  things happen.  First, the printer is "initialized" to a known or assumed character set state, either via  assumption,  or  via  designating escape  sequences  and/or  locking  shift  sequences.   Next,  the characters  are  transmitted.    This   may   require   additional designating   escape   sequences   and/or  shifts.   Finally,  the transmission is ended by putting the printer into a known state.</p>
+<p>Since the host may access the printer during auto-print mode,  the complete  initialization / transmission / closing sequence is used for each line printed.</p>
+<section id="7.4.0.1">
+<h4>4.0.1  Print  National  Only  (7-bit  Or  8-bit   Printer   Port Environment)</h4>
+<p><em>Assumptions:</em> This mode is included for backward support of "dumb" printers  which do not understand designating escape sequences, or which do not support any  character  set  other  than  a  National Replacement  Character  Set (NRCS).  The terminal and printer have already been configured to use the same  NRC  Set.   The  terminal <a id="7-14"></a>determines  which  NRC  Set  to  use based on the keyboard dialect (ASCII is the NRC Set for North America).  Refer to  the  <a href="#7.4.1">National Replacement Character Set</a> section below.</p>
+<p><em>Initialization:</em> No escape sequences or shifts are  sent.   It  is assumed that the printer is ready to print NRCS characters as GL.</p>
+<p><em>Transmission:</em> The characters are sent.  No  escape  sequences  or shifts are sent.  If a character which is not in the selected NRCS is encountered, fallback is used.  If  8-bits  is  set,  the  most significant  bit  is always zero.  Characters with the "invisible" character attribute are transmitted as spaces.  All other  Display Attributes are ignored.</p>
+<p><em>Closing:</em> No closing sequences are sent.</p>
+<p><em>Fallback:</em> Characters which  have  an  NRCS  equivalent  (have  an identical dot matrix representation to an NRCS character) are sent as the NRCS equivalent.  Otherwise  fallback  is  used  (a  single unsupported  character  maps to one or more supported characters).  Refer to the <a href="#7.5">fallback</a> section and tables later in this chapter.</p>
+</section>
+<section id="7.4.0.2">
+<h4>4.0.2  Print National + Line Drawing  (7-bit  Or  8-bit  Printer Port Environment)</h4>
+<p><em>Assumptions:</em> The printer supports ASCII, the VT100  line  drawing set  (DEC  Special  Graphics),  the current NRCS (when in national mode), designating escape sequences for G0  and  G1,  and  LS0/LS1 (SO/SI).   It  does  not  support  8-bit  controls.   The terminal determines which NRCS to use based on the keyboard dialect  (ASCII is the NRCS for North America).  Refer to the <a href="#7.4.1">National Replacement Character Set</a> section below.</p>
+<p><em>Initialization:</em> The printer is initialized to be sure the desired NRCS  is designated as G0, and DEC Special Graphics (line drawing) is designated as G1.  G0 is invoked.  The sequences sent are:</p>
+<ul>
+<li>ESC ( B<span> &mdash; </span>(Designate ASCII to G0, note other NRC Sets require a different designating sequence)</li>
+<li>ESC ) 0<span> &mdash; </span>(Designate DEC Special Graphics to G1)</li>
+<li>LS0<span> &mdash; </span>(Invoke G0 to GL)</li>
+</ul>
+<p><em>Transmission:</em> The characters are  sent,  using  LS0  and  LS1  to choose  between  NRCS and DEC Special Graphics.  If a character is in both sets (e.g., uppercase letters), it is sent as NRCS.  If  a character  is  in  ASCII  but  not  in  the current NRCS, ASCII is designated as G1 and invoked as needed.   The  next  line  drawing character  encountered  will cause the DEC Special Graphics set to again be designated as G1.  If a character which  is  not  in  the current  NRCS,  ASCII, or DEC Special Graphics set is encountered, fallback is used.  In an 8-bit environment  the  most  significant <a id="7-15"></a>bit is always set to zero.</p>
+<p>In this mode the display attributes are also sent.  Refer  to  the <a href="#7.4.2">Display Attributes</a> section below.</p>
+<p><em>Closing:</em> LS0 is sent, if necessary.  If ASCII was  the  last  set designated   as   G1,  DEC  Special  Graphics  (line  drawing)  is re-designated.  This leaves the  printer  with  NRCS  as  G0,  DEC Special Graphics as G1, and G0 invoked to GL.</p>
+<p><em>Fallback:</em> If the character has an equivalent (the same dot matrix representation)  as  a  character  in either the NRCS, DEC Special Graphics, or ASCII sets, then the equivalent is  used.   Otherwise fallback  is  used  (a single unsupported character maps to one or more supported characters).  Refer to  the  <a href="#7.5">fallback</a>  section  and tables later in this chapter.</p>
+</section>
+<section id="7.4.0.3">
+<h4>4.0.3  Print All Characters (7-bit Printer Port Environment)</h4>
+<p><em>Assumptions:</em> The printer supports all the character sets  in  use by  the terminal, designating escape sequences for G0, G1, G2, G3, and character set shifts LS0, LS1,  SS2  and  SS3.   If  the  <a href="EL-00070-03.html#3.6.3">User Preference  Supplemental set</a> (UPSS) extension is used, the printer has already been configured with the same  UPSS.   If  a  <a href="EL-00070-10.html">DRCS</a>  is used,  the  host  has  already  down  line  loaded  the  printer's character  set(s)  to  match  the  video  terminal's  (in  Printer Controller  Mode,  if  necessary).   Printers with changeable font cartridges  must  support  all  of  the   above   character   sets simultaneously.  No font selection commands will be used.</p>
+<p><em>Initialization:</em> The printer is initialized to correspond with the terminal.   The character sets currently designated as G0, G1, G2, and G3 in the terminal are designated as G0, G1, G2, and G3 in the printer  respectively.   G0  is invoked to GL.  The sequences sent are:</p>
+<ul>
+<li>ESC ( Dscs<span> &mdash; </span>(Designate a 94 character set as G0)</li>
+<li>ESC ) Dscs<span> &mdash; </span>(Designate a 94 character set as G1)</li>
+<li>ESC * Dscs<span> &mdash; </span>(Designate a 94 character set as G2)</li>
+<li>ESC + Dscs<span> &mdash; </span>(Designate a 94 character set as G3)</li>
+<li>LS0<span> &mdash; </span>(Invoke G0 to GL)</li>
+</ul>
+<p>Where "Dscs" consists of zero, one, or two intermediate characters and a final character for the character set being designated.</p>
+<p>If a 96 character set is to be designated, the first intermediate character will change as follows:</p>
+<ul>
+<li>ESC - Dscs<span> &mdash; </span>(Designate a 96 character set as G1)</li>
+<li>ESC . Dscs<span> &mdash; </span>(Designate a 96 character set as G2)</li>
+<li><a id="7-16"></a>ESC / Dscs<span> &mdash; </span>(Designate a 96 character set as G3)</li>
+</ul>
+<p>If one of the character sets is the UPSS, it is designated as the UPSS, not the specific character set chosen.</p>
+<p><em>Transmission:</em> The characters are  sent,  using  LS0  and  LS1  to choose between the character sets in G0 and G1.  If a character is in the set designated as G2, SS2 is used to temporarily invoke  G2 into  GL.   If  a character is in the set designated as G3, SS3 is used to temporarily invoke G3 into GL.  If  a  character  from  an alternate  character  set  is  encountered  the  alternate  set is designated as G3 and SS3 is used to send it.</p>
+<p>The priority order for sending characters contained in  more  than one  set  is  ASCII, UPSS, DEC Supplemental, ISO Supplemental, DEC Technical, and DEC Special Graphics.</p>
+<p>In this mode the display attributes are also sent.  Refer  to  the <a href="#7.4.2">Display Attributes</a> section below.</p>
+<p><em>Closing:</em> LS0 is sent, if necessary.  If an alternate set was  the last  set  designated as G3, G3 is re-designated.  This leaves the printer with G0 invoked as GL; G0, G1, G2, and G3 the same as  the terminal.</p>
+<p><em>Fallback:</em> When Print All Characters is selected, fallback is only provided  for  CRM  characters.  CRM characters do not belong to a character set.  Refer to the <a href="#7.5">fallback</a> section and tables later  in this chapter.</p>
+</section>
+<section id="7.4.0.4">
+<h4>4.0.4  Print All Characters (8-bit Printer Port Environment)</h4>
+<p><em>Assumptions:</em> The printer supports all the character sets  in  use by  the terminal, designating escape sequences for G0, G1, G2, G3, and character set shifts LS0, LS1, LS2R and  LS3R.   If  the  <a href="EL-00070-03.html#3.6.3">User Preference  Supplemental Set</a> (UPSS) extension is used, the printer has already been configured with the same  UPSS.   If  a  <a href="EL-00070-10.html">DRCS</a>  is used,  the  host  has  already  down  line  loaded  the  printer's character  set(s)  to  match  the  video  terminal's  (in  Printer Controller  Mode,  if  necessary).   Printers with changeable font cartridges  must  support  all  of  the   above   character   sets simultaneously.  No font selection commands will be used.</p>
+<p><em>Initialization:</em> The printer is initialized to correspond with the terminal.   The character sets currently designated as G0, G1, G2, and G3 in the terminal are designated as G0, G1, G2, and G3 in the printer  respectively.   G0 is invoked to GL, and G2 is invoked to GR.  The sequences sent are:</p>
+<ul>
+<li>ESC ( Dscs<span> &mdash; </span>(Designate a 94 character set as G0)</li>
+<li><a id="7-17"></a>ESC ) Dscs<span> &mdash; </span>(Designate a 94 character set as G1)</li>
+<li>ESC * Dscs<span> &mdash; </span>(Designate a 94 character set as G2)</li>
+<li>ESC + Dscs<span> &mdash; </span>(Designate a 94 character set as G3)</li>
+<li>LS0<span> &mdash; </span>(Invoke G0 to GL)</li>
+<li>LS2R<span> &mdash; </span>(Invoke G2 to GR)</li>
+</ul>
+<p>Where "Dscs" consists of zero, one, or two intermediate characters and a final character for the character set being designated.</p>
+<p>If a 96 character set is to be designated, the first intermediate character will change as follows:</p>
+<ul>
+<li>ESC - Dscs<span> &mdash; </span>(Designate a 96 character set as G1)</li>
+<li>ESC . Dscs<span> &mdash; </span>(Designate a 96 character set as G2)</li>
+<li>ESC / Dscs<span> &mdash; </span>(Designate a 96 character set as G3)</li>
+</ul>
+<p>If one of the character sets is the UPSS, it is designated as the UPS, not the specific character set chosen.</p>
+<p><em>Transmission:</em> The characters are sent  using  LS0/LS1  to  choose between  the  character sets in G0 and G1, and LS2R/LS3R to choose between the character sets in G2 and G3.  If a character  from  an alternate  character  set  is  encountered,  the  alternate set is designated as G3, invoked by LS3R, and then sent.</p>
+<p>The priority order for sending characters contained in  more  than one  set  is  ASCII, UPSS, DEC Supplemental, ISO Supplemental, DEC Technical, and DEC Special Graphics.</p>
+<p>In this mode the display attributes are also sent.  Refer  to  the <a href="#7.4.2">Display Attributes</a> section below.</p>
+<p><em>Closing:</em> LS0 and LS2R are sent if necessary.  If an alternate set was  the  last  set  designated  as G3, G3 is re-designated.  This leaves the printer with G0 invoked as GL and G2 invoke as GR;  G0, G1, G2, and G3 the same as the terminal.</p>
+<p><em>Fallback:</em> When Print All Characters is selected, fallback is only provided  for  CRM  characters.  CRM characters do not belong to a character set.  Refer to the <a href="#7.5">fallback</a> section and tables later  in this chapter.</p>
+<aside>
+<h4>Documented Exception</h4>
+<p>The "All Characters"  mode  in  the  VT200  family designated  ASCII  as  G0, Line Drawing as G1, DEC Multinational as G2, and the DRCS as G3 if needed. In the VT300 family, possible support for the UPSS (8-bit  architecture),  DEC  Technical,  and   DEC Publishing   meant  VT200  "All  Characters"  mode <a id="7-18"></a>really printed multinational characters.   In  the VT300,  "All Characters" mode was changed to print all characters more efficiently.   Some  terminals may provide a "Multinational" mode similar to "All Characters" on the VT200 to support fallbacks  for other character sets (DEC Technical for example).</p>
+</aside>
+</section>
+<section id="7.4.1">
+<h3>4.1  National Replacement Character Sets</h3>
+<p>There are 12 NRC Sets currently defined for 16 keyboard  dialects.  The  National  Replacement Character set for each keyboard dialect is as follows:</p>
+<table>
+<thead>
+<tr><th>Keyboard Dialect</th><th>NRC Set</th><th colspan="2">Designating Characters</th></tr>
+</thead>
+<tbody>
+<tr><td>North American</td><td>ASCII</td><td>B</td><td>(4/2)</td></tr>
+<tr><td>Flemish</td><td>French NRC Set</td><td>R</td><td>(5/2)</td></tr>
+<tr><td>Canadian (French)</td><td>French Canadian NRC Set</td><td>9</td><td>(3/9)</td></tr>
+<tr><td>British</td><td>U.K. NRC Set</td><td>A</td><td>(4/1)</td></tr>
+<tr><td>Danish</td><td>Norwegian/Danish NRC Set</td><td>`</td><td>(6/0)</td></tr>
+<tr><td>Finnish</td><td>Finnish NRC Set</td><td>5</td><td>(3/5)</td></tr>
+<tr><td>Austrian/German</td><td>German NRC Set</td><td>K</td><td>(4/11)</td></tr>
+<tr><td>Dutch</td><td>ASCII</td><td>B</td><td>(4/2)</td></tr>
+<tr><td>Italian</td><td>Italian NRC Set</td><td>Y</td><td>(5/9)</td></tr>
+<tr><td>Swiss (French)</td><td>Swiss NRC Set</td><td>=</td><td>(3/13)</td></tr>
+<tr><td>Swiss (German)</td><td>Swiss NRC Set</td><td>=</td><td>(3/13)</td></tr>
+<tr><td>Swedish</td><td>Swedish NRC Set</td><td>7</td><td>(3/7)</td></tr>
+<tr><td>Norwegian</td><td>Norwegian/Danish NRC Set</td><td>`</td><td>(6/0)</td></tr>
+<tr><td>Belgian/French</td><td>French NRC Set</td><td>R</td><td>(5/2)</td></tr>
+<tr><td>Spanish</td><td>Spanish NRC Set</td><td>Z</td><td>(5/10)</td></tr>
+<tr><td>Portuguese</td><td>Portuguese NRC Set</td><td>% 6</td><td>(2/5 3/6)</td></tr>
+</tbody>
+</table>
+<p>The National Replacement Character Sets are  available  only  when the appropriate keyboard is selected in the terminal.</p>
+<aside>
+<h4>Deviation Note</h4>
+<p>VT200 family devices support  the  Dutch  NRC  set (designating character "4" (3/4)).</p>
+<p>Guideline:    LA120   non-conforming    sequences: Finland   "C"  (4/3);  Sweden  "H"  (4/8);  French Canadian "Q" (5/1); Norway/Denmark  "6"  (3/6)  or "E" (4/5).</p>
+</aside>
+</section>
+<a id="7-19"></a>
+<section id="7.4.2">
+<h3>4.2  Display Attributes</h3>
+<p>When the Printer Style is "National + Line Drawing", or "Print All Characters", the display attributes are also sent.  The attributes are of two kinds:  line attributes and character attributes.   The line  attributes will be initialized at the beginning of each line as follows:</p>
+<ul>
+<li>Single Width lines<span> &mdash; </span>ESC # 5</li>
+<li>Double Width lines<span> &mdash; </span>ESC # 6</li>
+<li>Top half of Double Height<span> &mdash; </span>ESC # 3</li>
+<li>Bottom half of Double Height<span> &mdash; </span>ESC # 4</li>
+</ul>
+<p>The character attributes will be initialized at the start of  each print operation as follows:</p>
+<pre><samp>ESC [ 0 m
+</samp></pre>
+<p>Every  time  the  character  attributes  change,  the  appropriate control  sequence  setting  the character attributes will be sent.  The sequences are of the form:</p>
+<pre><samp>ESC [ 0 ; Ps ; Ps ; Ps m
+</samp></pre>
+<p>With the following parameters:</p>
+<ul>
+<li>0 all attributes off</li>
+<li>1 for bold character attribute</li>
+<li>4 for underscore character attribute</li>
+<li>5 for blink character attribute</li>
+<li>7 for reverse video character attribute</li>
+</ul>
+<p>At the end of each print (line or page), the following closing sequences will be sent as appropriate:</p>
+<pre><samp>ESC [ 0 m
+</samp></pre>
+<p>Note:  characters with the "invisible"  character  attribute  (SGR parameter 8) are always sent to the printer as spaces.</p>
+</section>
+<section id="7.4.3">
+<h3>4.3  Trailing Spaces</h3>
+<p>Trailing  spaces  are  spaces  which  come  after  all   printable characters  on  a  line.   Note  that  in  general trailing spaces themselves are not printed.  In "National  Only"  trailing  spaces are  not  printable and therefore are not sent to the printer.  In "National + Line Drawing" and "All Characters"  some  spaces  have video  character attributes, and are therefore printable.  In this context, spaces with the normal video  character  attribute  which follow  all  printable  characters  (including  spaces  with video attributes on), are not sent to the printer.</p>
+</section>
+</section>
+<a id="7-20"></a>
+<section id="7.5">
+<h2>5  Fallback Presentation Of Graphic Characters</h2>
+<p>When the Printer Style specifies that the device attached  to  the Printer Port is not capable of presenting graphic characters which can be presented on the terminal, the terminal attempts to display a  reasonable  approximation  of that character on the printer for the Printer Port function  operations,  and  in  Auto-Print  mode.  These  approximations,  or "Fallbacks", are not necessarily unique but are intended to allow the reader of the result to be  able  to reconstruct the original text using context to resolve conflicts.</p>
+<aside>
+<h4>Note</h4>
+<p>These  fallbacks  are  not  performed  in  Printer Controller Mode or in Printer to Host operations.</p>
+</aside>
+<section id="7.5.1">
+<h3>5.1  NRC Fallbacks</h3>
+<p>No NRC fallbacks are required.  There are no NRCS characters which are  not  in DEC Multinational or ISO Latin Alphabet Nr 1 (see the corresponding fallback sections).</p>
+<aside>
+<h4>Deviation Note</h4>
+<p>In  older  devices,   two   National   Replacement Characters  in the Dutch NRC set are not available in DEC-MCS, or ISO Latin-1.  If the Printer  Style is  set  to  National  Only  or  National  +  Line Drawing, and one of these characters occur in  the data  stream  and  is not available in the current national set, fallback is used as described below.</p>
+<table>
+<thead>
+<tr><th colspan="2">Character</th><th>Fallback Presentation</th></tr>
+</thead>
+<tbody>
+<tr><td>ij</td><td>ij vowel (Dutch NRCs 5/11)</td><td>ij</td></tr>
+<tr><td>florin</td><td>florin   (Dutch NRCs 7/12)</td><td>f</td></tr>
+</tbody>
+</table>
+</aside>
+</section>
+<section id="7.5.2">
+<h3>5.2  DEC Special Graphics Fallbacks</h3>
+<p>If the Printer Style is set to "Print National Only", the terminal will  represent all characters from the DEC Special Graphic (VT100 Line Drawing) character set as one or two character sequences from the  ASCII  character  set  which approximate the desired graphic.  These  characters  have  been   chosen   so   that   diagrams   or presentations  that  use  the  mosaic line combinations will align properly and present a reasonable appearance.</p>
+<a id="7-21"></a>
+<table>
+<thead>
+<tr><th colspan="2">Character</th><th>Fallback Presentation</th></tr>
+</thead>
+<tbody>
+<tr><td>&lt;**></td><td>diamond</td><td>*</td></tr>
+<tr><td>&lt;##></td><td>filled block</td><td>#</td></tr>
+<tr><td>&lt;HT></td><td>HT symbol</td><td>HT</td></tr>
+<tr><td>&lt;FF></td><td>FF symbol</td><td>FF</td></tr>
+<tr><td>&lt;CR></td><td>CR symbol</td><td>CR</td></tr>
+<tr><td>&lt;LF></td><td>LF symbol</td><td>LF</td></tr>
+<tr><td>&lt;+-></td><td>plus/minus sign</td><td>+</td></tr>
+<tr><td>&lt;0^></td><td>degree sign</td><td>o</td></tr>
+<tr><td>&lt;NL></td><td>NL symbol</td><td>NL</td></tr>
+<tr><td>&lt;VT></td><td>VT symbol</td><td>VT</td></tr>
+<tr><td>&lt;_|></td><td>lower right corner</td><td>+</td></tr>
+<tr><td>&lt;^|></td><td>upper right corner</td><td>+</td></tr>
+<tr><td>&lt;|^></td><td>upper left corner</td><td>+</td></tr>
+<tr><td>&lt;|_></td><td>lower left corner</td><td>+</td></tr>
+<tr><td>&lt;+></td><td>intersection</td><td>+</td></tr>
+<tr><td>&lt;^^></td><td>scan 1</td><td>~</td></tr>
+<tr><td>&lt;^-></td><td>scan 3</td><td>=</td></tr>
+<tr><td>&lt;--></td><td>scan 5</td><td>-</td></tr>
+<tr><td>&lt;-_></td><td>scan 7</td><td>=</td></tr>
+<tr><td>&lt;__></td><td>scan 9</td><td>_</td></tr>
+<tr><td>&lt;|-></td><td>intersect from right</td><td>+</td></tr>
+<tr><td>&lt;-|></td><td>intersect from left</td><td>+</td></tr>
+<tr><td>&lt;_L></td><td>intersect from top</td><td>+</td></tr>
+<tr><td>&lt;T></td><td>intersect from bottom</td><td>+</td></tr>
+<tr><td>&lt;|></td><td>vertical har</td><td>|</td></tr>
+<tr><td>&lt;&lt;=></td><td>less than or equal to</td><td>&lt;=</td></tr>
+<tr><td>&lt;>=></td><td>greater than or equal to</td><td>>=</td></tr>
+<tr><td>&lt;][></td><td>Pi symbol</td><td>Pi</td></tr>
+<tr><td>&lt;/=></td><td>not-equal to</td><td>&lt;></td></tr>
+<tr><td>&lt;L=></td><td>pound sign</td><td>#</td></tr>
+<tr><td>&lt;.^></td><td>centered dot</td><td>.</td></tr>
+</tbody>
+</table>
+</section>
+<section id="7.5.3">
+<h3>5.3  DEC Supplemental Fallbacks</h3>
+<p>If the Printer Style is set to "Print National  Only",  or  "Print National   +   Line  Drawing"  the  terminal  will  represent  all characters from the DEC Supplemental character set as  a  sequence of  one  or  more  characters  from  the ASCII character set which approximate the desired graphic as described in the fallback table below.</p>
+<a id="7-22"></a>
+<table>
+<thead>
+<tr><th colspan="2">Character</th><th>Fallback Presentation</th></tr>
+</thead>
+<tbody>
+<tr><td>&lt;!!></td><td>SP03 inverted exclamation mark</td><td>!</td></tr>
+<tr><td>&lt;c/></td><td>SC04 cent sign</td><td>c</td></tr>
+<tr><td>&lt;L=></td><td>SC02 pound sign</td><td>#</td></tr>
+<tr><td>&lt;Y=></td><td>SC05 yen sign</td><td>Y</td></tr>
+<tr><td>&lt;So></td><td>SM24 section sign</td><td>Sc</td></tr>
+<tr><td>&lt;Xo></td><td>SC01 general currency sign</td><td>O</td></tr>
+<tr><td>&lt;CO></td><td>SM52 copyright sign</td><td>(C)</td></tr>
+<tr><td>&lt;_a></td><td>SM21 feminine ordinal</td><td>a</td></tr>
+<tr><td>&lt;&lt;&lt;></td><td>SP17 angle quotation mark left</td><td>&lt;&lt;</td></tr>
+<tr><td>&lt;0^></td><td>SM19 degree sign</td><td>o</td></tr>
+<tr><td>&lt;+-></td><td>SA02 plus/minus sign</td><td>+</td></tr>
+<tr><td>&lt;2^></td><td>NS02 superscript 2</td><td>2</td></tr>
+<tr><td>&lt;3^></td><td>NS03 superscript 3</td><td>3</td></tr>
+<tr><td>&lt;/u></td><td>SM17 micro sign</td><td>u</td></tr>
+<tr><td>&lt;!P></td><td>SM25 paragraph sign</td><td>Pr</td></tr>
+<tr><td>&lt;.^></td><td>SM26 middle dot</td><td>.</td></tr>
+<tr><td>&lt;1^></td><td>NS01 superscript 1</td><td>l</td></tr>
+<tr><td>&lt;_o></td><td>SM20 masculine ordinal</td><td>o</td></tr>
+<tr><td>&lt;>>></td><td>SP18 angle quotation mark right</td><td>>></td></tr>
+<tr><td>&lt;14></td><td>NF04 fraction one quarter</td><td>1/4</td></tr>
+<tr><td>&lt;12></td><td>NF01 fraction one half</td><td>1/2</td></tr>
+<tr><td>&lt;??></td><td>SP16 inverted question mark</td><td>?</td></tr>
+<tr><td>&lt;a'></td><td>LA11 small a with acute accent</td><td>a</td></tr>
+<tr><td>&lt;A'></td><td>LA12 capital A with acute accent</td><td>A</td></tr>
+<tr><td>&lt;a`></td><td>LA13 small a with grave accent</td><td>a</td></tr>
+<tr><td>&lt;A`></td><td>LA14 capital A with grave accent</td><td>A</td></tr>
+<tr><td>&lt;a^></td><td>LA15 small a with circumflex</td><td>a</td></tr>
+<tr><td>&lt;A^></td><td>LA16 capital A with circumflex</td><td>A</td></tr>
+<tr><td>&lt;a"></td><td>LA17 small a with dieresis or umlaut</td><td>a</td></tr>
+<tr><td>&lt;A"></td><td>LA18 capital A with dieresis or umlaut</td><td>A</td></tr>
+<tr><td>&lt;a~></td><td>LA19 small a with tilde</td><td>a</td></tr>
+<tr><td>&lt;A~></td><td>LA20 capital A with tilde</td><td>A</td></tr>
+<tr><td>&lt;a*></td><td>LA27 small a with ring</td><td>a</td></tr>
+<tr><td>&lt;A*></td><td>LA28 capital A with ring</td><td>A</td></tr>
+<tr><td>&lt;ae></td><td>LA51 small ae diphthong</td><td>ae</td></tr>
+<tr><td>&lt;AE></td><td>LA52 capital AE diphthong</td><td>AE</td></tr>
+<tr><td>&lt;c,></td><td>LC41 small c with cedilla</td><td>c</td></tr>
+<tr><td>&lt;C,></td><td>LC42 capital C with cedilla</td><td>C</td></tr>
+<tr><td>&lt;e'></td><td>LE11 small e with acute accent</td><td>e</td></tr>
+<tr><td>&lt;E'></td><td>LE12 capital E with acute accent</td><td>E</td></tr>
+<tr><td>&lt;e`></td><td>LE13 small e with grave accent</td><td>e</td></tr>
+<tr><td>&lt;E`></td><td>LE14 capital E with grave accent</td><td>E</td></tr>
+<tr><td>&lt;e^></td><td>LE15 small e with circumflex</td><td>e</td></tr>
+<tr><td>&lt;E^></td><td>LE16 capital E with circumflex</td><td>E</td></tr>
+<tr><td>&lt;e"></td><td>LE17 small e with dieresis or umlaut</td><td>e</td></tr>
+<tr><td>&lt;E"></td><td>LE18 capital E with dieresis or umlaut</td><td>E</td></tr>
+<tr><td>&lt;i'></td><td>LI11 small i with acute accent</td><td>i</td></tr>
+<tr><td>&lt;I'></td><td>LI12 capital I with acute accent</td><td>I</td></tr>
+<tr><td>&lt;i`></td><td>LI13 small i with grave accent</td><td>i</td></tr>
+<tr><td>&lt;I`></td><td>LI14 capital I with grave accent</td><td>I</td></tr>
+<tr><td>&lt;i^></td><td>LI15 small i with circumflex</td><td>i</td></tr>
+<tr><td colspan="3"><a id="7-23"></a></td></tr>
+<tr><td>&lt;I^></td><td>LI16 capital I with circumflex</td><td>I</td></tr>
+<tr><td>&lt;i"></td><td>LI17 small i with dieresis</td><td>i</td></tr>
+<tr><td>&lt;I"></td><td>LI18 capital I with dieresis</td><td>I</td></tr>
+<tr><td>&lt;n~></td><td>LN11 small n with tilde</td><td>n</td></tr>
+<tr><td>&lt;N~></td><td>LN12 capital N with tilde</td><td>N</td></tr>
+<tr><td>&lt;o'></td><td>LO11 small o with acute accent</td><td>o</td></tr>
+<tr><td>&lt;O'></td><td>LO12 capital O with acute accent</td><td>O</td></tr>
+<tr><td>&lt;o`></td><td>LO13 small o with grave accent</td><td>o</td></tr>
+<tr><td>&lt;O`></td><td>LO14 capital O with grave accent</td><td>O</td></tr>
+<tr><td>&lt;o^></td><td>LO15 small o with circumflex</td><td>o</td></tr>
+<tr><td>&lt;O^></td><td>LO16 capital O with circumflex</td><td>O</td></tr>
+<tr><td>&lt;o"></td><td>LO17 small o with dieresis or umlaut mark</td><td>o</td></tr>
+<tr><td>&lt;O"></td><td>LO18 capital O with dieresis or umlaut mark</td><td>O</td></tr>
+<tr><td>&lt;o~></td><td>LO19 small o with tilde</td><td>o</td></tr>
+<tr><td>&lt;O~></td><td>LO20 capital O with tilde</td><td>O</td></tr>
+<tr><td>&lt;oe></td><td>LO51 small oe ligature</td><td>oe</td></tr>
+<tr><td>&lt;OE></td><td>LO52 capital OE ligature</td><td>OE</td></tr>
+<tr><td>&lt;o/></td><td>LO61 small o with slash</td><td>o</td></tr>
+<tr><td>&lt;O/></td><td>LO62 capital O with slash</td><td>O</td></tr>
+<tr><td>&lt;ss></td><td>LS61 German small sharp s</td><td>ss</td></tr>
+<tr><td>&lt;u'></td><td>LU11 small u with acute accent</td><td>u</td></tr>
+<tr><td>&lt;U'></td><td>LU12 capital U with acute accent</td><td>U</td></tr>
+<tr><td>&lt;u`></td><td>LU13 small u with grave</td><td>u</td></tr>
+<tr><td>&lt;U`></td><td>LU14 capital U with grave</td><td>U</td></tr>
+<tr><td>&lt;u^></td><td>LU15 small u with circumflex</td><td>u</td></tr>
+<tr><td>&lt;U^></td><td>LU16 capital U with circumflex</td><td>U</td></tr>
+<tr><td>&lt;u"></td><td>LU17 small u with dieresis or umlaut</td><td>u</td></tr>
+<tr><td>&lt;U"></td><td>LU17 capital U with dieresis or umlaut</td><td>U</td></tr>
+<tr><td>&lt;y"></td><td>LY17 small y with dieresis</td><td>y</td></tr>
+<tr><td>&lt;Y"></td><td>LY18 capital Y with dieresis</td><td>Y</td></tr>
+</tbody>
+</table>
+</section>
+<section id="7.5.4">
+<h3>5.4  ISO Latin-1 Supplemental Fallbacks</h3>
+<p>If the Printer Style is set to "Print National  Only",  or  "Print National   +  Line  Drawing",  the  terminal  will  represent  all characters from the ISO Latin-1 supplemental character  set  as  a sequence  of  one  or more characters from the ASCII character set which approximate the desired graphic as described in the fallback table below.</p>
+<a id="7-24"></a>
+<table>
+<thead>
+<tr><th colspan="2">Character</th><th>Fallback Presentation</th></tr>
+</thead>
+<tbody>
+<tr><td>&lt;NBSP></td><td>SP?? no break space</td><td>&lt;space></td></tr>
+<tr><td>&lt;!!></td><td>SP03 inverted exclamation mark</td><td>!</td></tr>
+<tr><td>&lt;c/></td><td>SC04 cent sign</td><td>c</td></tr>
+<tr><td>&lt;L=></td><td>SC02 pound sign</td><td>#</td></tr>
+<tr><td>&lt;Xo></td><td>SC01 general currency sign</td><td>O</td></tr>
+<tr><td>&lt;Y=></td><td>SC05 yen sign</td><td>Y</td></tr>
+<tr><td>&lt;||></td><td>SM?? broken bar</td><td>|</td></tr>
+<tr><td>&lt;So></td><td>SM24 section sign</td><td>Sc</td></tr>
+<tr><td>&lt;"^></td><td>SC01 diaeresis</td><td>"</td></tr>
+<tr><td>&lt;CO></td><td>SM52 copyright sign</td><td>(C)</td></tr>
+<tr><td>&lt;_a></td><td>SM21 feminine ordinal</td><td>a</td></tr>
+<tr><td>&lt;&lt;&lt;></td><td>SP17 angle quotation mark left</td><td>&lt;&lt;</td></tr>
+<tr><td>&lt;-,></td><td>SM?? logical not sign</td><td>~ (tilde)</td></tr>
+<tr><td>&lt;SHY></td><td>SM18 soft hyphen</td><td>- (dash)</td></tr>
+<tr><td>&lt;RO></td><td>SM53 registered trade mark sign</td><td>(R)</td></tr>
+<tr><td>&lt;-^></td><td>SP31 macron, overline</td><td>- (dash)</td></tr>
+<tr><td>&lt;0^></td><td>SM19 degree sign</td><td>o</td></tr>
+<tr><td>&lt;+-></td><td>SA02 plus/minus sign</td><td>+</td></tr>
+<tr><td>&lt;2^></td><td>NS02 superscript 2</td><td>2</td></tr>
+<tr><td>&lt;3^></td><td>NS03 superscript 3</td><td>3</td></tr>
+<tr><td>&lt;''></td><td>SD11 acute accent</td><td>' (apostrophe)</td></tr>
+<tr><td>&lt;/u></td><td>SM17 micro sign</td><td>u</td></tr>
+<tr><td>&lt;!P></td><td>SM25 paragraph sign</td><td>Pr</td></tr>
+<tr><td>&lt;.^></td><td>SM26 middle dot</td><td>.</td></tr>
+<tr><td>&lt;,,></td><td>SD41 cedilla</td><td>, (comma)</td></tr>
+<tr><td>&lt;1^></td><td>NS01 superscript 1</td><td>l</td></tr>
+<tr><td>&lt;_o></td><td>SM20 masculine ordinal</td><td>o</td></tr>
+<tr><td>&lt;>>></td><td>SP18 angle quotation mark right</td><td>>></td></tr>
+<tr><td>&lt;14></td><td>NF04 fraction one quarter</td><td>1/4</td></tr>
+<tr><td>&lt;12></td><td>NF01 fraction one half</td><td>1/2</td></tr>
+<tr><td>&lt;34></td><td>NF05 fraction three quarters</td><td>3/4</td></tr>
+<tr><td>&lt;??></td><td>SP16 inverted question mark</td><td>?</td></tr>
+<tr><td>&lt;A`></td><td>LA14 capital A with grave accent</td><td>A</td></tr>
+<tr><td>&lt;A'></td><td>LA12 capital A with acute accent</td><td>A</td></tr>
+<tr><td>&lt;A^></td><td>LA16 capital A with circumflex</td><td>A</td></tr>
+<tr><td>&lt;A"></td><td>LA18 capital A with diaeresis or umlaut</td><td>A</td></tr>
+<tr><td>&lt;A~></td><td>LA20 capital A with tilde</td><td>A</td></tr>
+<tr><td>&lt;A*></td><td>LA28 capital A with ring</td><td>A</td></tr>
+<tr><td>&lt;AE></td><td>LA52 capital AE diphthong</td><td>AE</td></tr>
+<tr><td>&lt;C,></td><td>LC42 capital C with cedilla</td><td>C</td></tr>
+<tr><td>&lt;E`></td><td>LE14 capital E with grave accent</td><td>E</td></tr>
+<tr><td>&lt;E'></td><td>LE12 capital E with acute accent</td><td>E</td></tr>
+<tr><td>&lt;E^></td><td>LE16 capital E with circumflex</td><td>E</td></tr>
+<tr><td>&lt;E"></td><td>LE18 capital E with diaeresis or umlaut</td><td>E</td></tr>
+<tr><td>&lt;I`></td><td>LI14 capital I with grave accent</td><td>I</td></tr>
+<tr><td>&lt;I'></td><td>LI12 capital I with acute accent</td><td>I</td></tr>
+<tr><td>&lt;I^></td><td>LI16 capital I with circumflex</td><td>I</td></tr>
+<tr><td>&lt;I"></td><td>LI18 capital I with diaeresis</td><td>I</td></tr>
+<tr><td>&lt;-D></td><td>LD62 capital Icelandic letter Eth</td><td>D</td></tr>
+<tr><td>&lt;N~></td><td>LN12 capital N with tilde</td><td>N</td></tr>
+<tr><td>&lt;O`></td><td>LO14 capital O with grave accent</td><td>O</td></tr>
+<tr><td colspan="3"><a id="7-25"></a></td></tr>
+<tr><td>&lt;O'></td><td>LO12 capital O with acute accent</td><td>O</td></tr>
+<tr><td>&lt;O^></td><td>LO16 capital O with circumflex</td><td>O</td></tr>
+<tr><td>&lt;O~></td><td>LO20 capital O with tilde</td><td>O</td></tr>
+<tr><td>&lt;O"></td><td>LO18 capital O with diaeresis or umlaut</td><td>O</td></tr>
+<tr><td>&lt;xx></td><td>     times sign</td><td>x</td></tr>
+<tr><td>&lt;O/></td><td>LO62 capital O with slash</td><td>O</td></tr>
+<tr><td>&lt;U`></td><td>LU14 capital U with grave</td><td>U</td></tr>
+<tr><td>&lt;U'></td><td>LU12 capital U with acute accent</td><td>U</td></tr>
+<tr><td>&lt;U^></td><td>LU16 capital U with circumflex</td><td>U</td></tr>
+<tr><td>&lt;U"></td><td>LU17 capital U with diaeresis or umlaut</td><td>U</td></tr>
+<tr><td>&lt;Y'></td><td>LY12 capital y with acute accent</td><td>Y</td></tr>
+<tr><td>&lt;TH></td><td>LT64 capital Icelandic letter Thorn</td><td>Th</td></tr>
+<tr><td>&lt;ss></td><td>LS61 German small sharp s</td><td>ss</td></tr>
+<tr><td>&lt;a`></td><td>LA13 small a with grave accent</td><td>a</td></tr>
+<tr><td>&lt;a'></td><td>LA11 small a with acute accent</td><td>a</td></tr>
+<tr><td>&lt;a^></td><td>LA15 small a with circumflex</td><td>a</td></tr>
+<tr><td>&lt;a~></td><td>LA19 small a with tilde</td><td>a</td></tr>
+<tr><td>&lt;a"></td><td>LA17 small a with diaeresis or umlaut</td><td>a</td></tr>
+<tr><td>&lt;ae></td><td>LA51 small ae diphthong</td><td>ae</td></tr>
+<tr><td>&lt;a*></td><td>LA27 small a with ring</td><td>a</td></tr>
+<tr><td>&lt;c,></td><td>LC41 small c with cedilla</td><td>c</td></tr>
+<tr><td>&lt;e`></td><td>LE13 small e with grave accent</td><td>e</td></tr>
+<tr><td>&lt;e'></td><td>LE11 small e with acute accent</td><td>e</td></tr>
+<tr><td>&lt;e^></td><td>LE15 small e with circumflex</td><td>e</td></tr>
+<tr><td>&lt;e"></td><td>LE17 small e with diaeresis or umlaut</td><td>e</td></tr>
+<tr><td>&lt;i`></td><td>LI13 small i with grave accent</td><td>i</td></tr>
+<tr><td>&lt;i'></td><td>LI11 small i with acute accent</td><td>i</td></tr>
+<tr><td>&lt;i^></td><td>LI15 small i with circumflex</td><td>i</td></tr>
+<tr><td>&lt;i"></td><td>LI17 small i with diaeresis</td><td>i</td></tr>
+<tr><td>&lt;-d></td><td>LD63 small Icelandic letter Eth</td><td>d</td></tr>
+<tr><td>&lt;n~></td><td>LN11 small n with tilde</td><td>n</td></tr>
+<tr><td>&lt;o`></td><td>LO13 small o with grave accent</td><td>o</td></tr>
+<tr><td>&lt;o'></td><td>LO11 small o with acute accent</td><td>o</td></tr>
+<tr><td>&lt;o^></td><td>LO15 small o with circumflex</td><td>o</td></tr>
+<tr><td>&lt;o~></td><td>LO19 small o with tilde</td><td>o</td></tr>
+<tr><td>&lt;o"></td><td>LO17 small o with diaeresis or umlaut</td><td>o</td></tr>
+<tr><td>&lt;-:></td><td>     division sign</td><td>-</td></tr>
+<tr><td>&lt;o/></td><td>LO61 small o with slash</td><td>o</td></tr>
+<tr><td>&lt;u`></td><td>LU13 small u with grave</td><td>u</td></tr>
+<tr><td>&lt;u'></td><td>LU11 small u with acute accent</td><td>u</td></tr>
+<tr><td>&lt;u^></td><td>LU15 small u with circumflex</td><td>u</td></tr>
+<tr><td>&lt;u"></td><td>LU17 small u with diaeresis or umlaut</td><td>u</td></tr>
+<tr><td>&lt;y'></td><td>LY11 small y with acute accent</td><td>y</td></tr>
+<tr><td>&lt;th></td><td>LT63 small Icelandic letter Thorn</td><td>th</td></tr>
+<tr><td>&lt;y"></td><td>LY17 small y with diaeresis</td><td>y</td></tr>
+</tbody>
+</table>
+</section>
+<section id="7.5.5">
+<h3>5.5  DEC Technical Character Set Fallbacks</h3>
+<p>If the Printer Style is set to  anything  other  than  "Print  All Characters", the terminal will represent all characters from a ROM resident (not <a href="EL-00070-10.html">DRCS</a>) DEC Technical Character  set  as  one  or  two <a id="7-26"></a>character sequences from the ASCII character set which approximate the desired graphic.  These characters have been  chosen  so  that diagrams  or  presentations  that use the mosaic line combinations will approximately represent the displayed characters and  present a reasonable appearance.</p>
+<table>
+<thead>
+<tr><th colspan="2">Character</th><th>Fallback Presentation</th></tr>
+</thead>
+<tbody>
+<tr><td>&lt;-v></td><td>left radical</td><td>-v</td></tr>
+<tr><td>&lt;|-></td><td>top left radical</td><td>|-</td></tr>
+<tr><td>&lt;Horiz></td><td>horizontal connector</td><td>- (minus)</td></tr>
+<tr><td>&lt;TopI></td><td>top integral</td><td>(</td></tr>
+<tr><td>&lt;BotI></td><td>Bottom integral</td><td>)</td></tr>
+<tr><td>&lt;Vert></td><td>vertical connector</td><td>| (vertical
+line)</td></tr>
+<tr><td>&lt;Top[></td><td>top left square bracket</td><td>[</td></tr>
+<tr><td>&lt;Bot[></td><td>bottom left square bracket</td><td>[</td></tr>
+<tr><td>&lt;Top]></td><td>top right square bracket</td><td>]</td></tr>
+<tr><td>&lt;Bot]></td><td>bottom right square bracket</td><td>]</td></tr>
+<tr><td>&lt;Top(></td><td>top left parenthesis</td><td>(</td></tr>
+<tr><td>&lt;Bot(></td><td>bottom left parenthesis</td><td>(</td></tr>
+<tr><td>&lt;Top)></td><td>top right parenthesis</td><td>)</td></tr>
+<tr><td>&lt;Bot)></td><td>bottom right parenthesis</td><td>)</td></tr>
+<tr><td>&lt;{{></td><td>left middle curly brace</td><td>{</td></tr>
+<tr><td>&lt;}}></td><td>right middle curly brace</td><td>}</td></tr>
+<tr><td>&lt;TopS></td><td>top left summation</td><td>></td></tr>
+<tr><td>&lt;BotS></td><td>bottom left summation</td><td>&lt;</td></tr>
+<tr><td>&lt;\\></td><td>top vertical summation connector</td><td>\ (backslash)</td></tr>
+<tr><td>&lt;//></td><td>bottom vertical summation connector</td><td>/ (slash)</td></tr>
+<tr><td>&lt;TopRS></td><td>top right summation</td><td>none</td></tr>
+<tr><td>&lt;BotRS></td><td>bottom right summation</td><td>none</td></tr>
+<tr><td>&lt;>S></td><td>right middle summation</td><td>></td></tr>
+<tr><td>&lt;&lt;=></td><td>less than or equal</td><td>&lt;</td></tr>
+<tr><td>&lt;=/></td><td>not equal</td><td>=</td></tr>
+<tr><td>&lt;>=></td><td>greater than or equal</td><td>></td></tr>
+<tr><td>&lt;Integ></td><td>integral</td><td>S</td></tr>
+<tr><td>&lt;:.></td><td>therefore</td><td>:.(colon,period)</td></tr>
+<tr><td>&lt;var></td><td>variation, proportional to</td><td>a</td></tr>
+<tr><td>&lt;oO></td><td>infinity</td><td>oO</td></tr>
+<tr><td>&lt;-:></td><td>division, divided by</td><td>:</td></tr>
+<tr><td>&lt;DELTA></td><td>capital delta, triangle</td><td>D</td></tr>
+<tr><td>&lt;nabla></td><td>nabla, del</td><td>v</td></tr>
+<tr><td>&lt;PHI></td><td>capital phi</td><td>F</td></tr>
+<tr><td>&lt;GAMMA></td><td>capital gamma</td><td>G</td></tr>
+<tr><td>&lt;~~></td><td>is approximate to</td><td>~ (tilde)</td></tr>
+<tr><td>&lt;~-></td><td>similar or equal to</td><td>~ (tilde)</td></tr>
+<tr><td>&lt;THETA></td><td>capital theta</td><td>J</td></tr>
+<tr><td>&lt;xx></td><td>times, cross product</td><td>x</td></tr>
+<tr><td>&lt;LAMBD></td><td>capital lambda</td><td>L</td></tr>
+<tr><td>&lt;&lt;=>></td><td>if and only if</td><td>&lt;=></td></tr>
+<tr><td>&lt;=>></td><td>implies</td><td>=></td></tr>
+<tr><td>&lt;=-></td><td>is identical to</td><td>=</td></tr>
+<tr><td colspan="3"><a id="7-27"></a></td></tr>
+<tr><td>&lt;PI></td><td>capital pi, product</td><td>P</td></tr>
+<tr><td>&lt;PSI></td><td>capital psi</td><td>Q</td></tr>
+<tr><td>&lt;SIGMA></td><td>capital sigma, summation</td><td>S</td></tr>
+<tr><td>&lt;Rad></td><td>radical</td><td>V~</td></tr>
+<tr><td>&lt;OMEGA></td><td>capital omega, Ohm sign</td><td>W</td></tr>
+<tr><td>&lt;XI></td><td>capital xi</td><td>X</td></tr>
+<tr><td>&lt;UPSIL></td><td>capital upsilon</td><td>Y</td></tr>
+<tr><td>&lt;cc></td><td>is included in</td><td>c</td></tr>
+<tr><td>&lt;inclu></td><td>includes</td><td>none</td></tr>
+<tr><td>&lt;inter></td><td>intersection</td><td>^ (circumflex)</td></tr>
+<tr><td>&lt;union></td><td>union</td><td>v</td></tr>
+<tr><td>&lt;L&amp;></td><td>logical and</td><td>&amp; (ampersand)</td></tr>
+<tr><td>&lt;L|></td><td>logical or</td><td>| (vertical
+line)</td></tr>
+<tr><td>&lt;L~></td><td>logical not</td><td>~ (tilde)</td></tr>
+<tr><td>&lt;alpha></td><td>small alpha</td><td>a</td></tr>
+<tr><td>&lt;beta></td><td>small beta</td><td>b</td></tr>
+<tr><td>&lt;chi></td><td>small chi</td><td>c</td></tr>
+<tr><td>&lt;delta></td><td>small delta</td><td>d</td></tr>
+<tr><td>&lt;epsil></td><td>small epsilon</td><td>e</td></tr>
+<tr><td>&lt;phi></td><td>small phi</td><td>f</td></tr>
+<tr><td>&lt;gamma></td><td>small gamma</td><td>g</td></tr>
+<tr><td>&lt;eta></td><td>small eta</td><td>h</td></tr>
+<tr><td>&lt;iota></td><td>small iota</td><td>i</td></tr>
+<tr><td>&lt;theta></td><td>small theta</td><td>j</td></tr>
+<tr><td>&lt;kappa></td><td>small kappa</td><td>k</td></tr>
+<tr><td>&lt;lambd></td><td>small lambda</td><td>l</td></tr>
+<tr><td>&lt;nu></td><td>small nu</td><td>n</td></tr>
+<tr><td>&lt;pd></td><td>partial derivative</td><td>none</td></tr>
+<tr><td>&lt;pi></td><td>small pi</td><td>p</td></tr>
+<tr><td>&lt;psi></td><td>small psi</td><td>q</td></tr>
+<tr><td>&lt;rho></td><td>small rho</td><td>r</td></tr>
+<tr><td>&lt;sigma></td><td>small sigma</td><td>s</td></tr>
+<tr><td>&lt;tau></td><td>small tau</td><td>t</td></tr>
+<tr><td>&lt;func></td><td>function</td><td>f</td></tr>
+<tr><td>&lt;omega></td><td>small omega</td><td>w</td></tr>
+<tr><td>&lt;xi></td><td>small xi</td><td>x</td></tr>
+<tr><td>&lt;upsil></td><td>small upsilon</td><td>y</td></tr>
+<tr><td>&lt;zeta></td><td>small zeta</td><td>z</td></tr>
+<tr><td>&lt;&lt;-></td><td>left arrow</td><td>&lt;-</td></tr>
+<tr><td>&lt;^|></td><td>up arrow</td><td>^</td></tr>
+<tr><td>&lt;->></td><td>right arrow</td><td>-></td></tr>
+<tr><td>&lt;v|></td><td>down arrow</td><td>v</td></tr>
+</tbody>
+</table>
+<aside>
+<h4>Note</h4>
+<p>Wherever the word  "none"  appears  in  the  above chart,  the  fallback  of  last  resort, the SPACE character, shall be sent to the  printer  port  as the fallback presentation for that character.</p>
+</aside>
+</section>
+<a id="7-28"></a>
+<section id="7.5.6">
+<h3>5.6  DRCS Fallbacks</h3>
+<p>If the Printer Style is set to  anything  other  than  "Print  All Characters",  the SPACE character (2/0) is printed in place of any character from a <a href="EL-00070-10.html">DRCS</a>, except when the designating string  of  the DRCS  matches  a  ROM-based character set that may be printed.  If the DRCS is  substituting  for  a  ROM-based  character  set,  the appropriate character from the ROM-based character set is used (if it can be printed without fallback).</p>
+<aside>
+<h4>Deviation Note</h4>
+<p>The printer fallback character on the VT200 series was  the  underscore  ("_").   This was changed to space to  simplify  manual  editing  of  documents containing fallback characters.</p>
+</aside>
+</section>
+<section id="7.5.7">
+<h3>5.7  User Preference Supplemental Set Fallbacks</h3>
+<p>The terminal must know the <a href="EL-00070-03.html#3.6.3">User Preference Supplemental  Set</a>  even though  the host may not.  If the UPSS is DEC or ISO Supplemental, the terminal will use the corresponding fallback table  previously given.  UPSS fallback is only used when the Printer Port is set to Print National Only, or Print National + Line Drawing.</p>
+</section>
+<section id="7.5.8">
+<h3>5.8  Control Representation Mode Fallbacks (not Mandatory)</h3>
+<p><a href="EL-00070-0D.html#D.7">Control Representation</a> characters are presented to the printer  as a pair of capital ASCII letters or digits representing the name of the C0 or C1 control  character.   If  the  printer  supports  the underscore  graphic rendition and "Print National + Line Drawing", or  "Print  All  Characters"  is  selected,   the   CRM   fallback combinations  are  also underlined to distinguish them from normal text.</p>
+<table>
+<thead>
+<tr><th colspan="2">Control Character</th><th>Fallback Presentation</th></tr>
+</thead>
+<tbody>
+<tr><td>0/0</td><td>Null</td><td>NU</td></tr>
+<tr><td>0/1</td><td>Start of Header</td><td>SH</td></tr>
+<tr><td>0/2</td><td>Start Transmission</td><td>SX</td></tr>
+<tr><td>0/3</td><td>End of Text</td><td>EX</td></tr>
+<tr><td>0/4</td><td>End of Transmission</td><td>ET</td></tr>
+<tr><td>0/5</td><td>Enquiry</td><td>EQ</td></tr>
+<tr><td>0/6</td><td>Acknowledge</td><td>AK</td></tr>
+<tr><td>0/7</td><td>Bell</td><td>BL</td></tr>
+<tr><td>0/8</td><td>Backspace</td><td>BS</td></tr>
+<tr><td>0/9</td><td>Horizontal Tab</td><td>HT</td></tr>
+<tr><td>0/10</td><td>Line Feed</td><td>LF</td></tr>
+<tr><td>0/11</td><td>Vertical Tab</td><td>VT</td></tr>
+<tr><td colspan="3"><a id="7-29"></a></td></tr>
+<tr><td>0/12</td><td>Form Feed</td><td>FF</td></tr>
+<tr><td>0/13</td><td>Carriage Return</td><td>CR</td></tr>
+<tr><td>0/14</td><td>Shift Out (Locking Shift 1)</td><td>SO</td></tr>
+<tr><td>0/15</td><td>Shift In (Locking Shift 0)</td><td>SI</td></tr>
+<tr><td>1/0</td><td>Data Link Escape</td><td>DL</td></tr>
+<tr><td>1/1</td><td>Device Control 1</td><td>D1</td></tr>
+<tr><td>1/2</td><td>Device Control 2</td><td>D2</td></tr>
+<tr><td>1/3</td><td>Device Control 3</td><td>D3</td></tr>
+<tr><td>1/4</td><td>Device Control 4</td><td>D4</td></tr>
+<tr><td>1/5</td><td>Negative Acknowledge</td><td>NK</td></tr>
+<tr><td>1/6</td><td>Synchronous Idle</td><td>SY</td></tr>
+<tr><td>1/7</td><td>End of Transmission Block</td><td>EB</td></tr>
+<tr><td>1/8</td><td>Cancel</td><td>CN</td></tr>
+<tr><td>1/9</td><td>End of Medium</td><td>EM</td></tr>
+<tr><td>1/10</td><td>Substitute</td><td>SB</td></tr>
+<tr><td>1/11</td><td>Escape</td><td>EC</td></tr>
+<tr><td>1/12</td><td>File Separator</td><td>FS</td></tr>
+<tr><td>1/13</td><td>Group Separator</td><td>GS</td></tr>
+<tr><td>1/14</td><td>Record Separator</td><td>RS</td></tr>
+<tr><td>1/15</td><td>Unit Separator</td><td>US</td></tr>
+<tr><td>8/0</td><td></td><td>80</td></tr>
+<tr><td>8/1</td><td></td><td>81</td></tr>
+<tr><td>8/2</td><td></td><td>82</td></tr>
+<tr><td>8/3</td><td></td><td>83</td></tr>
+<tr><td>8/4</td><td>Index</td><td>IN</td></tr>
+<tr><td>8/5</td><td>Next Line</td><td>NL</td></tr>
+<tr><td>8/6</td><td>Start of Selected Area</td><td>SS</td></tr>
+<tr><td>8/7</td><td>End of Selected Area</td><td>ES</td></tr>
+<tr><td>8/8</td><td>Horizontal Tabulation Set</td><td>HS</td></tr>
+<tr><td>8/9</td><td>Horizontal Tab with Justification</td><td>HJ</td></tr>
+<tr><td>8/10</td><td>Vertical Tabulation Set</td><td>VS</td></tr>
+<tr><td>8/11</td><td>Partial Line Down</td><td>PD</td></tr>
+<tr><td>8/12</td><td>Partial Line Up</td><td>PU</td></tr>
+<tr><td>8/13</td><td>Reverse Index</td><td>RI</td></tr>
+<tr><td>8/14</td><td>Single Shift 2</td><td>S2</td></tr>
+<tr><td>8/15</td><td>Single Shift 3</td><td>S3</td></tr>
+<tr><td>9/0</td><td>Device Control String</td><td>DC</td></tr>
+<tr><td>9/1</td><td>Private Use 1</td><td>P1</td></tr>
+<tr><td>9/2</td><td>Private Use 2</td><td>P2</td></tr>
+<tr><td>9/3</td><td>Set Transmit State</td><td>SE</td></tr>
+<tr><td>9/4</td><td>Cancel Character</td><td>CC</td></tr>
+<tr><td>9/5</td><td>Message Waiting</td><td>MW</td></tr>
+<tr><td>9/6</td><td>Start of Protected Area</td><td>SP</td></tr>
+<tr><td>9/7</td><td>End of Protected Area</td><td>EP</td></tr>
+<tr><td>9/8</td><td></td><td>98</td></tr>
+<tr><td>9/9</td><td></td><td>99</td></tr>
+<tr><td>9/10</td><td></td><td>9A</td></tr>
+<tr><td>9/11</td><td>Control Sequence Introducer</td><td>CS</td></tr>
+<tr><td>9/12</td><td>String Terminator</td><td>ST</td></tr>
+<tr><td>9/13</td><td>Operating System Command</td><td>OS</td></tr>
+<tr><td>9/14</td><td>Privacy Message</td><td>PM</td></tr>
+<tr><td>9/15</td><td>Application Program Command</td><td>AP</td></tr>
+</tbody>
+</table>
+</section>
+</section>
+<a id="7-30"></a>
+<section id="7.6">
+<h2>6  Print Operations</h2>
+<section id="7.6.1">
+<h3>6.1  Print Page Or Scrolling Region</h3>
+<p>The text for the current page of the current session or  just  the lines in the current page which are in the active scrolling region are transferred to the  printer.   Which  occurs  depends  on  the setting of Printer Extent Mode (<a href="#DECPEX">DECPEX</a>).  This function is invoked by the host through the Media Copy (<a href="#MC0">MC</a>) control  function,  or  by the user pressing the LOCAL PRINT key.</p>
+</section>
+<section id="7.6.2">
+<h3>6.2  Print Screen (not Mandatory)</h3>
+<p>A series of characters representing the composed image on the Main Display  is  transferred  to  the  printer.   The  intent  of this operation is to reproduce the contents  of  the  screen  as  if  a snapshot  had  been  taken.   Due  to various terminal and printer limitations,  some  compromises  may  be  necessary  for   complex displays.   The  Main Display may consist of information from more than one Session depending on the User Window configuration.</p>
+<p>This function is not affected by  Printer  Extent  Mode  (<a href="#DECPEX">DECPEX</a>).  Print  Screen  is  invoked by the host through the Media Copy (MC) control function, or by the user pressing the SHIFT key and  LOCAL PRINT key together.</p>
+<p><em>Guidelines:</em></p>
+<p>If the <a href="EL-00070-09.html">Sixel Graphics Extension</a> is present and  graphics  printing is  enabled,  the  contents of the screen (both text and graphics) may be transmitted as sixels.</p>
+<p>If graphics printing is not used, borders on the Main Display  may be  transmitted  to  the  Printer  Port as characters from the DEC Special Graphics character set.</p>
+</section>
+<section id="7.6.3">
+<h3>6.3  Print All Pages (guideline)</h3>
+<p>The text from all pages in the active session  is  transferred  to the  printer.  The setting of Printer Extent Mode (<a href="#DECPEX">DECPEX</a>) affects this function.  If Print Form Feed (<a href="#DECPFF">DECPFF</a>) mode is  set,  a  form feed  (<a href="EL-00070-05.html#FF">FF</a>)  character  will  be transmitted at each page boundary.  The pages are transmitted in numerical order  starting  with  page one.   This function is invoked by the host through the Media Copy (MC) control function.</p>
+</section>
+<a id="7-31"></a>
+<section id="7.6.4">
+<h3>6.4  Print Line</h3>
+<p>The text of the  line  on  which  the  output  cursor  resides  is transferred  to the printer.  Whether the left and right scrolling regions (set through <a href="EL-00070-05.html#DECSLRM">DECSLRM</a>) affect which characters are sent  to the  Printer  Port  depends  on the setting of Printer Extent Mode (<a href="#DECPEX">DECPEX</a>).  This function is invoked by the host through the  Media Copy (<a href="#MC?1">MC</a>) control function.</p>
+</section>
+</section>
+<a id="7-32"></a>
+<section id="7.7">
+<h2>7  Control Functions</h2>
+<section id="DSR">
+<h4>Report Printer Status <span>&mdash;</span> DSR</h4>
+<p><em>Levels:</em> 1X, 2X, 3X</p>
+<p><em>Purpose:</em> Report the status of the printer</p>
+<div>
+<p><em>Request Format:</em></p>
+<pre><samp>CSI     ?       15      n
+
+9/11    3/15    3/1 3/5 6/14</samp></pre>
+<p><em>Report Format:</em></p>
+<pre><samp>CSI     ?       Ps      n
+
+9/11    3/15    Ps      6/14</samp></pre>
+</div>
+<p><em>Description:</em> The terminal will respond to a DSR request by transmitting a Device Status Report control sequence containing one of the following selective parameters (preceded by the private parameter value ?, 3/15):</p>
+<table>
+<thead>
+<tr><th>Selective
+Parameter</th><th>Meaning</th></tr>
+</thead>
+<tbody>
+<tr><td>10</td><td>The printer is ready to print.  The Data Set
+Ready signal is asserted at the printer port.</td></tr>
+<tr><td>11</td><td>The printer is not ready to print. The
+Data Set Ready signal at the printer port
+was previously asserted (since power on),
+but is not asserted now.</td></tr>
+<tr><td>13</td><td>The printer is not connected to the terminal.
+The Data Set Ready signal at the printer port
+has not been on since the last power-up or
+reset (<a href="EL-00070-0D.html#RIS">RIS</a>).</td></tr>
+<tr><td colspan="2">Printer Status on Virtual Terminals
+(Session Management Extension Only)</td></tr>
+<tr><td>18</td><td>The printer is busy.  The Data Set Ready signal
+at the printer port is asserted, but an alternate
+session is currently sending information to the
+printer, has the printer in auto-print mode, or
+has the printer in printer controller mode.</td></tr>
+<tr><td>19</td><td>The printer is not assigned to the requesting session.
+The current session may not access the printer port
+(regardless of Data Set Ready) because the user has
+explicitly assigned it to another session.</td></tr>
+</tbody>
+</table>
+<p><em>Notes:</em></p>
+<a id="7-33"></a>
+<ol>
+<li><p>See the section <a href="#7.3.2">State Descriptions - Printer Status</a> for a complete description of how the status of the printer is maintained.</p></li>
+</ol>
+<p><em>State Affected:</em> None</p>
+<p><em>Algorithm:</em></p>
+<pre><code>PROCEDURE REPORT_PRINTER_STATUS;
+BEGIN
+CASE PRINTER_STATUS OF
+        PRINTER_READY     : WRITE (HOST_PORT, '&lt;CSI>?10n');
+        PRINTER_NOT_READY : WRITE (HOST_PORT, '&lt;CSI>?11n');
+        PRINTER_NO_PRESENT: WRITE (HOST_PORT, '&lt;CSI>?13n');
+        PRINTER_BUSY      : WRITE (HOST_PORT, '&lt;CSI>?18n');
+        PRINTER_NOT_ASSIGN: WRITE (HOST_PORT, '&lt;CSI>?19n');
+        END;
+END;
+</code></pre>
+<p><em>Known Deviations:</em> None</p>
+</section>
+<a id="7-34"></a>
+<section id="MC5/MC4">
+<h4>Set/Reset Printer Controller Mode <span>&mdash;</span> MC</h4>
+<p><em>Levels:</em> 1X, 2X, 3X</p>
+<p><em>Purpose:</em> To set or reset the state of <a href="#7.3.6">Printer Controller Mode</a>.</p>
+<div>
+<p><em>Set Format:</em></p>
+<pre><samp>CSI     5       i
+
+9/11    3/5     6/9</samp></pre>
+<p><em>Reset Format:</em></p>
+<pre><samp>CSI     4       i
+
+9/11    3/4     6/9</samp></pre>
+</div>
+<p><em>Description:</em> When Printer Controller Mode is set, all data received by the terminal is transmitted to the printer port without being displayed on the screen.</p>
+<p><em>Notes:</em></p>
+<ol>
+<li><p>When Printer Controller Mode is set, the state of Auto Print Mode becomes UNDEFINED.  That is, when Printer Controller Mode is exited, Auto Print Mode may not be in the same state as it was when Printer Controller Mode was entered.</p></li>
+</ol>
+<p><em>State Affected:</em></p>
+<ul>
+<li><code>PRINTER_CONTROLLER_MODE:
+  (PRINTER_CONTROLLER_OFF,PRINTER_CONTROLLER_ON);</code></li>
+</ul>
+<p><em>Algorithm:</em></p>
+<pre><code>PROCEDURE SET_PRINTER_CONTROLLER_MODE;
+BEGIN
+PRINTER_CONTROLLER_MODE:= PRINTER_CONTROLLER_ON;
+END;
+
+PROCEDURE RESET_PRINTER_CONTROLLER_MODE;
+BEGIN
+PRINTER_CONTROLLER_MODE:= PRINTER_CONTROLLER_OFF;
+AUTO_PRINT_MODE: = AUTO_PRINT_OFF;
+END;
+</code></pre>
+<p><em>Known Deviations:</em> None</p>
+</section>
+<a id="7-35"></a>
+<section id="MC?5/MC?4">
+<h4>Set/Reset Auto Print Mode <span>&mdash;</span> MC</h4>
+<p><em>Levels</em> 1X, 2X, 3X</p>
+<p><em>Purpose:</em> To set or reset the state of <a href="#7.3.7">Auto Print Mode</a>.</p>
+<div>
+<p><em>Set Format:</em></p>
+<pre><samp>CSI     ?       5       i
+
+9/11    3/15    3/5     6/9</samp></pre>
+<p><em>Reset Format:</em></p>
+<pre><samp>CSI     ?       4       i
+
+9/11    3/15    3/5     6/9</samp></pre>
+</div>
+<p><em>Description:</em> When Auto Print Mode is set, the contents of the Active Line is transmitted to the printer port whenever the Active Position is advanced to the next line as a result of one of the following conditions:</p>
+<ol>
+<li><p>Receipt of a Line Feed (<a href="EL-00070-05.html#LF">LF</a>), Vertical Tab (<a href="EL-00070-05.html#VT">VT</a>), or Form Feed (<a href="EL-00070-05.html#FF">FF</a>) control character.</p></li>
+<li><p>When the Last Column Flag is set and a graphic character is received.</p></li>
+</ol>
+<p><em>Notes:</em></p>
+<ol>
+<li><p>When Printer Controller Mode is set, the state of Auto Print Mode becomes UNDEFINED.  That is, when Printer Controller Mode is exited, Auto Print Mode may not be in the same state as it was when Printer Controller Mode was entered.</p></li>
+</ol>
+<p><em>State Affected:</em></p>
+<ul>
+<li><code>AUTO_PRINT_MODE:  (AUTO_PRINT_OFF,AUTO_PRINT_ON);</code></li>
+</ul>
+<p><em>Algorithm:</em></p>
+<pre><code>PROCEDURE SET_AUTO_PRINT_MODE;
+BEGIN
+AUTO_PRINT_MODE:= AUTO_PRINT_ON;
+END;
+
+PROCEDURE RESET_AUTO_PRINT_MODE;
+BEGIN
+AUTO_PRINT_MODE:= AUTO_PRINT_OFF;
+END;
+</code></pre>
+<p><em>Known Deviations:</em> None</p>
+</section>
+<a id="7-36"></a>
+<section id="MC?9/MC?8">
+<h4>Set/Reset Printer To Host Mode <span>&mdash;</span> MC</h4>
+<p><em>Levels</em> 1X, 2X, 3X</p>
+<p><em>Purpose:</em> To set or reset the state of <a href="#7.3.5">Printer To Host Mode</a>.</p>
+<div>
+<p><em>Set Format:</em></p>
+<pre><samp>CSI     ?       9       i
+
+9/11    3/15    3/9     6/9</samp></pre>
+<p><em>Reset Format:</em></p>
+<pre><samp>CSI     ?       8       i
+
+9/11    3/15    3/8     6/9</samp></pre>
+</div>
+<p><em>Description:</em> When Printer To Host Mode is set, all input from the printer port (other than XON/XOFF flow control when enabled) is relayed to the host.  Character input from the printer port
+is interleaved with input from the keyboard as it is received.</p>
+<p><em>Notes:</em></p>
+<ol>
+<li><p>Printer To Host Mode functions in Printer Controller Mode as well as other print modes.</p></li>
+<li><p>When available, Printer To Host Mode works at all operating levels (Level 1, Level 2, and Level 3).</p></li>
+</ol>
+<p><em>State Affected:</em></p>
+<ul>
+<li><code>PRINTER_TO_HOST_MODE:  (PRINTER_TO_HOST, NO_PRINTER_TO_HOST);</code></li>
+</ul>
+<p><em>Algorithm:</em></p>
+<pre><code>PROCEDURE SET_PRINTER_TO_HOST_MODE;
+BEGIN
+PRINTER_TO_HOST_MODE := PRINTER_TO_HOST;
+END;
+
+PROCEDURE RESET_PRINTER_TO_HOST_MODE;
+BEGIN
+PRINTER_TO_HOST_MODE := NO_PRINTER_TO_HOST;
+END;
+</code></pre>
+<p><em>Known Deviations:</em> None</p>
+</section>
+<a id="7-37"></a>
+<section id="DECPFF">
+<h4>Set/Reset Print Form Feed Mode <span>&mdash;</span> DECPFF</h4>
+<p><em>Levels:</em> 1X, 2X, 3X</p>
+<p><em>Purpose:</em> To set or reset the state of <a href="#7.3.8">Print Form Feed Mode</a>.</p>
+<div>
+<p><em>Set Format:</em></p>
+<pre><samp>CSI     ?       18      h
+
+9/11    3/15    3/1 3/8 6/8</samp></pre>
+<p><em>Reset Format:</em></p>
+<pre><samp>CSI     ?       18      l
+
+9/11    3/15    3/1 3/8 6/12</samp></pre>
+</div>
+<p><em>Description:</em> When Print Form Feed Mode is set, a Form Feed (<a href="EL-00070-05.html#FF">FF</a>) control character is transmitted to the printer port at the conclusion of each Print Page or Print Screen operation.</p>
+<p><em>State Affected:</em></p>
+<ul>
+<li><code>PRINT_FORM_FEED_MODE: (PRINT_FF_OFF,PRINT_FF_ON);</code></li>
+</ul>
+<p><em>Algorithm:</em></p>
+<pre><code>PROCEDURE SET_PRINT_FORM_FEED_MODE;
+BEGIN
+PRINT_FORM_FEED_MODE:= PRINT_FF_ON;
+END;
+
+PROCEDURE RESET_PRINT_FORM_FEED_MODE;
+BEGIN
+PRINT_FORM_FEED_MODE:= PRINT_FF_OFF;
+END;
+</code></pre>
+<p><em>Known Deviations:</em> None</p>
+</section>
+<a id="7-38"></a>
+<section id="DECPEX">
+<h4>Set/Reset Print Extent Mode <span>&mdash;</span> DECPEX</h4>
+<p><em>Levels:</em> 1X, 2X, 3X</p>
+<p><em>Purpose:</em> To set or reset the state of <a href="#7.3.9">Print Extent Mode</a>.</p>
+<div>
+<p><em>Set Format:</em></p>
+<pre><samp>CSI     ?       19      h
+
+9/11    3/15    3/1 3/9 6/8</samp></pre>
+<p><em>Reset Format:</em></p>
+<pre><samp>CSI     ?       19      l
+
+9/11    3/15    3/1 3/9 6/12</samp></pre>
+</div>
+<p><em>Description:</em> Print Extent Mode is used to select the area of the display to be transmitted to the printer port when a Print Page operation is performed.  When this mode is in the state (Print Display) the entire display image is transmitted. When it is in the reset state (Print Scrolling Region), only the area of the display within the scrolling region (Top Margin to
+Bottom Margin inclusive) is transmitted.</p>
+<p><em>State Affected:</em></p>
+<ul>
+<li><code>PRINT_EXTENT_MODE:
+  (PRINT_SCROLLING_REGION,PRINT_DISPLAY);</code></li>
+</ul>
+<p><em>Algorithm:</em></p>
+<pre><code>PROCEDURE SET_PRINT_EXTENT_MODE;
+BEGIN
+PRINT_EXTENT_MODE:= PRINT_DISPLAY;
+END;
+
+PROCEDURE RESET_PRINT_EXTENT_MODE;
+BEGIN
+PRINT_EXTENT_MODE:= PRINT_SCROLLING_REGION;
+END;
+</code></pre>
+<p><em>Known Deviations:</em> None</p>
+</section>
+<a id="7-39"></a>
+<section id="MC0">
+<h4>Print Page <span>&mdash;</span> MC</h4>
+<p><em>Levels</em> 1X, 2X, 3X</p>
+<p><em>Purpose:</em> Transmit the current page to the printer port.</p>
+<div>
+<p><em>Format:</em></p>
+<pre><samp>CSI     0       i               default Ps: 0
+
+9/11    3/0     6/9</samp></pre>
+</div>
+<p><em>Description:</em> The Print Page function  causes  the  text  for  the current  page  of  the  current  session  or just the lines in the current page which are  in  the  active  scrolling  region  to  be transferred  to  the printer.  Which occurs depends on the setting of Printer Extent Mode (<a href="#DECPEX">DECPEX</a>).</p>
+<p><em>Notes:</em></p>
+<ol>
+<li><p>Transmission of the text stream  includes  all  necessary character  set  and graphic rendition controls as well as format effectors to properly represent  the  position  of text on the page.</p></li>
+</ol>
+<p><em>State Affected:</em> None</p>
+<p><em>Algorithm:</em></p>
+<pre><code>PROCEDURE PRINT_PAGE;
+VAR     Y,TOP,BOTTOM: LINE_TYPE;
+        X: COLUMN_TYPE;
+        P_END_OF_LINE: INTEGER;
+        P_LINE_RENDITION: LINE_RENDITION_TYPE;
+        P_RENDITION: CHARACTER_RENDITION_TYPE;
+        P_GL_CHARACTER_SET: GRAPHICS_CHARACTER_SET_TYPE;
+        P_GR_CHARACTER_SET: GRAPHICS_CHARACTER_SET_TYPE;
+        P_CURRENT_NRCS:  GRAPHICS_CHARACTER_SET_TYPE;
+        P_G1_DESIGNATE:  GRAPHICS_CHARACTER_SET_TYPE;
+BEGIN
+(* determine print extent *)
+IF PRINT_EXTENT_MODE = PRINT_DISPLAY THEN
+  BEGIN
+  TOP:= 1;
+  BOTTOM:= MAX_NUM_LINES;
+  END;
+ELSE
+  BEGIN
+  TOP:= TOP_MARGIN;
+  BOTTOM:= BOTTOM_MARGIN;
+  END;
+
+(* determine current National character set *)
+P_CURRENT_NRCS:= ASCII_G;
+IF (CHARACTER_SET_MODE = SEVEN_BITS) AND
+<a id="7-40"></a>   (KEYBOARD_USAGE_MODE = TYPEWRITER) THEN
+  P_CURRENT_NRCS:= NRCS_TABLE(KEYBOARD_DIALECT);
+
+(* handle each printer style separately *)
+IF PRINTER_STYLE = NATIONAL_ONLY THEN
+  BEGIN  (* Print National Only *)
+  (* initialization *)
+  P_GL_CHARACTER_SET:= P_CURRENT_NRCS;
+  (* transmit data as characters from GL *)
+  (* for each line *)
+  FOR Y:= TOP TO BOTTOM DO
+    BEGIN
+    (* set end of line to skip trailing spaces *)
+    P_END_OF_LINE = END_OF_LINE(Y);
+    WHILE (DISPLAY[Y,P_END_OF_LINE].CODE = SPACE_CODE) AND
+          (P_END_OF_LINE > 0)  DO
+      P_END_OF_LINE:= P_END_OF_LINE - 1;
+    (* for each character in the current line *)
+    FOR X:= 1 TO P_END_OF_LINE DO
+      BEGIN
+      (* if not in current NRCS *)
+      IF DISPLAY[Y,X].CHARACTER_SET &lt;> P_GL_CHARACTER_SET THEN
+        BEGIN
+        (* do fallback - to be specified *)
+        END
+      ELSE
+        (* otherwise send character code to printer *)
+        WRITE (PRINTER_PORT, CHR(DISPLAY[Y,X].CODE));
+      END; (* end for each character *)
+    WRITE (PRINTER_PORT,'&lt;CR>&lt;LF>');
+    END;  (* end for each line *)
+  IF PRINT_FORM_FEED_MODE = PRINT_FF_ON THEN
+    WRITE (PRINTER_PORT,'&lt;FF>');
+  (* no termination sequence required *)
+  END;  (* end National Only *)
+
+ELSE IF PRINTER_STYLE = NATIONAL_PLUS_LINE_DRAWING THEN
+  BEGIN
+  (* Printer Style is National + Line Drawing *)
+  (* initialization sequence *)
+  P_RENDITION[BOLD]:= FALSE;
+  P_RENDITION[UNDERSCORE]:= FALSE;
+  P_RENDITION[BLINK]:= FALSE;
+  P_RENDITION[REVERSE]:= FALSE;
+  WRITE (PRINTER_PORT,'&lt;CSI>0m');
+  P_GL_CHARACTER_SET:= P_CURRENT_NRCS;
+  (* designate current NRCS as G0
+     ASCII is NRCS for North America *)
+  WRITE (PRINTER_PORT, '&lt;ESC>(');
+  WRITE (PRINTER_PORT, CHARACTER_SET_DSCS[P_GL_CHARACTER_SET]);
+  (* designate line drawing as G1 *)
+  WRITE (PRINTER_PORT, '&lt;ESC>)0');
+  (* invoke G0 to GL *)
+<a id="7-41"></a>  WRITE (PRINTER_PORT, '&lt;SI>');
+
+  (* data transmission *)
+  (* for each line *)
+  FOR Y:= TOP TO BOTTOM DO
+    BEGIN
+    (* set line rendition *)
+    SEND_LINE_ATTRIBUTES(LINE_RENDITION[Y]);
+    (* set end of line to skip trailing spaces
+       with "normal" graphic rendition *)
+    P_END_OF_LINE = END_OF_LINE(Y);
+    WHILE (DISPLAY[Y,P_END_OF_LINE].CODE = SPACE_CODE) AND
+          (P_END_OF_LINE > 0) AND
+          (NOT DISPLAY[Y,P_END_OF_LINE].RENDITION[BOLD]) AND
+          (NOT DISPLAY[Y,P_END_OF_LINE].RENDITION[UNDERSCORE]) AND
+          (NOT DISPLAY[Y,P_END_OF_LINE].RENDITION[BLINK]) AND
+          (NOT DISPLAY[Y,P_END_OF_LINE].RENDITION[REVERSE]) DO
+      P_END_OF_LINE:= P_END_OF_LINE - 1;
+    (* for each character in the current line *)
+    FOR X:= 1 TO P_END_OF_LINE DO
+      BEGIN
+      (* set graphic rendition if it has changed *)
+      SEND_GRAPHIC_RENDITION (P_RENDITION, DISPLAY[X,Y].RENDITION);
+      P_RENDITION[BOLD]:= DISPLAY[Y,X].RENDITION[BOLD];
+      P_RENDITION[UNDERSCORE]:=
+        DISPLAY[Y,X].RENDITION[UNDERSCORE];
+      P_RENDITION[BLINK]:= DISPLAY[Y,X].RENDITION[BLINK];
+      P_RENDITION[REVERSE]:=
+        DISPLAY[Y,X].RENDITION[REVERSE];
+
+      (* new character set? *)
+      IF DISPLAY[Y,X].CHARACTER_SET &lt;> P_GL_CHARACTER_SET THEN
+        BEGIN
+        (* yes, send SCS sequence to printer *)
+        CASE DISPLAY[Y,X].CHARACTER_SET OF
+
+          P_CURRENT_NRCS:
+            BEGIN
+            (* character set is current NRCS *)
+            (* invoke G0 to GL *)
+            WRITE (PRINTER_PORT, '&lt;SI>');
+            P_GL_CHARACTER_SET:= DISPLAY[Y,X].CHARACTER_SET;
+            END;
+
+          LINE_DRAWING:
+            BEGIN
+            (* character set is Line Drawing *)
+            (* is Line Drawing in G1? *)
+            IF P_G1_DESIGNATE &lt;> LINE_DRAWING THEN
+              BEGIN
+              (* no, re-designate it *)
+              WRITE (PRINTER_PORT, '&lt;ESC>)0');
+              P_G1_DESIGNATE:= LINE_DRAWING;
+<a id="7-42"></a>              END;
+            (* invoke G1 to GL *)
+            WRITE (PRINTER_PORT,'&lt;SO>');
+            P_GL_CHARACTER_SET:= DISPLAY[Y,X].CHARACTER_SET;
+            END;
+
+          ASCII_G:
+            (* character set is ASCII *)
+            (* is ASCII current NRCS? *)
+            IF P_CURRENT_NRCS &lt;> ASCII_G THEN
+              BEGIN
+              (* no, if it's not already in G1, designate it *)
+              IF P_G1_DESIGNATE &lt;> ASCII_G THEN
+                BEGIN
+                WRITE (PRINTER_PORT, '&lt;ESC>)B');
+                P_G1_DESIGNATE:= ASCII_G;
+                END;
+              (* invoke G1 to GL *)
+              WRITE (PRINTER_PORT, '&lt;SO>');
+              P_GL_CHARACTER_SET:= DISPLAY[Y,X].CHARACTER_SET;
+              END;
+
+          OTHERWISE: IGNORE;
+          END;  (* end case of display character set *)
+        END;  (* end new character set *)
+
+      (* do we need to fallback? *)
+      IF (DISPLAY[X,Y].CHARACTER_SET &lt;> P_CURRENT_NRCS) AND
+         (DISPLAY[X,Y].CHARACTER_SET &lt;> LINE_DRAWING) AND
+         (DISPLAY[X,Y].CHARACTER_SET &lt;> ASCII_G) THEN
+        BEGIN
+        (* do fallback - to be specified *)
+        END
+      ELSE
+        (* no, just send character code to printer *)
+        WRITE (PRINTER_PORT, CHR(DISPLAY[Y,X].CODE));
+      END;  (* end for each character in the current line *)
+    WRITE (PRINTER_PORT,'&lt;CR>&lt;LF>');
+    END;  (* end for each line *)
+  IF PRINT_FORM_FEED_MODE = PRINT_FF_ON THEN
+    WRITE (PRINTER_PORT,'&lt;FF>');
+
+  (* termination sequence *)
+  (* send LS0 if necessary to leave G0 invoked to GL *)
+  IF P_GL_CHARACTER_SET &lt;> P_CURRENT_NRCS THEN
+    WRITE (PRINTER_PORT, '&lt;SI>');
+  (* if Line Drawing isn't in G1, designate it *)
+  IF P_G1_DESIGNATE &lt;> LINE_DRAWING THEN
+    WRITE (PRINTER_PORT, '&lt;ESC>)0');
+
+  END;  (* end printer style is National + Line Drawing *)
+
+ELSE IF PRINTER_STYLE = ALL_CHARACTERS THEN
+<a id="7-43"></a>  BEGIN
+  (* printer style is All Characters *)
+  (* initialization sequence *)
+  P_RENDITION[BOLD]:= FALSE;
+  P_RENDITION[UNDERSCORE]:= FALSE;
+  P_RENDITION[BLINK]:= FALSE;
+  P_RENDITION[REVERSE]:= FALSE;
+  WRITE (PRINTER_PORT,'&lt;CSI>0m');
+
+  (* initialize printer G sets to correspond with terminal *)
+  WRITE (PRINTER_PORT, '&lt;ESC>(');
+  WRITE (PRINTER_PORT, CHARACTER_SET_DSCS[DESIGNATED_GRAPHIC_SETS[G0]]);
+
+  IF CHARACTER_SET_SIZE[DESIGNATED_GRAPHIC_SETS[G1]] = 94 THEN
+    WRITE (PRINTER_PORT, '&lt;ESC>)');
+  ELSE
+    WRITE (PRINTER_PORT, '&lt;ESC>-');
+  WRITE (PRINTER_PORT, CHARACTER_SET_DSCS[DESIGNATED_GRAPHIC_SETS[G1]]);
+
+  IF CHARACTER_SET_SIZE[DESIGNATED_GRAPHIC_SETS[G2]] = 94 THEN
+    WRITE (PRINTER_PORT, '&lt;ESC>*');
+  ELSE
+    WRITE (PRINTER_PORT, '&lt;ESC>.');
+  WRITE (PRINTER_PORT, CHARACTER_SET_DSCS[DESIGNATED_GRAPHIC_SETS[G2]]);
+
+  IF CHARACTER_SET_SIZE[DESIGNATED_GRAPHIC_SETS[G3]] = 94 THEN
+    WRITE (PRINTER_PORT, '&lt;ESC>+');
+  ELSE
+    WRITE (PRINTER_PORT, '&lt;ESC>/');
+  WRITE (PRINTER_PORT, CHARACTER_SET_DSCS[DESIGNATED_GRAPHIC_SETS[G3]]);
+
+  (* send LS0 to invoke G0 to GL *)
+  WRITE (PRINTER_PORT, '&lt;SI>');
+  P_GL_CHARACTER_SET:= DESIGNATED_GRAPHIC_SETS[G0];
+  (* if 8-bit printer port environment *)
+  IF PRINTER_PORT_ENVIRONMENT = EIGHT_BIT THEN
+    BEGIN
+    (* send LS2R to invoke G2 to GR *)
+    WRITE (PRINTER_PORT, '&lt;ESC>}');
+    P_GR_CHARACTER_SET:= DESIGNATED_GRAPHIC_SETS[G2];
+    END;
+
+
+  (* data transmission *)
+  FOR Y:= TOP TO BOTTOM DO
+    BEGIN
+    (* set line rendition *)
+    SEND_LINE_ATTRIBUTES(LINE_RENDITION[Y]);
+    (* set end of line to skip trailing spaces
+       with "normal" graphic rendition *)
+    P_END_OF_LINE = END_OF_LINE(Y);
+    WHILE (DISPLAY[Y,P_END_OF_LINE].CODE = SPACE_CODE) AND
+          (P_END_OF_LINE > 0) AND
+<a id="7-44"></a>          (NOT DISPLAY[Y,P_END_OF_LINE].RENDITION[BOLD]) AND
+          (NOT DISPLAY[Y,P_END_OF_LINE].RENDITION[UNDERSCORE]) AND
+          (NOT DISPLAY[Y,P_END_OF_LINE].RENDITION[BLINK]) AND
+          (NOT DISPLAY[Y,P_END_OF_LINE].RENDITION[REVERSE]) DO
+      P_END_OF_LINE:= P_END_OF_LINE - 1;
+    (* for each character in the current line *)
+    FOR X:= 1 TO P_END_OF_LINE DO
+      BEGIN
+      (* set graphic rendition *)
+      SEND_GRAPHIC_RENDITION (P_RENDITION, DISPLAY[X,Y].RENDITION);
+      P_RENDITION[BOLD]:= DISPLAY[Y,X].RENDITION[BOLD];
+      P_RENDITION[UNDERSCORE]:=
+        DISPLAY[Y,X].RENDITION[UNDERSCORE];
+      P_RENDITION[BLINK]:= DISPLAY[Y,X].RENDITION[BLINK];
+      P_RENDITION[REVERSE]:=
+        DISPLAY[Y,X].RENDITION[REVERSE];
+
+      (* handle 7-bit/8-bit printer port environment separately *)
+      (* if 7-bit printer port environment *)
+      IF PRINTER_PORT_ENVIRONMENT = SEVEN_BIT THEN
+        BEGIN
+        (* new character set? *)
+        IF DISPLAY[Y,X].CHARACTER_SET &lt;> P_GL_CHARACTER_SET THEN
+          BEGIN
+          (* yes, designate and invoke as needed *)
+          CASE DISPLAY[Y,X].CHARACTER_SET OF
+
+            DESIGNATED_GRAPHIC_SETS[G0]:
+              (* character set is in G0 *)
+              (* send LS0 to invoke G0 to GL *)
+              WRITE (PRINTER_PORT, '&lt;SI>');
+
+            DESIGNATED_GRAPHIC_SETS[G1]:
+              (* character set is in G1 *)
+              (* send LS1 to invoke G1 to GL *)
+              WRITE (PRINTER_PORT, '&lt;SO>');
+
+            DESIGNATED_GRAPHIC_SETS[G2]:
+              (* character set is in G2 *)
+              (* send SS2 to invoke G2 to GL *)
+              WRITE (PRINTER_PORT, '&lt;ESC>N');
+
+            DESIGNATED_GRAPHIC_SETS[G3]:
+              (* character set is in G3 *)
+              (* send SS3 to invoke G3 to GL *)
+              WRITE (PRINTER_PORT, '&lt;ESC>O');
+
+            OTHERWISE:
+              BEGIN
+              (* no fallback for print all characters *)
+              (* designate the displayed set as G3 *)
+              IF CHARACTER_SET_SIZE[DISPLAY[Y,X].CHARACTER_SET] = 94 THEN
+                WRITE (PRINTER_PORT, '&lt;ESC>+');
+<a id="7-45"></a>              ELSE
+                WRITE (PRINTER_PORT, '&lt;ESC>/');
+              WRITE (PRINTER_PORT, CHARACTER_SET_DSCS
+              [DISPLAY[Y,X].CHARACTER_SET]);
+              P_DESIGNATED_CHARACTER_SETS[G3]:=
+                 DISPLAY[Y,X].CHARACTER_SET;
+              (* send SS3 to invoke G3 to GL *)
+              WRITE (PRINTER_PORT, '&lt;ESC>O');
+              END;
+            END;  (* end case of display character set *)
+
+          P_GL_CHARACTER_SET:= DISPLAY[Y,X].CHARACTER_SET;
+          END;  (* end new character set *)
+        END  (* end 7-bit printer port environment *)
+
+      ELSE
+        (* 8-bit printer port environment *)
+        BEGIN
+        (* new character set? *)
+        IF (DISPLAY[Y,X].CHARACTER_SET &lt;> P_GL_CHARACTER_SET) AND
+           (DISPLAY[Y,X].CHARACTER_SET &lt;> P_GR_CHARACTER_SET) THEN
+          BEGIN
+          (* yes, designate and invoke as needed *)
+          CASE DISPLAY[Y,X].CHARACTER_SET OF
+
+            DESIGNATED_GRAPHIC_SETS[G0]:
+              BEGIN
+              (* character set is in G0 *)
+              (* send LS0 to invoke G0 to GL *)
+              WRITE (PRINTER_PORT, '&lt;SI>');
+              P_GL_CHARACTER_SET:= DISPLAY[Y,X].CHARACTER_SET;
+              END;
+
+            DESIGNATED_GRAPHIC_SETS[G1]:
+              BEGIN
+              (* character set is in G1 *)
+              (* send LS1 to invoke G1 to GL *)
+              WRITE (PRINTER_PORT, '&lt;SO>');
+              P_GL_CHARACTER_SET:= DISPLAY[Y,X].CHARACTER_SET;
+              END;
+
+            DESIGNATED_GRAPHIC_SETS[G2]:
+              BEGIN
+              (* character set is in G2 *)
+              (* send LS2R to invoke G2 to GR *)
+              WRITE (PRINTER_PORT, '&lt;ESC>}');
+              P_GR_CHARACTER_SET:= DISPLAY[Y,X].CHARACTER_SET;
+              END;
+
+            DESIGNATED_GRAPHIC_SETS[G3]:
+              BEGIN
+              (* character set is in G3 *)
+              (* send LS3R to invoke G3 to GR *)
+<a id="7-46"></a>              WRITE (PRINTER_PORT, '&lt;ESC>|');
+              P_GR_CHARACTER_SET:= DISPLAY[Y,X].CHARACTER_SET;
+              END;
+
+            OTHERWISE:
+              BEGIN
+              (* no fallback for print all characters *)
+              (* designate the displayed set to G3 *)
+              IF CHARACTER_SET_SIZE[DISPLAY[Y,X].CHARACTER_SET] = 94 THEN
+                WRITE (PRINTER_PORT, '&lt;ESC>+');
+              ELSE
+                WRITE (PRINTER_PORT, '&lt;ESC>/');
+              WRITE (PRINTER_PORT,
+                     CHARACTER_SET_DSCS[DISPLAY[Y,X].CHARACTER_SET]);
+              P_DESIGNATED_CHARACTER_SETS[G3]:=
+                 DISPLAY[Y,X].CHARACTER_SET;
+              (* send LS3R to invoke G3 to GR *)
+              WRITE (PRINTER_PORT, '&lt;ESC>|');
+              P_GR_CHARACTER_SET:= DISPLAY[Y,X].CHARACTER_SET;
+              END;
+            END  (* end case of display character set *)
+
+          END;  (* end new character set *)
+        END;  (* end 8-bit printer port environment *)
+
+
+      (* send character code to printer *)
+      WRITE (PRINTER_PORT, CHR(DISPLAY[Y,X].CODE));
+      END;  (* end for each character in the current line *)
+    WRITE (PRINTER_PORT,'&lt;CR>&lt;LF>');
+    END;  (* end for each line *)
+  IF PRINT_FORM_FEED_MODE = PRINT_FF_ON THEN
+    WRITE (PRINTER_PORT,'&lt;FF>');
+
+  (* termination sequence *)
+  (* send LS0 if necessary to leave G0 invoked to GL *)
+  IF P_GL_CHARACTER_SET &lt;> DESIGNATED_GRAPHIC_SETS[G0] THEN
+    WRITE (PRINTER_PORT, '&lt;SI>');
+  (* if 8-bit printer port environment *)
+  IF PRINTER_PORT_ENVIRONMENT = EIGHT_BIT THEN
+    BEGIN
+    (* send LS2R if necessary to leave G2 invoked to GR *)
+    IF P_GR_CHARACTER_SET &lt;> DESIGNATED_GRAPHIC_SETS[G2] THEN
+    WRITE (PRINTER_PORT, '&lt;ESC>}');
+    END;
+  (* if printer G3 isn't same as terminal's, re-designate it *)
+  IF P_DESIGNATED_GRAPHIC_SETS[G3] &lt;> DESIGNATED_GRAPHIC_SETS[G3] THEN
+    BEGIN
+    IF CHARACTER_SET_SIZE[DESIGNATED_GRAPHIC_SETS[G3]] = 94 THEN
+      WRITE (PRINTER_PORT, '&lt;ESC>+');
+    ELSE
+      WRITE (PRINTER_PORT, '&lt;ESC>/');
+    WRITE (PRINTER_PORT, CHARACTER_SET_DSCS[DESIGNATED_GRAPHIC_SETS[G3]]);
+<a id="7-47"></a>    END;
+
+  END;  (* end printer style is All Characters *)
+
+END;  (* end procedure PRINT_PAGE *)
+
+(*
+ * Send Line Attributes
+ *)
+PROCEDURE SEND_LINE_ATTRIBUTES (P_LINE_RENDITION: LINE_RENDITION_TYPE);
+
+BEGIN
+(* set line rendition *)
+IF P_LINE_RENDITION = SINGLE_WIDTH THEN
+  WRITE (PRINTER_PORT,'&lt;ESC>#5');
+IF P_LINE_RENDITION = DOUBLE_WIDTH THEN
+  WRITE (PRINTER_PORT,'&lt;ESC>#6');
+IF P_LINE_RENDITION = DOUBLE_HEIGHT_TOP THEN
+  WRITE (PRINTER_PORT,'&lt;ESC>#3');
+IF P_LINE_RENDITION = DOUBLE_HEIGHT_BOTTOM THEN
+  WRITE (PRINTER_PORT,'&lt;ESC>#4');
+END;  (* end procedure SEND_LINE_ATTRIBUTES *)
+
+(*
+ * Send Graphic Rendition
+ *   This procedure sends a new SGR to the printer port
+ *   if the graphic rendition has changed.
+ *)
+PROCEDURE SEND_GRAPHIC_RENDITION
+    (CURRENT_RENDITION: CHARACTER_RENDITION_TYPE;
+     NEW_RENDITION:     CHARACTER_RENDITION_TYPE);
+BEGIN
+(* new graphic rendition? *)
+IF (CURRENT_RENDITION[BOLD]       &lt;> NEW_RENDITION[BOLD])        OR
+   (CURRENT_RENDITION[UNDERSCORE] &lt;> NEW_RENDITION[UNDERSCORE]) OR
+   (CURRENT_RENDITION[BLINK]      &lt;> NEW_RENDITION[BLINK])      OR
+   (CURRENT_RENDITION[REVERSE]    &lt;> NEW_RENDITION[REVERSE])    THEN
+  BEGIN
+  (* yes, send new SGR to printer *)
+  WRITE (PRINTER_PORT,'&lt;ESC>[0');
+  IF NEW_RENDITION[BOLD] THEN
+    WRITE (PRINTER_PORT,';1');
+  IF NEW_RENDITION[UNDERSCORE] THEN
+    WRITE (PRINTER_PORT,';4');
+  IF NEW_RENDITION[BLINK] THEN
+    WRITE (PRINTER_PORT,';5');
+  IF NEW_RENDITION[REVERSE] THEN
+    WRITE (PRINTER_PORT,';7');
+  WRITE (PRINTER_PORT,'m');
+  END;
+END;  (* end procedure SEND_GRAPHIC_RENDITION *)
+</code></pre>
+<a id="7-48"></a>
+<p><em>Known Deviations:</em> None
+  (algorithm does not include code for handling fallback)</p>
+</section>
+<a id="7-49"></a>
+<section id="MC?1">
+<h4>Print Line <span>&mdash;</span> MC</h4>
+<p><em>Levels</em> 1X, 2X, 3X</p>
+<p><em>Purpose:</em> Transmit the line containing the Active Position to the printer port.</p>
+<div>
+<p><em>Format:</em></p>
+<pre><samp>CSI     ?       1       i
+
+9/11    3/15    3/1     6/9</samp></pre>
+</div>
+<p><em>Description:</em> The MC control with private parameter (indicated  by 3/15 "?") of 3/1 (one) causes a print function to be performed, in which the line containing the Active Position  is  transmitted  to the printer port.</p>
+<p><em>State Affected:</em> None</p>
+<p><em>Algorithm:</em></p>
+<pre><code>PROCEDURE PRINT_LINE;
+VAR     Y: LINE_TYPE;
+        X: COLUMN_TYPE;
+        P_END_OF_LINE: INTEGER;
+        P_LINE_RENDITION: LINE_RENDITION_TYPE;
+        P_RENDITION: CHARACTER_RENDITION_TYPE;
+        P_GL_CHARACTER_SET: GRAPHICS_CHARACTER_SET_TYPE;
+        P_GR_CHARACTER_SET: GRAPHICS_CHARACTER_SET_TYPE;
+        P_CURRENT_NRCS:  GRAPHICS_CHARACTER_SET_TYPE;
+        P_G1_DESIGNATE:  GRAPHICS_CHARACTER_SET_TYPE;
+
+(* determine current National character set *)
+P_CURRENT_NRCS:= ASCII_G;
+IF (CHARACTER_SET_MODE = SEVEN_BITS) AND
+   (KEYBOARD_USAGE_MODE = TYPEWRITER) THEN
+  P_CURRENT_NRCS:= NRCS_TABLE(KEYBOARD_DIALECT);
+
+(* handle each printer style separately *)
+IF PRINTER_STYLE = NATIONAL_ONLY THEN
+  BEGIN  (* Print National Only *)
+  (* initialization *)
+  P_GL_CHARACTER_SET:= P_CURRENT_NRCS;
+  (* transmit data as characters from GL *)
+
+  (* transmit current line *)
+  Y = ACTIVE_POSITION.LINE;
+  (* set end of line to skip trailing spaces *)
+  P_END_OF_LINE = END_OF_LINE(Y);
+  WHILE (DISPLAY[Y,P_END_OF_LINE].CODE = SPACE_CODE) AND
+        (P_END_OF_LINE > 0)  DO
+    P_END_OF_LINE:= P_END_OF_LINE - 1;
+  (* for each character in the current line *)
+  FOR X:= 1 TO P_END_OF_LINE DO
+    BEGIN
+<a id="7-50"></a>    (* if not in current NRCS *)
+    IF DISPLAY[Y,X].CHARACTER_SET &lt;> P_GL_CHARACTER_SET THEN
+      BEGIN
+      (* do fallback - to be specified *)
+      END
+    ELSE
+      (* otherwise send character code to printer *)
+      WRITE (PRINTER_PORT, CHR(DISPLAY[Y,X].CODE));
+    END; (* end for each character in line *)
+  WRITE (PRINTER_PORT,'&lt;CR>&lt;LF>');
+  (* no termination sequence required *)
+  END;  (* end National Only *)
+
+ELSE IF PRINTER_STYLE = NATIONAL_PLUS_LINE_DRAWING THEN
+  BEGIN
+  (* Printer Style is National + Line Drawing *)
+  (* initialization sequence *)
+  P_RENDITION[BOLD]:= FALSE;
+  P_RENDITION[UNDERSCORE]:= FALSE;
+  P_RENDITION[BLINK]:= FALSE;
+  P_RENDITION[REVERSE]:= FALSE;
+  WRITE (PRINTER_PORT,'&lt;CSI>0m');
+  P_GL_CHARACTER_SET:= P_CURRENT_NRCS;
+  (* designate current NRCS as G0
+     ASCII is NRCS for North America *)
+  WRITE (PRINTER_PORT, '&lt;ESC>(');
+  WRITE (PRINTER_PORT, CHARACTER_SET_DSCS[P_GL_CHARACTER_SET]);
+  (* designate line drawing as G1 *)
+  WRITE (PRINTER_PORT, '&lt;ESC>)0');
+  (* invoke G0 to GL *)
+  WRITE (PRINTER_PORT, '&lt;SI>');
+
+  (* data transmission *)
+  Y = ACTIVE_POSITION.LINE;
+  (* set line rendition *)
+  SEND_LINE_ATTRIBUTES(LINE_RENDITION[Y]);
+  (* set end of line to skip trailing spaces
+     with "normal" graphic rendition *)
+  P_END_OF_LINE = END_OF_LINE(Y);
+  WHILE (DISPLAY[Y,P_END_OF_LINE].CODE = SPACE_CODE) AND
+        (P_END_OF_LINE > 0) AND
+        (NOT DISPLAY[Y,P_END_OF_LINE].RENDITION[BOLD]) AND
+        (NOT DISPLAY[Y,P_END_OF_LINE].RENDITION[UNDERSCORE]) AND
+        (NOT DISPLAY[Y,P_END_OF_LINE].RENDITION[BLINK]) AND
+        (NOT DISPLAY[Y,P_END_OF_LINE].RENDITION[REVERSE]) DO
+    P_END_OF_LINE:= P_END_OF_LINE - 1;
+  (* for each character in the current line *)
+  FOR X:= 1 TO P_END_OF_LINE DO
+    BEGIN
+    (* set graphic rendition if it has changed *)
+    SEND_GRAPHIC_RENDITION (P_RENDITION, DISPLAY[X,Y].RENDITION);
+    P_RENDITION[BOLD]:= DISPLAY[Y,X].RENDITION[BOLD];
+    P_RENDITION[UNDERSCORE]:=
+<a id="7-51"></a>      DISPLAY[Y,X].RENDITION[UNDERSCORE];
+    P_RENDITION[BLINK]:= DISPLAY[Y,X].RENDITION[BLINK];
+    P_RENDITION[REVERSE]:=
+      DISPLAY[Y,X].RENDITION[REVERSE];
+
+    (* new character set? *)
+    IF DISPLAY[Y,X].CHARACTER_SET &lt;> P_GL_CHARACTER_SET THEN
+      BEGIN
+      (* yes, send SCS sequence to printer *)
+      CASE DISPLAY[Y,X].CHARACTER_SET OF
+
+        P_CURRENT_NRCS:
+          BEGIN
+          (* character set is current NRCS *)
+          (* invoke G0 to GL *)
+          WRITE (PRINTER_PORT, '&lt;SI>');
+          P_GL_CHARACTER_SET:= DISPLAY[Y,X].CHARACTER_SET;
+          END;
+
+        LINE_DRAWING:
+          BEGIN
+          (* character set is Line Drawing *)
+          (* is Line Drawing in G1? *)
+          IF P_G1_DESIGNATE &lt;> LINE_DRAWING THEN
+            BEGIN
+            (* no, re-designate it *)
+            WRITE (PRINTER_PORT, '&lt;ESC>)0');
+            P_G1_DESIGNATE:= LINE_DRAWING;
+            END;
+          (* invoke G1 to GL *)
+          WRITE (PRINTER_PORT,'&lt;SO>');
+          P_GL_CHARACTER_SET:= DISPLAY[Y,X].CHARACTER_SET;
+          END;
+
+        ASCII_G:
+          (* character set is ASCII *)
+          (* is ASCII current NRCS? *)
+          IF P_CURRENT_NRCS &lt;> ASCII_G THEN
+            BEGIN
+            (* no, if it's not already in G1, designate it *)
+            IF P_G1_DESIGNATE &lt;> ASCII_G THEN
+              BEGIN
+              WRITE (PRINTER_PORT, '&lt;ESC>)B');
+              P_G1_DESIGNATE:= ASCII_G;
+              END;
+            (* invoke G1 to GL *)
+            WRITE (PRINTER_PORT, '&lt;SO>');
+            P_GL_CHARACTER_SET:= DISPLAY[Y,X].CHARACTER_SET;
+            END;
+       OTHERWISE: IGNORE;
+        END;  (* end case of display character set *)
+      END;  (* end new character set *)
+   (* do we need to fallback? *)
+<a id="7-52"></a>    IF (DISPLAY[X,Y].CHARACTER_SET &lt;> P_CURRENT_NRCS) AND
+       (DISPLAY[X,Y].CHARACTER_SET &lt;> LINE_DRAWING) AND
+       (DISPLAY[X,Y].CHARACTER_SET &lt;> ASCII_G) THEN
+      BEGIN
+      (* do fallback - to be specified *)
+      END
+    ELSE
+      (* no, just send character code to printer *)
+      WRITE (PRINTER_PORT, CHR(DISPLAY[Y,X].CODE));
+    END;  (* end for each character in the current line *)
+  WRITE (PRINTER_PORT,'&lt;CR>&lt;LF>');
+
+  (* termination sequence *)
+  (* send LS0 if necessary to leave G0 invoked to GL *)
+  IF P_GL_CHARACTER_SET &lt;> P_CURRENT_NRCS THEN
+    WRITE (PRINTER_PORT, '&lt;SI>');
+  (* if Line Drawing isn't in G1, designate it *)
+  IF P_G1_DESIGNATE &lt;> LINE_DRAWING THEN
+    WRITE (PRINTER_PORT, '&lt;ESC>)0');
+
+  END;  (* end printer style is National + Line Drawing *)
+
+ELSE IF PRINTER_STYLE = ALL_CHARACTERS THEN
+  BEGIN
+  (* printer style is All Characters *)
+  (* initialization sequence *)
+  P_RENDITION[BOLD]:= FALSE;
+  P_RENDITION[UNDERSCORE]:= FALSE;
+  P_RENDITION[BLINK]:= FALSE;
+  P_RENDITION[REVERSE]:= FALSE;
+  WRITE (PRINTER_PORT,'&lt;CSI>0m');
+
+  (* initialize printer G sets to correspond with terminal *)
+  WRITE (PRINTER_PORT, '&lt;ESC>(');
+  WRITE (PRINTER_PORT, CHARACTER_SET_DSCS[DESIGNATED_GRAPHIC_SETS[G0]]);
+
+  IF CHARACTER_SET_SIZE[DESIGNATED_GRAPHIC_SETS[G1]] = 94 THEN
+    WRITE (PRINTER_PORT, '&lt;ESC>)');
+  ELSE
+    WRITE (PRINTER_PORT, '&lt;ESC>-');
+  WRITE (PRINTER_PORT, CHARACTER_SET_DSCS[DESIGNATED_GRAPHIC_SETS[G1]]);
+
+  IF CHARACTER_SET_SIZE[DESIGNATED_GRAPHIC_SETS[G2]] = 94 THEN
+    WRITE (PRINTER_PORT, '&lt;ESC>*');
+  ELSE
+    WRITE (PRINTER_PORT, '&lt;ESC>.');
+  WRITE (PRINTER_PORT, CHARACTER_SET_DSCS[DESIGNATED_GRAPHIC_SETS[G2]]);
+
+  IF CHARACTER_SET_SIZE[DESIGNATED_GRAPHIC_SETS[G3]] = 94 THEN
+    WRITE (PRINTER_PORT, '&lt;ESC>+');
+  ELSE
+    WRITE (PRINTER_PORT, '&lt;ESC>/');
+  WRITE (PRINTER_PORT, CHARACTER_SET_DSCS[DESIGNATED_GRAPHIC_SETS[G3]]);
+
+<a id="7-53"></a>  (* send LS0 to invoke G0 to GL *)
+  WRITE (PRINTER_PORT, '&lt;SI>');
+  P_GL_CHARACTER_SET:= DESIGNATED_GRAPHIC_SETS[G0];
+  (* if 8-bit printer port environment *)
+  IF PRINTER_PORT_ENVIRONMENT = EIGHT_BIT THEN
+    BEGIN
+    (* send LS2R to invoke G2 to GR *)
+    WRITE (PRINTER_PORT, '&lt;ESC>}');
+    P_GR_CHARACTER_SET:= DESIGNATED_GRAPHIC_SETS[G2];
+    END;
+
+  (* data transmission *)
+  Y = ACTIVE_POSITION.LINE;
+  (* set line rendition *)
+  SEND_LINE_ATTRIBUTES(LINE_RENDITION[Y]);
+  (* set end of line to skip trailing spaces
+     with "normal" graphic rendition *)
+  P_END_OF_LINE = END_OF_LINE(Y);
+  WHILE (DISPLAY[Y,P_END_OF_LINE].CODE = SPACE_CODE) AND
+        (P_END_OF_LINE > 0) AND
+        (NOT DISPLAY[Y,P_END_OF_LINE].RENDITION[BOLD]) AND
+        (NOT DISPLAY[Y,P_END_OF_LINE].RENDITION[UNDERSCORE]) AND
+        (NOT DISPLAY[Y,P_END_OF_LINE].RENDITION[BLINK]) AND
+        (NOT DISPLAY[Y,P_END_OF_LINE].RENDITION[REVERSE]) DO
+    P_END_OF_LINE:= P_END_OF_LINE - 1;
+  (* for each character in the current line *)
+  FOR X:= 1 TO P_END_OF_LINE DO
+    BEGIN
+    (* set graphic rendition *)
+    SEND_GRAPHIC_RENDITION (P_RENDITION, DISPLAY[X,Y].RENDITION);
+    P_RENDITION[BOLD]:= DISPLAY[Y,X].RENDITION[BOLD];
+    P_RENDITION[UNDERSCORE]:=
+      DISPLAY[Y,X].RENDITION[UNDERSCORE];
+    P_RENDITION[BLINK]:= DISPLAY[Y,X].RENDITION[BLINK];
+    P_RENDITION[REVERSE]:=
+      DISPLAY[Y,X].RENDITION[REVERSE];
+
+    (* handle 7-bit/8-bit printer port environment separately *)
+    (* if 7-bit printer port environment *)
+    IF PRINTER_PORT_ENVIRONMENT = SEVEN_BIT THEN
+      BEGIN
+      (* new character set? *)
+      IF DISPLAY[Y,X].CHARACTER_SET &lt;> P_GL_CHARACTER_SET THEN
+        BEGIN
+        (* yes, designate and invoke as needed *)
+        CASE DISPLAY[Y,X].CHARACTER_SET OF
+
+          DESIGNATED_GRAPHIC_SETS[G0]:
+            (* character set is in G0 *)
+            (* send LS0 to invoke G0 to GL *)
+            WRITE (PRINTER_PORT, '&lt;SI>');
+
+<a id="7-54"></a>          DESIGNATED_GRAPHIC_SETS[G1]:
+            (* character set is in G1 *)
+            (* send LS1 to invoke G1 to GL *)
+            WRITE (PRINTER_PORT, '&lt;SO>');
+
+          DESIGNATED_GRAPHIC_SETS[G2]:
+            (* character set is in G2 *)
+            (* send SS2 to invoke G2 to GL *)
+            WRITE (PRINTER_PORT, '&lt;ESC>N');
+
+          DESIGNATED_GRAPHIC_SETS[G3]:
+            (* character set is in G3 *)
+            (* send SS3 to invoke G3 to GL *)
+            WRITE (PRINTER_PORT, '&lt;ESC>O');
+
+          OTHERWISE:
+            BEGIN
+            (* no fallback for print all characters *)
+            (* designate the displayed set as G3 *)
+            IF CHARACTER_SET_SIZE[DISPLAY[Y,X].CHARACTER_SET] = 94 THEN
+              WRITE (PRINTER_PORT, '&lt;ESC>+');
+            ELSE
+              WRITE (PRINTER_PORT, '&lt;ESC>/');
+            WRITE (PRINTER_PORT, CHARACTER_SET_DSCS
+            [DISPLAY[Y,X].CHARACTER_SET]);
+            P_DESIGNATED_CHARACTER_SETS[G3]:=
+               DISPLAY[Y,X].CHARACTER_SET;
+            (* send SS3 to invoke G3 to GL *)
+            WRITE (PRINTER_PORT, '&lt;ESC>O');
+            END;
+          END;  (* end case of... *)
+
+        P_GL_CHARACTER_SET:= DISPLAY[Y,X].CHARACTER_SET;
+        END;  (* end new character set *)
+      END  (* end 7-bit printer port environment *)
+
+    ELSE
+      (* 8-bit printer port environment *)
+      BEGIN
+      (* new character set? *)
+      IF (DISPLAY[Y,X].CHARACTER_SET &lt;> P_GL_CHARACTER_SET) AND
+         (DISPLAY[Y,X].CHARACTER_SET &lt;> P_GR_CHARACTER_SET) THEN
+        BEGIN
+        (* yes, designate and invoke as needed *)
+        CASE DISPLAY[Y,X].CHARACTER_SET OF
+
+          DESIGNATED_GRAPHIC_SETS[G0]:
+            BEGIN
+            (* character set is in G0 *)
+            (* send LS0 to invoke G0 to GL *)
+            WRITE (PRINTER_PORT, '&lt;SI>');
+            P_GL_CHARACTER_SET:= DISPLAY[Y,X].CHARACTER_SET;
+            END;
+
+<a id="7-55"></a>          DESIGNATED_GRAPHIC_SETS[G1]:
+            BEGIN
+            (* character set is in G1 *)
+            (* send LS1 to invoke G1 to GL *)
+            WRITE (PRINTER_PORT, '&lt;SO>');
+            P_GL_CHARACTER_SET:= DISPLAY[Y,X].CHARACTER_SET;
+            END;
+
+          DESIGNATED_GRAPHIC_SETS[G2]:
+            BEGIN
+            (* character set is in G2 *)
+            (* send LS2R to invoke G2 to GR *)
+            WRITE (PRINTER_PORT, '&lt;ESC>}');
+            P_GR_CHARACTER_SET:= DISPLAY[Y,X].CHARACTER_SET;
+            END;
+
+          DESIGNATED_GRAPHIC_SETS[G3]:
+            BEGIN
+            (* character set is in G3 *)
+            (* send LS3R to invoke G3 to GR *)
+            WRITE (PRINTER_PORT, '&lt;ESC>|');
+            P_GR_CHARACTER_SET:= DISPLAY[Y,X].CHARACTER_SET;
+            END;
+
+          OTHERWISE:
+            BEGIN
+            (* no fallback for print all characters *)
+            (* designate the displayed set to G3 *)
+            IF CHARACTER_SET_SIZE[DISPLAY[Y,X].CHARACTER_SET] = 94 THEN
+              WRITE (PRINTER_PORT, '&lt;ESC>+');
+            ELSE
+              WRITE (PRINTER_PORT, '&lt;ESC>/');
+            WRITE (PRINTER_PORT,
+                   CHARACTER_SET_DSCS[DISPLAY[Y,X].CHARACTER_SET]);
+            P_DESIGNATED_CHARACTER_SETS[G3]:=
+               DISPLAY[Y,X].CHARACTER_SET;
+            (* send LS3R to invoke G3 to GR *)
+            WRITE (PRINTER_PORT, '&lt;ESC>|');
+            P_GR_CHARACTER_SET:= DISPLAY[Y,X].CHARACTER_SET;
+            END;
+          END  (* end case of... *)
+
+        END;  (* end new character set *)
+      END;  (* end 8-bit printer port environment *)
+
+    (* send character code to printer *)
+    WRITE (PRINTER_PORT, CHR(DISPLAY[Y,X].CODE));
+    END;  (* end for each character in the current line *)
+  WRITE (PRINTER_PORT,'&lt;CR>&lt;LF>');
+
+  (* termination sequence *)
+  (* send LS0 if necessary to leave G0 invoked to GL *)
+<a id="7-56"></a>  IF P_GL_CHARACTER_SET &lt;> DESIGNATED_GRAPHIC_SETS[G0] THEN
+    WRITE (PRINTER_PORT, '&lt;SI>');
+  (* if 8-bit printer port environment *)
+  IF PRINTER_PORT_ENVIRONMENT = EIGHT_BIT THEN
+    BEGIN
+    (* send LS2R if necessary to leave G2 invoked to GR *)
+    IF P_GR_CHARACTER_SET &lt;> DESIGNATED_GRAPHIC_SETS[G2] THEN
+    WRITE (PRINTER_PORT, '&lt;ESC>}');
+    END;
+  (* if printer G3 isn't same as terminal's, re-designate it *)
+  IF P_DESIGNATED_GRAPHIC_SETS[G3] &lt;> DESIGNATED_GRAPHIC_SETS[G3] THEN
+    BEGIN
+    IF CHARACTER_SET_SIZE[DESIGNATED_GRAPHIC_SETS[G3]] = 94 THEN
+      WRITE (PRINTER_PORT, '&lt;ESC>+');
+    ELSE
+      WRITE (PRINTER_PORT, '&lt;ESC>/');
+    WRITE (PRINTER_PORT, CHARACTER_SET_DSCS[DESIGNATED_GRAPHIC_SETS[G3]]);
+    END;
+
+  END;  (* end printer style is All Characters *)
+
+END;  (* end procedure PRINT_LINE *)
+
+(*
+ * Send Line Attributes
+ *)
+PROCEDURE SEND_LINE_ATTRIBUTES (P_LINE_RENDITION: LINE_RENDITION_TYPE);
+
+BEGIN
+(* set line rendition *)
+IF P_LINE_RENDITION = SINGLE_WIDTH THEN
+  WRITE (PRINTER_PORT,'&lt;ESC>#5');
+IF P_LINE_RENDITION = DOUBLE_WIDTH THEN
+  WRITE (PRINTER_PORT,'&lt;ESC>#6');
+IF P_LINE_RENDITION = DOUBLE_HEIGHT_TOP THEN
+  WRITE (PRINTER_PORT,'&lt;ESC>#3');
+IF P_LINE_RENDITION = DOUBLE_HEIGHT_BOTTOM THEN
+  WRITE (PRINTER_PORT,'&lt;ESC>#4');
+END;  (* end procedure SEND_LINE_ATTRIBUTES *)
+
+(*
+ * Send Graphic Rendition
+ *   This procedure sends a new SGR to the printer port
+ *   if the graphic rendition has changed.
+ *)
+PROCEDURE SEND_GRAPHIC_RENDITION
+    (CURRENT_RENDITION: CHARACTER_RENDITION_TYPE;
+     NEW_RENDITION:     CHARACTER_RENDITION_TYPE);
+BEGIN
+(* new graphic rendition? *)
+IF (CURRENT_RENDITION[BOLD]       &lt;> NEW_RENDTION[BOLD])        OR
+   (CURRENT_RENDITION[UNDERSCORE] &lt;> NEW_RENDITION[UNDERSCORE]) OR
+   (CURRENT_RENDITION[BLINK]      &lt;> NEW_RENDITION[BLINK])      OR
+<a id="7-57"></a>   (CURRENT_RENDITION[REVERSE]    &lt;> NEW_RENDITION[REVERSE])    THEN
+  BEGIN
+  (* yes, send new SGR to printer *)
+  WRITE (PRINTER_PORT,'&lt;ESC>[0');
+  IF NEW_RENDITION[BOLD] THEN
+    WRITE (PRINTER_PORT,';1');
+  IF NEW_RENDITION[UNDERSCORE] THEN
+    WRITE (PRINTER_PORT,';4');
+  IF NEW_RENDITION[BLINK] THEN
+    WRITE (PRINTER_PORT,';5');
+  IF NEW_RENDITION[REVERSE] THEN
+    WRITE (PRINTER_PORT,';7');
+  WRITE (PRINTER_PORT,'m');
+  END;
+END;  (* end procedure SEND_GRAPHIC_RENDITION *)
+</code></pre>
+<p><em>Known Deviations:</em> None
+  (algorithm does not include code for handling fallback)</p>
+</section>
+</section>
+<a id="7-58"></a>
+<section id="7.8">
+<h2>8  Graphics Printing</h2>
+<p>This section describes graphics printing and is intended to  apply to  devices  which support graphic displays and the <a href="EL-00070-09.html">Sixel Graphics Extension</a>.</p>
+<section id="7.8.1">
+<h3>8.1  Graphics Print Operations</h3>
+<section id="7.8.1.1">
+<h4>8.1.1  Graphics Print Screen</h4>
+<p>The complete graphics bit map is transferred to the printer.  This can  be  invoked by the host through the ReGIS hardcopy command or by the user under local control.</p>
+</section>
+<section id="7.8.1.2">
+<h4>8.1.2  Graphics Print Region</h4>
+<p>An image of a portion of the screen bit map is transferred to  the printer.   This  can  be  invoked  by  the  host through the ReGIS hardcopy command.  Refer to the <a href="EL-00070-08.html">ReGIS</a> chapter for determining  how to define this region.</p>
+</section>
+</section>
+<section id="7.8.2">
+<h3>8.2  Sixel Printing</h3>
+<p>A Sixel is a group of 6 vertical  pixels  represented  by  6  bits within  a  character code.  A one value for a bit indicates that a pixel-spot will be placed at the corresponding  grid  position,  a zero  will  cause  the corresponding grid position to be unchanged (not written).</p>
+<p>Sixel printing consists of setting context and attributes for  the pixels   and   then   printing   each   Sixel   in  left-to-right, top-to-bottom order.  Wherever possible,  run-length  encoding  is used  to reduce the number of characters transmitted for a line of Sixels.</p>
+<p>See the <a href="EL-00070-09.html">Sixel Graphics Extension</a> chapter for  further  details  on the Sixel format.</p>
+<p><em>Guideline:</em> When a Sixel dump is initiated by the user under local control  (Print  Key),  the terminal first transmits a CR to reset the ANSI text position on the printer to the left margin.  If  the Sixel  dump  is  initiated  by the host, the CR is not sent so the host can initialize the starting sixel position.</p>
+<a id="7-59"></a>
+<p><em>Guideline:</em> The VT240  sends  the  following  characters  out  the printer  port (or host port) when transmitting a sixel dump of the screen.</p>
+<pre><samp>ESC   \     &lt;CR>  ESC   P    1    q   &lt;sixel-data>  ESC   \
+1/11  5/12  0/13  1/11  5/0  3/1  7/1               1/11  5/12
+
+\________/        \_______/                         \________/
+   ST                DCS                                ST
+</samp></pre>
+<section id="7.8.2.1">
+<h4>8.2.1  Color And Monochrome Sixels</h4>
+<p>On devices which support a color  display,  the  user  may  select monochrome  or color sixel printing.  Monochrome Sixels are formed from the multiple plane image by a logical OR of all pixels  which are  selected  for  any color.  If color printing is selected, The terminal will send out color specifiers at the beginning  of  each Sixel dump to reflect the contents of the terminal's color map.</p>
+<p>If PRINT BACKGROUND is selected, all pixels with no  bits  set  in any plane are printed in the color value selected for index 0.</p>
+</section>
+<section id="7.8.2.2">
+<h4>8.2.2  Expanded Print</h4>
+<p>Graphics expanded  print  mode  determines  whether  the  terminal generates a small (compressed) or large (expanded) graphics image.  The small image fits on 8-1/2 inch wide paper and expanded  images on  13  inch wide paper in portrait mode.  This mode is selectable by the DEC-private  mode  DECGEPM  or  by  the  user  under  local control.</p>
+</section>
+<section id="7.8.2.3">
+<h4>8.2.3  Rotated Print</h4>
+<p>Graphics rotated print mode rotates the image  by  90  degrees  so that  an  expanded  image can fit on a single 8-1/2 inch wide page (rotated images are always expanded).  This mode is selectable  by the DEC-private mode DECGRPM or by the user under local control.</p>
+<p><em>Guideline:</em> the VT240 rotates the image counter clockwise so  that the  left  side  of  the  paper  (as it comes out of a typical dot matrix printer) corresponds  to  the  top  of  the  image  on  the terminal screen.  This scanning order was chosen to allow punching holes for a looseleaf notebook on the left side of the page as  it comes out of the printer.</p>
+</section>
+<a id="7-60"></a>
+<section id="7.8.2.4">
+<h4>8.2.4  Sixel Graphics Level (Guideline)</h4>
+<p>As  the  Sixel  graphics  protocol  has  become  more  general  to accommodate  a  range  of  pixel  aspect  ratios  and  grid sizes, Terminals have begun supporting two levels of the  Sixel  graphics protocol  to  match  the  capabilities  of the printer being used.  Level 1 provides backward compatibility with older printers, while Level  2  allows the terminal to take full advantage newer printer capabilities to improve print quality.</p>
+<p>The Sixel Graphics Level determines how the terminal  matches  the printer's  Sixel  Aspect  Ratio,  Horizontal Grid Size, Background Printing, and Color Printing capabilities.</p>
+<p>The Sixel Graphics Level is selectable by  the  user  under  local control.</p>
+<section id="7.8.2.4.1">
+<h4>Level 1 Sixel Devices</h4>
+<p><em>Assumptions:</em> Level 1 sixel devices do not support the Set  Raster Attribute  command,  Background  Select,  Horizontal Grid Size, or Macro Parameter commands.  The aspect ratio is fixed at  2:1,  and the  horizontal  grid size is approximately 7.5 x .001 inches (800 pixels require 6 inches).  Level 1 is the factory default.</p>
+<p>Sixel Control Strings will be sent to the printer as follows:</p>
+<pre><samp>ESC  P  1  q  S...S  ESC  \       (always 7-bit controls)
+</samp></pre>
+<section id="7.8.2.4.1.1">
+<h4>COMPRESSED Sixel Print Option</h4>
+<p>A terminal with a 1:1 pixel aspect ratio will combine each pair of horizontally adjacent pixels (from two successive scan lines) into a single pixel.  The value of  the  combined  pixel  will  be  the LOGICAL OR of the values of the individual pixels.</p>
+<a id="7-61"></a>
+<figure>
+<pre>1:1 Aspect Ratio      Level 1 Printer
+
++---+                    +---+
+| a |                    |   |
++---+    LOGICAL OR =>   |a+b|
++---+                    |   |
+| b |                    |   |
++---+                    +---+</pre>
+</figure>
+<p>This will produce images of the same size and aspect ratio as the VT240 (2:1 Aspect Ratio).<br />ReGIS images will appear normal, but ANSI text
+may be distorted.</p>
+</section>
+<section id="7.8.2.4.1.2">
+<h4>EXPANDED Sixel Print Option</h4>
+<p>Terminals with pixel aspect ratios of 1:1 will transmit each Sixel twice (in immediate horizontal succession).</p>
+<figure>
+<pre>1:1 Aspect Ratio         Level 1 Printer
+
++---+                     +---+ +---+
+| a |                     |   | |   |
++---+                     | a | | a |
++---+    PRINT TWICE =>   |   | |   |
+| b |                     |   | |   |
++---+                     +---+ +---+
+ .                        +---+ +---+
+ .                        |   | |   |
+ .                        | b | | b |
+                          |   | |   |
+                          |   | |   |
+                          +---+ +---+
+                           .
+                           .</pre>
+</figure>
+<p>This will produce images of the same size and aspect ratio as  the VT240 (2:1 Aspect Ratio), but with twice the vertical resolution.</p>
+</section>
+<section id="7.8.2.4.1.3">
+<h4>ROTATED Sixel Print Option</h4>
+<p>Terminals with 1:1 pixel aspect ratios will transmit the  selected portion  of  the display bitmap in vertical strips six pixels wide from top to bottom, and right to left.</p>
+<a id="7-62"></a>
+<figure>
+<pre>    display                paper
+
++--------------+        +-----------+
+|          2 1 |        | 1-------> |
+|          | | |        | 2-------> |
+|          | | |        |           |
+|          V V |        |           |
++--------------+        |           |
+                        |           |
+                        |           |
+                        +-----------+</pre>
+</figure>
+<p>Each Sixel is sent twice in immediate horizontal succession  (with respect to the printer).</p>
+<figure>
+<pre>      1:1 Aspect Ratio              Level 1 Printer
+
+      +---+ +---+ +---+              +---+ +---+
+. . . |   | | b | | a |              |   | |   | . . .
+      +---+ +---+ +---+    ROTATE    | a | | a |
+            +---+ +---+     AND      |   | |   |
+            |   | |   |    PRINT     |   | |   |
+            +---+ +---+    TWICE =>  +---+ +---+
+                  +---+              +---+ +---+
+                  |   |              |   | |   |
+                  +---+              | b | | b |
+                     .               |   | |   |
+                     .               |   | |   |
+                     .               +---+ +---+
+                                      .
+                                      .
+                                      .</pre>
+</figure>
+<p>This will produce images of the same size and aspect ratio as  the VT240(2:1  Aspect  Ratio),  but with twice the vertical resolution (with respect to the image displayed on the screen).</p>
+</section>
+</section>
+<section id="7.8.2.4.2">
+<h4>Level 2 Sixel Devices</h4>
+<p><em>Assumptions:</em>  Level  2  sixel  devices  support  the  Set  Raster Attribute  command,  Background  Select,  Horizontal Grid Size and Macro Parameter commands.</p>
+<a id="7-63"></a>
+<p>Sixel control strings are sent as follows:</p>
+<pre><samp>ESC P  Ps1 ; Ps2 ; Pn3 q " Pn4 ; Pn5 ; Pn6 ; Pn7 ******  ESC \
+
+\___/  \_______________/ \_____________________/ \____/  \___/
+ DCS   Protocol Selector    Raster Attributes    Picture  ST
+                                                  data
+\______________________/ \____________________________/
+ DCS Introducer Sequence     sixel data
+</samp></pre>
+<p>Where:</p>
+<ul>
+<li>Ps1   Is the Macro Parameter and is always ZERO.</li>
+<li>Ps2   Background Select<ul>
+<li>1 if Background Printing is disabled in Set-Up</li>
+<li>2 if Background Printing is enabled  in Set-Up</li>
+</ul>
+</li>
+<li>Pn3   Horizontal Grid Size, given in units specified
+by ANSI SSU (default is decipoints, 1/720 inch).
+For default size units, the grid size should be
+6 for COMPRESSED and 9 for EXPANDED or ROTATED print.  Since the host can change the printer between accesses, SSU should be sent once before each sixel dump.<pre><samp>ESC  [    2   SP  I     (Set Size Unit
+1/11 5/11 3/2 2/0 4/9    to Decipoints)</samp></pre>
+</li>
+<li>Pn4   Pixel aspect ratio numerator, 1</li>
+<li>Pn5   Pixel aspect ratio denominator, 1</li>
+<li>Pn6   Horizontal extent
+(number of pixels in image horizontally)</li>
+<li>Pn7   Vertical extent
+(number of pixels in image vertically)</li>
+</ul>
+<section id="7.8.2.4.2.1">
+<h4>COMPRESSED Sixel Print Option</h4>
+<p>When Level  2  sixel  graphics  is  selected,  the  terminal  will transmit the selected portion of the display bitmap as sixels from left to right, and top to bottom.  No translation of screen pixels is  required  since  the printer directly supports 1:1 sixels with the desired grid size.  The horizontal grid size is set  to  6  in the Set Raster Attributes command.</p>
+</section>
+<section id="7.8.2.4.2.2">
+<h4>EXPANDED Sixel Print Option</h4>
+<p>When Level  2  sixel  graphics  is  selected,  the  terminal  will transmit the selected portion of the display bitmap as sixels from left to right, and top to bottom.  No translation of screen pixels is  required  since  the printer directly supports 1:1 sixels with the desired grid size.  The horizontal grid size is set  to  9  in the Set Raster Attributes command.</p>
+</section>
+<a id="7-64"></a>
+<section id="7.8.2.4.2.3">
+<h4>ROTATED Sixel Print Option</h4>
+<p>When Level  2  sixel  graphics  is  selected,  the  terminal  will transmit  the  selected  portion of the display bitmap in vertical strips six pixels wide from top to  bottom,  and  right  to  left.  Each  sixel  is  sent  once  using the same sixel initiator as for expanded print above (horizontal grid size set to 9).</p>
+</section>
+</section>
+</section>
+</section>
+</section>
+<a id="7-65"></a>
+<section id="7.9">
+<h2>9  Change History</h2>
+<section id="7.9.1">
+<h3>9.1  Revision 0.0 To AX10</h3>
+<ol>
+<li><p>Added Terminology section</p></li>
+<li><p>Made    extensive    changes    to    the    transmission characteristics descriptions.</p></li>
+<li><p>Added  notes  that  the  state  of  Auto  Print  Mode  is UNDEFINED across changes in Printer Controller Mode.</p></li>
+<li><p>Completely rewrote the  algorithms  for  Print  Line  and Print Screen.</p></li>
+<li><p>Added note to the abstract indicating that this  standard currently only applies to Level 2 conformance.</p></li>
+<li><p>Added a note to Printer Controller Mode  indicating  that 7/15 and 15/15 are UNDEFINED when Printer Controller Mode is set.</p></li>
+</ol>
+</section>
+<section id="7.9.2">
+<h3>9.2  Rev AX10 To AX11</h3>
+<ol>
+<li><p>Changed name of character rendition  from  REVERSE__VIDEO to REVERSE throughout code to be more consistent.</p></li>
+</ol>
+</section>
+<section id="7.9.3">
+<h3>9.3  Rev AX11 To AX12</h3>
+<ol>
+<li><p>Removed all previous change bars.  Added change  bars  to any    change    that   could   affect   conformance   or interpretation of the document or should  be  brought  to the   attention  of  terminal  implementors  or  software engineers.</p></li>
+<li><p>Defined Level 3 Printer Port Extension  to  document  how multiple sessions and off screen memory interact with the Printer  Port.   Added  two  new  Device  Status  Reports (Printer  busy, Printer not assigned).  Added definitions for   "Virtual   Terminal"   and   "Session".    Extended description of Printer Port status.</p><a id="7-66"></a></li>
+<li><p>Renamed former "Print Screen"  to  "Print  Page"  (prints page from display memory including parts which may not be visible on the screen).</p></li>
+<li><p>Defined "Print  Composed  Main  Display"  or  new  "Print Screen" which prints what is displayed on the screen (may include data from multiple sessions).  New  Print  Screen is not affected by Printer Extent Mode.</p></li>
+<li><p>Updated Print Form Feed Mode to affect both "Print  Page" and "Print Screen".</p></li>
+<li><p>Extended  description  of  XON/XOFF  flow  control  (more complete  spec).   Added section on hardware flow control (DSR/DTR).</p></li>
+<li><p>In printer controller mode, 7-bit C1 controls  are  never translated to 8-bits.</p></li>
+<li><p>Added description of "Local  Controller  Mode"  to  Print Modes (as in VT240 and VT300).</p></li>
+<li><p>Updated Printer Style modes.  Documented support for User Preference Supplemental Set (UPSS according to TIA DEC to ISO 8-bit transition  plan).   Changed  "ASCII  only"  to "National Only".  In Print National + Line Drawing, noted how ASCII can be designated to G1 for characters  not  in current   NRC   (as   in  VT220).   Modified  "Print  All Characters" mode  to  print  all  characters  efficiently without fallback.</p></li>
+<li><p>Added table of NRC sets and designating sequences.</p></li>
+<li><p>Information on transmitting  display  attributes  grouped into one section to avoid duplication.  Added material on invisible character attribute and trailing spaces.</p></li>
+<li><p>All fallback tables grouped into one section  eliminating duplication.    Fallbacks  organized  by  character  set.  Added fallbacks for DEC Technical, Control Representation Mode  (CRM  as  in VT300), and NRCS characters not in DEC MCS  or  ISO  Latin  Alphabet  Nr  1.    Added   sections clarifying DRCS and UPSS fallbacks.</p></li>
+<li><p>Added section describing print operations  separate  from control functions.</p></li>
+<li><p>Extended  control  function  descriptions  for  Level  3.  Updated  algorithms  to  handle 96 character sets and new Print All Characters functionality.</p></li>
+<li><p>Added entirely new Graphics Print section which describes Sixel printing on terminals.</p></li>
+</ol>
+</section>
+</section>
+</main>
+<footer>
+<a id="7-67"></a>
+<section id="Index">
+<h2>Section Index</h2>
+<ul>
+<li>Auto Print Mode<ul>
+<li>control function, <a href="#7-35">35</a></li>
+<li>definition, <a href="#7-5">5</a></li>
+<li>description, <a href="#7-11">11</a></li>
+</ul>
+</li>
+<li>Compressed Sixel Printing, <a href="#7-60">60</a></li>
+<li>Data Set Ready, <a href="#7-7">7</a></li>
+<li>Data Terminal Ready, <a href="#7-7">7</a></li>
+<li>DECPEX, <a href="#7-38">38</a></li>
+<li>DECPFF, <a href="#7-37">37</a></li>
+<li>Device Status Report<ul>
+<li>control function, <a href="#7-32">32</a></li>
+</ul>
+</li>
+<li>DSR, <a href="#7-32">32</a></li>
+<li>Expanded Print<ul>
+<li>sixel, <a href="#7-59">59</a>, <a href="#7-61">61</a></li>
+</ul>
+</li>
+<li>Fallback Transmission<ul>
+<li>Control Representation Mode,
+<a href="#7-28">28</a></li>
+<li>DEC special graphics, <a href="#7-20">20</a></li>
+<li>DEC supplemental, <a href="#7-21">21</a></li>
+<li>DEC technical, <a href="#7-25">25</a></li>
+<li>definition, <a href="#7-5">5</a></li>
+<li>DRCS, <a href="#7-28">28</a></li>
+<li>ISO Latin-1 supplemental, <a href="#7-23">23</a></li>
+<li>NRC, <a href="#7-20">20</a></li>
+<li>UPS, <a href="#7-28">28</a></li>
+</ul>
+</li>
+<li>Flow Control, <a href="#7-6">6</a></li>
+<li>Graphics Printing, <a href="#7-58">58</a><ul>
+<li>print region, <a href="#7-58">58</a></li>
+<li>print screen, <a href="#7-58">58</a></li>
+</ul>
+</li>
+<li>hardware flow control, <a href="#7-8">8</a></li>
+<li>Level 1 Sixel Devices, <a href="#7-60">60</a></li>
+<li>Level 2 Sixel Devices, <a href="#7-62">62</a></li>
+<li>Local Controller Mode<ul>
+<li>description, <a href="#7-12">12</a></li>
+</ul>
+</li>
+<li>MC, <a href="#7-34">34</a>, <a href="#7-35">35</a>, <a href="#7-36">36</a>, <a href="#7-39">39</a>, <a href="#7-49">49</a></li>
+<li>Media Copy<ul>
+<li>auto print mode, <a href="#7-35">35</a></li>
+<li>print line, <a href="#7-49">49</a></li>
+<li>print screen, <a href="#7-39">39</a></li>
+<li>printer controller mode, <a href="#7-34">34</a></li>
+<li>printer to host mode, <a href="#7-36">36</a></li>
+</ul>
+</li>
+<li>Modes<ul>
+<li>auto print, <a href="#7-35">35</a></li>
+<li>print extent, <a href="#7-38">38</a></li>
+<li>print form feed, <a href="#7-37">37</a></li>
+<li>printer controller, <a href="#7-34">34</a></li>
+<li>printer to host, <a href="#7-36">36</a></li>
+</ul>
+</li>
+<li>NRC Sets, <a href="#7-18">18</a></li>
+<li>Print All Pages, <a href="#7-30">30</a></li>
+<li>Print Composed Main Display, <a href="#7-30">30</a></li>
+<li>Print Extent Mode<ul>
+<li>control function, <a href="#7-38">38</a></li>
+<li>definition, <a href="#7-5">5</a></li>
+<li>description, <a href="#7-12">12</a></li>
+</ul>
+</li>
+<li>Print Form Feed Mode<ul>
+<li>control function, <a href="#7-37">37</a></li>
+<li>definition, <a href="#7-5">5</a></li>
+<li>description, <a href="#7-12">12</a></li>
+</ul>
+</li>
+<li>Print Line, <a href="#7-31">31</a><ul>
+<li>control function, <a href="#7-49">49</a></li>
+<li>definition, <a href="#7-6">6</a></li>
+</ul>
+</li>
+<li>Print Page, <a href="#7-30">30</a><ul>
+<li>definition, <a href="#7-6">6</a></li>
+</ul>
+</li>
+<li>Print Screen, <a href="#7-30">30</a><ul>
+<li>control function, <a href="#7-39">39</a></li>
+<li>definition, <a href="#7-6">6</a></li>
+</ul>
+</li>
+<li>Printer Controller Mode<ul>
+<li>control function, <a href="#7-34">34</a></li>
+<li>definition, <a href="#7-5">5</a></li>
+<li>description. <a href="#7-10">10</a></li>
+</ul>
+</li>
+<li>Printer Port<ul>
+<li>definition, <a href="#7-5">5</a></li>
+</ul>
+</li>
+<li>Printer Port Environment, <a href="#7-9">9</a></li>
+<li>Printer Status, <a href="#7-8">8</a></li>
+<li>Printer Style, <a href="#7-13">13</a><ul>
+<li>All Characters, <a href="#7-15">15</a>, <a href="#7-16">16</a></li>
+<li>National Only, <a href="#7-13">13</a></li>
+<li>National Plus Line Drawing,
+<a href="#7-14">14</a></li>
+</ul>
+</li>
+<li>Printer To Host Mode<ul>
+<li>control function, <a href="#7-36">36</a></li>
+<li>definition, <a href="#7-5">5</a></li>
+<li>description, <a href="#7-9">9</a></li>
+</ul>
+</li>
+<li>Reset Mode<ul>
+<li>auto print, <a href="#7-35">35</a></li>
+<li>print extent, <a href="#7-38">38</a></li>
+<li>print form feed, <a href="#7-37">37</a></li>
+<li>printer controller, <a href="#7-34">34</a></li>
+<li>printer to host, <a href="#7-36">36</a></li>
+</ul>
+</li>
+<li>Rotated Print, <a href="#7-61">61</a><ul>
+<li>sixel, <a href="#7-59">59</a></li>
+</ul>
+</li>
+</ul>
+<a id="7-68"></a>
+<ul>
+<li>Session<ul>
+<li>definition, <a href="#7-6">6</a></li>
+</ul>
+</li>
+<li>Set Mode<ul>
+<li>auto print, <a href="#7-35">35</a></li>
+<li>print extent, <a href="#7-38">38</a></li>
+<li>print form feed, <a href="#7-37">37</a></li>
+<li>printer controller, <a href="#7-34">34</a></li>
+<li>printer to host, <a href="#7-36">36</a></li>
+</ul>
+</li>
+<li>Sixel Printing, <a href="#7-58">58</a><ul>
+<li>color, <a href="#7-59">59</a></li>
+<li>compressed, <a href="#7-60">60</a></li>
+<li>expanded print, <a href="#7-59">59</a>, <a href="#7-61">61</a></li>
+<li>monochrome, <a href="#7-59">59</a></li>
+<li>rotated print, <a href="#7-59">59</a></li>
+</ul>
+</li>
+<li>Variable Aspect Ratio, <a href="#7-62">62</a></li>
+<li>Virtual Terminal<ul>
+<li>definition, <a href="#7-6">6</a></li>
+</ul>
+</li>
+<li>XON/XOFF, <a href="#7-6">6</a></li>
+</ul>
+</section>
+</footer>
+</body>
+</html>
