@@ -627,7 +627,7 @@ Interchange</dd>
 <p>Existing proposals  postulate  levels  for  modeling  of  graphics information   and   performing  viewing  operations  on  the  data represented in these models.  The level of graphics  execution  is added  to  these  levels.   It  is  this  level  that most closely approaches the  capabilities  of  existing  graphics  devices  (as opposed  to  systems),  and  it  is  to  this  level that ReGIS is directed.</p>
 <a id="8-16"></a>
 <figure id="Figure-1">
-<svg width="365" height="600" xmlns="http://www.w3.org/2000/svg">
+<svg width="365" height="600" viewBox="0 0 365 600" xmlns="http://www.w3.org/2000/svg">
 <g fill="none" stroke="currentColor" stroke-width="1.5">
 <path d="M8 30v236h350v-236z"/>
 <path d="M12 36v70h180v-70z"/>
@@ -1230,7 +1230,7 @@ cumulative action)</td></tr>
 <h4>4.5.3  Pixel Vectors</h4>
 <p>A pixel vector is represented by a single digit character  in  the range of 0 to 7.  Each of these numbers refers to one of the eight pixel neighbors relative to the current position.  As  illustrated in  <a href="#Figure-2">Figure  8-2</a>,  pixel vector number 0 refers to the right, pixel vector number 1 refers to the pixel up and to the  right,  and  so forth  around  a  circle  in a counter-clockwise direction.  These directions are constant, and  are  not  affected  by  the  display surface  orientation  set  by  the  Screen  address  setup command S(A[][]).  That is, pixel vector 0 is always to the right, even if the +X direction has been defined to be to the left.</p>
 <figure id="Figure-2">
-<svg width="170" height="175" xmlns="http://www.w3.org/2000/svg">
+<svg width="170" height="175" viewBox="0 0 170 175" xmlns="http://www.w3.org/2000/svg">
 <g fill="none" stroke="currentColor" stroke-width="2">
 <path d="M19 89h132"/>
 <path d="M85 23v132"/>
@@ -1338,7 +1338,7 @@ cumulative action)</td></tr>
 <p>Though the screen addressing  limits  specified  in  the  S(A[][]) command will normally cover the desired range of device addresses, use of values outside this range may be desirable.  ReGIS  devices must properly interpret addresses beyond the "edges" so defined to at least twice the defined extent of the display.  Such legal  use is  positioning  the  center  of  an arc outside the display, even though the entire arc drawn is within the viewing area.</p>
 <p>Since ReGIS implementations may provide for as little  as  sixteen bits  of  integer  arithmetic precision, the effect of the two bit "guard  band"  on  off-screen  addressing  is  that  the   largest guaranteed value for on-screen addressing is 16383, or (2**14)-1.</p>
 <figure id="Figure-3">
-<svg width="340" height="255" xmlns="http://www.w3.org/2000/svg">
+<svg width="340" height="255" viewBox="0 0 340 255" xmlns="http://www.w3.org/2000/svg">
 <g fill="none" stroke="currentColor" stroke-width="1.5">
 <path d="M9 8v239h323v-239z" stroke-dasharray="5.3 4.42"/>
 <path d="M116 88v79h109v-79z"/>
@@ -1379,7 +1379,7 @@ cumulative action)</td></tr>
 <a id="8-62"></a>
 <p>The placement of any subset range within the device space is  left to  the  device implementor.  Conforming software shall not depend upon a given alignment of requested space within device space, nor shall  it  depend  upon  the  exact  scale  factor used to map the requested space to the device space.  <a href="#Figure-4">Figure 8-4</a> shows how a  1000 by  750  unit  space  could  map into video- and page printer-like display spaces.</p>
 <figure id="Figure-4">
-<svg width="530" height="365" xmlns="http://www.w3.org/2000/svg">
+<svg width="530" height="365" viewBox="0 0 530 365" xmlns="http://www.w3.org/2000/svg">
 <g fill="none" stroke="currentColor" stroke-width="1.5">
 <path d="M11 93v130h181v-130z" stroke-dasharray="8.3 6.7"/>
 <path d="M14 98v122h167v-122z"/>
@@ -1634,7 +1634,7 @@ cumulative action)</td></tr>
 <a id="8-77"></a>
 <p>The (C) and  (A)  options  to  the  Circle  command  may  be  used together, as illustrated by <a href="#Figure-5">Figure 8-5</a>.  In this case, the drawing position defines the start point of the arc, and is  left  at  the end of the arc when it is completed.</p>
 <figure id="Figure-5">
-<svg width="410" height="200" xmlns="http://www.w3.org/2000/svg">
+<svg width="410" height="200" viewBox="0 0 410 200" xmlns="http://www.w3.org/2000/svg">
 <g fill="none" stroke="currentColor" stroke-width="1.5">
 <path d="M6 6l8 8m0-8l-8 8m4 8v8m4-4h-8m2.5 12h4v4h-4z"/>
 <path d="M111 84v8m4-4h-8m2-1a49 49 0 1 0 1 1.15m5-4l-8 8m-36 27h4v4h-4z"/>
@@ -2234,7 +2234,7 @@ cumulative action)</td></tr>
 <p>Four of the writing modes (C = complement, E = erase, R = replace, and  V  =  overlay)  are  mutually  exclusive, each overriding all others; the last one specified takes effect.  The fifth mode, N  = negate, may be used in combination with other modes.  
 <a href="#Figure-6">Figure 8-6</a> shows the effects of each of  the  writing  modes.   In each  case,  the  solid block was written first, and the patterned block was written over it in the indicated mode.</p>
 <figure id="Figure-6">
-<svg width="440" height="225" xmlns="http://www.w3.org/2000/svg">
+<svg width="440" height="225" viewBox="0 0 440 225" xmlns="http://www.w3.org/2000/svg">
 <defs>
 <pattern id="hatch1" x="-1" width="5.4" height="10.5" patternUnits="userSpaceOnUse">
 <path d="M0 0h6v12h-6z" fill="#fff"/>
@@ -2287,7 +2287,7 @@ cumulative action)</td></tr>
 <h4>7.2.4.2.3  W(S&lt;suboption>&lt;arguments>) - Shading</h4>
 <p>Shading is an area fill operation which is executed in conjunction with  the  Vector  and  Curve  drawing  commands.  As indicated by <a href="#Figure-7">Figure 8-7</a>, shading is executed to a horizontal reference line.</p>
 <figure id="Figure-7">
-<svg width="365" height="150" xmlns="http://www.w3.org/2000/svg">
+<svg width="365" height="150" viewBox="0 0 365 150" xmlns="http://www.w3.org/2000/svg">
 <defs>
 <pattern id="stripe" width="5" height="22" fill="currentColor" patternUnits="userSpaceOnUse">
 <path d="M0 6.5h5v8h-5zM0 20h5v4h-5zM0 0h5v1h-5z"/>
@@ -2426,7 +2426,7 @@ cumulative action)</td></tr>
 <p>The L command defines bit patterns; these are  invoked  by  the  T command  and  as  area  shading  patterns  in the W(S'x') command.  Alphabet set 0  contains  an  8-bit  character  in-use  set.   The content  of  this  set  is as determined by the ReGIS Base command T(A(L"*",R"*")).  All sets except alphabet 0 may be  loaded  using the  L  command.   See  the  description  of  the Load command for further information.</p>
 <p>Different alphabets may be simultaneously  available  for  loading and execution.</p>
 <figure id="Figure-8">
-<svg width="475" height="275" xmlns="http://www.w3.org/2000/svg">
+<svg width="475" height="275" viewBox="0 0 475 275" xmlns="http://www.w3.org/2000/svg">
 <defs><pattern id="dots" width="4.8" height="2.5" fill="currentColor" patternUnits="userSpaceOnUse">
 <path d="M0 0h1v1"/><path d="M2.4 1h1v1"/>
 </pattern></defs>
@@ -2496,7 +2496,7 @@ cumulative action)</td></tr>
 </ol>
 <p><a href="#Figure-9">Figure 8-9</a> shows  the  format  of  the  raster-oriented  character storage cell.</p>
 <figure id="Figure-9">
-<svg width="215" height="250" xmlns="http://www.w3.org/2000/svg">
+<svg width="215" height="250" viewBox="0 0 215 250" xmlns="http://www.w3.org/2000/svg">
 <g fill="none" stroke="currentColor" stroke-width="1.5">
 <path d="M9 25h121v152h-121zh15v152h15v-152h15v152h15v-152h15v152h15v-152h15v152m-105-135h121v15h-121v15h121v15h-121v15h121v15h-121v15h121v15h-121v15h121"/>
 <path d="M9 24s2-13 15-14"/><path d="M133 34h19"/><path d="M133 171h19"/><path d="M9 177l49 25l12-24l48 18l12-19"/></g>
@@ -2786,7 +2786,7 @@ cumulative action)</td></tr>
 <p>Complex polygons must abide by  the  same  constraints  as  simple polygons as regards the number of entries in the vertex list.  The total number of vertices is the critical  parameter.   There  need not  be  a separate vertex list for the nested polygons.  Multiple nested polygons using the F(...F...) option are  shown  in  <a href="#Figure-11">Figure 8-11</a>.  Note that as the inner loop of the complex polygon is moved out of the outer, its interior takes on  the  interior  attribute, until, when entirely outside, it becomes a disjoint polygon.</p>
 <a id="8-140"></a>
 <figure id="Figure-10">
-<svg width="360" height="560" xmlns="http://www.w3.org/2000/svg">
+<svg width="360" height="560" viewBox="0 0 360 560" xmlns="http://www.w3.org/2000/svg">
 <g fill="none" stroke="currentColor" stroke-width="1.5">
 <path d="M65 9l57 41l-23 67h-68l-23-67z"/>
 <path d="M65 149l34 107l-91-66h112l-90 66z"/>
@@ -2806,7 +2806,7 @@ cumulative action)</td></tr>
 </figure>
 <a id="8-141"></a>
 <figure id="Figure-11">
-<svg width="385" height="420" xmlns="http://www.w3.org/2000/svg">
+<svg width="385" height="420" viewBox="0 0 385 420" xmlns="http://www.w3.org/2000/svg">
 <g fill="none" stroke="currentColor" stroke-width="1.5">
 <path d="M8 9h35a35 35 0 0 1 35 35v17a35 35 0 0 1-35 35v18a17 17 0 0 1-35 0zm17 17h16a19 19 0 0 1 19 19v15a19 19 0 0 1-19 19h-16z"/>
 <path d="M7 149h35a35 35 0 0 1 35 35v17a35 35 0 0 1-35 35v18a17 17 0 0 1-35 0zm53 17h16a19 19 0 0 1 19 19v15a19 19 0 0 1-19 19h-16z"/>

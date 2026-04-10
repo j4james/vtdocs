@@ -183,13 +183,13 @@ state clearly if an implementation intends to only conform as a sending device o
 device.</p>
 <a id="12-2"></a>
 <figure>
-<svg width="556" height="144" xmlns="http://www.w3.org/2000/svg">
-<g stroke="#000" stroke-width="2" fill="none" stroke-linejoin="round">
-<rect x="2" y="43" width="160" height="95" /><rect x="392" y="43" width="160" height="95" />
-<line x1="162" y1="75" x2="392" y2="75" /><line x1="162" y1="106" x2="389" y2="106" />
-<g stroke-width="1" fill="#000"><path d="M392 75l-13 8 2-8-3-11z" /><path d="M162 106l 15-12-3 12 3 10z" /></g>
+<svg width="556" height="144" viewBox="0 0 556 144" xmlns="http://www.w3.org/2000/svg">
+<g stroke="currentColor" stroke-width="2" fill="none" stroke-linejoin="round">
+<path d="M2 43h160v95h-160z"/><path d="M392 43h160v95h-160z"/>
+<path d="M162 75h230"/><path d="M162 106h227"/>
+<g stroke-width="1" fill="currentColor"><path d="M392 75l-13 8 2-8-3-11z"/><path d="M162 106l 15-12-3 12 3 10z"/></g>
 </g>
-<g font-family="Arial, sans-serif" font-size="15.75" font-weight="bold" letter-spacing="-0.9" white-space="pre">
+<g font-family="Arial,sans-serif" font-weight="bold" font-size="15.75" letter-spacing="-0.9" fill="currentColor" white-space="pre">
 <text x="36" y="16">Sending</text><text x="36" y="32">Device   (SD)</text>
 <text x="428" y="16">Receiving</text><text x="428" y="32">Device   (RD)</text>
 <text x="82" y="63">SDTX</text><text x="225" y="65">flow controlled</text><text x="428" y="62">RDRX</text>
@@ -214,19 +214,19 @@ device, the XOFF state of the device's communication port is cleared and transmi
 of characters in the communication port output buffer is resumed. If the device was not
 XOFF-ed, this character is ignored.</p>
 <figure>
-<svg width="325" height="170" xmlns="http://www.w3.org/2000/svg">
-<g stroke="#000" stroke-width="2" fill="none" stroke-linejoin="round">
-<rect x="2" y="28" width="290" height="46" /><line x1="117" y1="34" x2="117" y2="69" />
-<line x1="6" y1="52" x2="20" y2="52" /><line x1="88" y1="52" x2="101" y2="52" />
-<line x1="74" y1="126" x2="74" y2="95" /><line x1="147" y1="126" x2="147" y2="95" />
-<line x1="220" y1="126" x2="220" y2="95" /><line x1="292" y1="126" x2="292" y2="95" />
-<g stroke-width="1" fill="#000">
-<path d="M114 52l-13 5 3-4 0-3-2-4z" />
-<path d="M74 82l5 18-5-6-4 7z" /><path d="M147 82l5 18-5-6-4 7z" />
-<path d="M220 82l5 18-5-6-4 7z" /><path d="M292 82l5 18-5-6-4 7z" />
+<svg width="325" height="170" viewBox="0 0 325 170" xmlns="http://www.w3.org/2000/svg">
+<g stroke="currentColor" stroke-width="2" fill="none" stroke-linejoin="round">
+<path d="M2 28h290v46h-290z"/><path d="M117 34v35"/>
+<path d="M6 52h14"/><path d="M88 52h13"/>
+<path d="M74 126v-31"/><path d="M147 126v-31"/>
+<path d="M220 126v-31"/><path d="M292 126v-31"/>
+<g stroke-width="1" fill="currentColor">
+<path d="M114 52l-13 5 3-4 0-3-2-4z"/>
+<path d="M74 82l5 18-5-6-4 7z"/><path d="M147 82l5 18-5-6-4 7z"/>
+<path d="M220 82l5 18-5-6-4 7z"/><path d="M292 82l5 18-5-6-4 7z"/>
 </g>
 </g>
-<g font-family="Arial, sans-serif" font-size="15.75" font-weight="bold" letter-spacing="-0.7" white-space="pre">
+<g font-family="Arial,sans-serif" font-weight="bold" font-size="15.75" letter-spacing="-0.7" fill="currentColor" white-space="pre">
 <text x="23" y="17">Receiving Device Input Buffer (FIFO)</text>
 <text x="24" y="56">rx&#8201;-&#8201;data</text>
 <text x="61" y="145">XON</text><text x="60" y="161">point</text>
