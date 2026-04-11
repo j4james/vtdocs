@@ -241,7 +241,7 @@ practice, but should not be considered as requirements.</p>
 <section id="3.1.4">
 <h3>1.4  Relationship To Terminal Interface Architecture (TIA)</h3>
 <p>Character encoding forms a part of the Code Extension Layer of the Terminal Interface Architecture.  It is independent of any specific service class, and therefore applies across all products implementing any aspect of the architecture.</p>
-<figure>
+<figure id="Figure-1">
 <pre>                                  USER
 
  ..........  -----------------------------------------------
@@ -270,7 +270,7 @@ practice, but should not be considered as requirements.</p>
 </figure>
 <a id="3-9"></a>
 <p>The interfaces defined within this standard apply to both internal and external product interfaces.  External interfaces are interfaces between a terminal, personal computer, or workstation and a remote system.  Internal interfaces are interfaces between a terminal subsystem and software processes running within a terminal, personal computer, or workstation.</p>
-<figure>
+<figure id="Figure-2">
 <pre>                          *
                           *
       terminal system     *                        host system
@@ -393,7 +393,7 @@ combination        |____|____|____|____|____|____|____|____|
 <li><p>A set of 96 graphic characters allocated to columns 02 to 07 (bit combinations from 2/0 to 7/15, inclusive).</p></li>
 </ol>
 <p>The following table describes the structure of a 7-bit coded character set including a 94-character graphic character set.</p>
-<figure>
+<figure id="Figure-3">
 <pre> row             column
 
     00  01  02  03  04  05  06  07
@@ -453,7 +453,7 @@ combination        |____|____|____|____|____|____|____|____|
 </aside>
 <a id="3-15"></a>
 <p>The following table describes the structure of an 8-bit coded character set with 94-character graphic character sets.</p>
-<figure>
+<figure id="Figure-4">
 <pre>Row                            Column
 
    00  01  02  03  04  05  06  07  08  09  10  11  12  13  14  15
@@ -692,7 +692,7 @@ combination        |____|____|____|____|____|____|____|____|
 <a id="3-27"></a>
 <section id="3.5.3.5">
 <h4>5.3.5  Examples of Parameter Strings</h4>
-<table>
+<table id="Table-1">
 <caption>Table 1. Examples of Parameter Stings</caption>
 <thead>
 <tr><th>Char Form</th><th>Column/row Form</th><th>Explanation</th></tr>
@@ -2054,7 +2054,7 @@ return(0);
 <p>Shift functions are used to invoke one of the G-sets into the left or right half side of the code table.  There are two kinds of shift functions:  locking shifts and single shifts.  Locking shifts cause a G-set to be permanently invoked into the code table, where it will remain until another shift function occurs to replace it.  Single shifts cause a G-set to be invoked only for the occurrence of the single character code following the single shift control in the code stream, after which the table reverts to its previous state before the shift occurred.</p>
 <p>For example, if on power-up the ASCII character set is designated into G0 and G1, and G0 is invoked into GL, then any graphic codes in the GL portion of the table (2/1 through 7/14) will cause an ASCII character to be generated.  Subsequently, the Line Drawing character set may be designated into G1 to replace ASCII in that G-set.  No visible effect will occur until G1 is invoked into GL using a shift function.  Thereafter, any GL graphic codes received will cause Line Drawing characters to be displayed.</p>
 <a id="3-60"></a>
-<figure>
+<figure id="Figure-5">
 <pre>            ASCII_C   Supplemental_C
             +--+      +--+
             |  |      |  |
