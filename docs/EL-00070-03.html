@@ -44,7 +44,7 @@ practice, but should not be considered as requirements.</p>
 <dt>Revision History</dt>
 <dd><table>
 <tbody>
-<tr><td>Original Draft</td><td>08-Jun-1982</td></tr>
+<tr><td>Original Draft</td><td>05-Jun-1982</td></tr>
 <tr><td>Revision 0.1</td><td>04-Sep-1982</td></tr>
 <tr><td>Revision 0.2</td><td>20-Oct-1982</td></tr>
 <tr><td>Revision 0.3</td><td>08-Dec-1982</td></tr>
@@ -429,7 +429,7 @@ combination        |____|____|____|____|____|____|____|____|
  14|       |                       |
    +       |                   +---+
  15|       |                   |DEL|
-   +---+---+---+---+-----------+---+</pre>
+   +---+---+---+---+---+---+---+---+</pre>
 <figcaption>Figure 3. 7-bit Code Table Structure</figcaption>
 </figure>
 </section>
@@ -493,7 +493,7 @@ combination        |____|____|____|____|____|____|____|____|
 
   &lt;------ seven bit codes ------->
 
-  &lt;----------------------- eight bit codes -----------------------</pre>
+  &lt;----------------------- eight bit codes -----------------------></pre>
 <figcaption>Figure 4. 8-bit Code Table Structure</figcaption>
 </figure>
 </section>
@@ -1065,7 +1065,7 @@ Examples of typical stack data are:
 final ->  CON_START      41 'A'    event = R_GRAPHIC
                                    (the letter "A")
 
-final ->  CON_START      0D        event = R_CONTROL   -
+final ->  CON_START      0D        event = R_CONTROL
                                    (carriage return)
 
 final ->  CON_START      41 'A'    event = R_ESC_SEQ
@@ -2193,7 +2193,7 @@ upss_type upss;
 <a id="3-64"></a>
 <section id="3.6.4.3">
 <h4>6.4.3  Level 3 (or Level 2 with 8-bit Interface Architecture Extension)</h4>
-<p>In Level 3 operation, the default character set designations will be ASCII in G0 and G1, and the User Preference Supplemental Set (UPSS) in G2 and G3.  Furthermore, the G0 set (ASCII) will be invoked into the GL position of the In Use Table. and the G2 set (UPSS, typically DEC Supplemental or ISO Latin-1 supplemental) will be invoked into the GR position of the In Use Table.</p>
+<p>In Level 3 operation, the default character set designations will be ASCII in G0 and G1, and the User Preference Supplemental Set (UPSS) in G2 and G3.  Furthermore, the G0 set (ASCII) will be invoked into the GL position of the In Use Table, and the G2 set (UPSS, typically DEC Supplemental or ISO Latin-1 supplemental) will be invoked into the GR position of the In Use Table.</p>
 <p>Level 3 (or Level 2 with the 8-bit Interface Architecture Extension) also recognizes the "Announce Subset Of Code Extension Facilities" defined in ISO 4873 which re-initialize the designated and invoked character sets as described later in this chapter.</p>
 </section>
 <section id="3.6.4.4">
@@ -2297,7 +2297,7 @@ single_shift_type single_shift;
 </ul>
 <section id="3.7.5.1">
 <h4>7.5.1  Level 1 - Host Port</h4>
-<p>Level 1 operation provides only for 7-bit communications.  Thus.  in Level 1 all control and graphic characters can only be received and transmitted in seven bits.  The high order bit of all 8-bit characters received will be stripped by the terminal before any processing occurs.  All C1 controls will be transmitted by the terminal as ESC Fe sequences.  Only 7-bit characters will be generated from the keyboard (that is, attempts to generate 8-bit characters will fail).</p>
+<p>Level 1 operation provides only for 7-bit communications.  Thus, in Level 1 all control and graphic characters can only be received and transmitted in seven bits.  The high order bit of all 8-bit characters received will be stripped by the terminal before any processing occurs.  All C1 controls will be transmitted by the terminal as ESC Fe sequences.  Only 7-bit characters will be generated from the keyboard (that is, attempts to generate 8-bit characters will fail).</p>
 </section>
 <section id="3.7.5.2">
 <h4>7.5.2  Level 2 or Level 3 - Host Port</h4>
@@ -2530,7 +2530,7 @@ in_use_table.invoked_gl = G0;
 
 1/14</samp></pre>
 </div>
-<p><em>Description:</em> The LS1 or SO control invokes the set of graphic characters currently designated as a G1 set into the left-hand graphics portion of the Code Table.  Receipt of this control causes subsequent data in the range 2/1 through 7/14 (or 2/0 through 7/15 for 96 character sets) that is entered into the display to be rendered according to the current_contents of the G1 character set.</p>
+<p><em>Description:</em> The LS1 or SO control invokes the set of graphic characters currently designated as a G1 set into the left-hand graphics portion of the Code Table.  Receipt of this control causes subsequent data in the range 2/1 through 7/14 (or 2/0 through 7/15 for 96 character sets) that is entered into the display to be rendered according to the current contents of the G1 character set.</p>
 <p><em>State Affected:</em></p>
 <ul>
 <li><code>in_use_table_type in_use_table;</code></li>
@@ -2814,7 +2814,7 @@ if (event == R_CONTROL)
 <li><p>The default character set designations were changed to distinguish between Level 1 operation and Level 2 operation.</p></li>
 <li><p>The names of Select 7-bit C1 and Select 8-bit C1 were changed to include "Transmission".  These controls are now called S7C1T and S8C1T.</p></li>
 <li><p>GR Transmission Mode and Send/Receive Mode were removed from the architecture.</p></li>
-<li><p>The coding was changed for LS0, LS1, LS1R, LS2R. LS3R, SS2 and SS3.  Notes were added on conforming software use of these controls.</p></li>
+<li><p>The coding was changed for LS0, LS1, LS1R, LS2R, LS3R, SS2 and SS3.  Notes were added on conforming software use of these controls.</p></li>
 <li><p>The character set designators were removed from this section and will later be incorporated into the section "Character Cell Display".</p></li>
 </ol>
 </section>

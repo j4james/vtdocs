@@ -136,7 +136,7 @@ this document.</p>
 <li><code>SCROLLING_MODE: (JUMP,SLOW);</code></li>
 <li><code>SCREEN_MODE: (NORMAL_SCREEN,REVERSE_SCREEN);</code></li>
 <li><code>AUTO_WRAP_MODE: (WRAP_OFF,WRAP_ON);</code></li>
-<li><code>TEXT_CURSOR_ENABLE_MODE: (TEXT_CURSOR_OFF,TEXT_CURSOR_ON)</code></li>
+<li><code>TEXT_CURSOR_ENABLE_MODE: (TEXT_CURSOR_OFF,TEXT_CURSOR_ON);</code></li>
 <li><code>INSERT_REPLACEMENT_MODE: (REPLACE,INSERT);</code></li>
 <li><code>NEW_LINE_MODE: (NEW_LINE_OFF,NEW_LINE_ON);</code></li>
 <li><code>HORIZONTAL_TAB_STOPS: ARRAY [MAX_NUM_COLUMNS] OF BOOLEAN;</code></li>
@@ -146,7 +146,7 @@ this document.</p>
 <li><code>CAPS_SHIFT_LOCK_MODE: (CAPS_LOCK,SHIFT_LOCK);</code></li>
 <li><code>AUTO_PRINT_MODE: (AUTO_PRINT_OFF,AUTO_PRINT_ON);</code></li>
 <li><code>PRINT_FORM_FEED_MODE: (PRINT_FF_OFF,PRINT_FF_ON);</code></li>
-<li><code>PRINT_EXTENT_MODE: (PRINT_DISPLAY,PRINT_SCROLLING_REGION)</code></li>
+<li><code>PRINT_EXTENT_MODE: (PRINT_DISPLAY,PRINT_SCROLLING_REGION);</code></li>
 <li><code>GRAPHICS_CURSOR_ENABLE_MODE:
   (GRAPHICS_CURSOR_OFF,GRAPHICS_CURSOR_ON);</code></li>
 </ul>
@@ -161,7 +161,7 @@ this document.</p>
   ARRAY [G0..G3] OF GRAPHIC_CHARACTER_SET_TYPE;</code></li>
 <li><code>IN_CONTROL_STRING: BOOLEAN;</code></li>
 <li><code>C1_TRANSMISSION_MODE: (SEVEN_BIT,EIGHT_BIT);</code></li>
-<li><code>SINGLE_SHIFT: (NONE.SS2,SS3);</code></li>
+<li><code>SINGLE_SHIFT: (NONE,SS2,SS3);</code></li>
 </ul>
 <ul>
 <li><code>TOP_MARGIN: LINE_TYPE;</code></li>
@@ -253,7 +253,7 @@ CURRENT_RENDITION[UNDERSCORE]:= FALSE;
 CURRENT_RENDITION[BLINK]:= FALSE;
 CURRENT_RENDITION[REVERSE]:= FALSE;
 COLUMN_MODE:= EIGHTY;                            (* see Note 1 *)
-SCROLLING MODE:= SLOW;                           (* see Note 1 *)
+SCROLLING_MODE:= SLOW;                           (* see Note 1 *)
 SCREEN_MODE:= NORMAL_SCREEN;                     (* see Note 1 *)
 ORIGIN_MODE:= ABSOLUTE;
 <a id="D-8"></a>AUTO_WRAP_MODE:= WRAP_OFF;                       (* see Note 1 *)
@@ -351,7 +351,7 @@ END;
 
 9/11    Ps      7/9</samp></pre>
 </div>
-<p><em>Description:</em> The DECTST control is provided as a means of invoking device specific diagnostic tests, and subsequently determining the device status by means of the Device Status Report (DSR) control.  The sequence consists of a parameter string indicating a series of product specific tests to be performed.  The architecture does not specify the nature or duration of any of the tests performed.  The minimal implementation of this control is to to execute the Reset to Initial State (RIS) control. and to return a "Device Ready" indicator by default.</p>
+<p><em>Description:</em> The DECTST control is provided as a means of invoking device specific diagnostic tests, and subsequently determining the device status by means of the Device Status Report (DSR) control.  The sequence consists of a parameter string indicating a series of product specific tests to be performed.  The architecture does not specify the nature or duration of any of the tests performed.  The minimal implementation of this control is to to execute the Reset to Initial State (RIS) control, and to return a "Device Ready" indicator by default.</p>
 <p><em>Notes:</em></p>
 <ol>
 <li><p>Since the minimal implementation does not require the execution of any tests, and since the nature of the tests performed is not defined, software should not depend on the effects of using this control.  In all probability execution of this control in any product will have an adverse effect on the state of the device, and after execution of this control the state of the device should be considered to be UNDEFINED.  NO RECOVERY IS GUARANTEED WHEN THIS CONTROL IS EXECUTED.</p></li>
@@ -480,7 +480,7 @@ auto-wrapping is not enabled [reset state = wrap_off], attempts to enter charact
 <p><em>Algorithm:</em></p>
 <pre><code>PROCEDURE SET_AUTO_WRAP_MODE;
 BEGIN
-AUTO_WRAP_MODE:= WRAP ON;
+AUTO_WRAP_MODE:= WRAP_ON;
 END;
 
 
@@ -530,7 +530,7 @@ again after the mode is reset.</p></li>
 designated and invoked to be the DEC Supplemental set, regardless
 of the existing state of designation or invocation. The C1
 characters, and any GR (DEC Supplemental) characters that are not
-assigned (reserved for future standardization), will he displayed
+assigned (reserved for future standardization), will be displayed
 as "hex pairs".</p></li>
 </ol>
 </section>

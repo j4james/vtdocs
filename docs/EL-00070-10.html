@@ -25,7 +25,7 @@ classes.</p></dd>
 software engineers designing programs using terminal interfaces. Additional requirements are
 defined in the DEC STD 070-1 Concepts and Conformance Criteria.</p></dd>
 <dt>Status</dt>
-<dd><p>APPROVED 04-0ct-1990; use VTX SMC for current status.</p></dd>
+<dd><p>APPROVED 04-Oct-1990; use VTX SMC for current status.</p></dd>
 </dl>
 <p>This document is confidential and proprietary, and is the property of Digital
 Equipment Corporation. It is an unpublished work protected under the Federal
@@ -425,7 +425,7 @@ according to:</p>
 <ul>
 <li>0<span> &mdash; </span>Erase all characters in the specified font buffer (default)</li>
 <li>1<span> &mdash; </span>Erase only the characters that are loaded</li>
-<li>2<span> &mdash; </span>Erase all characters in all font butters</li>
+<li>2<span> &mdash; </span>Erase all characters in all font buffers</li>
 </ul>
 <p>A parameter value of 1 permits the changing of one or more characters in the specified
 font without affecting the remaining characters of that font. Characters which have been
@@ -767,7 +767,7 @@ sent to the terminal.</p>
 <li><code>ERASE_CONTROL: (ERASE_THIS_FONT,NO_ERASE,ERASE_ALL_FONTS);</code></li>
 <li><code>CELL_WIDTH: CELL_WIDTH_TYPE;</code></li>
 <li><code>CELL_HEIGHT: CELL_HEIGHT_TYPE;</code></li>
-<li><code>SET_SIZE: (EIGHTY;ONE_THIRTY_TWO);</code></li>
+<li><code>SET_SIZE: (EIGHTY,ONE_THIRTY_TWO);</code></li>
 <li><code>CELL_USAGE: (TEXT,FULL_CELL);</code></li>
 <li><code>CHARACTER_SET_SIZE: (94,96);</code></li>
 <li><code>CHARACTER_SET_DESIGNATOR:
@@ -872,7 +872,7 @@ VALID_DRCS_SYNTAX:= TRUE;
 (* the first parameter is the font number to be loaded *)
 IF (EVENT.PARAMETERS[1] = 0) OR (EVENT.PARAMETERS[1] = 1) THEN
   FONT_NUMBER:= 1
-ELSE VALID_DRCS SYNTAX:= FALSE;
+ELSE VALID_DRCS_SYNTAX:= FALSE;
 (* the second parameter is the first character to be loaded *)
 FIRST_CHARACTER:= EVENT.PARAMETERS[2];
 IF (FIRST_CHARACTER = 0) OR (FIRST_CHARACTER > 95) THEN
@@ -998,7 +998,7 @@ REPEAT
         EVENT.CODE_VALUE:= EVENT.CODE_VALUE - 63;
         IF H &lt;= CELL_WIDTH THEN
           BEGIN
-          FOT N:= 1 TO 6 DO
+          FOR N:= 1 TO 6 DO
             BEGIN
             IF V+N-1 &lt;= CELL_HEIGHT THEN
               BEGIN

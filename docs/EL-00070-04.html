@@ -897,7 +897,7 @@ designated_graphic_sets[1] = ASCII_G;
      case LEVEL_1:
       in_use_table.gr = ASCII_G;
       designated_graphic_sets[2] = ASCII_G;
-      designated_graphic_sete[3] = ASCII_G;
+      designated_graphic_sets[3] = ASCII_G;
       c1_transmission_mode = SEVEN_BIT;
       character_set_mode = SEVEN_BIT_NATIONAL;
       break;
@@ -1250,7 +1250,7 @@ be ignored.</p></li>
 {
 switch (service_class)
     {
-    case 61;
+    case 61:
      conformance_level = LEVEL_1;
      break;
     case 62:
@@ -1740,7 +1740,7 @@ functional status.</p>
 <li>?75<span> &mdash; </span>report status of data integrity flag (command from host)</li>
 <li>?70<span> &mdash; </span>ok, no comm errors or power-up since last report</li>
 <li>?71<span> &mdash; </span>error, a comm error has been detected since last report</li>
-<li>?73<span> &mdash; </span>power-up. data integrity flag has not been reported since last power-up or RIS</li>
+<li>?73<span> &mdash; </span>power-up, data integrity flag has not been reported since last power-up or RIS</li>
 </ul>
 <p>Multiple Sessions Extension</p>
 <ul>
