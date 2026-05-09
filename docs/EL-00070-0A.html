@@ -1,0 +1,1402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>VSRM - VT52 Emulation</title>
+<meta charset="UTF-8" />
+<style>*{font-family:"Courier New";font-weight:bold;font-size:15.5px;line-height:16.15px;padding:0;margin:0;border-collapse:collapse}body{color:#000000;background:#d4d4d8;>header,>main,>footer{width:66ch;padding-left:101px;padding-right:calc(715px - 66ch);padding-bottom:16.15px;background:#ffffff;margin:0 auto}>footer{border-bottom:11px solid #d4d4d8}}a{color:#000000;text-decoration:none}a[href]:hover{color:#bb0000}header>hgroup{>h1{text-transform:uppercase}>h1,>h2{text-align:center;margin-bottom:16.15px}margin-bottom:32.3px}h2,h3,h4,p{margin-bottom:16.15px;white-space:pre-wrap}section{>h2,>h3,&#A\.8\.1\.1>h4{&:first-child:before{content:'A.'}}&#Index>h2:first-child:before{content:none}>h2{text-transform:uppercase}}aside{margin:16.15px auto;width:50ch;>h4{text-transform:uppercase;text-align:center}header>&{position:relative;overflow:hidden;white-space:nowrap;&:before{content:'+----------------------------------------------------------------------------\A|\A|\A|\A|\A|\A|\A|\A|\A|\A|\A|\A|';white-space:pre;position:absolute;top:0;left:0;pointer-events:none}&:after{content:'+----------------------------------------------------------------------------'}>*{padding:0 2ch;&:first-child{padding-top:16.15px;&:before{content:'+\A|\A|\A|\A|\A|\A|\A|\A|\A|\A|\A|\A|';white-space:pre;position:absolute;top:0;right:0;background:#ffffff}}&:last-child{margin:0;&:after{content:'+';position:absolute;bottom:0;right:0;background:#ffffff}}}&:nth-of-type(1){width:66ch}&:nth-of-type(2){width:40ch;>p{text-align:center;padding-top:32.3px;padding-bottom:16.15px}}}}dl>dt{float:left;padding-right:0.999ch}header>dl{>dt{text-transform:uppercase}>dt:after{content:':'}>dd{margin-bottom:32.3px}&:nth-of-type(1){>dt{padding-right:1.999ch}>dt:first-child{padding-left:2ch;padding-right:1ch;text-transform:none;+dd{margin-bottom:48.45px}}}&:nth-of-type(2){>dd:nth-of-type(3){td:last-child{padding-left:8ch;tr:first-child &{padding-left:0}tr:last-child &{padding-left:7ch}}}>dd:nth-of-type(4) tr:first-of-type>td{padding-bottom:16.15px}}&:nth-of-type(3){margin-bottom:32.3px;>dt{text-transform:none}>dd{margin-bottom:0}}&:nth-of-type(4)>dt{padding-right:1.999ch}}header>p:last-of-type{text-align:center;padding-right:1ch}ul{list-style:none;margin-bottom:16.15px;&:has(>li>code){margin-left:10.999ch;>li{text-indent:-2ch}}}#A\.2\.1>ul{margin-bottom:48.45px;>li>p{position:relative;padding-left:9ch;&:before{content:'o';position:absolute;left:6ch}}}ol{list-style-type:none;>li{position:relative;padding-left:9ch;&:before{content:counter(list-item,decimal) ".";position:absolute;width:3ch;left:4ch;text-align:right}}}#Contents{>hgroup{text-transform:uppercase;margin-bottom:32.3px;>h2{margin-bottom:48.45px;padding-left:33ch}>p{padding-left:16ch;text-indent:-16ch;>br{margin-top:-16.15px;display:block;content:' '}}}a[href]{background:#ffffff;position:relative;z-index:1;&:nth-of-type(1):after{content:'\A0'}&:nth-of-type(2){position:absolute;right:4ch;&:before{content:'\A0' 'A-'}}}ul>li{padding-left:18ch}ol>li{padding:0;&:before{content:"A." counters(list-item,".");padding-left:4ch;padding-right:5ch;position:static}}>ol>li{margin-top:16.15px;>a:first-child{text-transform:uppercase}>ul>li{padding-left:14ch}}li>span{color:transparent;&:after{content:'. . . . . . . . . . . . . . . . . . . . .';color:#000000;position:absolute;right:4ch}}}#Index{>h2{text-align:center;text-transform:none;&:after{content:' \A------------- '}}>ul{>li{position:relative;>ul{margin-bottom:0;li{padding-left:2ch}a[id]{transform:translateX(-2ch);&:after{padding-right:1ch}}}&:nth-child(33) a[href]{position:static;&:first-child{padding-left:19ch}}&:nth-child(34)>a[href]{position:static;&:first-child{padding-left:26ch}}&:nth-child(1):before{content:'-A-'}&:nth-child(2):before{content:'-B-'}&:nth-child(3):before{content:'-C-'}&:nth-child(10):before{content:'-D-'}&:nth-child(11):before{content:'-E-'}&:nth-child(24):before{content:'-H-'}&:nth-child(26):before{content:'-I-'}&:nth-child(27):before{content:'-L-'}&:nth-child(28):before{content:'-P-'}&:nth-child(31):before{content:'-R-'}&:nth-child(33):before{content:'-S-'}&:nth-child(34):before{content:'-T-';padding-top:0}&:nth-child(35):before{content:'-U-'}&:nth-child(36):before{content:'-V-'}&:before{display:block;padding:16.15px 12ch}}a[href]{position:absolute;left:36ch;&:before{content:'A-'}}}}table{border:0;>caption{text-align:left;white-space:pre;margin-bottom:16.15px}}tr{>*:not(:last-child){padding-right:0.999ch}}th,td{border:0;box-sizing:border-box}th{vertical-align:bottom;text-align:left}td{vertical-align:top}pre>code{display:block;margin-bottom:16.15px}div{margin:32.3px 0;>p{float:left}>pre>samp{display:block;margin-left:17ch}}section:not(#A\.8\.1\.1)>h4{display:grid;grid-template-columns:57ch 10ch;white-space:normal;text-transform:uppercase;&:after{content:'------------------------------------------------------------------';grid-row:2;grid-column:1;white-space:pre}>span{color:transparent;grid-row:2;grid-column:1}}em{font-style:normal;display:inline-block;padding-right:1ch;p:nth-of-type(2)>&{min-width:15ch}}section{>p:has(>em){margin-top:32.3px;&:first-of-type{margin-top:16.15px}}>p:has(+ol){margin-top:16.15px;+ol{margin-bottom:48.45px;+p,+p+p{>em{padding-right:0}}}}}#A\.2\.2>pre{margin-left:9ch}#A\.2\.3{>pre{margin-left:9ch}>p:last-child{margin-left:5ch}}#A\.5\.1,#A\.5\.5{>p:first-of-type{margin-top:32.3px}}#A\.5\.5>ul>li{white-space:pre;>span:before{content:")\0A                    (";margin-right:-1ch}}#A\.5\.6{margin-top:32.3px}#EnterKeypadMode>table{tr>*:first-child{padding-left:4ch}th:first-child{padding-bottom:16.15px;min-width:17ch}th:nth-child(2){min-width:22ch}td{padding-top:16.15px;white-space:pre}&:nth-of-type(1)+p{margin-left:25ch}&:nth-of-type(2){margin-bottom:16.15px;~ p{margin-left:4ch}}}#EnterGraphicsMode,#ExitGraphicsMode{>ul>li{text-indent:0}}#EnterGraphicsMode>table{>caption{padding-left:4ch;text-indent:-4ch}th{min-width:8ch}th:nth-child(3){min-width:33ch}tr:first-child>td{padding-left:1ch}td:nth-child(3){width:4ch}}#DirectCursorAddress{>ol{margin-bottom:32.3px}>p{margin-top:0}}#A\.8\.1\.1>ul{margin-left:2ch;margin-top:32.3px}#A\.9>section>ol{margin-top:32.3px;a[id]{transform:translateX(-9ch)}}header{counter-reset:page}a[id]{display:block;position:relative;left:-101px;padding-left:101px;padding-right:calc(715px - 66ch);width:66ch;height:32.3px;margin-top:249px;margin-bottom:32.3px;border-top:11px solid #d4d4d8;padding-top:62px;white-space:pre;&:before{content:'VSRM - VT52 Emulation  EL-00070-0A\A' '*** COMPANY CONF - DEC Internal Use Only  18-Mar-1985'}&:after{counter-increment:page;content:'Page A-' counter(page);position:absolute;top:62px;right:calc(715px - 66ch)}}#A-2,#A-10,#A-44{margin-top:71px}#A-4{margin-top:88px}#A-47{margin-top:120px}#A-15,#A-29{margin-top:136px}#A-18,#A-48{margin-top:152px}#A-36{margin-top:201px}#A-34{margin-top:217px}#A-12,#A-32{margin-top:233px}#A-13,#A-26,#A-31{margin-top:265px}#A-17,#A-27{margin-top:281px}#A-6,#A-9,#A-21,#A-35{margin-top:298px}#A-20{margin-top:314px}#A-16,#A-22,#A-30,#A-38{margin-top:330px}#A-23{margin-top:378px}#A-37,#A-40{margin-top:394px}#A-28,#A-33{margin-top:443px}#A-19,#A-41{margin-top:459px}#A-39{margin-top:475px}#A-42{margin-top:491px}#A-43{margin-top:508px}#A-8{margin-top:588px}#A-45{margin-top:814px}#A-11{margin-top:895px}body{>header,>main,>footer{>a[id]:first-child{margin-top:0}}>header{padding-bottom:717px}>main{padding-bottom:814px}>footer{padding-bottom:701px}}</style>
+</head>
+<body>
+<header>
+<a id="A-1"></a>
+<hgroup>
+<h1>Video Systems Reference Manual</h1>
+<h2>VT52 Emulation</h2>
+</hgroup>
+<dl>
+<dt>Document Identifier</dt>
+<dd><p>A-DS-EL00070-0A-0 Rev. AX11, 18-Mar-1985</p></dd>
+<dt>Abstract</dt>
+<dd><p>This document is an architectural statement of future terminal support for VT52 emulation.  It includes the features of VT52 mode as documented in the VT102 User Guide.  It does not include features of the VT100 family implementation which are a result of cross-over with ANSI mode and are not documented.  These features should be considered undefined conditions in terminal products, and cannot be relied on by software.  Furthermore, the architecture does not include all of the features of the actual VT52 products, because the intention of the architecture is to define the level of support necessary to maintain software products which already run compatibly on the entire DEC terminal product set.</p></dd>
+<dt>Applicability</dt>
+<dd><p>SARA Formal Cross-Component Standard.  Mandatory for Engineers designing hardware for terminal products and Software Engineers designing programs using terminal interfaces. Additional requirements are defined in the section on "Concepts and Conformance Criteria".</p></dd>
+<dt>Status</dt>
+<dd><p>FOR REVIEW ONLY</p></dd>
+</dl>
+<aside>
+<p>  This document has been placed in the SARA "Formal
+Cross-Component Standard" category. The material contained
+within this document is assumed to define mandatory standards
+unless it is clearly marked as (a) not mandatory or
+(b) guidelines. Material which is marked as "not mandatory" is
+considered to be of potential benefit to the corporation and
+should be followed unless there are good reasons for
+non-compliance. "Guidelines" define approaches and techniques
+which are considered to be good practice, but should not be
+considered as requirements. The procedures for modifying or
+evolving this standard are contained within the contents of
+this document.</p>
+</aside>
+<aside>
+<p>FOR INTERNAL USE ONLY&nbsp;</p>
+</aside>
+<a id="A-2"></a>
+<dl>
+<dt>Title</dt>
+<dd>VIDEO SYSTEMS - VT52 Emulation</dd>
+<dt>Document Identifier</dt>
+<dd>A-DS-EL00070-0A-0 Rev. AX11, 18-Mar-1985</dd>
+<dt>Revision History</dt>
+<dd><table>
+<tbody>
+<tr><td>Original Draft</td><td>22-Oct-1982</td></tr>
+<tr><td>Revision 0.1</td><td>16-Nov-1982</td></tr>
+<tr><td>Revision 0.2</td><td>19-Nov-1982</td></tr>
+<tr><td>Revision 0.3</td><td>25-Dec-1982</td></tr>
+<tr><td>Revision 1.0</td><td>03-Feb-1983</td></tr>
+<tr><td>Revision AX01</td><td>28-Feb-1983</td></tr>
+<tr><td>Revision AX10</td><td>15-May-1983</td></tr>
+</tbody>
+</table>
+</dd>
+<dt>Files</dt>
+<dd><table>
+<tbody>
+<tr><td>User Documentation</td><td>EL070SA.mem</td></tr>
+<tr><td>Internal Documentation</td><td>EL070SA.rno</td></tr>
+<tr><td></td><td>EL070SA.rnt</td></tr>
+<tr><td></td><td>EL070SA.rnx</td></tr>
+</tbody>
+</table>
+</dd>
+</dl>
+<dl>
+<dt>Document Management Group</dt>
+<dd>Terminal Interface Architecture</dd>
+<dt>Responsible Department</dt>
+<dd>Video Architecture Group</dd>
+<dt>Responsible Individual</dt>
+<dd>Peter Sichel</dd>
+</dl>
+<dl>
+<dt>Acceptance</dt>
+<dd><p>This document has been approved by the Manager of the Video Architecture Group based on a comprehensive review of its individual sections by the members of the SARA component groups working Terminal Interface Architecture issues.  The list of individuals on the review and approval list are on file in Standards and Methods Control.</p></dd>
+</dl>
+<p>Direct requests for further information to Peter Sichel, PKO3-&NoBreak;1/10C, DTN 223-5162, RANI::VIDARCH</p>
+<p>Copies of this document can be ordered from:</p>
+<p>Standards and Methods Control<br />APO1/F7, DTN 289-1414, JOKUR::SIMONETTI</p>
+<a id="A-3"></a>
+<section id="Contents">
+<hgroup>
+<h2>Contents</h2>
+<p>Appendix A<br />VT52 Emulation</p>
+</hgroup>
+<ol>
+<li><a href="#A.1">Introduction</a><span> … </span><a href="#A-5">5</a><ol>
+<li><a href="#A.1.1">Purpose</a><span> … </span><a href="#A-5">5</a></li>
+<li><a href="#A.1.2">Scope</a><span> … </span><a href="#A-5">5</a></li>
+</ol>
+</li>
+<li><a href="#A.2">State Descriptions</a><span> … </span><a href="#A-6">6</a><ol>
+<li><a href="#A.2.1">Display</a><span> … </span><a href="#A-6">6</a></li>
+<li><a href="#A.2.2">Active Position</a><span> … </span><a href="#A-7">7</a></li>
+<li><a href="#A.2.3">Tab Stops, Fixed</a><span> … </span><a href="#A-7">7</a></li>
+</ol>
+</li>
+<li><a href="#A.3">Parameters And Constants</a><span> … </span><a href="#A-8">8</a></li>
+<li><a href="#A.4">Summary Of State Variables</a><span> … </span><a href="#A-8">8</a></li>
+<li><a href="#A.5">Command Summary</a><span> … </span><a href="#A-9">9</a><ol>
+<li><a href="#A.5.1">Required Commands</a><span> … </span><a href="#A-9">9</a></li>
+<li><a href="#A.5.2">Character Set Extension</a><span> … </span><a href="#A-9">9</a></li>
+<li><a href="#A.5.3">VT52 Printer Port Extension</a><span> … </span><a href="#A-9">9</a></li>
+<li><a href="#A.5.4">ANSI Printer Port Commands</a><span> … </span><a href="#A-10">10</a></li>
+<li><a href="#A.5.5">Undefined Functions</a><span> … </span><a href="#A-11">11</a></li>
+<li><a href="#A.5.6">Programming Guidelines</a><span> … </span><a href="#A-11">11</a></li>
+</ol>
+</li>
+<li><a href="#A.6">Graphic Character Replacement</a><span> … </span><a href="#A-12">12</a><ul>
+<li><a href="#ReplaceCharacter">Replace Graphic Character</a></li>
+</ul>
+</li>
+<li><a href="#A.7">Control Functions</a><span> … </span><a href="#A-13">13</a><ul>
+<li><a href="#Identify">Identify</a></li>
+<li><a href="#EnterVT52Mode">Enter VT52 Emulation Mode</a></li>
+<li><a href="#ExitVT52Mode">Exit VT52 Emulation Mode</a></li>
+<li><a href="#EnterKeypadMode">Enter Alternate Keypad Mode</a></li>
+<li><a href="#ExitKeypadMode">Exit Alternate Keypad Mode</a></li>
+<li><a href="#EnterGraphicsMode">Enter Graphics Mode</a></li>
+<li><a href="#ExitGraphicsMode">Exit Graphics Mode</a></li>
+<li><a href="#CursorUp">Cursor Up</a></li>
+<li><a href="#CursorDown">Cursor Down</a></li>
+<li><a href="#CursorRight">Cursor Right</a></li>
+<li><a href="#CursorLeft">Cursor Left</a></li>
+<li><a href="#CursorHome">Cursor Home</a></li>
+<li><a href="#DirectCursorAddress">Direct Cursor Address</a></li>
+<li><a href="#BackSpace">Back Space</a></li>
+<li><a href="#HorizontalTab">Horizontal Tab</a></li>
+<li><a href="#LineFeed">Line Feed</a></li>
+<li><a href="#CarriageReturn">Carriage Return</a></li>
+<li><a href="#ReverseLineFeed">Reverse Line Feed</a></li>
+<li><a href="#EraseToEndOfLine">Erase To End of Line</a></li>
+<li><a href="#EraseToEndOfScreen">Erase To End of Display</a></li>
+</ul>
+<a id="A-4"></a></li>
+<li><a href="#A.8">Extensions To The VT52 Emulation Architecture</a><span> … </span><a href="#A-36">36</a><ol>
+<li><a href="#A.8.1">Print Functions</a><span> … </span><a href="#A-36">36</a><ol>
+<li><a href="#A.8.1.1">Modes</a><span> … </span><a href="#A-36">36</a><ul>
+<li><a href="#EnterAutoPrintMode">Enter Auto Print Mode</a></li>
+<li><a href="#ExitAutoPrintMode">Exit Auto Print Mode</a></li>
+<li><a href="#EnterPrintControllerMode">Enter Printer Controller Mode</a></li>
+<li><a href="#ExitPrintControllerMode">Exit Printer Controller Mode</a></li>
+<li><a href="#PrintCursorLine">Print Cursor Line</a></li>
+<li><a href="#PrintScreen">Print Screen</a></li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><a href="#A.9">Change History</a><span> … </span><a href="#A-43">43</a><ol>
+<li><a href="#A.9.1">Revision 0.3 To Rev 1.0</a><span> … </span><a href="#A-43">43</a></li>
+<li><a href="#A.9.2">Rev AX10 To AX11</a><span> … </span><a href="#A-44">44</a></li>
+</ol>
+</li>
+</ol>
+</section>
+</header>
+<main>
+<a id="A-5"></a>
+<section id="A.1">
+<h2>1  Introduction</h2>
+<section id="A.1.1">
+<h3>1.1  Purpose</h3>
+<p>VT52 Emulation defines a display service class for character cell display operations.  The emulation defined here is a consistent and compatible subset of the functions provided by the actual VT52 family of DEC terminals and VT52 emulation mode as documented in the VT102 User Guide.  It does not include features of the VT100 family implementation which are a result of cross-over with ANSI mode and are not documented.  These features should be considered undefined conditions in terminal products, and cannot be relied on by software.  Furthermore, the architecture does not include all of the features of the actual VT52 products, because the intention of the architecture is to define the level of support necessary to maintain software products which already run compatibly on the entire DEC terminal product set.</p>
+</section>
+<section id="A.1.2">
+<h3>1.2  Scope</h3>
+<p>This specification will be included as an appendix to the Video Systems Reference Manual (Video SRM).  As an appendix, it is not considered a formal part of the architecture, and is not a required part of conforming product implementations.  DEC products which implement this mode, however, should do so in accordance with this specification to insure compatibility with existing software.  Software conforming to the architecture will not use any of the functions defined in this appendix.</p>
+<aside>
+<h4>Note</h4>
+<p>The algorithms defined in this appendix apply only to the display logic which exists when VT52 emulation is entered correctly (i.e., all UNDEFINED conditions are preset to their prescribed values).  For example, VT52 emulation assumes that tab stops are preset to modulus 8 intervals.  If this is not done, the logic as described here is not guaranteed.</p>
+</aside>
+</section>
+</section>
+<a id="A-6"></a>
+<section id="A.2">
+<h2>2  State Descriptions</h2>
+<section id="A.2.1">
+<h3>2.1  Display</h3>
+<p>The display logic of the VT52 emulator provides the following features:</p>
+<ul>
+<li><p>Character cell array with 80 columns X 24 lines</p></li>
+<li><p>Home (1,1) at the top left corner</p></li>
+<li><p>No character attributes</p></li>
+<li><p>No line attributes</p></li>
+<li><p>No screen attributes</p></li>
+<li><p>ASCII character set</p></li>
+<li><p>Line Drawing character set (* extension *)</p></li>
+<li><p>Tabs at 8 column intervals.</p></li>
+</ul>
+<pre><code>         LINE_TYPE   = 1..MAX_NUM_LINES;   (* 1 to 24 lines *)
+         COLUMN_TYPE = 1..MAX_NUM_COLUMNS; (* 1 to 80 columns *)
+
+(* character = character code, character set *)
+
+         CHARACTER_TYPE = RECORD
+           CODE: CHARACTER_CODE_TYPE;
+           CHARACTER_SET:
+             GRAPHIC_CHARACTER_SET_TYPE; (* extension *)
+           END;
+</code></pre>
+<p>The character set selection is an extension because the VT52 and other terminals do special graphics differently.</p>
+<pre><code>(* display = two-dimensional array of 24 lines by 80 columns *)
+
+         DISPLAY: ARRAY [LINE_TYPE,COLUMN_TYPE] OF CHARACTER_TYPE;
+</code></pre>
+</section>
+<a id="A-7"></a>
+<section id="A.2.2">
+<h3>2.2  Active Position</h3>
+<p>The device maintains a position register known as the "Active Position", which serves as a reference point for graphic character replacement and control functions.</p>
+<pre><code>CHARACTER_POSITION_TYPE = RECORD
+  LINE: LINE_TYPE;
+  COLUMN: COLUMN_TYPE;
+  END;
+
+ACTIVE_POSITION: CHARACTER_POSITION_TYPE;
+</code></pre>
+</section>
+<section id="A.2.3">
+<h3>2.3  Tab Stops, Fixed</h3>
+<p>The device provides a set of horizontal tabulation stops whose positions are fixed in hardware and cannot be changed.</p>
+<pre><code>HORIZONTAL_TAB_STOPS: ARRAY [COLUMN_TYPE] OF BOOLEAN;
+</code></pre>
+<p>tab stops = columns 9,17,25,33,41,49,57,65,73</p>
+</section>
+</section>
+<a id="A-8"></a>
+<section id="A.3">
+<h2>3  Parameters And Constants</h2>
+<p>This section defines the default values and ranges applicable to the terminal state information.</p>
+<pre><code>(* Display Parameters *)
+         MAX_NUM_LINES = 24;
+         MAX_NUM_COLUMNS = 80;
+(*
+  Note: an empty character is a character position in the
+  logical display in which no character code appears, and
+  thus no character is rendered in the visual display for
+  this position.
+*)
+         EMPTY_CHARACTER = 0;
+
+TYPE     LINE_TYPE = 1..MAX_NUM_LINES;
+         COLUMN_TYPE = 1..MAX_NUM_COLUMNS;
+         CHARACTER_POSITION_TYPE = RECORD
+           LINE: LINE_TYPE;
+           COLUMN: COLUMN_TYPE;
+           END;
+         CHARACTER_CODE_TYPE = 0..127;
+         GRAPHIC_CHARACTER_SET_TYPE = (ASCII,LINE_DRAWING);
+         CHARACTER_TYPE = RECORD
+           CODE: CHARACTER_CODE_TYPE;
+           CHARACTER_SET:
+             GRAPHIC_CHARACTER_SET_TYPE; (* extension *)
+           END;
+</code></pre>
+</section>
+<section id="A.4">
+<h2>4  Summary Of State Variables</h2>
+<p>The following values represent the state information necessary to maintain a VT52 Character Cell Display.</p>
+<pre><code>VAR      ACTIVE_POSITION: CHARACTER_POSITION_TYPE;
+         CURRENT_SET: GRAPHIC_CHARACTER_SET_TYPE;
+         KEYPAD_MODE: (NUMERIC,APPLICATION);
+         EMULATION_MODE: (VT52_OFF,VT52_ON);
+</code></pre>
+</section>
+<a id="A-9"></a>
+<section id="A.5">
+<h2>5  Command Summary</h2>
+<section id="A.5.1">
+<h3>5.1  Required Commands</h3>
+<p>This is a list of the VT52 commands supported in the architectural specification:</p>
+<ul>
+<li><a href="#Identify">Identify</a></li>
+<li><a href="#EnterVT52Mode">Enter VT52 Emulation Mode</a></li>
+<li><a href="#ExitVT52Mode">Exit VT52 Emulation Mode</a></li>
+<li><a href="#EnterKeypadMode">Enter Alternate Keypad mode</a></li>
+<li><a href="#ExitKeypadMode">Exit Alternate Keypad mode</a></li>
+<li><a href="#EnterGraphicsMode">Enter Graphics Mode</a></li>
+<li><a href="#ExitGraphicsMode">Exit Graphics Mode</a></li>
+<li><a href="#CursorUp">Cursor Up</a></li>
+<li><a href="#CursorDown">Cursor Down</a></li>
+<li><a href="#CursorRight">Cursor Right</a></li>
+<li><a href="#CursorLeft">Cursor Left</a></li>
+<li><a href="#CursorHome">Cursor to Home</a></li>
+<li><a href="#DirectCursorAddress">Direct Cursor Address</a></li>
+<li><a href="#BackSpace">Backspace</a></li>
+<li><a href="#HorizontalTab">Horizontal Tab</a></li>
+<li><a href="#LineFeed">Line Feed</a></li>
+<li><a href="#CarriageReturn">Carriage Return</a></li>
+<li><a href="#ReverseLineFeed">Reverse Line Feed</a></li>
+<li><a href="#EraseToEndOfLine">Erase to End of Line</a></li>
+<li><a href="#EraseToEndOfScreen">Erase to End of Screen</a></li>
+</ul>
+</section>
+<section id="A.5.2">
+<h3>5.2  Character Set Extension</h3>
+<p>This command is in an extension to the VT52 specification because in the VT52 the character set is VT52 Special Graphics and in the VT100 and all future terminals it is the Line Drawing set.</p>
+<ul>
+<li><a href="#EnterGraphicsMode">Select Special Graphics Set</a></li>
+</ul>
+</section>
+<section id="A.5.3">
+<h3>5.3  VT52 Printer Port Extension</h3>
+<p>The following commands are in an extension to the VT52 architectural specification because they are not included in the standard VT52 (they are in the VT52 with printer option):</p>
+<ul>
+<li><a href="#PrintScreen">Print Screen</a></li>
+<li><a href="#EnterAutoPrintMode">Enter Auto Print Mode</a></li>
+<li><a href="#ExitAutoPrintMode">Exit Auto Print Mode</a></li>
+</ul>
+</section>
+<section id="A.5.4">
+<h3>5.4  ANSI Printer Port Commands</h3>
+<p>The following commands control modes that are not in the VT52 with printer port but are carry-overs from VT100 printer port modes.</p>
+<ul>
+<li><a href="#PrintCursorLine">Print Cursor Line</a></li>
+<li><a id="A-10"></a><a href="#EnterPrintControllerMode">Enter Print Controller Mode</a></li>
+<li><a href="#ExitPrintControllerMode">Exit Print Controller Mode</a></li>
+</ul>
+</section>
+<a id="A-11"></a>
+<section id="A.5.5">
+<h3>5.5  Undefined Functions</h3>
+<p>The following modes and commands have undefined results and states both when entering and exiting VT52 Mode emulation.</p>
+<ul>
+<li>Insert/Replacement Mode</li>
+<li>Printer Extent Mode</li>
+<li>Printer Form Feed Mode</li>
+<li>New Line Mode</li>
+<li>Origin Mode</li>
+<li>Column Mode</li>
+<li>Screen Mode</li>
+<li>Keyboard Action Mode</li>
+<li>Cursor Key Mode</li>
+<li>Line Attributes</li>
+<li>Character Attributes</li>
+<li>Character Sets     (The VT100 VT52 emulator special graphics and<span> </span>the VT52 special graphics are not the same. )</li>
+<li>Scrolling Region</li>
+<li>Scrolling Mode</li>
+<li>Auto Wrap Mode</li>
+<li>Auto Repeat Mode</li>
+<li>Enter Hold-Screen Mode (VT52 function not emulated)</li>
+<li>Exit Hold-Screen Mode (VT52 function not emulated)</li>
+<li>Tabs</li>
+</ul>
+<aside>
+<h4>Note</h4>
+<p>The VT52 has hardware set tabs.  The VT52 emulator uses the tabs that were set in the terminal before entering the emulator.  For correct use of the VT52 emulator, application software should set the tabs to the VT52 settings before entering the emulator.</p>
+</aside>
+</section>
+<section id="A.5.6">
+<h3>5.6  Programming Guidelines</h3>
+<p>Because of the undefined interactions listed above, the terminal should be switched between VT52 emulation and ANSI mode only at program initialization.  Frequent switching between modes will leave the terminal in an undefined state.</p>
+</section>
+</section>
+<a id="A-12"></a>
+<section id="A.6">
+<h2>6  Graphic Character Replacement</h2>
+<section id="ReplaceCharacter">
+<h4>Replace Graphic Character</h4>
+<p><em>Purpose:</em> To place a graphic character in the display at the Active Position.</p>
+<div>
+<p><em>Format:</em></p>
+<pre><samp>implied on receipt of graphic character data</samp></pre>
+</div>
+<p><em>Description:</em> This procedure is called on receipt of graphic character data to place the data in the appropriate position in the display structure.  The character code and the current character set are stored in the display list.  The Active Position is advanced by one column each time this operation is performed.</p>
+<p><em>State Affected:</em></p>
+<ul>
+<li><code>DISPLAY: ARRAY [LINE_TYPE,COLUMN_TYPE] OF CHARACTER_TYPE;</code></li>
+<li><code>ACTIVE_POSITION: CHARACTER_POSITION_TYPE;</code></li>
+</ul>
+<p><em>Algorithm:</em></p>
+<pre><code>PROCEDURE REPLACE_GRAPHIC_CHARACTER
+VAR      X: COLUMN_TYPE;
+BEGIN
+DISPLAY[ACTIVE_POSITION.LINE,ACTIVE_POSITION.COLUMN]
+  .CODE:= EVENT.CODE_VALUE;
+(* character set extension only *)
+DISPLAY[ACTIVE_POSITION.LINE,ACTIVE_POSITION.COLUMN]
+  .CHARACTER_SET:= CURRENT_SET;
+IF ACTIVE_POSITION.COLUMN &lt; MAX_NUM_COLUMNS THEN
+  ACTIVE_POSITION_COLUMN:= ACTIVE_POSITION_COLUMN + 1;
+END;
+</code></pre>
+<p><em>Known Deviations:</em> None</p>
+</section>
+</section>
+<a id="A-13"></a>
+<section id="A.7">
+<h2>7  Control Functions</h2>
+<section id="Identify">
+<h4>Identify</h4>
+<p><em>Purpose:</em> Request terminal type identification.</p>
+<div>
+<p><em>Format:</em></p>
+<pre><samp>ESC     Z
+
+1/11    5/10</samp></pre>
+</div>
+<p><em>Description:</em> The Identify command is a request from the computer for an identifying sequence.  The VT52 emulator response is <samp>ESC / Z (1/11 2/15 5/10)</samp> (same as VT52 terminal).</p>
+<p><em>Notes:</em></p>
+<ol>
+<li><p>Most terminals also respond to this request when they are in Level 1 or Level 2 operation.  Then they respond with an ANSI Device Attributes sequence that includes a DEC private registered value that indicates the actual terminal type.  Conforming software should not rely on this response to the DECID sequence.  (See IDENTIFY in the chapter "Terminal Management".)</p></li>
+</ol>
+<p><em>State Affected:</em> None</p>
+<p><em>Algorithm:</em></p>
+<pre><code>PROCEDURE IDENTIFY;
+BEGIN
+IF EMULATION_MODE = VT52_ON THEN
+  WRITE (* to host *) (ESC,'/Z');
+END;
+</code></pre>
+<p><em>Known Deviations:</em> None</p>
+</section>
+<a id="A-14"></a>
+<section id="EnterVT52Mode">
+<h4>Enter VT52 Emulation Mode</h4>
+<p><em>Purpose:</em> Disable ANSI controls and turn on VT52 emulator.</p>
+<div>
+<p><em>Format:</em></p>
+<pre><samp>CSI     ?       2       l
+
+9/11    3/15    3/2     6/12</samp></pre>
+</div>
+<p><em>Description:</em> The Enter VT52 Emulation Mode control disables further recognition of ANSI standard control functions in the terminal and turns on the VT52 emulator.  This control is only recognized in Level 1 and Level 2 Character Cell Display operation.</p>
+<p><em>Notes:</em></p>
+<ol>
+<li><p>Execution of this control from Level 1 or Level 2 operation does not cause the physical state of the device to change (i.e., the display is not cleared, and the Active Position does not move, etc.).</p></li>
+<li><p>In Conformance Levels 1 and 2, most VT52 control sequences are errors (except Identify and Exit VT52 Emulation Mode), and in general are ignored.  They should not be sent by conforming software.</p></li>
+<li><p>This sequence will not be treated as a control function when the terminal is in VT52 mode, and the effect on the display will be unpredictable, since it is dependent on the transmission environment.</p></li>
+</ol>
+<p><em>State Affected:</em></p>
+<ul>
+<li><code>EMULATION_MODE = (VT52_OFF,VT52_ON);</code></li>
+</ul>
+<p><em>Algorithm:</em></p>
+<pre><code>PROCEDURE ENTER_VT52_EMULATION_MODE;
+EMULATION_MODE:= VT52_ON;
+END;
+</code></pre>
+<p><em>Known Deviations:</em> None</p>
+</section>
+<a id="A-15"></a>
+<section id="ExitVT52Mode">
+<h4>Exit VT52 Emulation Mode</h4>
+<p><em>Purpose:</em> Turn off VT52 emulator and allow ANSI controls to work.</p>
+<div>
+<p><em>Format:</em></p>
+<pre><samp>ESC     &lt;
+
+1/11    3/12</samp></pre>
+</div>
+<p><em>Description:</em> The Exit VT52 Emulation Mode control turns off the VT52 emulator and turns on the ANSI parser of the terminal, causing the terminal to return to Level 1 operation.</p>
+<p><em>Notes:</em></p>
+<ol>
+<li><p>In Conformance Levels 1 and 2, most VT52 control sequences are errors (except Identify and Exit VT52 Emulation Mode), and in general are ignored.  They should not be sent by conforming software.</p></li>
+</ol>
+<p><em>State Affected:</em></p>
+<ul>
+<li><code>EMULATION_MODE = (VT52_OFF,VT52_ON);</code></li>
+</ul>
+<p><em>Algorithm:</em></p>
+<pre><code>PROCEDURE EXIT_VT52_EMULATION_MODE;
+EMULATION_MODE:= VT52_OFF;
+END;
+</code></pre>
+<p><em>Known Deviations:</em> None</p>
+</section>
+<a id="A-16"></a>
+<section id="EnterKeypadMode">
+<h4>Enter Alternate Keypad Mode</h4>
+<p><em>Purpose:</em> Auxiliary keypad keys generate application sequences.</p>
+<div>
+<p><em>Format:</em></p>
+<pre><samp>ESC     =
+
+1/11    3/13</samp></pre>
+</div>
+<p><em>Description:</em> The auxiliary keypad keys generate sequences used by application programs.</p>
+<p><em>Notes:</em></p>
+<ol>
+<li><p>The codes produced by the keypad in VT52 mode are shown in Table 1.</p></li>
+</ol>
+<p><em>State Affected:</em></p>
+<ul>
+<li><code>KEYPAD_MODE: (NUMERIC,APPLICATION);</code></li>
+</ul>
+<p><em>Algorithm:</em></p>
+<pre><code>PROCEDURE ENTER_KEYPAD_MODE;
+KEYPAD_MODE:= APPLICATION;
+END;
+</code></pre>
+<p><em>Known Deviations:</em></p>
+<p>The minus, comma, and PF4 keys are not present on the VT52 keyboard.</p>
+<p>In VT52 Emulation Mode, the VT125 does not transmit a code for the PF1 key until a second key is pressed.</p>
+<a id="A-17"></a>
+<table id="Table-1" border="1">
+<caption>Table 1    VT52 Keypad Codes</caption>
+<thead>
+<tr><th>Key</th><th>Alternate Keypad<br />Mode Off (Numeric<br />Keypad Mode)</th><th>Alternate Keypad<br />Mode On (Application<br />Keypad Mode)</th></tr>
+</thead>
+<tbody>
+<tr><td>0</td><td>0<br />060</td><td>ESC  ?   p<br />033 077 160</td></tr>
+<tr><td>1</td><td>1<br />061</td><td>ESC  ?   q<br />033 077 161</td></tr>
+<tr><td>2</td><td>2<br />062</td><td>ESC  ?   r<br />033 077 162</td></tr>
+<tr><td>3</td><td>3<br />063</td><td>ESC  ?   s<br />033 077 163</td></tr>
+<tr><td>4</td><td>4<br />064</td><td>ESC  ?   t<br />033 077 164</td></tr>
+<tr><td>5</td><td>5<br />065</td><td>ESC  ?   u<br />033 077 165</td></tr>
+<tr><td>6</td><td>6<br />066</td><td>ESC  ?   v<br />033 077 166</td></tr>
+<tr><td>7</td><td>7<br />067</td><td>ESC  ?   w<br />033 077 167</td></tr>
+<tr><td>8</td><td>8<br />070</td><td>ESC  ?   x<br />033 077 170</td></tr>
+<tr><td>9</td><td>9<br />071</td><td>ESC  ?   y<br />033 077 171</td></tr>
+<tr><td>-(minus)</td><td>-(minus)<br />055</td><td>ESC  ?   m<br />033 077 155   **</td></tr>
+<tr><td>,(comma)</td><td>,(comma)<br />054</td><td>ESC  ?   l<br />033 077 154   **</td></tr>
+<tr><td>.(period)</td><td>.(period)<br />056</td><td>ESC  ?   n<br />033 077 156</td></tr>
+<tr><td>ENTER*</td><td>CR     CR  LF<br />015 or 015 012</td><td>ESC  ?   M<br />033 077 115</td></tr>
+</tbody>
+</table>
+<p>(continued)</p>
+<a id="A-18"></a>
+<table border="1">
+<caption>Table 1    VT52 Keypad Codes (continued)</caption>
+<thead>
+<tr><th>Key</th><th>Alternate Keypad<br />Mode Off (Numeric<br />Keypad Mode)</th><th>Alternate Keypad<br />Mode On (Application<br />Keypad Mode)</th></tr>
+</thead>
+<tbody>
+<tr><td>PF1</td><td>ESC  P<br />033 120</td><td>ESC  P<br />033 120</td></tr>
+<tr><td>PF2</td><td>ESC  Q<br />033 121</td><td>ESC  Q<br />033 121</td></tr>
+<tr><td>PF3</td><td>ESC  R<br />033 122</td><td>ESC  R<br />033 122</td></tr>
+<tr><td>PF4</td><td>ESC  S<br />033 123</td><td>ESC  S<br />033 123       **</td></tr>
+</tbody>
+</table>
+<p>* When numeric keypad mode is select (alternate keypad
+mode is off), the ENTER key generates the same characters
+as the RETURN key. The RETURN key character code may be
+affected by the setting of New Line Mode. When off, this
+mode causes the key to generate a single control
+character (CR, octal 015). When on, this mode causes
+the key to generate two characters (CR, octal 015 and LF,
+octal 012). This interaction is UNDEFINED by the architecture,
+and should not be depended upon by conforming software.</p>
+<p>** These sequences are not generated by the VT52.</p>
+</section>
+<a id="A-19"></a>
+<section id="ExitKeypadMode">
+<h4>Exit Alternate Keypad Mode</h4>
+<p><em>Purpose:</em> Keypad generates codes for the characters shown on the keys.</p>
+<div>
+<p><em>Format:</em></p>
+<pre><samp>ESC     >
+
+1/11    3/14</samp></pre>
+</div>
+<p><em>Description:</em> Auxiliary keypad keys generate characters corresponding to the numeric, comma, period, and minus sign keys on the main keyboard.</p>
+<p><em>Notes:</em></p>
+<ol>
+<li><p>See Table 1 for the codes.</p></li>
+</ol>
+<p><em>State Affected:</em></p>
+<ul>
+<li><code>KEYPAD_MODE: (NUMERIC,APPLICATION);</code></li>
+</ul>
+<p><em>Algorithm:</em></p>
+<pre><code>PROCEDURE EXIT_KEYPAD_MODE;
+KEYPAD_MODE:= NUMERIC;
+END;
+</code></pre>
+<p><em>Known Deviations:</em></p>
+<p>The minus, comma, and PF4 keys are not present on the VT52 keyboard.</p>
+</section>
+<a id="A-20"></a>
+<section id="EnterGraphicsMode">
+<h4>Enter Graphics Mode</h4>
+<p><em>Purpose:</em> Display special graphics instead of lower case ASCII.</p>
+<div>
+<p><em>Format:</em></p>
+<pre><samp>ESC     F
+
+1/11    4/6</samp></pre>
+</div>
+<p><em>Description:</em> Selects the special character and line drawing character set.</p>
+<p><em>Notes:</em></p>
+<ol>
+<li><p>Table 2 lists the characters displayed and their codes, and compares the characters with the VT52 special graphics set.</p></li>
+</ol>
+<p><em>State Affected:</em></p>
+<ul>
+<li><code>CURRENT_SET: GRAPHIC_CHARACTER_SET_TYPE;</code></li>
+</ul>
+<p><em>Algorithm:</em></p>
+<pre><code>PROCEDURE ENTER_GRAPHICS_MODE;
+CURRENT_SET:= LINE_DRAWING;
+END;
+</code></pre>
+<p><em>Known Deviations:</em></p>
+<p>The character set displayed is not the same as the set that was in the VT52.  However, all terminals since the VT52 have the same VT100 special graphics set.</p>
+<a id="A-21"></a>
+<table id="Table-2" border="1">
+<caption>Table 2  Special Character and Line Drawing Set and Graphics
+Mode Comparison</caption>
+<thead>
+<tr><th>Row/<br />Column</th><th>US or<br />UK Set</th><th colspan="2">Special Character and<br />Line Drawing Set</th><th>In Graphics<br />Mode (VT52 only)</th></tr>
+</thead>
+<tbody>
+<tr><td>5/15</td><td>_</td><td></td><td>Blank</td><td>blank</td></tr>
+<tr><td>6/0</td><td>`</td><td>&lt;></td><td>Diamond</td><td>reserved</td></tr>
+<tr><td>6/1</td><td>a</td><td></td><td>blotch (error indicator)</td><td>solid rectangle</td></tr>
+<tr><td>6/2</td><td>b</td><td>ht</td><td>Horizontal tab</td><td>1/</td></tr>
+<tr><td>6/3</td><td>c</td><td>ff</td><td>Form feed</td><td>3/</td></tr>
+<tr><td>6/4</td><td>d</td><td>cr</td><td>Carriage return</td><td>5/</td></tr>
+<tr><td>6/5</td><td>e</td><td>lf</td><td>Line feed</td><td>7/</td></tr>
+<tr><td>6/6</td><td>f</td><td>o</td><td>Degree symbol</td><td>degrees</td></tr>
+<tr><td>6/7</td><td>g</td><td>+-</td><td>Plus/minus</td><td>plus or minus</td></tr>
+<tr><td>6/8</td><td>h</td><td>nl</td><td>New line</td><td>right arrow</td></tr>
+<tr><td>6/9</td><td>i</td><td>vt</td><td>Vertical tab</td><td>ellipsis (Dots)</td></tr>
+<tr><td>6/10</td><td>j</td><td>_|</td><td>Lower-right corner</td><td>divide by</td></tr>
+<tr><td>6/11</td><td>k</td><td>~|</td><td>Upper-right corner</td><td>down arrow</td></tr>
+<tr><td>6/12</td><td>l</td><td>|~</td><td>Upper-left corner</td><td>bar at scan 0</td></tr>
+<tr><td>6/13</td><td>m</td><td>L</td><td>Lower-left corner</td><td>bar at scan 1</td></tr>
+<tr><td>6/14</td><td>n</td><td>+</td><td>Crossing lines</td><td>bar at scan 2</td></tr>
+<tr><td>6/15</td><td>o</td><td>-</td><td>Horizontal line - Scan 1</td><td>bar at scan 3</td></tr>
+<tr><td>7/0</td><td>p</td><td>-</td><td>Horizontal line - Scan 3</td><td>bar at scan 4</td></tr>
+<tr><td>7/1</td><td>q</td><td>-</td><td>Horizontal line - Scan 5</td><td>bar at scan 5</td></tr>
+<tr><td>7/2</td><td>r</td><td>-</td><td>Horizontal line - Scan 7</td><td>bar at scan 6</td></tr>
+<tr><td>7/3</td><td>s</td><td>-</td><td>Horizontal line - Scan 9</td><td>bar at scan 7</td></tr>
+<tr><td>7/4</td><td>t</td><td>|-</td><td>Left "T"</td><td>subscript 0</td></tr>
+<tr><td>7/5</td><td>u</td><td>-|</td><td>Right "T"</td><td>subscript 1</td></tr>
+<tr><td>7/6</td><td>v</td><td>_|_</td><td>Bottom "T"</td><td>subscript 2</td></tr>
+<tr><td>7/7</td><td>w</td><td>T</td><td>Top "T"</td><td>subscript 3</td></tr>
+<tr><td>7/8</td><td>x</td><td>|</td><td>Vertical bar</td><td>subscript 4</td></tr>
+<tr><td>7/9</td><td>y</td><td>&lt;=</td><td>Less than or equal to</td><td>subscript 5</td></tr>
+<tr><td>7/10</td><td>z</td><td>=></td><td>Greater than or equal to</td><td>subscript 6</td></tr>
+<tr><td>7/11</td><td>{</td><td>i-i</td><td>Pi</td><td>subscript 7</td></tr>
+<tr><td>7/12</td><td>|</td><td>/=</td><td>Not equal to</td><td>subscript 8</td></tr>
+<tr><td>7/13</td><td>}</td><td>L-</td><td>UK pound sign</td><td>subscript 9</td></tr>
+<tr><td>7/14</td><td>~</td><td>.</td><td>Centered dot</td><td>paragraph</td></tr>
+</tbody>
+</table>
+</section>
+<a id="A-22"></a>
+<section id="ExitGraphicsMode">
+<h4>Exit Graphics Mode</h4>
+<p><em>Purpose:</em> Display ASCII lower case characters.</p>
+<div>
+<p><em>Format:</em></p>
+<pre><samp>ESC     G
+
+1/11    4/7</samp></pre>
+</div>
+<p><em>Description:</em> Select the ASCII character set.</p>
+<p><em>Notes:</em></p>
+<ol>
+<li><p>Many terminals have included a "UK" character set, selectable in SET-UP.  The Exit Graphics Mode command returns to the UK set if it was selected.</p></li>
+</ol>
+<p><em>State Affected:</em></p>
+<ul>
+<li><code>CURRENT_SET: GRAPHIC_CHARACTER_SET_TYPE;</code></li>
+</ul>
+<p><em>Algorithm:</em></p>
+<pre><code>PROCEDURE EXIT_GRAPHICS_MODE;
+CURRENT_SET:= ASCII;
+END;
+</code></pre>
+<p><em>Known Deviations:</em> None</p>
+</section>
+<a id="A-23"></a>
+<section id="CursorUp">
+<h4>Cursor Up</h4>
+<p><em>Purpose:</em> Move the Active Position upward by one line.</p>
+<div>
+<p><em>Format:</em></p>
+<pre><samp>ESC     A
+
+1/11    4/1</samp></pre>
+</div>
+<p><em>Description:</em> The Cursor Up control moves the Active Position upward by one line in the display.</p>
+<p><em>Notes:</em></p>
+<ol>
+<li><p>The Active Position will not move above the first line of the display.</p></li>
+<li><p>No scrolling will occur as a result of this control.</p></li>
+<li><p>This is the same sequence that the up arrow key generates.</p></li>
+</ol>
+<p><em>State Affected:</em></p>
+<ul>
+<li><code>ACTIVE_POSITION: CHARACTER_POSITION_TYPE;</code></li>
+</ul>
+<p><em>Algorithm:</em></p>
+<pre><code>PROCEDURE CURSOR_UP;
+BEGIN
+IF ACTIVE_POSITION.LINE > 1 THEN
+  ACTIVE_POSITION.LINE:= ACTIVE_POSITION.LINE - 1
+ELSE (* ignore *);
+END;
+</code></pre>
+<p><em>Known Deviations:</em> None</p>
+</section>
+<a id="A-24"></a>
+<section id="CursorDown">
+<h4>Cursor Down</h4>
+<p><em>Purpose:</em> Move the Active Position down by one line.</p>
+<div>
+<p><em>Format:</em></p>
+<pre><samp>ESC     B
+
+1/11    4/2</samp></pre>
+</div>
+<p><em>Description:</em> The Cursor Down control moves the Active Position down by one line in the display.</p>
+<p><em>Notes:</em></p>
+<ol>
+<li><p>The Active Position will not move below the bottom line of the display.</p></li>
+<li><p>No scrolling will occur as a result of this control.</p></li>
+<li><p>This is the same sequence that the down arrow key generates.</p></li>
+</ol>
+<p><em>State Affected:</em></p>
+<ul>
+<li><code>ACTIVE_POSITION: CHARACTER_POSITION_TYPE;</code></li>
+</ul>
+<p><em>Algorithm:</em></p>
+<pre><code>PROCEDURE CURSOR_DOWN;
+BEGIN
+IF ACTIVE_POSITION.LINE + 1 &lt;= MAX_NUM_LINES THEN
+  ACTIVE_POSITION.LINE:= ACTIVE_POSITION.LINE + 1
+ELSE (* ignore *);
+END;
+</code></pre>
+<p><em>Known Deviations:</em> None</p>
+</section>
+<a id="A-25"></a>
+<section id="CursorRight">
+<h4>Cursor Right</h4>
+<p><em>Purpose:</em> Move the Active Position right by one character position.</p>
+<div>
+<p><em>Format:</em></p>
+<pre><samp>ESC     C
+
+1/11    4/3</samp></pre>
+</div>
+<p><em>Description:</em> The Cursor Right control moves the Active Position right by one character position.</p>
+<p><em>Notes:</em></p>
+<ol>
+<li><p>The Active Position will not move beyond the right margin of the screen.</p></li>
+<li><p>This is the same sequence that the right arrow key generates.</p></li>
+</ol>
+<p><em>State Affected:</em></p>
+<ul>
+<li><code>ACTIVE_POSITION: CHARACTER_POSITION_TYPE;</code></li>
+</ul>
+<p><em>Algorithm:</em></p>
+<pre><code>PROCEDURE CURSOR_FORWARD;
+BEGIN
+IF ACTIVE_POSITION.COLUMN &lt; MAX_NUM_COLUMNS THEN
+  ACTIVE_POSITION.COLUMN:= ACTIVE_POSITION.COLUMN + 1
+ELSE (* ignore *);
+END;
+</code></pre>
+<p><em>Known Deviations:</em> None</p>
+</section>
+<a id="A-26"></a>
+<section id="CursorLeft">
+<h4>Cursor Left</h4>
+<p><em>Purpose:</em> Move the Active Position left by one character position.</p>
+<div>
+<p><em>Format:</em></p>
+<pre><samp>ESC     D
+
+1/11    4/4</samp></pre>
+</div>
+<p><em>Description:</em> The Cursor Left control moves the Active Position left by one character position.</p>
+<p><em>Notes:</em></p>
+<ol>
+<li><p>The Active Position will not move beyond the left margin of the display.</p></li>
+<li><p>This is the same sequence that the left arrow key generates.</p></li>
+</ol>
+<p><em>State Affected:</em></p>
+<ul>
+<li><code>ACTIVE_POSITION: CHARACTER_POSITION_TYPE;</code></li>
+</ul>
+<p><em>Algorithm:</em></p>
+<pre><code>PROCEDURE CURSOR_BACKWARD;
+BEGIN
+IF ACTIVE_POSITION.COLUMN > 1 THEN
+  ACTIVE_POSITION.COLUMN:= ACTIVE_POSITION.COLUMN - 1
+ELSE (* ignore *);
+END;
+</code></pre>
+<p><em>Known Deviations:</em> None</p>
+</section>
+<a id="A-27"></a>
+<section id="CursorHome">
+<h4>Cursor Home</h4>
+<p><em>Purpose:</em> Move the Active Position to the home position.</p>
+<div>
+<p><em>Format:</em></p>
+<pre><samp>ESC     H
+
+1/11    4/8</samp></pre>
+</div>
+<p><em>Description:</em> The Cursor Home control moves the Active Position to the home position at line 1, column 1.</p>
+<p><em>State Affected:</em></p>
+<ul>
+<li><code>ACTIVE_POSITION: CHARACTER_POSITION_TYPE;</code></li>
+</ul>
+<p><em>Algorithm:</em></p>
+<pre><code>PROCEDURE CURSOR_HOME;
+BEGIN
+ACTIVE_POSITION.LINE:= 1;
+ACTIVE_POSITION.COLUMN:= 1;
+END;
+</code></pre>
+<p><em>Known Deviations:</em> None</p>
+</section>
+<a id="A-28"></a>
+<section id="DirectCursorAddress">
+<h4>Direct Cursor Address</h4>
+<p><em>Purpose:</em> Move the Active Position to the specified position.</p>
+<div>
+<p><em>Format:</em></p>
+<pre><samp>ESC     Y       line    column
+
+1/11    5/9     line    column</samp></pre>
+</div>
+<p><em>Description:</em> The Direct Cursor Address control moves the active position to the specified line and column.  The line and column numbers are sent as the ASCII characters whose codes are the decimal numbers of the line or column plus 31.  For example, decimal 32 (SPACE, 2/0) refers to the first line or column, and decimal 111 (o, 6/15) refers to the eightieth column.</p>
+<p><em>Notes:</em></p>
+<ol>
+<li><p>This command has range limits of 1 to 24 lines with parameters "SPACE" (2/0) to "7" (3/7), and 1 to 80 columns with parameters "SPACE" (2/0) to "o" (6/15).  An out of range parameter in either dimension causes no action in that dimension, but if the other parameter is in range it will still be operated on.</p></li>
+</ol>
+<p><em>State Affected:</em></p>
+<ul>
+<li><code>ACTIVE_POSITION: CHARACTER_POSITION_TYPE;</code></li>
+</ul>
+<p><em>Algorithm:</em></p>
+<pre><code>PROCEDURE CURSOR_POSITION (LINE_VALUE,COLUMN_VALUE: CHAR);
+VAR      Y: LINE_TYPE;
+         X: COLUMN_TYPE;
+BEGIN
+(* convert ascii characters to position values *)
+Y:= ORD(LINE_VALUE) - 31;
+X:= ORD(COLUMN_VALUE) - 31;
+(* conditionally update line *)
+IF ((Y >= 1) AND (Y &lt;= MAX_NUM_LINES)) THEN
+  ACTIVE_POSITION.LINE:= Y;
+IF ((X >= 1) AND (X &lt;= MAX_NUM_COLUMNS)) THEN
+  ACTIVE_POSITION.COLUMN:= X;
+END;
+</code></pre>
+<p><em>Known Deviations:</em> None</p>
+</section>
+<a id="A-29"></a>
+<section id="BackSpace">
+<h4>Back Space <span>&mdash;</span> BS</h4>
+<p><em>Purpose:</em> Move the Active Position one column to the left.</p>
+<div>
+<p><em>Format:</em></p>
+<pre><samp>BS
+
+0/8</samp></pre>
+</div>
+<p><em>Description:</em> The BS control moves the Active Position backward in the display by one column.</p>
+<p><em>Notes:</em></p>
+<ol>
+<li><p>The Active Position will not move beyond the beginning of the Active Line.</p></li>
+</ol>
+<p><em>State Affected:</em></p>
+<ul>
+<li><code>ACTIVE_POSITION: CHARACTER_POSITION_TYPE;</code></li>
+</ul>
+<p><em>Algorithm:</em></p>
+<pre><code>PROCEDURE BACK_SPACE;
+BEGIN
+IF ACTIVE_POSITION.COLUMN > 1 THEN
+  ACTIVE_POSITION.COLUMN:= ACTIVE_POSITION.COLUMN - 1
+ELSE (* ignore *);
+END;
+</code></pre>
+<p><em>Known Deviations:</em> None</p>
+</section>
+<a id="A-30"></a>
+<section id="HorizontalTab">
+<h4>Horizontal Tab <span>&mdash;</span> HT</h4>
+<p><em>Purpose:</em> Advance the Active Position to the next Horizontal Tab Stop.</p>
+<div>
+<p><em>Format:</em></p>
+<pre><samp>HT
+
+0/9</samp></pre>
+</div>
+<p><em>Description:</em> The HT control moves the Active Position forward in the display to the next Horizontal Tab Stop in the Active Line.</p>
+<p><em>Notes:</em></p>
+<ol>
+<li><p>If no tabulation stop is reached before the end (last column) of the Active Line, the Active Position will be set to the end of the Active Line.</p></li>
+</ol>
+<p><em>State Affected:</em></p>
+<ul>
+<li><code>ACTIVE_POSITION: CHARACTER_POSITION_TYPE;</code></li>
+</ul>
+<p><em>Algorithm:</em></p>
+<pre><code>PROCEDURE HORIZONTAL_TAB;
+BEGIN
+REPEAT
+  IF ACTIVE_POSITION.COLUMN &lt; MAX_NUM_COLUMNS THEN
+    ACTIVE_POSITION.COLUMN:= ACTIVE_POSITION.COLUMN + 1;
+UNTIL (HORIZONTAL_TAB_STOPS[ACTIVE_POSITION.COLUMN])
+  OR (ACTIVE_POSITION.COLUMN = MAX_NUM_COLUMNS);
+END;
+</code></pre>
+<p><em>Known Deviations:</em> None</p>
+</section>
+<a id="A-31"></a>
+<section id="LineFeed">
+<h4>Line Feed <span>&mdash;</span> LF</h4>
+<p><em>Purpose:</em> Move the Active Position downward one line, scrolling if necessary.</p>
+<div>
+<p><em>Format:</em></p>
+<pre><samp>LF
+
+0/10</samp></pre>
+</div>
+<p><em>Description:</em> The LF control moves the Active Position downward in the display by one line.  If the Active Position is already at the Bottom Margin the display will scroll upward by one line.</p>
+<p><em>State Affected:</em></p>
+<ul>
+<li><code>DISPLAY: ARRAY [LINE_TYPE,COLUMN_TYPE] OF CHARACTER_TYPE;</code></li>
+<li><code>ACTIVE_POSITION: CHARACTER_POSITION_TYPE;</code></li>
+</ul>
+<p><em>Algorithm:</em></p>
+<pre><code>PROCEDURE LINE_FEED;
+VAR      Y: LINE_TYPE;
+         X: COLUMN_TYPE;
+BEGIN
+IF ACTIVE_POSITION.LINE &lt; MAX_NUM_LINES THEN
+  ACTIVE_POSITION.LINE:= ACTIVE_POSITION.LINE+1
+ELSE (* scroll up *)
+  BEGIN
+  FOR Y:= 1 TO MAX_NUM_LINES - 1 DO
+    FOR X:= 1 TO MAX_NUM_COLUMNS DO
+      DISPLAY[Y,X]:= DISPLAY[Y+1,X];
+  FOR X:= 1 TO MAX_NUM_COLUMNS DO
+    DISPLAY[MAX_NUM_LINES,X].CODE:= EMPTY_CHARACTER;
+  END;
+END;
+</code></pre>
+<p><em>Known Deviations:</em> None</p>
+</section>
+<a id="A-32"></a>
+<section id="CarriageReturn">
+<h4>Carriage Return <span>&mdash;</span> CR</h4>
+<p><em>Purpose:</em> Move the Active Position to the first column of the Active Line.</p>
+<div>
+<p><em>Format:</em></p>
+<pre><samp>CR
+
+0/13</samp></pre>
+</div>
+<p><em>Description:</em> The CR control moves the Active Position to the first column in the Active Line.</p>
+<p><em>State Affected:</em></p>
+<ul>
+<li><code>ACTIVE_POSITION: CHARACTER_POSITION_TYPE;</code></li>
+</ul>
+<p><em>Algorithm:</em></p>
+<pre><code>PROCEDURE CARRIAGE_RETURN;
+BEGIN
+ACTIVE_POSITION.COLUMN:= 1;
+END;
+</code></pre>
+<p><em>Known Deviations:</em> None</p>
+</section>
+<a id="A-33"></a>
+<section id="ReverseLineFeed">
+<h4>Reverse Line Feed</h4>
+<p><em>Purpose:</em> Move the Active Position upward one line in the same column, scrolling if necessary.</p>
+<div>
+<p><em>Format:</em></p>
+<pre><samp>ESC     I
+
+1/11    4/9</samp></pre>
+</div>
+<p><em>Description:</em> The Reverse Line Feed control moves the Active Position upward by one line in the same column in the display.  If the Active Position is at the first line in the display, a scroll down is performed.</p>
+<p><em>State Affected:</em></p>
+<ul>
+<li><code>DISPLAY: ARRAY [LINE_TYPE,COLUMN_TYPE] OF CHARACTER_TYPE;</code></li>
+<li><code>ACTIVE_POSITION: CHARACTER_POSITION_TYPE;</code></li>
+</ul>
+<p><em>Algorithm:</em></p>
+<pre><code>PROCEDURE REVERSE_LINE_FEED;
+VAR      Y: LINE_TYPE;
+         X: COLUMN_TYPE;
+BEGIN
+IF ACTIVE_POSITION.LINE > 1 THEN
+  ACTIVE_POSITION.LINE:= ACTIVE_POSITION.LINE - 1
+ELSE (* scroll down *)
+  BEGIN
+  FOR Y:= MAX_NUM_LINES DOWNTO 2 DO
+    FOR X:= 1 TO MAX_NUM_COLUMNS DO
+      DISPLAY[Y,X]:= DISPLAY[Y-1,X];
+  FOR X := 1 TO MAX_NUM_COLUMNS DO
+    DISPLAY[1,X].CODE := EMPTY_CHARACTER;
+  END;
+END;
+</code></pre>
+<p><em>Known Deviations:</em> None</p>
+</section>
+<a id="A-34"></a>
+<section id="EraseToEndOfLine">
+<h4>Erase To End Of Line</h4>
+<p><em>Purpose:</em> Erase all characters from the Active Position to the end of the line.</p>
+<div>
+<p><em>Format:</em></p>
+<pre><samp>ESC     K
+
+1/11    4/11</samp></pre>
+</div>
+<p><em>Description:</em> The Erase to End of Line control erases all characters from the Active Position to the end of the current line including the cursor position.  The cursor does not move.</p>
+<p><em>Notes:</em></p>
+<ol>
+<li><p>The Active Position must be placed on the first position of the line to erase the complete line.</p></li>
+</ol>
+<p><em>State Affected:</em></p>
+<ul>
+<li><code>DISPLAY: ARRAY [LINE_TYPE,COLUMN_TYPE] OF CHARACTER_TYPE;</code></li>
+</ul>
+<p><em>Algorithm:</em></p>
+<pre><code>PROCEDURE ERASE_TO_END_OF_LINE;
+VAR      X: COLUMN_TYPE;
+BEGIN
+FOR X:= ACTIVE_POSITION.COLUMN TO MAX_NUM_COLUMNS DO
+  DISPLAY[ACTIVE_POSITION.LINE,X].CODE:= EMPTY_CHARACTER;
+END;
+</code></pre>
+<p><em>Known Deviations:</em> None</p>
+</section>
+<a id="A-35"></a>
+<section id="EraseToEndOfScreen">
+<h4>Erase To End Of Screen</h4>
+<p><em>Purpose:</em> Erase all characters from the Active Position to the end of the screen.</p>
+<div>
+<p><em>Format:</em></p>
+<pre><samp>ESC     J
+
+1/11    4/10</samp></pre>
+</div>
+<p><em>Description:</em> The Erase to End of Screen control erases all characters from the Active Position to the end of the screen including the cursor position.  The cursor does not move.</p>
+<p><em>Notes:</em></p>
+<ol>
+<li><p>The Active Position must be placed on the first position of the screen to erase the complete screen.</p></li>
+</ol>
+<p><em>State Affected:</em></p>
+<ul>
+<li><code>DISPLAY: ARRAY [LINE_TYPE,COLUMN_TYPE] OF CHARACTER_TYPE;</code></li>
+</ul>
+<p><em>Algorithm:</em></p>
+<pre><code>PROCEDURE ERASE_TO_END_OF_DISPLAY;
+VAR      Y: LINE_TYPE;
+         X: COLUMN_TYPE;
+BEGIN
+FOR X:= ACTIVE_POSITION.COLUMN TO MAX_NUM_COLUMNS DO
+  DISPLAY[ACTIVE_POSITION.LINE,X].CODE:= EMPTY_CHARACTER;
+FOR Y:= (ACTIVE_POSITION.LINE + 1) TO MAX_NUM_LINES DO
+  BEGIN
+  FOR X:= 1 TO MAX_NUM_COLUMNS DO
+  DISPLAY[Y,X].CODE:= EMPTY_CHARACTER;
+  END;
+END;
+</code></pre>
+<p><em>Known Deviations:</em> None</p>
+</section>
+</section>
+<a id="A-36"></a>
+<section id="A.8">
+<h2>8  Extensions To The VT52 Emulation Architecture</h2>
+<p>The following functions are not part of the architecture because many terminals, including the VT52 without printer, do not support them.  However, all new terminals with both VT52 emulation and printer ports support these commands.</p>
+<section id="A.8.1">
+<h3>8.1  Print Functions</h3>
+<p>Some terminals have serial printer ports to allow local printing.  All print operations can be selected using sequences.  Two of the print operations can be selected from the terminal keyboard (auto print and print screen).</p>
+<p>When printing characters from the screen of the terminal, the tab stops of the terminal and printer are ignored.  Characters printed are spaced using the space (SP, octal 040) character.  After the last printable character of a line is transmitted, a carriage return (CR, 015) and line feed (LF, 012) are transmitted.  The terminal does not transmit the space characters after the last printable character of a line.</p>
+<p>If a line contains double height characters, the characters are printed as two identical lines of standard width characters.  Double width characters are printed as standard width characters on a single line.</p>
+<section id="A.8.1.1">
+<h4>8.1.1  Modes</h4>
+<ul>
+<li><code>AUTO_PRINT_MODE: (AUTO_PRINT_OFF,AUTO_PRINT_ON);</code></li>
+<li><code>PRINTER_CONTROLLER_MODE:
+  (PRINTER_CONTROLLER_OFF,PRINTER_CONTROLLER_ON);</code></li>
+</ul>
+<a id="A-37"></a>
+<section id="EnterAutoPrintMode">
+<h4>Enter Auto Print Mode</h4>
+<p><em>Purpose:</em> Turn on Auto Print Mode.</p>
+<div>
+<p><em>Format:</em></p>
+<pre><samp>ESC     ^
+
+1/11    5/14</samp></pre>
+</div>
+<p><em>Description:</em> Turns on Auto Print Mode.  A line on the screen is printed when the cursor is moved off the line.  The cursor is moved off the line by a Line Feed, Form Feed, or Vertical Tab character, or when a character is received when the cursor is at the right margin and the auto wrap feature is selected.</p>
+<p><em>Notes:</em></p>
+<ol>
+<li><p>If autowrap is selected in SET-UP, it applies even in VT52 mode.</p></li>
+</ol>
+<p><em>State Affected:</em></p>
+<ul>
+<li><code>AUTO_PRINT_MODE: (AUTO_PRINT_OFF,AUTO_PRINT_ON);</code></li>
+</ul>
+<p><em>Algorithm:</em></p>
+<pre><code>PROCEDURE ENTER_AUTO_PRINT_MODE;
+AUTO_PRINT_MODE:= AUTO_PRINT_ON;
+END;
+</code></pre>
+<p><em>Known Deviations:</em> None</p>
+</section>
+<a id="A-38"></a>
+<section id="ExitAutoPrintMode">
+<h4>Exit Auto Print Mode</h4>
+<p><em>Purpose:</em> Turn off Auto Print Mode.</p>
+<div>
+<p><em>Format:</em></p>
+<pre><samp>ESC     _
+
+1/11    5/15</samp></pre>
+</div>
+<p><em>Description:</em> Turns off Auto Print Mode (see Enter Auto Print Mode).</p>
+<p><em>State Affected:</em></p>
+<ul>
+<li><code>AUTO_PRINT_MODE: (AUTO_PRINT-OFF,AUTO_PRINT_ON);</code></li>
+</ul>
+<p><em>Algorithm:</em></p>
+<pre><code>PROCEDURE EXIT_AUTO_PRINT_MODE;
+AUTO_PRINT_MODE:= AUTO_PRINT_OFF;
+END;
+</code></pre>
+<p><em>Known Deviations:</em> None</p>
+</section>
+<a id="A-39"></a>
+<section id="EnterPrintControllerMode">
+<h4>Enter Printer Controller Mode</h4>
+<p><em>Purpose:</em> Turn on Printer Controller Mode.</p>
+<div>
+<p><em>Format:</em></p>
+<pre><samp>ESC     W
+
+1/11    5/7</samp></pre>
+</div>
+<p><em>Description:</em> Turns on Printer Controller Mode.  All characters received by the terminal are printed by the serial printer without being displayed on the screen.  The characters received are printed without being displayed or altered in any way.  The terminal does not insert or delete spaces, provide line delimiters or select the proper character set within the printer.</p>
+<p><em>State Affected:</em></p>
+<ul>
+<li><code>PRINTER_CONTROLLER_MODE:
+  (PRINTER_CONTROLLER_OFF,PRINTER_CONTROLLER_ON);</code></li>
+</ul>
+<p><em>Algorithm:</em></p>
+<pre><code>PROCEDURE ENTER_PRINTER_CONTROLLER_MODE;
+PRINTER_CONTROLLER_MODE:= PRINTER_CONTROLLER_ON;
+END;
+</code></pre>
+<p><em>Known Deviations:</em> None</p>
+</section>
+<a id="A-40"></a>
+<section id="ExitPrintControllerMode">
+<h4>Exit Printer Controller Mode</h4>
+<p><em>Purpose:</em> Turn off printer controller.</p>
+<div>
+<p><em>Format:</em></p>
+<pre><samp>ESC     X
+
+1/11    5/8</samp></pre>
+</div>
+<p><em>Description:</em> Turns off Printer Controller Mode (see Enter Printer Controller Mode).</p>
+<p><em>State Affected:</em></p>
+<ul>
+<li><code>PRINTER_CONTROLLER_MODE:
+  (PRINTER_CONTROLLER_OFF,PRINTER_CONTROLLER_ON);</code></li>
+</ul>
+<p><em>Algorithm:</em></p>
+<pre><code>PROCEDURE EXIT_PRINTER_CONTROLLER_MODE;
+PRINTER_CONTROLLER_MODE:= PRINTER_CONTROLLER_OFF;
+END;
+</code></pre>
+<p><em>Known Deviations:</em> None</p>
+</section>
+<a id="A-41"></a>
+<section id="PrintCursorLine">
+<h4>Print Cursor Line</h4>
+<p><em>Purpose:</em> Print the line containing the Active Position.</p>
+<div>
+<p><em>Format:</em></p>
+<pre><samp>ESC     V
+
+1/11    5/6</samp></pre>
+</div>
+<p><em>Description:</em> Causes the serial printer to print the line on the screen containing the cursor.  The cursor position is not changed.  The print cursor line operation ends when the line is printed.</p>
+<p><em>Notes:</em></p>
+<ol>
+<li><p>This operation can be selected from the keyboard of the VT52 and the VT102.</p></li>
+</ol>
+<p><em>State Affected:</em> None</p>
+<p><em>Known Deviations:</em> None</p>
+</section>
+<a id="A-42"></a>
+<section id="PrintScreen">
+<h4>Print Screen</h4>
+<p><em>Purpose:</em> Print the contents of the screen.</p>
+<div>
+<p><em>Format:</em></p>
+<pre><samp>ESC     ]
+
+1/11    5/13</samp></pre>
+</div>
+<p><em>Description:</em> Causes the serial printer to print the contents of the screen.  The print screen operation ends when the screen is printed.</p>
+<p><em>Notes:</em></p>
+<ol>
+<li><p>This operation can be selected from the keyboard of the VT52 and the VT102.</p></li>
+</ol>
+<p><em>State Affected:</em> None</p>
+<p><em>Known Deviations:</em> None</p>
+</section>
+</section>
+</section>
+</section>
+<a id="A-43"></a>
+<section id="A.9">
+<h2>9  Change History</h2>
+<section id="A.9.1">
+<h3>9.1  Revision 0.3 To Rev 1.0</h3>
+<ol>
+<li><p>Added the notes in the Abstract to the Purpose section in the
+Introduction.</p></li>
+<li><p>Added note to Scope indicating that conforming software will
+not use VT52 Emulation Mode.</p></li>
+<li><p>Added note to Scope indicating that all algorithms in this
+appendix are dependent on presetting of conditions before entering
+VT52 Emulation Mode.</p></li>
+<li><p>Removed the reference to ASCII as an "extension" in the list
+of display features, and added the Line Drawing set as an extension.</p></li>
+<li><p>Corrected the display size from 132 columns to 80 columns.</p></li>
+<li><p>In note on Undefined Functions, changed "software" to "applications software".</p></li>
+<li><p>In Enter and Exit VT52 Emulation Mode, changed descriptions
+and algorithms to allow entry from any conformance level, and to
+exit to same level entered from.</p></li>
+<li><p>Added note to Enter VT52 Emulation Mode to indicate that the
+physical state of the terminal should not change.</p></li>
+<li><p>Added note to Enter VT52 Emulation Mode to indicate that there
+is no action when already in VT52 Mode.</p></li>
+<li><p>Added a deviation note to Enter Alternate Keypad Mode for the
+VT125.</p></li>
+<li><p>Cleaned up the note on the effect of New Line Mode on the Enter key.</p></li>
+<li><p>Corrected the description and the algorithm for Direct Cursor <a id="A-44"></a>Position to indicate that one legal coordinate will be operated
+on.</p></li>
+<li><p>Removed the note on the Active Position from the description
+of Line Feed.</p></li>
+</ol>
+</section>
+<a id="A-45"></a>
+<section id="A.9.2">
+<h3>9.2  Rev AX10 To AX11</h3>
+<ol>
+<li><p>Changed description of EXIT VT52 MODE to indicate that it always
+returns to level 1 operation.</p></li>
+</ol>
+</section>
+</section>
+</main>
+<footer>
+<a id="A-46"></a>
+<section id="Index">
+<h2>Section Index</h2>
+<ul>
+<li>Active Position <a href="#A-7">7</a></li>
+<li>Backspace<ul>
+<li>VT52 control function <a href="#A-29">29</a></li>
+</ul>
+</li>
+<li>Carriage Return<ul>
+<li>VT52 control function <a href="#A-32">32</a></li>
+</ul>
+</li>
+<li>Character Set Extension <a href="#A-9">9</a></li>
+<li>Cursor Down<ul>
+<li>VT52 control function <a href="#A-24">24</a></li>
+</ul>
+</li>
+<li>Cursor Home<ul>
+<li>VT52 control function <a href="#A-27">27</a></li>
+</ul>
+</li>
+<li>Cursor Left<ul>
+<li>VT52 control function <a href="#A-26">26</a></li>
+</ul>
+</li>
+<li>Cursor Right<ul>
+<li>VT52 control function <a href="#A-25">25</a></li>
+</ul>
+</li>
+<li>Cursor Up<ul>
+<li>VT52 control function <a href="#A-23">23</a></li>
+</ul>
+</li>
+<li>Direct Cursor Address<ul>
+<li>VT52 control function <a href="#A-28">28</a></li>
+</ul>
+</li>
+<li>Enter Alternate Keypad Mode<ul>
+<li>VT52 control function <a href="#A-16">16</a></li>
+</ul>
+</li>
+<li>Enter Auto Print Mode<ul>
+<li>VT52 control function <a href="#A-37">37</a></li>
+</ul>
+</li>
+<li>Enter Graphics Mode<ul>
+<li>VT52 control function <a href="#A-20">20</a></li>
+</ul>
+</li>
+<li>Enter Printer Controller Mode<ul>
+<li>VT52 control function <a href="#A-39">39</a></li>
+</ul>
+</li>
+<li>Enter VT52 Emulation Mode<ul>
+<li>VT52 control function <a href="#A-14">14</a></li>
+</ul>
+</li>
+<li>Erase to End of Line<ul>
+<li>VT52 control function <a href="#A-34">34</a></li>
+</ul>
+</li>
+<li>Erase to End of Screen<ul>
+<li>VT52 control function <a href="#A-35">35</a><a id="A-47"></a></li>
+</ul>
+</li>
+<li>Exit Alternate Keypad Mode<ul>
+<li>VT52 control function <a href="#A-19">19</a></li>
+</ul>
+</li>
+<li>Exit Auto Print Mode<ul>
+<li>VT52 control function <a href="#A-38">38</a></li>
+</ul>
+</li>
+<li>Exit Graphics Mode<ul>
+<li>VT52 control function <a href="#A-22">22</a></li>
+</ul>
+</li>
+<li>Exit Printer Controller Mode<ul>
+<li>VT52 control function <a href="#A-40">40</a></li>
+</ul>
+</li>
+<li>Exit VT52 Emulation Mode<ul>
+<li>VT52 control function <a href="#A-15">15</a></li>
+</ul>
+</li>
+<li>Extensions<ul>
+<li>VT52 emulation <a href="#A-36">36</a></li>
+</ul>
+</li>
+<li>Horizontal Tab<ul>
+<li>VT52 control function <a href="#A-30">30</a></li>
+</ul>
+</li>
+<li>Horizontal Tabulation <a href="#A-7">7</a></li>
+<li>Identify<ul>
+<li>VT52 control function <a href="#A-13">13</a></li>
+</ul>
+</li>
+<li>Line Feed<ul>
+<li>VT52 control function <a href="#A-31">31</a></li>
+</ul>
+</li>
+<li>Print Cursor Line<ul>
+<li>VT52 control function <a href="#A-41">41</a></li>
+</ul>
+</li>
+<li>Print Screen<ul>
+<li>VT52 control function <a href="#A-42">42</a></li>
+</ul>
+</li>
+<li>Printer Port Extension <a href="#A-9">9</a></li>
+<li>Replace Graphic Character<ul>
+<li>VT52 <a href="#A-12">12</a></li>
+</ul>
+</li>
+<li>Reverse Line Feed<ul>
+<li>VT52 control function <a href="#A-33">33</a></li>
+</ul>
+</li>
+<li>Software Conformance<ul>
+<li>VT52 emulation <a href="#A-5">5</a>, <a href="#A-14">14</a>, <a href="#A-15">15</a><a id="A-48"></a></li>
+</ul>
+</li>
+<li>Tab Stops <a href="#A-6">6</a>, <a href="#A-7">7</a>, <a href="#A-11">11</a></li>
+<li>Undefined Functions <a href="#A-11">11</a></li>
+<li>VT52 Emulation <a href="#A-5">5</a><ul>
+<li>required commands <a href="#A-9">9</a></li>
+</ul>
+</li>
+<li>VT52 Special Graphics <a href="#A-9">9</a></li>
+</ul>
+</section>
+</footer>
+</body>
+</html>
